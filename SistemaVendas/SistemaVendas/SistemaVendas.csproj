@@ -46,16 +46,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apresentacao\Cadastro\frm_CadCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadCategoria.Designer.cs">
+      <DependentUpon>frm_CadCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadColaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadColaborador.Designer.cs">
+      <DependentUpon>frm_CadColaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Categoria.Designer.cs">
+      <DependentUpon>frm_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Cliente.Designer.cs">
+      <DependentUpon>frm_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Colaborador.Designer.cs">
+      <DependentUpon>frm_Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Fornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Fornecedor.Designer.cs">
+      <DependentUpon>frm_Fornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apresentacao\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Menu.Designer.cs">
+      <DependentUpon>frm_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Venda.Designer.cs">
+      <DependentUpon>frm_Venda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Produto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Produto.Designer.cs">
+      <DependentUpon>frm_Produto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ConexaoDados.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadCategoria.resx">
+      <DependentUpon>frm_CadCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadColaborador.resx">
+      <DependentUpon>frm_CadColaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Categoria.resx">
+      <DependentUpon>frm_Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Colaborador.resx">
+      <DependentUpon>frm_Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Menu.resx">
+      <DependentUpon>frm_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Produto.resx">
+      <DependentUpon>frm_Produto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,8 +152,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modelo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

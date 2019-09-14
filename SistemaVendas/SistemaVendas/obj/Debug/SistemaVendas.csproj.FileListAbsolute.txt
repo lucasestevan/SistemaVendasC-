@@ -8,3 +8,19 @@ C:\Users\user\source\repos\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.c
 C:\Users\user\source\repos\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.exe
 C:\Users\user\source\repos\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.pdb
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\SistemaVendas.exe.config
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\SistemaVendas.exe
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\SistemaVendas.pdb
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.frm_Login.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Menu.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Produto.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Properties.Resources.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.exe
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.pdb
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Categoria.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadCategoria.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Colaborador.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadColaborador.resources
