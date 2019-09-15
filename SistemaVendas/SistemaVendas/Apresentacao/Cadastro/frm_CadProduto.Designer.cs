@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,13 +37,8 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.sistemaVendaDataSet = new SistemaVendas.SistemaVendaDataSet();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriaTableAdapter = new SistemaVendas.SistemaVendaDataSetTableAdapters.CategoriaTableAdapter();
-            this.cmbId = new System.Windows.Forms.ComboBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -65,6 +59,7 @@
             this.btnAlterar.TabIndex = 1;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // label1
             // 
@@ -105,6 +100,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(54, 62);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(203, 20);
             this.txtNome.TabIndex = 6;
@@ -118,56 +114,34 @@
             // 
             // cmbCategoria
             // 
-            this.cmbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sistemaVendaDataSet, "Produto.id_categoria", true));
-            this.cmbCategoria.DataSource = this.categoriaBindingSource;
-            this.cmbCategoria.DisplayMember = "nome";
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(54, 164);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(131, 21);
+            this.cmbCategoria.Size = new System.Drawing.Size(143, 21);
             this.cmbCategoria.TabIndex = 10;
-            this.cmbCategoria.ValueMember = "id_categoria";
-            // 
-            // sistemaVendaDataSet
-            // 
-            this.sistemaVendaDataSet.DataSetName = "SistemaVendaDataSet";
-            this.sistemaVendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.sistemaVendaDataSet;
-            // 
-            // categoriaTableAdapter
-            // 
-            this.categoriaTableAdapter.ClearBeforeFill = true;
-            // 
-            // cmbId
-            // 
-            this.cmbId.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sistemaVendaDataSet, "Produto.id_categoria", true));
-            this.cmbId.DataSource = this.categoriaBindingSource;
-            this.cmbId.DisplayMember = "nome";
-            this.cmbId.FormattingEnabled = true;
-            this.cmbId.Location = new System.Drawing.Point(228, 164);
-            this.cmbId.Name = "cmbId";
-            this.cmbId.Size = new System.Drawing.Size(45, 21);
-            this.cmbId.TabIndex = 12;
-            this.cmbId.ValueMember = "id_categoria";
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(135, 113);
+            this.txtPreco.Location = new System.Drawing.Point(53, 112);
+            this.txtPreco.MaxLength = 6;
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(50, 20);
-            this.txtPreco.TabIndex = 13;
+            this.txtPreco.TabIndex = 15;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(54, 12);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(35, 20);
+            this.txtId.TabIndex = 16;
             // 
             // frm_CadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 340);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtPreco);
-            this.Controls.Add(this.cmbId);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.txtNome);
@@ -180,28 +154,22 @@
             this.Name = "frm_CadProduto";
             this.Text = "Cadastro Produto";
             this.Load += new System.EventHandler(this.Frm_CadProduto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private SistemaVendaDataSet sistemaVendaDataSet;
-        private System.Windows.Forms.BindingSource categoriaBindingSource;
-        private SistemaVendaDataSetTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
         internal System.Windows.Forms.TextBox txtNome;
         internal System.Windows.Forms.TextBox txtDesc;
         internal System.Windows.Forms.ComboBox cmbCategoria;
-        internal System.Windows.Forms.ComboBox cmbId;
         internal System.Windows.Forms.TextBox txtPreco;
+        internal System.Windows.Forms.Button btnSalvar;
+        internal System.Windows.Forms.Button btnAlterar;
+        internal System.Windows.Forms.TextBox txtId;
     }
 }

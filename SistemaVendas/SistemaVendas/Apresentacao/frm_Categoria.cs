@@ -79,10 +79,11 @@ namespace SistemaVendas.Apresentacao
 
                         btnAlterar.Enabled = false;
                         btnExcluir.Enabled = false;
+                        txtId.Text = "";
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao Excluir os dados " + ex.Message);
+                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo desta Categoria " + ex.Message);
                         Modelo.ConexaoDados.fechar();
                     }
                 }

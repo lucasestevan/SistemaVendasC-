@@ -35,6 +35,9 @@
             this.sistemaVendaDataSet = new SistemaVendas.SistemaVendaDataSet();
             this.produtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produtoTableAdapter = new SistemaVendas.SistemaVendaDataSetTableAdapters.ProdutoTableAdapter();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
@@ -64,12 +67,14 @@
             // 
             this.dgvProduto.AllowUserToAddRows = false;
             this.dgvProduto.AllowUserToDeleteRows = false;
+            this.dgvProduto.AllowUserToOrderColumns = true;
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduto.Location = new System.Drawing.Point(12, 117);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
             this.dgvProduto.Size = new System.Drawing.Size(450, 206);
             this.dgvProduto.TabIndex = 3;
+            this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProduto_CellClick);
             // 
             // sistemaVendaDataSet
             // 
@@ -85,11 +90,41 @@
             // 
             this.produtoTableAdapter.ClearBeforeFill = true;
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(473, 117);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 11;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(473, 158);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 12;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(475, 263);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(32, 20);
+            this.txtId.TabIndex = 13;
+            // 
             // frm_Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 335);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.dgvProduto);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnNovo);
@@ -100,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,5 +147,8 @@
         private SistemaVendaDataSet sistemaVendaDataSet;
         private System.Windows.Forms.BindingSource produtoBindingSource;
         private SistemaVendaDataSetTableAdapters.ProdutoTableAdapter produtoTableAdapter;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
