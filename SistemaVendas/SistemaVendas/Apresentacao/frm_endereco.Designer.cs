@@ -34,6 +34,7 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvEndereco = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,11 +98,22 @@
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 18;
             // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.Location = new System.Drawing.Point(312, 200);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSelecionar.TabIndex = 19;
+            this.btnSelecionar.Text = "Selecionar";
+            this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
+            // 
             // frm_Endereco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 336);
+            this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvEndereco);
             this.Controls.Add(this.btnExcluir);
@@ -117,12 +129,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dgvEndereco;
         private System.Windows.Forms.TextBox txtId;
+        internal System.Windows.Forms.Button btnExcluir;
+        internal System.Windows.Forms.Button btnAlterar;
+        internal System.Windows.Forms.Button btnPesquisar;
+        internal System.Windows.Forms.Button btnNovo;
+        internal System.Windows.Forms.Button btnSelecionar;
     }
 }

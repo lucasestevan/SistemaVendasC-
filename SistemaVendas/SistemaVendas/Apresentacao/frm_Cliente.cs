@@ -35,7 +35,7 @@ namespace SistemaVendas.Apresentacao
             try
             {
                 Modelo.ConexaoDados.abrir();
-                da = new SqlDataAdapter("SELECT * FROM Cliente", Modelo.ConexaoDados.con);
+                da = new SqlDataAdapter(@"Select cli.id_cliente, cli.nome, cli.cpf, cli.telefone, cli.email, cli.observacao, cli.id_endereco, Ende.cep, ende.rua, cli.numeroEnde, ende.bairro, Ende.cidade, Ende.uf from Cliente as Cli INNER JOIN Endereco as Ende on cli.id_endereco = Ende.id_endereco", Modelo.ConexaoDados.con);
                 //PREENCHER A TABELA
                 da.Fill(dt);
                 dgvCliente.DataSource = dt.DefaultView;
@@ -82,7 +82,13 @@ namespace SistemaVendas.Apresentacao
             cadCliente.txtEmail.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[4].Value);
             cadCliente.txtObs.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[5].Value);
             cadCliente.txtIdEnde.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[6].Value);
-            cadCliente.txtNumero.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[7].Value);
+            cadCliente.txtCep.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[7].Value); //cep
+            cadCliente.txtRua.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[8].Value); //RUA
+            cadCliente.txtNumero.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[9].Value); // NUMERO
+            cadCliente.txtBairro.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[10].Value); // BAIRRO
+            cadCliente.txtCidade.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[11].Value);// CIDADE//
+            cadCliente.txtUf.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[12].Value); //UF
+
         }
 
         //botao excluir

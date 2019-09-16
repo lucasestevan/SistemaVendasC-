@@ -281,6 +281,7 @@
             // 
             // txtIdEnde
             // 
+            this.txtIdEnde.Enabled = false;
             this.txtIdEnde.Location = new System.Drawing.Point(34, 18);
             this.txtIdEnde.Name = "txtIdEnde";
             this.txtIdEnde.Size = new System.Drawing.Size(35, 20);

@@ -131,6 +131,7 @@
       <DependentUpon>frm_Produto.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ConexaoDados.cs" />
+    <Compile Include="Modelo\Estaticos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SistemaVendaDataSet.Designer.cs">

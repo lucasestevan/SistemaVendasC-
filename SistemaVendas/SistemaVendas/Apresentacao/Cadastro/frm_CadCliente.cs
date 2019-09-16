@@ -18,6 +18,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             SqlCommand cmd = default(SqlCommand);
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
             if (txtNome.Text != "" &&
+                txtIdEnde.Text != "" &&
                 txtCPF.Text != "")
             {
                 try
@@ -55,8 +56,27 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //botao localizar endereco
         private void BtnEndereco_Click(object sender, EventArgs e)
         {
+            txtCep.Text = "";
+            txtRua.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUf.Text = "";
+
+
             frm_Endereco endereco = new frm_Endereco();
+            //DESABILITAR OS BOTOES PRIMEIRO E DPS CHAMAR O FORM enderecoO
+            endereco.btnAlterar.Visible = false;
+            endereco.btnExcluir.Visible = false;
+            endereco.btnSelecionar.Visible = true;
             endereco.ShowDialog();
+
+            //PEGA O QUE ESTÁ NA CLASSE ESTATICA E JOGA NO TXT NOME E ID colaborador
+            txtIdEnde.Text = Modelo.Estaticos.IdEnde;
+            txtCep.Text = Modelo.Estaticos.cep;
+            txtRua.Text = Modelo.Estaticos.rua;
+            txtBairro.Text = Modelo.Estaticos.bairro;
+            txtCidade.Text = Modelo.Estaticos.cidade;
+            txtUf.Text = Modelo.Estaticos.uf;
         }
 
         //botao alterar
