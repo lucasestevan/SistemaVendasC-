@@ -5,61 +5,55 @@ using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
 {
-    public partial class frm_CadProduto : Form
+    public partial class frm_CadEndereco : Form
     {
-        public frm_CadProduto()
+        public frm_CadEndereco()
         {
             InitializeComponent();
         }
 
-        //LOAD DO FORM
-        private void Frm_CadProduto_Load(object sender, EventArgs e)
+        //BOTAO BUSCAR CEP
+        private void BtnBuscarCep_Click(object sender, EventArgs e)
         {
-            listarComboboxBox();
+            txtRua.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUf.Text = "";
+
+            string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml"
+                .Replace("@cep", txtCep.Text);
+
+            DataSet ds = new DataSet();
+            ds.ReadXml(xml);
+
+            txtRua.Text = ds.Tables[0].Rows[0][6].ToString();
+            txtBairro.Text = ds.Tables[0].Rows[0][4].ToString();
+            txtCidade.Text = ds.Tables[0].Rows[0][3].ToString();
+            txtUf.Text = ds.Tables[0].Rows[0][2].ToString();
         }
 
-        //METODO LISTAR COMBOBOX
-        public void listarComboboxBox()
-        {
-            SqlCommand cmd = default(SqlCommand);
-            try
-            {
-                Modelo.ConexaoDados.abrir();
-                cmd = new SqlCommand("select * from Categoria order by nome", Modelo.ConexaoDados.con);
-                SqlDataReader dados = cmd.ExecuteReader(); // executa a consulta
-                DataTable dt = new DataTable(); //CRIA A TABELA GENERICA
-                dt.Load(dados);//CARREGA OS DADOS DA TABELA QUE CRIEI
-                cmbCategoria.DisplayMember = "nome"; // PEGA O NOME
-                cmbCategoria.ValueMember = "id_categoria"; //PEGA O ID
-                cmbCategoria.DataSource = dt;
-                cmbCategoria.Text = "Seleciona uma categoria";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: " + ex);
-                Modelo.ConexaoDados.fechar();
-            }
-        }
-
-        // BOTAO SALVAR
+        //BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = default(SqlCommand);
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtPreco.Text != "" &&
-                cmbCategoria.Text != "")
+            if (txtCep.Text != "" &&
+                txtCidade.Text != "" &&
+                txtBairro.Text != "" &&
+                txtUf.Text != "" &&
+                txtRua.Text != "")
             {
                 try
                 {
                     Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR PRODUTO
-                    cmd = new SqlCommand("sp_salvarProduto", Modelo.ConexaoDados.con);
+                    //CHAMAR O PROCEDIMENTO SALVAR COLABORADOR
+                    cmd = new SqlCommand("sp_salvarEndereco", Modelo.ConexaoDados.con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtPreco.Text));
-                    cmd.Parameters.AddWithValue("@id_categoria", cmbCategoria.SelectedValue);
-                    cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
+                    cmd.Parameters.AddWithValue("@cep", txtCep.Text);
+                    cmd.Parameters.AddWithValue("@rua", txtRua.Text);
+                    cmd.Parameters.AddWithValue("@bairro", txtBairro.Text);
+                    cmd.Parameters.AddWithValue("@cidade", txtCidade.Text);
+                    cmd.Parameters.AddWithValue("@uf", txtUf.Text);
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                     cmd.ExecuteNonQuery();
                     string msg = cmd.Parameters["@mensagem"].Value.ToString();
@@ -79,24 +73,29 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
+
+
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = default(SqlCommand);
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtPreco.Text != "" &&
-                cmbCategoria.Text != "")
+            if (txtCep.Text != "" &&
+               txtCidade.Text != "" &&
+               txtBairro.Text != "" &&
+               txtUf.Text != "" &&
+               txtRua.Text != "")
                 try
                 {
                     Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarProduto", Modelo.ConexaoDados.con);
+                    cmd = new SqlCommand("sp_alterarEndereco", Modelo.ConexaoDados.con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_produto", txtId.Text);
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtPreco.Text));
-                    cmd.Parameters.AddWithValue("@id_categoria", cmbCategoria.SelectedValue);
-                    cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
+                    cmd.Parameters.AddWithValue("@id_endereco", txtId.Text);
+                    cmd.Parameters.AddWithValue("@cep", txtCep.Text);
+                    cmd.Parameters.AddWithValue("@rua", txtRua.Text);
+                    cmd.Parameters.AddWithValue("@bairro", txtBairro.Text);
+                    cmd.Parameters.AddWithValue("@cidade", txtCidade.Text);
+                    cmd.Parameters.AddWithValue("@uf", txtUf.Text);
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                     cmd.ExecuteNonQuery();
 

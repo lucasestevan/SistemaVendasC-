@@ -64,6 +64,12 @@
     <Compile Include="Apresentacao\Cadastro\frm_CadColaborador.Designer.cs">
       <DependentUpon>frm_CadColaborador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadEndereco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadEndereco.Designer.cs">
+      <DependentUpon>frm_CadEndereco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Cadastro\frm_CadProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="Apresentacao\frm_Colaborador.Designer.cs">
       <DependentUpon>frm_Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Endereco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Endereco.Designer.cs">
+      <DependentUpon>frm_Endereco.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\frm_Fornecedor.cs">
       <SubType>Form</SubType>
@@ -135,14 +147,23 @@
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadColaborador.resx">
       <DependentUpon>frm_CadColaborador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadEndereco.resx">
+      <DependentUpon>frm_CadEndereco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadProduto.resx">
       <DependentUpon>frm_CadProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Categoria.resx">
       <DependentUpon>frm_Categoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Cliente.resx">
+      <DependentUpon>frm_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Colaborador.resx">
       <DependentUpon>frm_Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Endereco.resx">
+      <DependentUpon>frm_Endereco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>

@@ -35,6 +35,7 @@
             this.btnVendas = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnEndereco = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCliente
@@ -59,7 +60,7 @@
             // 
             // btnFornecedor
             // 
-            this.btnFornecedor.Location = new System.Drawing.Point(85, 159);
+            this.btnFornecedor.Location = new System.Drawing.Point(85, 136);
             this.btnFornecedor.Name = "btnFornecedor";
             this.btnFornecedor.Size = new System.Drawing.Size(75, 23);
             this.btnFornecedor.TabIndex = 2;
@@ -69,7 +70,7 @@
             // 
             // btnProduto
             // 
-            this.btnProduto.Location = new System.Drawing.Point(85, 221);
+            this.btnProduto.Location = new System.Drawing.Point(85, 179);
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(75, 23);
             this.btnProduto.TabIndex = 3;
@@ -79,7 +80,7 @@
             // 
             // btnVendas
             // 
-            this.btnVendas.Location = new System.Drawing.Point(85, 279);
+            this.btnVendas.Location = new System.Drawing.Point(85, 225);
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Size = new System.Drawing.Size(75, 23);
             this.btnVendas.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             // btnCategoria
             // 
-            this.btnCategoria.Location = new System.Drawing.Point(85, 344);
+            this.btnCategoria.Location = new System.Drawing.Point(85, 276);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnCategoria.TabIndex = 5;
@@ -107,11 +108,22 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
+            // btnEndereco
+            // 
+            this.btnEndereco.Location = new System.Drawing.Point(85, 321);
+            this.btnEndereco.Name = "btnEndereco";
+            this.btnEndereco.Size = new System.Drawing.Size(75, 23);
+            this.btnEndereco.TabIndex = 7;
+            this.btnEndereco.Text = "Endereco";
+            this.btnEndereco.UseVisualStyleBackColor = true;
+            this.btnEndereco.Click += new System.EventHandler(this.BtnEndereco_Click);
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 450);
+            this.Controls.Add(this.btnEndereco);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnCategoria);
             this.Controls.Add(this.btnVendas);
@@ -134,5 +146,6 @@
         private System.Windows.Forms.Button btnVendas;
         private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnEndereco;
     }
 }

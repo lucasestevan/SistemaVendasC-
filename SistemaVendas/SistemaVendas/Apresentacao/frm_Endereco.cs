@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
 {
-    public partial class frm_Categoria : Form
+    public partial class frm_Endereco : Form
     {
-        public frm_Categoria()
+        public frm_Endereco()
         {
             InitializeComponent();
         }
@@ -16,11 +16,11 @@ namespace SistemaVendas.Apresentacao
         //BOTAO NOVO
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            frm_CadCategoria Categoria = new frm_CadCategoria();
-            Categoria.ShowDialog();
+            frm_CadEndereco cadEndereco = new frm_CadEndereco();
+            cadEndereco.ShowDialog();
         }
 
-        //BOTAO PESQUISAR
+        //botao pesquisar
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             Listar();
@@ -35,10 +35,10 @@ namespace SistemaVendas.Apresentacao
             try
             {
                 Modelo.ConexaoDados.abrir();
-                da = new SqlDataAdapter("SELECT * FROM Categoria", Modelo.ConexaoDados.con);
+                da = new SqlDataAdapter("SELECT * FROM Endereco", Modelo.ConexaoDados.con);
                 //PREENCHER A TABELA
                 da.Fill(dt);
-                dgvCategoria.DataSource = dt.DefaultView;
+                dgvEndereco.DataSource = dt.DefaultView;
                 da.Update(dt);
 
                 //ContarLinhas();
@@ -51,7 +51,39 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
-        //BOTAO EXLUIR
+        //EVENTO AO CLIKAR NA GRID
+        private void DgvEndereco_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //AO CLIKAR NA GRID JOGAR PARA O CAMPO ID exame
+            txtId.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[0].Value);
+
+            //HABILITAR BOTOES
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+        }
+
+        //BOTAO ALTERAR
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            frm_CadEndereco cadEndereco = new frm_CadEndereco();
+            //ABRIR O FORM DE CAD DE PACIENTE
+            cadEndereco.Show();
+
+            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
+            //cadCategoria.habilitarCampos();
+            cadEndereco.btnAlterar.Enabled = true;
+            cadEndereco.btnSalvar.Enabled = false;
+
+            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
+            cadEndereco.txtId.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[0].Value);
+            cadEndereco.txtCep.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[1].Value);
+            cadEndereco.txtRua.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[2].Value);
+            cadEndereco.txtBairro.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[3].Value);
+            cadEndereco.txtCidade.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[4].Value);
+            cadEndereco.txtUf.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[5].Value);
+        }
+
+        //BOTAO EXCLUIR
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = default(SqlCommand);
@@ -65,10 +97,10 @@ namespace SistemaVendas.Apresentacao
                     try
                     {
                         Modelo.ConexaoDados.abrir();
-                        cmd = new SqlCommand("sp_excluirCategoria", Modelo.ConexaoDados.con);
+                        cmd = new SqlCommand("sp_excluirEndereco", Modelo.ConexaoDados.con);
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@id_categoria", txtId.Text);
+                        cmd.Parameters.AddWithValue("@id_endereco", txtId.Text);
 
                         cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                         cmd.ExecuteNonQuery();
@@ -83,7 +115,7 @@ namespace SistemaVendas.Apresentacao
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo desta Categoria " + ex.Message);
+                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo deste Endereço " + ex.Message);
                         Modelo.ConexaoDados.fechar();
                     }
                 }
@@ -92,35 +124,6 @@ namespace SistemaVendas.Apresentacao
             {
                 MessageBox.Show("Selecione o Campo selecionar para poder excluir");
             }
-        }
-
-        //EVENTO AO CLIKAR NA DATAGRID
-        private void DgvCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //AO CLIKAR NA GRID JOGAR PARA O CAMPO txt id
-            txtId.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[0].Value);
-
-            //HABILITAR BOTOES
-            btnAlterar.Enabled = true;
-            btnExcluir.Enabled = true;
-        }
-
-        //BOTAO ALTERAR
-        private void BtnAlterar_Click(object sender, EventArgs e)
-        {
-            frm_CadCategoria cadCategoria = new frm_CadCategoria();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            cadCategoria.Show();
-
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
-            cadCategoria.btnAlterar.Enabled = true;
-            cadCategoria.btnSalvar.Enabled = false;
-
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadCategoria.txtId.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[0].Value);
-            cadCategoria.txtNome.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[1].Value);
-
         }
     }
 }

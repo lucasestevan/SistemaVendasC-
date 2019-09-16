@@ -119,10 +119,10 @@ namespace SistemaVendas.Apresentacao
                         Modelo.ConexaoDados.fechar();
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Selecione o Campo selecionar para poder excluir");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione o Campo selecionar para poder excluir");
             }
         }
     }

@@ -67,5 +67,12 @@ namespace SistemaVendas.Apresentacao
                 this.Close();
             }
         }
+
+        //BOTAO ENDERECO
+        private void BtnEndereco_Click(object sender, EventArgs e)
+        {
+            var Endereco = new frm_Endereco();
+            Endereco.ShowDialog();
+        }
     }
 }

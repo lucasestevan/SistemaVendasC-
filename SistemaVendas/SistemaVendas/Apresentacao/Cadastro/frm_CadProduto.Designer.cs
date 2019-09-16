@@ -152,7 +152,6 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Name = "frm_CadProduto";
-            this.Text = "Cadastro Produto";
             this.Load += new System.EventHandler(this.Frm_CadProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
