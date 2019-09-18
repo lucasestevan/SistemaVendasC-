@@ -5,37 +5,31 @@ using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
 {
-    public partial class frm_CadCliente : Form
+    public partial class frm_CadFornecedor : Form
     {
-        public frm_CadCliente()
+        public frm_CadFornecedor()
         {
             InitializeComponent();
         }
 
-        //botao salvar
+        //BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = default(SqlCommand);
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
             if (txtNome.Text != "" &&
-                txtIdEnde.Text != "" &&
-                 txtBairro.Text != "" &&
-                 txtRua.Text != "" &&
-                 txtCPF.Text != "")
+                txtCPFCNPJ.Text.Trim() != "")
             {
                 try
                 {
                     Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR cliente
-                    cmd = new SqlCommand("sp_salvarcliente", Modelo.ConexaoDados.con);
+                    //CHAMAR O PROCEDIMENTO SALVAR COLABORADOR
+                    cmd = new SqlCommand("sp_salvarFornecedor", Modelo.ConexaoDados.con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                    cmd.Parameters.AddWithValue("@cpfCNPJ", txtCPFCNPJ.Text);
+                    cmd.Parameters.AddWithValue("@telefone", txtTel.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@observacao", txtObs.Text);
-                    cmd.Parameters.AddWithValue("@id_endereco", txtIdEnde.Text);
-                    cmd.Parameters.AddWithValue("@numeroEnde", txtNumero.Text);
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                     cmd.ExecuteNonQuery();
                     string msg = cmd.Parameters["@mensagem"].Value.ToString();
@@ -55,52 +49,23 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
-        //botao localizar endereco
-        private void BtnEndereco_Click(object sender, EventArgs e)
-        {
-            txtCep.Text = "";
-            txtRua.Text = "";
-            txtBairro.Text = "";
-            txtCidade.Text = "";
-            txtUf.Text = "";
-
-
-            frm_Endereco endereco = new frm_Endereco();
-            //DESABILITAR OS BOTOES PRIMEIRO E DPS CHAMAR O FORM enderecoO
-            endereco.btnAlterar.Visible = false;
-            endereco.btnExcluir.Visible = false;
-            endereco.btnSelecionar.Visible = true;
-            endereco.ShowDialog();
-
-            //PEGA O QUE ESTÁ NA CLASSE ESTATICA E JOGA NO TXT NOME E ID colaborador
-            txtIdEnde.Text = Modelo.Estaticos.IdEnde;
-            txtCep.Text = Modelo.Estaticos.cep;
-            txtRua.Text = Modelo.Estaticos.rua;
-            txtBairro.Text = Modelo.Estaticos.bairro;
-            txtCidade.Text = Modelo.Estaticos.cidade;
-            txtUf.Text = Modelo.Estaticos.uf;
-        }
-
-        //botao alterar
+        //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = default(SqlCommand);
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
             if (txtNome.Text != "" &&
-                txtCPF.Text != "")
+               txtCPFCNPJ.Text.Trim() != "")
                 try
                 {
                     Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarCliente", Modelo.ConexaoDados.con);
+                    cmd = new SqlCommand("sp_alterarFornecedor", Modelo.ConexaoDados.con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_cliente", txtId.Text);
+                    cmd.Parameters.AddWithValue("@id_Fornecedor", txtId.Text);
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                    cmd.Parameters.AddWithValue("@cpfCNPJ", txtCPFCNPJ.Text);
+                    cmd.Parameters.AddWithValue("@telefone", txtTel.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@observacao", txtObs.Text);
-                    cmd.Parameters.AddWithValue("@id_endereco", txtIdEnde.Text);
-                    cmd.Parameters.AddWithValue("@numeroEnde", txtNumero.Text);
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                     cmd.ExecuteNonQuery();
 

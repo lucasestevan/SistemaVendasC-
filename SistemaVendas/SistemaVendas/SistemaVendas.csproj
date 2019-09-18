@@ -70,6 +70,12 @@
     <Compile Include="Apresentacao\Cadastro\frm_CadEndereco.Designer.cs">
       <DependentUpon>frm_CadEndereco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadFornecedor.Designer.cs">
+      <DependentUpon>frm_CadFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Cadastro\frm_CadProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadEndereco.resx">
       <DependentUpon>frm_CadEndereco.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadFornecedor.resx">
+      <DependentUpon>frm_CadFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadProduto.resx">
       <DependentUpon>frm_CadProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Endereco.resx">
       <DependentUpon>frm_Endereco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Fornecedor.resx">
+      <DependentUpon>frm_Fornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>

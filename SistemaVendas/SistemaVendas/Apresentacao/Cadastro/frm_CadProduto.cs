@@ -36,9 +36,28 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: " + ex);
+                MessageBox.Show("Erro ao carregar tabela Categoria: " + ex);
+                Modelo.ConexaoDados.fechar();
+
+            }
+            try
+            {
+                Modelo.ConexaoDados.abrir();
+                cmd = new SqlCommand("select * from Fornecedor order by nome", Modelo.ConexaoDados.con);
+                SqlDataReader dados = cmd.ExecuteReader(); // executa a consulta
+                DataTable dt = new DataTable(); //CRIA A TABELA GENERICA
+                dt.Load(dados);//CARREGA OS DADOS DA TABELA QUE CRIEI
+                cmbFornecedor.DisplayMember = "nome"; // PEGA O NOME
+                cmbFornecedor.ValueMember = "id_fornecedor"; //PEGA O ID
+                cmbFornecedor.DataSource = dt;
+                cmbFornecedor.Text = "Seleciona um Fornecedor";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar tabela Fornecedor: " + ex);
                 Modelo.ConexaoDados.fechar();
             }
+
         }
 
         // BOTAO SALVAR
@@ -48,6 +67,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
             if (txtNome.Text != "" &&
                 txtPreco.Text != "" &&
+                cmbFornecedor.Text != "" &&
                 cmbCategoria.Text != "")
             {
                 try
@@ -59,6 +79,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                     cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtPreco.Text));
                     cmd.Parameters.AddWithValue("@id_categoria", cmbCategoria.SelectedValue);
+                    cmd.Parameters.AddWithValue("@id_fornecedor", cmbFornecedor.SelectedValue);
                     cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                     cmd.ExecuteNonQuery();
@@ -96,6 +117,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                     cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtPreco.Text));
                     cmd.Parameters.AddWithValue("@id_categoria", cmbCategoria.SelectedValue);
+                    cmd.Parameters.AddWithValue("@id_fornecedor", cmbFornecedor.SelectedValue);
                     cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
                     cmd.ExecuteNonQuery();

@@ -29,3 +29,5 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\Si
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadEndereco.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Endereco.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Cliente.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadFornecedor.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Fornecedor.resources

@@ -86,6 +86,7 @@ namespace SistemaVendas.Apresentacao
             cadProduto.txtPreco.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[2].Value);
             cadProduto.txtDesc.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[3].Value);
             cadProduto.cmbCategoria.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[4].Value);
+            cadProduto.cmbFornecedor.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[5].Value);
         }
 
         //BOTAO EXCLUIR
@@ -127,7 +128,7 @@ namespace SistemaVendas.Apresentacao
             }
             else
             {
-                MessageBox.Show("Selecione o Campo selecionar para poder excluir");
+                MessageBox.Show("Selecione o campo para poder excluir");
             }
         }
     }

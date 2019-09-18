@@ -37,11 +37,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             SqlCommand cmd = default(SqlCommand);
             //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtCep.Text != "" &&
-                txtCidade.Text != "" &&
-                txtBairro.Text != "" &&
-                txtUf.Text != "" &&
-                txtRua.Text != "")
+            if (txtBairro.Text != "" && txtRua.Text != "")
             {
                 try
                 {

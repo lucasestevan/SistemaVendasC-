@@ -39,11 +39,13 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.cmbFornecedor = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(44, 285);
+            this.btnSalvar.Location = new System.Drawing.Point(42, 322);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 0;
@@ -53,7 +55,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(198, 285);
+            this.btnAlterar.Location = new System.Drawing.Point(193, 322);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 1;
@@ -91,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 198);
+            this.label4.Location = new System.Drawing.Point(51, 248);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
@@ -107,13 +109,14 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(54, 214);
+            this.txtDesc.Location = new System.Drawing.Point(54, 264);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(203, 20);
             this.txtDesc.TabIndex = 8;
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(54, 164);
             this.cmbCategoria.Name = "cmbCategoria";
@@ -135,11 +138,31 @@
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 16;
             // 
+            // cmbFornecedor
+            // 
+            this.cmbFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFornecedor.FormattingEnabled = true;
+            this.cmbFornecedor.Location = new System.Drawing.Point(53, 214);
+            this.cmbFornecedor.Name = "cmbFornecedor";
+            this.cmbFornecedor.Size = new System.Drawing.Size(167, 21);
+            this.cmbFornecedor.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(50, 197);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Fornecedor";
+            // 
             // frm_CadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 340);
+            this.ClientSize = new System.Drawing.Size(308, 377);
+            this.Controls.Add(this.cmbFornecedor);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.cmbCategoria);
@@ -170,5 +193,7 @@
         internal System.Windows.Forms.Button btnSalvar;
         internal System.Windows.Forms.Button btnAlterar;
         internal System.Windows.Forms.TextBox txtId;
+        internal System.Windows.Forms.ComboBox cmbFornecedor;
+        private System.Windows.Forms.Label label5;
     }
 }
