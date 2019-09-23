@@ -41,11 +41,13 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.cmbFornecedor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtQtd = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(42, 322);
+            this.btnSalvar.Location = new System.Drawing.Point(43, 393);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(193, 322);
+            this.btnAlterar.Location = new System.Drawing.Point(195, 393);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 1;
@@ -84,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 147);
+            this.label3.Location = new System.Drawing.Point(51, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 4;
@@ -93,7 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 248);
+            this.label4.Location = new System.Drawing.Point(51, 307);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
@@ -109,16 +111,18 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(54, 264);
+            this.txtDesc.Location = new System.Drawing.Point(54, 323);
+            this.txtDesc.MaxLength = 50;
+            this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(203, 20);
+            this.txtDesc.Size = new System.Drawing.Size(203, 53);
             this.txtDesc.TabIndex = 8;
             // 
             // cmbCategoria
             // 
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(54, 164);
+            this.cmbCategoria.Location = new System.Drawing.Point(54, 219);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(143, 21);
             this.cmbCategoria.TabIndex = 10;
@@ -130,6 +134,9 @@
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(50, 20);
             this.txtPreco.TabIndex = 15;
+            this.txtPreco.Text = "0.00";
+            this.txtPreco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPreco_KeyPress);
+            this.txtPreco.Leave += new System.EventHandler(this.TxtPreco_Leave);
             // 
             // txtId
             // 
@@ -142,7 +149,7 @@
             // 
             this.cmbFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFornecedor.FormattingEnabled = true;
-            this.cmbFornecedor.Location = new System.Drawing.Point(53, 214);
+            this.cmbFornecedor.Location = new System.Drawing.Point(53, 273);
             this.cmbFornecedor.Name = "cmbFornecedor";
             this.cmbFornecedor.Size = new System.Drawing.Size(167, 21);
             this.cmbFornecedor.TabIndex = 18;
@@ -150,17 +157,39 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 197);
+            this.label5.Location = new System.Drawing.Point(51, 257);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 17;
             this.label5.Text = "Fornecedor";
             // 
+            // txtQtd
+            // 
+            this.txtQtd.Location = new System.Drawing.Point(53, 167);
+            this.txtQtd.MaxLength = 6;
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(50, 20);
+            this.txtQtd.TabIndex = 20;
+            this.txtQtd.Text = "0.00";
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
+            this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(51, 151);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Qtd";
+            // 
             // frm_CadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 377);
+            this.ClientSize = new System.Drawing.Size(308, 428);
+            this.Controls.Add(this.txtQtd);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbFornecedor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtId);
@@ -195,5 +224,7 @@
         internal System.Windows.Forms.TextBox txtId;
         internal System.Windows.Forms.ComboBox cmbFornecedor;
         private System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.TextBox txtQtd;
+        private System.Windows.Forms.Label label6;
     }
 }

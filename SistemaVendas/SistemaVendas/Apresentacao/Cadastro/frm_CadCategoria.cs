@@ -1,6 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
@@ -15,59 +16,48 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "")
+            try
             {
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR COLABORADOR
-                    cmd = new SqlCommand("sp_salvarCategoria", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao Salvar os dados " + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //LEITURA DOS DADOS
+                Model_Categoria modelo = new Model_Categoria();
+                modelo.NomeCategoria = txtNome.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con1 = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Categoria bll1 = new BLL_Categoria(con1);
+
+                //CADASTRAR UMA CATEGORIA
+                bll1.Incluir(modelo);
+                MessageBox.Show("Categoria cadastrada com sucesso!");
+                this.Close();
             }
-            //SE OS CAMPOS ESTIVEREM VAZIOS MOSTRE
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                MessageBox.Show("Erro ao Cadastrar Categoria " + ex.Message);
             }
+
         }
 
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
             try
             {
-                Modelo.ConexaoDados.abrir();
-                cmd = new SqlCommand("sp_alterarCategoria", Modelo.ConexaoDados.con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_categoria", txtId.Text);
-                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                cmd.ExecuteNonQuery();
+                //LEITURA DOS DADOS
+                Model_Categoria modelo = new Model_Categoria();
+                modelo.NomeCategoria = txtNome.Text;
+                modelo.IdCategoria = Convert.ToInt32(txtId.Text);
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Categoria bll = new BLL_Categoria(con);
 
-                string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                MessageBox.Show(msg, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-
+                //CADASTRAR UMA CATEGORIA
+                bll.Alterar(modelo);
+                MessageBox.Show("Categoria Alterada com sucesso!");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao alterar os dados" + ex.Message);
-                Modelo.ConexaoDados.fechar();
+                MessageBox.Show("Erro ao Alterar Categoria " + ex.Message);
             }
         }
     }

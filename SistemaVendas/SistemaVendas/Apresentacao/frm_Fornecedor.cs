@@ -1,4 +1,5 @@
-﻿using SistemaVendas.Apresentacao.Cadastro;
+﻿using Modelo;
+using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -65,6 +66,7 @@ namespace SistemaVendas.Apresentacao
 
             // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
             cadFornecedor.txtId.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[0].Value);
+            
             cadFornecedor.txtNome.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[1].Value);
             cadFornecedor.txtCPFCNPJ.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[2].Value);
             cadFornecedor.txtTel.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[3].Value);

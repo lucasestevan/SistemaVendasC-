@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -21,18 +23,17 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //METODO LISTAR COMBOBOX
         public void listarComboboxBox()
         {
+
+            //CARREGAR CATEGORIA
             SqlCommand cmd = default(SqlCommand);
             try
             {
-                Modelo.ConexaoDados.abrir();
-                cmd = new SqlCommand("select * from Categoria order by nome", Modelo.ConexaoDados.con);
-                SqlDataReader dados = cmd.ExecuteReader(); // executa a consulta
-                DataTable dt = new DataTable(); //CRIA A TABELA GENERICA
-                dt.Load(dados);//CARREGA OS DADOS DA TABELA QUE CRIEI
-                cmbCategoria.DisplayMember = "nome"; // PEGA O NOME
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Categoria bll = new BLL_Categoria(con);
+                cmbCategoria.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cmbCategoria.DisplayMember = "nome";   //PEGA O NOME
                 cmbCategoria.ValueMember = "id_categoria"; //PEGA O ID
-                cmbCategoria.DataSource = dt;
-                cmbCategoria.Text = "Seleciona uma categoria";
+                
             }
             catch (Exception ex)
             {
@@ -40,7 +41,9 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 Modelo.ConexaoDados.fechar();
 
             }
-            try
+
+            //carregar fornecedor
+           /* try
             {
                 Modelo.ConexaoDados.abrir();
                 cmd = new SqlCommand("select * from Fornecedor order by nome", Modelo.ConexaoDados.con);
@@ -56,7 +59,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 MessageBox.Show("Erro ao carregar tabela Fornecedor: " + ex);
                 Modelo.ConexaoDados.fechar();
-            }
+            }*/
 
         }
 
@@ -134,6 +137,62 @@ namespace SistemaVendas.Apresentacao.Cadastro
             else
             {
                 MessageBox.Show("Insira os dados nos campos vazios!!");
+            }
+        }
+
+        //AJUSTAR O CAMPO preco
+        private void TxtPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtPreco.Text.Contains("."))
+                {
+                    e.KeyChar = '.';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        //quando sair do cmapo preco
+        private void TxtPreco_Leave(object sender, EventArgs e)
+        {
+            if (txtPreco.Text.Contains(".") == false)
+            {
+                txtPreco.Text += ".00";
+            }
+            else
+            {
+                if (txtPreco.Text.IndexOf(".") == txtPreco.Text.Length -1) 
+                {
+                    txtPreco.Text += "00";
+                }
+            }
+        }
+       
+        private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtQtd.Text.Contains("."))
+                {
+                    e.KeyChar = '.';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void TxtQtd_Leave(object sender, EventArgs e)
+        {
+            if (txtQtd.Text.Contains(".") == false)
+            {
+                txtQtd.Text += ".00";
+            }
+            else
+            {
+                if (txtQtd.Text.IndexOf(".") == txtQtd.Text.Length - 1)
+                {
+                    txtQtd.Text += "00";
+                }
             }
         }
     }

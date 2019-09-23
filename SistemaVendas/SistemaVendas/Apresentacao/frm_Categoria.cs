@@ -1,7 +1,7 @@
-﻿using SistemaVendas.Apresentacao.Cadastro;
+﻿using BLL;
+using DAL;
+using SistemaVendas.Apresentacao.Cadastro;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -23,39 +23,15 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            Listar();
-        }
-
-        //METODO LISTAR
-        private void Listar()
-        {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-
-            try
-            {
-                Modelo.ConexaoDados.abrir();
-                da = new SqlDataAdapter("SELECT * FROM Categoria", Modelo.ConexaoDados.con);
-                //PREENCHER A TABELA
-                da.Fill(dt);
-                dgvCategoria.DataSource = dt.DefaultView;
-                da.Update(dt);
-
-                //ContarLinhas();
-                // FormatarDgColaborador();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro no metodo listar " + ex.Message);
-                Modelo.ConexaoDados.fechar();
-            }
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Categoria bll = new BLL_Categoria(con);
+            dgvCategoria.DataSource = bll.Localizar(txtNome.Text);
+            FormatarDGV();
         }
 
         //BOTAO EXLUIR
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-
             if (txtId.Text != "")
             {
                 DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
@@ -64,33 +40,26 @@ namespace SistemaVendas.Apresentacao
                 {
                     try
                     {
-                        Modelo.ConexaoDados.abrir();
-                        cmd = new SqlCommand("sp_excluirCategoria", Modelo.ConexaoDados.con);
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        //CRIAR CONEXAO
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Categoria bll = new BLL_Categoria(con);
 
-                        cmd.Parameters.AddWithValue("@id_categoria", txtId.Text);
-
-                        cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                        cmd.ExecuteNonQuery();
-
-                        string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                        MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                        Listar();
-
-                        btnAlterar.Enabled = false;
-                        btnExcluir.Enabled = false;
+                        //EXCLUIR  UMA CATEGORIA
+                        //PASSAR O CODIGO QUE ESTA NA TELA
+                        bll.Excluir(Convert.ToInt32(txtId.Text));
+                        MessageBox.Show("Categoria excluida com sucesso!");
+                        BtnPesquisar_Click(sender, e);
                         txtId.Text = "";
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo desta Categoria " + ex.Message);
-                        Modelo.ConexaoDados.fechar();
+                        MessageBox.Show("Erro ao excluir Categoria, o registro está sendo utilizado em outro local \n " + ex.Message);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Selecione o Campo selecionar para poder excluir");
+                MessageBox.Show("Selecion algum campo para poder excluir");
             }
         }
 
@@ -121,6 +90,21 @@ namespace SistemaVendas.Apresentacao
             cadCategoria.txtId.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[0].Value);
             cadCategoria.txtNome.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[1].Value);
 
+        }
+
+        //load do form
+        private void Frm_Categoria_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //METODO  DATA GRID
+        private void FormatarDGV()
+        {
+            dgvCategoria.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvCategoria.Columns[0].Width = 50; //TAMANHO DA LARGURA
+            dgvCategoria.Columns[1].HeaderText = "Categoria";
+            dgvCategoria.Columns[1].Width = 150;
         }
     }
 }

@@ -31,3 +31,10 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\Si
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Cliente.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadFornecedor.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Fornecedor.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\BLL.dll
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\Modelo.dll
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\BLL.pdb
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\Modelo.pdb
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.CopyComplete
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\DAL.dll
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\DAL.pdb

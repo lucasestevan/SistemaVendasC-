@@ -67,5 +67,14 @@ namespace SistemaVendas
                 }
             }
         }
+
+        //AO APERTAR O ENTER
+        private void Frm_Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(sender, e);
+            }
+        }
     }
 }

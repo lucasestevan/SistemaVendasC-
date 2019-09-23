@@ -34,6 +34,8 @@
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(277, 67);
+            this.btnPesquisar.Location = new System.Drawing.Point(277, 66);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 1;
@@ -59,7 +61,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(277, 152);
+            this.btnExcluir.Location = new System.Drawing.Point(277, 150);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 2;
@@ -75,13 +77,14 @@
             this.dgvCategoria.Location = new System.Drawing.Point(21, 114);
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
-            this.dgvCategoria.Size = new System.Drawing.Size(240, 271);
+            this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategoria.Size = new System.Drawing.Size(240, 283);
             this.dgvCategoria.TabIndex = 3;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCategoria_CellClick);
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(277, 111);
+            this.btnAlterar.Location = new System.Drawing.Point(277, 108);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 4;
@@ -96,11 +99,29 @@
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Categoria";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(21, 66);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(237, 20);
+            this.txtNome.TabIndex = 7;
+            // 
             // frm_Categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 409);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.dgvCategoria);
@@ -109,6 +130,7 @@
             this.Controls.Add(this.btnNovo);
             this.Name = "frm_Categoria";
             this.Text = "Categoria";
+            this.Load += new System.EventHandler(this.Frm_Categoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +145,7 @@
         private System.Windows.Forms.DataGridView dgvCategoria;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }

@@ -87,8 +87,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
+            this.KeyPreview = true;
             this.Name = "frm_Login";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Login_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

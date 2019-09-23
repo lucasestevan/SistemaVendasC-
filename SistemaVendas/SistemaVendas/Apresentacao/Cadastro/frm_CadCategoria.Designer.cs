@@ -63,7 +63,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(49, 109);
+            this.btnSalvar.Location = new System.Drawing.Point(46, 109);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 4;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 175);
+            this.ClientSize = new System.Drawing.Size(336, 151);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnAlterar);
