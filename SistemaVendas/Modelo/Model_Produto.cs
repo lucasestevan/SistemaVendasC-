@@ -102,11 +102,11 @@ namespace Modelo
         {
             get
             {
-                return this._idProduto;
+                return this._idCategoria;
             }
             set
             {
-                this._idProduto = value;
+                this._idCategoria = value;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -62,40 +63,28 @@ namespace SistemaVendas.Apresentacao.Cadastro
         // BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtPreco.Text != "" &&
-                cmbFornecedor.Text != "" &&
-                cmbCategoria.Text != "")
+            try
             {
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR PRODUTO
-                    cmd = new SqlCommand("sp_salvarProduto", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtPreco.Text));
-                    cmd.Parameters.AddWithValue("@id_categoria", cmbCategoria.SelectedValue);
-                    cmd.Parameters.AddWithValue("@id_fornecedor", cmbFornecedor.SelectedValue);
-                    cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao Salvar os dados " + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //LEITURA DOS DADOS
+                Model_Produto modelo = new Model_Produto();
+                modelo.nome = txtNome.Text;
+                modelo.preco = Convert.ToDouble(txtPreco.Text);
+                modelo.quantidade = Convert.ToDouble(txtQtd.Text);
+                modelo.descricao = txtDesc.Text;
+                modelo.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
+                modelo.idFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Incluir(modelo);
+                MessageBox.Show("Produto cadastrado com sucesso!");
+                this.Close();
             }
-            //SE OS CAMPOS ESTIVEREM VAZIOS MOSTRE
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                MessageBox.Show("Erro ao Cadastrar Produto \n" + ex.Message);
             }
         }
 
@@ -154,7 +143,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             if (txtPreco.Text.Contains(".") == false)
             {
-                txtPreco.Text += ".00";
+                txtPreco.Text += ".";
             }
             else
             {
@@ -165,6 +154,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
+        //AJUSTAR O CAMPO QUANTIDADE
         private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.' || e.KeyChar == ',')
@@ -177,11 +167,12 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
+        //AJUSTAR O CAMPO QUANTIDADE
         private void TxtQtd_Leave(object sender, EventArgs e)
         {
             if (txtQtd.Text.Contains(".") == false)
             {
-                txtQtd.Text += ".00";
+                txtQtd.Text += ".";
             }
             else
             {

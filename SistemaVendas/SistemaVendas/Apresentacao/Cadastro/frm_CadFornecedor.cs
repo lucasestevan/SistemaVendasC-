@@ -31,7 +31,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
 
                 //CADASTRAR UMA CATEGORIA
                 bll.Incluir(modelo);
-                MessageBox.Show("Fornecedor cadastrada com sucesso!");
+                MessageBox.Show("Fornecedor cadastrado com sucesso!");
                 this.Close();
             }
             catch (Exception ex)

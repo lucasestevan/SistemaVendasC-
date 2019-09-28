@@ -67,7 +67,7 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("SELECT * FROM Produto where nome like '%" + valor + "%'", conexao.StringConexao);
+            da = new SqlDataAdapter("SELECT * FROM Produto where nome like '%" + valor + "%' order by nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }

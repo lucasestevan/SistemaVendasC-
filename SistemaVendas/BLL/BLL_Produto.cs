@@ -30,7 +30,7 @@ namespace BLL
 
             if (modelo.quantidade <= 0)
             {
-                throw new Exception("A qauntidade deve ser 0 ou maior!");
+                throw new Exception("A quantidade deve ser 0 ou maior!");
             }
 
             if (modelo.idCategoria <= 0)
@@ -63,7 +63,7 @@ namespace BLL
 
             if (modelo.quantidade <= 0)
             {
-                throw new Exception("A qauntidade deve ser 0 ou maior!");
+                throw new Exception("A quantidade deve ser 0 ou maior!");
             }
 
             if (modelo.idCategoria <= 0)
