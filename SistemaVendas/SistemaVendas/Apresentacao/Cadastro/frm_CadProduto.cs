@@ -2,8 +2,6 @@
 using DAL;
 using Modelo;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
@@ -91,37 +89,29 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtPreco.Text != "" &&
-                cmbCategoria.Text != "")
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarProduto", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_produto", txtId.Text);
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtPreco.Text));
-                    cmd.Parameters.AddWithValue("@id_categoria", cmbCategoria.SelectedValue);
-                    cmd.Parameters.AddWithValue("@id_fornecedor", cmbFornecedor.SelectedValue);
-                    cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao alterar os dados" + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
-            else
+            try
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                //LEITURA DOS DADOS
+                Model_Produto modelo = new Model_Produto();
+                modelo.idProduto = Convert.ToInt32(txtId.Text);
+                modelo.nome = txtNome.Text;
+                modelo.preco = Convert.ToDouble(txtPreco.Text);
+                modelo.quantidade = Convert.ToDouble(txtQtd.Text);
+                modelo.descricao = txtDesc.Text;
+                modelo.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
+                modelo.idFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Alterar(modelo);
+                MessageBox.Show("Produto alterado com sucesso!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar o Produto \n" + ex.Message);
             }
         }
 

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
@@ -13,7 +15,13 @@ namespace SistemaVendas.Apresentacao.Cadastro
         }
 
         //BOTAO BUSCAR CEP
-        private void BtnBuscarCep_Click(object sender, EventArgs e)
+        private void BtnCep_Click(object sender, EventArgs e)
+        {
+            BuscarCEP();
+        }
+
+        //METODO BUSCAR CEP
+        public void BuscarCEP()
         {
             txtRua.Text = "";
             txtBairro.Text = "";
@@ -35,78 +43,55 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtBairro.Text != "" && txtRua.Text != "")
+            try
             {
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR COLABORADOR
-                    cmd = new SqlCommand("sp_salvarEndereco", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@cep", txtCep.Text);
-                    cmd.Parameters.AddWithValue("@rua", txtRua.Text);
-                    cmd.Parameters.AddWithValue("@bairro", txtBairro.Text);
-                    cmd.Parameters.AddWithValue("@cidade", txtCidade.Text);
-                    cmd.Parameters.AddWithValue("@uf", txtUf.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao Salvar os dados " + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //LEITURA DOS DADOS
+                Model_Endereco modelo = new Model_Endereco();
+                modelo.cep = txtCep.Text;
+                modelo.rua = txtRua.Text;
+                modelo.bairro = txtBairro.Text;
+                modelo.cidade = txtCidade.Text;
+                modelo.uf = txtUf.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Endereco bll = new BLL_Endereco(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Incluir(modelo);
+                MessageBox.Show("Endereço cadastrado com sucesso!");
+                this.Close();
             }
-            //SE OS CAMPOS ESTIVEREM VAZIOS MOSTRE
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                MessageBox.Show("Erro ao Cadastrar Endereço \n" + ex.Message);
             }
         }
-
-
 
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtCep.Text != "" &&
-               txtCidade.Text != "" &&
-               txtBairro.Text != "" &&
-               txtUf.Text != "" &&
-               txtRua.Text != "")
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarEndereco", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_endereco", txtId.Text);
-                    cmd.Parameters.AddWithValue("@cep", txtCep.Text);
-                    cmd.Parameters.AddWithValue("@rua", txtRua.Text);
-                    cmd.Parameters.AddWithValue("@bairro", txtBairro.Text);
-                    cmd.Parameters.AddWithValue("@cidade", txtCidade.Text);
-                    cmd.Parameters.AddWithValue("@uf", txtUf.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao alterar os dados" + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
-            else
+            try
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                //LEITURA DOS DADOS
+                Model_Endereco modelo = new Model_Endereco();
+                modelo.idEndereco = Convert.ToInt32(txtId.Text);
+                modelo.cep = txtCep.Text;
+                modelo.rua = txtRua.Text;
+                modelo.bairro = txtBairro.Text;
+                modelo.cidade = txtCidade.Text;
+                modelo.uf = txtUf.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Endereco bll = new BLL_Endereco(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Alterar(modelo);
+                MessageBox.Show("Endereço alterado com sucesso!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar Endereço \n" + ex.Message);
             }
         }
     }

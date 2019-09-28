@@ -63,7 +63,9 @@
   <ItemGroup>
     <Compile Include="DadoConexao.cs" />
     <Compile Include="DAL_Categoria.cs" />
+    <Compile Include="DAL_Cliente.cs" />
     <Compile Include="DAL_Conexao.cs" />
+    <Compile Include="DAL_Endereco.cs" />
     <Compile Include="DAL_Fornecedor.cs" />
     <Compile Include="DAL_Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,16 +78,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Ext.NET.Utilities\BREAKING_CHANGES.txt" />
-    <Content Include="App_Readme\Ext.NET.Utilities\LICENSE.txt" />
-    <Content Include="App_Readme\Ext.NET.Utilities\README.txt" />
-    <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
-    <Content Include="App_Readme\Transformer.NET\README.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App_Readme\Ext.NET\CHANGELOG.md" />
-    <None Include="App_Readme\Ext.NET\LICENSE" />
-    <None Include="App_Readme\Ext.NET\README.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

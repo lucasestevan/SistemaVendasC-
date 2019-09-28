@@ -34,12 +34,14 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(391, 346);
+            this.txtId.Location = new System.Drawing.Point(419, 347);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 24;
@@ -54,13 +56,13 @@
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(363, 214);
+            this.dgvCliente.Size = new System.Drawing.Size(391, 214);
             this.dgvCliente.TabIndex = 23;
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCliente_CellClick);
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(391, 152);
+            this.btnExcluir.Location = new System.Drawing.Point(419, 153);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 22;
@@ -70,7 +72,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(391, 111);
+            this.btnAlterar.Location = new System.Drawing.Point(419, 112);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 21;
@@ -80,7 +82,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(391, 66);
+            this.btnPesquisar.Location = new System.Drawing.Point(419, 67);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 20;
@@ -90,7 +92,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(391, 24);
+            this.btnNovo.Location = new System.Drawing.Point(419, 25);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 19;
@@ -98,11 +100,29 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(22, 69);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(372, 20);
+            this.txtNome.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Nome";
+            // 
             // frm_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 386);
+            this.ClientSize = new System.Drawing.Size(506, 386);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.btnExcluir);
@@ -120,10 +140,12 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.DataGridView dgvCliente;
     }
 }

@@ -40,8 +40,8 @@
             this.lblCep = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnBuscarCep = new System.Windows.Forms.Button();
-            this.txtCep = new System.Windows.Forms.TextBox();
+            this.btnCep = new System.Windows.Forms.Button();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtUf
@@ -63,6 +63,7 @@
             // txtCidade
             // 
             this.txtCidade.Location = new System.Drawing.Point(33, 126);
+            this.txtCidade.MaxLength = 50;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(113, 20);
             this.txtCidade.TabIndex = 61;
@@ -79,6 +80,7 @@
             // txtBairro
             // 
             this.txtBairro.Location = new System.Drawing.Point(33, 165);
+            this.txtBairro.MaxLength = 50;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(230, 20);
             this.txtBairro.TabIndex = 59;
@@ -93,7 +95,7 @@
             // txtRua
             // 
             this.txtRua.Location = new System.Drawing.Point(33, 207);
-            this.txtRua.MaxLength = 6;
+            this.txtRua.MaxLength = 50;
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(230, 20);
             this.txtRua.TabIndex = 57;
@@ -119,7 +121,7 @@
             // lblCep
             // 
             this.lblCep.AutoSize = true;
-            this.lblCep.Location = new System.Drawing.Point(32, 65);
+            this.lblCep.Location = new System.Drawing.Point(30, 65);
             this.lblCep.Name = "lblCep";
             this.lblCep.Size = new System.Drawing.Size(26, 13);
             this.lblCep.TabIndex = 51;
@@ -127,7 +129,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(188, 248);
+            this.btnAlterar.Location = new System.Drawing.Point(187, 260);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 65;
@@ -137,7 +139,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(34, 248);
+            this.btnSalvar.Location = new System.Drawing.Point(33, 260);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 64;
@@ -145,31 +147,30 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
-            // btnBuscarCep
+            // btnCep
             // 
-            this.btnBuscarCep.Location = new System.Drawing.Point(116, 81);
-            this.btnBuscarCep.Name = "btnBuscarCep";
-            this.btnBuscarCep.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarCep.TabIndex = 67;
-            this.btnBuscarCep.Text = "Buscar";
-            this.btnBuscarCep.UseVisualStyleBackColor = true;
-            this.btnBuscarCep.Click += new System.EventHandler(this.BtnBuscarCep_Click);
+            this.btnCep.Location = new System.Drawing.Point(118, 78);
+            this.btnCep.Name = "btnCep";
+            this.btnCep.Size = new System.Drawing.Size(28, 23);
+            this.btnCep.TabIndex = 71;
+            this.btnCep.UseVisualStyleBackColor = true;
+            this.btnCep.Click += new System.EventHandler(this.BtnCep_Click);
             // 
             // txtCep
             // 
-            this.txtCep.Location = new System.Drawing.Point(33, 83);
-            this.txtCep.MaxLength = 8;
+            this.txtCep.Location = new System.Drawing.Point(33, 80);
+            this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(76, 20);
-            this.txtCep.TabIndex = 68;
+            this.txtCep.Size = new System.Drawing.Size(75, 20);
+            this.txtCep.TabIndex = 72;
             // 
             // frm_CadEndereco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 283);
+            this.ClientSize = new System.Drawing.Size(295, 307);
             this.Controls.Add(this.txtCep);
-            this.Controls.Add(this.btnBuscarCep);
+            this.Controls.Add(this.btnCep);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtUf);
@@ -203,7 +204,7 @@
         private System.Windows.Forms.Label lblCep;
         internal System.Windows.Forms.Button btnAlterar;
         internal System.Windows.Forms.Button btnSalvar;
-        internal System.Windows.Forms.Button btnBuscarCep;
-        internal System.Windows.Forms.TextBox txtCep;
+        internal System.Windows.Forms.Button btnCep;
+        internal System.Windows.Forms.MaskedTextBox txtCep;
     }
 }

@@ -38,6 +38,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
@@ -118,11 +120,29 @@
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 13;
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(12, 74);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(412, 20);
+            this.txtNome.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Nome";
+            // 
             // frm_Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 335);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
@@ -131,7 +151,6 @@
             this.Controls.Add(this.btnNovo);
             this.Name = "frm_Produto";
             this.Text = "Produto";
-            this.Load += new System.EventHandler(this.Frm_Produto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).EndInit();
@@ -151,5 +170,7 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label1;
     }
 }

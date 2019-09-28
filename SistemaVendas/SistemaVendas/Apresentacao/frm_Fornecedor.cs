@@ -58,7 +58,7 @@ namespace SistemaVendas.Apresentacao
             }
             else
             {
-                MessageBox.Show("Selecion algum campo para poder excluir");
+                MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
 

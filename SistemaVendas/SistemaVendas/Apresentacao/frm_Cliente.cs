@@ -1,7 +1,7 @@
-﻿using SistemaVendas.Apresentacao.Cadastro;
+﻿using BLL;
+using DAL;
+using SistemaVendas.Apresentacao.Cadastro;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -23,31 +23,44 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            Listar();
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Cliente bll = new BLL_Cliente(con);
+            dgvCliente.DataSource = bll.Localizar(txtNome.Text);
+            FormatarDGV(); //FORMATA O DATA GRID
         }
 
-        //METODO LISTAR
-        private void Listar()
+       
+
+        //botao excluir
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-
-            try
+            if (txtId.Text != "")
             {
-                Modelo.ConexaoDados.abrir();
-                da = new SqlDataAdapter(@"Select cli.id_cliente, cli.nome, cli.cpf, cli.telefone, cli.email, cli.observacao, cli.id_endereco, Ende.cep, ende.rua, cli.numeroEnde, ende.bairro, Ende.cidade, Ende.uf from Cliente as Cli INNER JOIN Endereco as Ende on cli.id_endereco = Ende.id_endereco", Modelo.ConexaoDados.con);
-                //PREENCHER A TABELA
-                da.Fill(dt);
-                dgvCliente.DataSource = dt.DefaultView;
-                da.Update(dt);
+                DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                //SE O ESCOLHER SIM FAÇA
+                if (msgSN == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //CRIAR CONEXAO
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Cliente bll = new BLL_Cliente(con);
 
-                //ContarLinhas();
-                // FormatarDgColaborador();
+                        //PASSAR O CODIGO QUE ESTA NA TELA
+                        bll.Excluir(Convert.ToInt32(txtId.Text));
+                        MessageBox.Show("Cliente excluido com sucesso!");
+                        BtnPesquisar_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
+                        txtId.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir Cliente, o registro está sendo utilizado em outro local \n " + ex.Message);
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro no metodo listar " + ex.Message);
-                Modelo.ConexaoDados.fechar();
+                MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
 
@@ -79,61 +92,44 @@ namespace SistemaVendas.Apresentacao
             cadCliente.txtNome.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[1].Value);
             cadCliente.txtCPF.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[2].Value);
             cadCliente.txtTelefone.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[3].Value);
-            cadCliente.txtEmail.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[4].Value);
-            cadCliente.txtObs.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[5].Value);
-            cadCliente.txtIdEnde.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[6].Value);
-            cadCliente.txtCep.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[7].Value); //cep
-            cadCliente.txtRua.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[8].Value); //RUA
-            cadCliente.txtNumero.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[9].Value); // NUMERO
-            cadCliente.txtBairro.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[10].Value); // BAIRRO
-            cadCliente.txtCidade.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[11].Value);// CIDADE//
-            cadCliente.txtUf.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[12].Value); //UF
+            cadCliente.txtCel.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[4].Value);
+            cadCliente.txtEmail.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[5].Value);
+            cadCliente.txtObs.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[6].Value);
+            cadCliente.txtIdEnde.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[7].Value);
+            cadCliente.txtCep.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[8].Value); //Cep
+            cadCliente.txtRua.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[9].Value); //RUA
+            cadCliente.txtNumero.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[10].Value); // NUMERO
+            cadCliente.txtBairro.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[11].Value); // BAIRRO
+            cadCliente.txtCidade.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[12].Value);// CIDADE//
+            cadCliente.txtUf.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[13].Value); //UF
 
         }
 
-        //botao excluir
-        private void BtnExcluir_Click(object sender, EventArgs e)
+        //METODO formatar  DATA GRID
+       private void FormatarDGV()
         {
-            SqlCommand cmd = default(SqlCommand);
-
-            if (txtId.Text != "")
-            {
-                DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
-                //SE O ESCOLHER SIM FAÇA
-                if (msgSN == DialogResult.Yes)
-                {
-                    try
-                    {
-                        Modelo.ConexaoDados.abrir();
-                        cmd = new SqlCommand("sp_excluirCliente", Modelo.ConexaoDados.con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@id_cliente", txtId.Text);
-
-                        cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                        cmd.ExecuteNonQuery();
-
-                        string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                        MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                        Listar();
-
-                        btnAlterar.Enabled = false;
-                        btnExcluir.Enabled = false;
-                        txtId.Text = "";
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo deste Endereço " + ex.Message);
-                        Modelo.ConexaoDados.fechar();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecione o campo para poder excluir");
-            }
+            dgvCliente.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvCliente.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvCliente.Columns[1].HeaderText = "Nome";
+            dgvCliente.Columns[1].Width = 130;
+            dgvCliente.Columns[2].HeaderText = "CPF";
+            dgvCliente.Columns[2].Width = 90;
+            dgvCliente.Columns[3].HeaderText = "Telefone";
+            dgvCliente.Columns[3].Width = 90;
+            dgvCliente.Columns[4].HeaderText = "Celular";
+            dgvCliente.Columns[4].Width = 90;
+            dgvCliente.Columns[5].HeaderText = "E-mail";
+            dgvCliente.Columns[5].Width = 120;
+            dgvCliente.Columns[6].HeaderText = "Observação";
+            dgvCliente.Columns[6].Width = 120;
+            dgvCliente.Columns[7].Visible = false;
+            dgvCliente.Columns[8].Visible = false;
+            dgvCliente.Columns[9].Visible = false;
+            dgvCliente.Columns[10].Visible = false;
+            dgvCliente.Columns[11].Visible = false;
+            dgvCliente.Columns[12].Visible = false;
+            dgvCliente.Columns[13].Visible = false;
         }
     }
-
 }
 

@@ -130,7 +130,6 @@
             this.Controls.Add(this.btnNovo);
             this.Name = "frm_Categoria";
             this.Text = "Categoria";
-            this.Load += new System.EventHandler(this.Frm_Categoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

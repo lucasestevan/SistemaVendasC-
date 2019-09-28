@@ -59,7 +59,7 @@ namespace SistemaVendas.Apresentacao
             }
             else
             {
-                MessageBox.Show("Selecion algum campo para poder excluir");
+                MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
 
@@ -92,12 +92,7 @@ namespace SistemaVendas.Apresentacao
 
         }
 
-        //load do form
-        private void Frm_Categoria_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
         //METODO  DATA GRID
         private void FormatarDGV()
         {

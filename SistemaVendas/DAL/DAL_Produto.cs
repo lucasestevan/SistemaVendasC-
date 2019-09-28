@@ -36,8 +36,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE Produto set nome = @nome, preco = @preco, quantidade = @quantidade, descricao = @descricao, id_categoria = @id_categoria, id_fornecedor = @id_fornecedor" +
-                   "WHERE id_produto = @id_produto";
+            cmd.CommandText = "UPDATE Produto set nome = @nome, preco = @preco, quantidade = @quantidade, descricao = @descricao, id_categoria = @id_categoria, id_fornecedor = @id_fornecedor WHERE id_produto = @id_produto";
             cmd.Parameters.AddWithValue("@id_produto", modelo.idProduto);
             cmd.Parameters.AddWithValue("@nome", modelo.nome);
             cmd.Parameters.AddWithValue("@preco", modelo.preco);
@@ -67,7 +66,8 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("SELECT * FROM Produto where nome like '%" + valor + "%' order by nome", conexao.StringConexao);
+            da = new SqlDataAdapter("Select pro.id_produto, pro.nome, pro.preco, pro.quantidade, pro.descricao," +
+            "cat.nome as categoria, forn.nome as fornecedor from Produto as pro INNER JOIN Categoria as cat on pro.id_categoria = cat.id_categoria INNER JOIN Fornecedor as forn on pro.id_fornecedor = forn.id_fornecedor where pro.nome like '%" + valor + "%' order by nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }

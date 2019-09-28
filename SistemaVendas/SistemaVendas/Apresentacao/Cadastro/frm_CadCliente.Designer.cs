@@ -32,11 +32,10 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtCPF = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblobs = new System.Windows.Forms.Label();
@@ -58,6 +57,9 @@
             this.lblBairro = new System.Windows.Forms.Label();
             this.lblrua = new System.Windows.Forms.Label();
             this.lblCep = new System.Windows.Forms.Label();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.txtCel = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -95,11 +97,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtTelefone);
+            this.tabPage1.Controls.Add(this.txtCel);
             this.tabPage1.Controls.Add(this.txtCPF);
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.txtEmail);
             this.tabPage1.Controls.Add(this.txtId);
-            this.tabPage1.Controls.Add(this.txtTelefone);
             this.tabPage1.Controls.Add(this.txtObs);
             this.tabPage1.Controls.Add(this.txtNome);
             this.tabPage1.Controls.Add(this.lblobs);
@@ -114,13 +118,14 @@
             this.tabPage1.Text = "Dados";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // txtCPF
+            // label3
             // 
-            this.txtCPF.Location = new System.Drawing.Point(31, 110);
-            this.txtCPF.MaxLength = 50;
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(117, 20);
-            this.txtCPF.TabIndex = 39;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(151, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Celular";
             // 
             // label2
             // 
@@ -144,14 +149,6 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 36;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Location = new System.Drawing.Point(31, 155);
-            this.txtTelefone.MaxLength = 11;
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(117, 20);
-            this.txtTelefone.TabIndex = 35;
             // 
             // txtObs
             // 
@@ -348,6 +345,30 @@
             this.lblCep.TabIndex = 38;
             this.lblCep.Text = "Cep";
             // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(31, 111);
+            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(92, 20);
+            this.txtCPF.TabIndex = 42;
+            // 
+            // txtCel
+            // 
+            this.txtCel.Location = new System.Drawing.Point(154, 155);
+            this.txtCel.Mask = "(99) 00000-0000";
+            this.txtCel.Name = "txtCel";
+            this.txtCel.Size = new System.Drawing.Size(92, 20);
+            this.txtCel.TabIndex = 43;
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(31, 155);
+            this.txtTelefone.Mask = "(99) 0000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(92, 20);
+            this.txtTelefone.TabIndex = 44;
+            // 
             // frm_CadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,7 +396,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         internal System.Windows.Forms.TextBox txtEmail;
         internal System.Windows.Forms.TextBox txtId;
-        internal System.Windows.Forms.TextBox txtTelefone;
         internal System.Windows.Forms.TextBox txtObs;
         internal System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblobs;
@@ -396,8 +416,11 @@
         private System.Windows.Forms.Label lblCidade;
         internal System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Button btnEndereco;
+        private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.MaskedTextBox txtTelefone;
+        internal System.Windows.Forms.MaskedTextBox txtCel;
+        internal System.Windows.Forms.MaskedTextBox txtCPF;
     }
 }

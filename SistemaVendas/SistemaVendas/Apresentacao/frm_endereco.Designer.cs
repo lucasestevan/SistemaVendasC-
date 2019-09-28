@@ -35,12 +35,14 @@
             this.dgvEndereco = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnSelecionar = new System.Windows.Forms.Button();
+            this.txtRua = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(312, 150);
+            this.btnExcluir.Location = new System.Drawing.Point(324, 153);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 16;
@@ -50,7 +52,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(312, 109);
+            this.btnAlterar.Location = new System.Drawing.Point(324, 112);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 15;
@@ -60,7 +62,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(312, 64);
+            this.btnPesquisar.Location = new System.Drawing.Point(324, 67);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 14;
@@ -70,7 +72,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(312, 22);
+            this.btnNovo.Location = new System.Drawing.Point(324, 25);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 13;
@@ -94,14 +96,14 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(312, 284);
+            this.txtId.Location = new System.Drawing.Point(324, 284);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 18;
             // 
             // btnSelecionar
             // 
-            this.btnSelecionar.Location = new System.Drawing.Point(312, 200);
+            this.btnSelecionar.Location = new System.Drawing.Point(324, 203);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
             this.btnSelecionar.TabIndex = 19;
@@ -109,11 +111,29 @@
             this.btnSelecionar.UseVisualStyleBackColor = true;
             this.btnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
             // 
+            // txtRua
+            // 
+            this.txtRua.Location = new System.Drawing.Point(12, 51);
+            this.txtRua.Name = "txtRua";
+            this.txtRua.Size = new System.Drawing.Size(289, 20);
+            this.txtRua.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Rua";
+            // 
             // frm_Endereco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 336);
+            this.ClientSize = new System.Drawing.Size(414, 336);
+            this.Controls.Add(this.txtRua);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvEndereco);
@@ -137,5 +157,7 @@
         internal System.Windows.Forms.Button btnPesquisar;
         internal System.Windows.Forms.Button btnNovo;
         internal System.Windows.Forms.Button btnSelecionar;
+        private System.Windows.Forms.TextBox txtRua;
+        private System.Windows.Forms.Label label1;
     }
 }

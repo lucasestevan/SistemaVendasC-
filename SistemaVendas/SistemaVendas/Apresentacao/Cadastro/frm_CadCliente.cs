@@ -1,6 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
@@ -15,43 +16,61 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //botao salvar
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtIdEnde.Text != "" &&
-                 txtBairro.Text != "" &&
-                 txtRua.Text != "" &&
-                 txtCPF.Text != "")
+            try
             {
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR cliente
-                    cmd = new SqlCommand("sp_salvarcliente", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@observacao", txtObs.Text);
-                    cmd.Parameters.AddWithValue("@id_endereco", txtIdEnde.Text);
-                    cmd.Parameters.AddWithValue("@numeroEnde", txtNumero.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao Salvar os dados " + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //LEITURA DOS DADOS
+                Model_Cliente modelo = new Model_Cliente();
+                modelo.nome = txtNome.Text;
+                modelo.cpf = txtCPF.Text;
+                modelo.telefone = txtTelefone.Text;
+                modelo.celular = txtCel.Text;
+                modelo.email = txtEmail.Text;
+                modelo.observacao = txtObs.Text;
+                modelo.idEndereco = Convert.ToInt32(txtIdEnde.Text);
+                modelo.numeroEnde = txtNumero.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Cliente bll = new BLL_Cliente(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Incluir(modelo);
+                MessageBox.Show("Cliente cadastrado com sucesso!");
+                this.Close();
             }
-            //SE OS CAMPOS ESTIVEREM VAZIOS MOSTRE
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                MessageBox.Show("Erro ao Cadastrar Cliente \n" + ex.Message);
+            }
+        }
+
+        //botao alterar
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //LEITURA DOS DADOS
+                Model_Cliente modelo = new Model_Cliente();
+                modelo.idCliente = Convert.ToInt32(txtId.Text);
+                modelo.nome = txtNome.Text;
+                modelo.cpf = txtCPF.Text;
+                modelo.telefone = txtTelefone.Text;
+                modelo.celular = txtCel.Text;
+                modelo.email = txtEmail.Text;
+                modelo.observacao = txtObs.Text;
+                modelo.idEndereco = Convert.ToInt32(txtIdEnde.Text);
+                modelo.numeroEnde =txtNumero.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Cliente bll = new BLL_Cliente(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Alterar(modelo);
+                MessageBox.Show("Cliente alterado com sucesso!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar Cliente \n" + ex.Message);
             }
         }
 
@@ -79,44 +98,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
             txtBairro.Text = Modelo.Estaticos.bairro;
             txtCidade.Text = Modelo.Estaticos.cidade;
             txtUf.Text = Modelo.Estaticos.uf;
-        }
-
-        //botao alterar
-        private void BtnAlterar_Click(object sender, EventArgs e)
-        {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtCPF.Text != "")
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarCliente", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_cliente", txtId.Text);
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@observacao", txtObs.Text);
-                    cmd.Parameters.AddWithValue("@id_endereco", txtIdEnde.Text);
-                    cmd.Parameters.AddWithValue("@numeroEnde", txtNumero.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao alterar os dados" + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
-            else
-            {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
-            }
         }
     }
 }

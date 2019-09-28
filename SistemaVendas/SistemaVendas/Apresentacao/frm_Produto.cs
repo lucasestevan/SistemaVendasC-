@@ -1,7 +1,7 @@
-﻿using SistemaVendas.Apresentacao.Cadastro;
+﻿using BLL;
+using DAL;
+using SistemaVendas.Apresentacao.Cadastro;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -11,11 +11,6 @@ namespace SistemaVendas.Apresentacao
         public frm_Produto()
         {
             InitializeComponent();
-        }
-
-        private void Frm_Produto_Load(object sender, EventArgs e)
-        {
-
         }
 
         //BOTAO NOVO
@@ -28,31 +23,42 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            Listar();
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Produto bll = new BLL_Produto(con);
+            dgvProduto.DataSource = bll.Localizar(txtNome.Text);
+            FormatarDGV(); //FORMATA O DATA GRID
         }
 
-        //METODO LISTAR
-        private void Listar()
+        //BOTAO EXCLUIR
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-
-            try
+            if (txtId.Text != "")
             {
-                Modelo.ConexaoDados.abrir();
-                da = new SqlDataAdapter("SELECT * FROM Produto", Modelo.ConexaoDados.con);
-                //PREENCHER A TABELA
-                da.Fill(dt);
-                dgvProduto.DataSource = dt.DefaultView;
-                da.Update(dt);
+                DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                //SE O ESCOLHER SIM FAÇA
+                if (msgSN == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //CRIAR CONEXAO
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Produto bll = new BLL_Produto(con);
 
-                //ContarLinhas();
-                // FormatarDgColaborador();
+                        //PASSAR O CODIGO QUE ESTA NA TELA
+                        bll.Excluir(Convert.ToInt32(txtId.Text));
+                        MessageBox.Show("Produto excluido com sucesso!");
+                        BtnPesquisar_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
+                        txtId.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir Produto, o registro está sendo utilizado em outro local \n " + ex.Message);
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro no metodo listar " + ex.Message);
-                Modelo.ConexaoDados.fechar();
+                MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
 
@@ -67,7 +73,6 @@ namespace SistemaVendas.Apresentacao
             btnExcluir.Enabled = true;
         }
 
-
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
@@ -81,55 +86,32 @@ namespace SistemaVendas.Apresentacao
             cadProduto.btnSalvar.Enabled = false;
 
             // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadProduto.txtId.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[0].Value);
-            cadProduto.txtNome.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[1].Value);
-            cadProduto.txtPreco.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[2].Value);
-            cadProduto.txtDesc.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[3].Value);
-            cadProduto.cmbCategoria.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[4].Value);
-            cadProduto.cmbFornecedor.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[5].Value);
+            cadProduto.txtId.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[0].Value); //id
+            cadProduto.txtNome.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[1].Value); //nome
+            cadProduto.txtPreco.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[2].Value); //preco
+            cadProduto.txtQtd.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[3].Value); // qtd
+            cadProduto.txtDesc.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[4].Value); // descricao
+            cadProduto.cmbCategoria.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[5].Value); //categora texxto
+            cadProduto.cmbFornecedor.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[6].Value); //fornecedor texto
         }
 
-        //BOTAO EXCLUIR
-        private void BtnExcluir_Click(object sender, EventArgs e)
+        //METODO formatar  DATA GRID
+        private void FormatarDGV()
         {
-            SqlCommand cmd = default(SqlCommand);
-
-            if (txtId.Text != "")
-            {
-                DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
-                //SE O ESCOLHER SIM FAÇA
-                if (msgSN == DialogResult.Yes)
-                {
-                    try
-                    {
-                        Modelo.ConexaoDados.abrir();
-                        cmd = new SqlCommand("sp_excluirProduto", Modelo.ConexaoDados.con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@id_produto", txtId.Text);
-
-                        cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                        cmd.ExecuteNonQuery();
-
-                        string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                        MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                        Listar();
-
-                        btnAlterar.Enabled = false;
-                        btnExcluir.Enabled = false;
-                        txtId.Text = "";
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo deste Produto " + ex.Message);
-                        Modelo.ConexaoDados.fechar();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecione o campo para poder excluir");
-            }
+            dgvProduto.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvProduto.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvProduto.Columns[1].HeaderText = "Nome";
+            dgvProduto.Columns[1].Width = 130;
+            dgvProduto.Columns[2].HeaderText = "Preço";
+            dgvProduto.Columns[2].Width = 70;
+            dgvProduto.Columns[3].HeaderText = "Quant.";
+            dgvProduto.Columns[3].Width = 60;
+            dgvProduto.Columns[4].HeaderText = "Descrição";
+            dgvProduto.Columns[4].Width = 100;
+            dgvProduto.Columns[5].HeaderText = "Categoria";
+            dgvProduto.Columns[5].Width = 120;
+            dgvProduto.Columns[6].HeaderText = "Fornecedor";
+            dgvProduto.Columns[6].Width = 120;
         }
     }
 }
