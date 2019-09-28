@@ -25,7 +25,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
 
             //CARREGAR CATEGORIA
-            SqlCommand cmd = default(SqlCommand);
             try
             {
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
@@ -33,34 +32,31 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 cmbCategoria.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cmbCategoria.DisplayMember = "nome";   //PEGA O NOME
                 cmbCategoria.ValueMember = "id_categoria"; //PEGA O ID
-                
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar tabela Categoria: " + ex);
+                MessageBox.Show("Erro ao carregar tabela Categoria: \n" + ex);
                 Modelo.ConexaoDados.fechar();
 
             }
 
             //carregar fornecedor
-           /* try
+            try
             {
-                Modelo.ConexaoDados.abrir();
-                cmd = new SqlCommand("select * from Fornecedor order by nome", Modelo.ConexaoDados.con);
-                SqlDataReader dados = cmd.ExecuteReader(); // executa a consulta
-                DataTable dt = new DataTable(); //CRIA A TABELA GENERICA
-                dt.Load(dados);//CARREGA OS DADOS DA TABELA QUE CRIEI
-                cmbFornecedor.DisplayMember = "nome"; // PEGA O NOME
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Fornecedor bll = new BLL_Fornecedor(con);
+                cmbFornecedor.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cmbFornecedor.DisplayMember = "nome";   //PEGA O NOME
                 cmbFornecedor.ValueMember = "id_fornecedor"; //PEGA O ID
-                cmbFornecedor.DataSource = dt;
-                cmbFornecedor.Text = "Seleciona um Fornecedor";
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar tabela Fornecedor: " + ex);
+                MessageBox.Show("Erro ao carregar tabela Fornecedor: \n" + ex);
                 Modelo.ConexaoDados.fechar();
-            }*/
 
+            }
         }
 
         // BOTAO SALVAR
@@ -162,13 +158,13 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
             else
             {
-                if (txtPreco.Text.IndexOf(".") == txtPreco.Text.Length -1) 
+                if (txtPreco.Text.IndexOf(".") == txtPreco.Text.Length - 1)
                 {
                     txtPreco.Text += "00";
                 }
             }
         }
-       
+
         private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.' || e.KeyChar == ',')

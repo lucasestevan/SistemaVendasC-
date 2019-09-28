@@ -62,6 +62,7 @@
             this.dgvColaborador.Location = new System.Drawing.Point(24, 135);
             this.dgvColaborador.Name = "dgvColaborador";
             this.dgvColaborador.ReadOnly = true;
+            this.dgvColaborador.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvColaborador.Size = new System.Drawing.Size(240, 271);
             this.dgvColaborador.TabIndex = 9;
             this.dgvColaborador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvColaborador_CellClick);

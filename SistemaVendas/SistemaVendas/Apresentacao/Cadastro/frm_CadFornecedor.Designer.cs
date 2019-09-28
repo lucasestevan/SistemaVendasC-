@@ -29,31 +29,36 @@
         private void InitializeComponent()
         {
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtCPFCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCPF = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTel = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.rbFisica = new System.Windows.Forms.RadioButton();
+            this.rbJuridica = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(51, 28);
+            this.txtId.Location = new System.Drawing.Point(12, 2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 22;
             // 
-            // txtCPFCNPJ
+            // txtCPF
             // 
-            this.txtCPFCNPJ.Location = new System.Drawing.Point(51, 135);
-            this.txtCPFCNPJ.Name = "txtCPFCNPJ";
-            this.txtCPFCNPJ.Size = new System.Drawing.Size(118, 20);
-            this.txtCPFCNPJ.TabIndex = 21;
+            this.txtCPF.Location = new System.Drawing.Point(50, 135);
+            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(120, 20);
+            this.txtCPF.TabIndex = 21;
             // 
             // label4
             // 
@@ -64,14 +69,14 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "E-mail";
             // 
-            // label3
+            // lblCPF
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "CPF / CNPJ";
+            this.lblCPF.AutoSize = true;
+            this.lblCPF.Location = new System.Drawing.Point(48, 119);
+            this.lblCPF.Name = "lblCPF";
+            this.lblCPF.Size = new System.Drawing.Size(27, 13);
+            this.lblCPF.TabIndex = 19;
+            this.lblCPF.Text = "CPF";
             // 
             // label2
             // 
@@ -82,14 +87,14 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Telefone";
             // 
-            // label1
+            // lblNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Nome";
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(48, 65);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(35, 13);
+            this.lblNome.TabIndex = 17;
+            this.lblNome.Text = "Nome";
             // 
             // txtEmail
             // 
@@ -97,13 +102,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
             this.txtEmail.TabIndex = 16;
-            // 
-            // txtTel
-            // 
-            this.txtTel.Location = new System.Drawing.Point(51, 193);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(108, 20);
-            this.txtTel.TabIndex = 15;
             // 
             // txtNome
             // 
@@ -132,24 +130,69 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
+            // rbFisica
+            // 
+            this.rbFisica.AutoSize = true;
+            this.rbFisica.Checked = true;
+            this.rbFisica.Location = new System.Drawing.Point(6, 19);
+            this.rbFisica.Name = "rbFisica";
+            this.rbFisica.Size = new System.Drawing.Size(52, 17);
+            this.rbFisica.TabIndex = 25;
+            this.rbFisica.TabStop = true;
+            this.rbFisica.Text = "Fisica";
+            this.rbFisica.UseVisualStyleBackColor = true;
+            this.rbFisica.CheckedChanged += new System.EventHandler(this.RbFisica_CheckedChanged);
+            // 
+            // rbJuridica
+            // 
+            this.rbJuridica.AutoSize = true;
+            this.rbJuridica.Location = new System.Drawing.Point(128, 19);
+            this.rbJuridica.Name = "rbJuridica";
+            this.rbJuridica.Size = new System.Drawing.Size(61, 17);
+            this.rbJuridica.TabIndex = 26;
+            this.rbJuridica.Text = "Juridica";
+            this.rbJuridica.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbFisica);
+            this.groupBox1.Controls.Add(this.rbJuridica);
+            this.groupBox1.Location = new System.Drawing.Point(51, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(199, 40);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipo Fornecedor";
+            // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(51, 193);
+            this.txtTel.Mask = "(99) 000000000";
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(101, 20);
+            this.txtTel.TabIndex = 28;
+            // 
             // frm_CadFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 352);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.txtCPFCNPJ);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtEmail);
+            this.ClientSize = new System.Drawing.Size(291, 352);
             this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtCPF);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblCPF);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Name = "frm_CadFornecedor";
             this.Text = "frm_CadFornecedor";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,15 +201,18 @@
         #endregion
 
         public System.Windows.Forms.TextBox txtId;
-        internal System.Windows.Forms.MaskedTextBox txtCPFCNPJ;
+        internal System.Windows.Forms.MaskedTextBox txtCPF;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNome;
         internal System.Windows.Forms.TextBox txtEmail;
-        internal System.Windows.Forms.TextBox txtTel;
         internal System.Windows.Forms.TextBox txtNome;
         public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.RadioButton rbFisica;
+        private System.Windows.Forms.RadioButton rbJuridica;
+        private System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.MaskedTextBox txtTel;
     }
 }

@@ -81,10 +81,10 @@ namespace BLL
         }
 
         //METODO EXCLUIR
-        public void Excluir(int idCategoria)
+        public void Excluir(int idProduto)
         {
             DAL_Produto DALobj = new DAL_Produto(conexao);
-            DALobj.Excluir(idCategoria);
+            DALobj.Excluir(idProduto);
         }
 
         //METODO LOCALIZAR

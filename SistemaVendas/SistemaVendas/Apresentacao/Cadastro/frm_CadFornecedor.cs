@@ -1,7 +1,9 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
 using System.Windows.Forms;
+
 
 namespace SistemaVendas.Apresentacao.Cadastro
 {
@@ -15,72 +17,69 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtCPFCNPJ.Text.Trim() != "")
+            try
             {
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR COLABORADOR
-                    cmd = new SqlCommand("sp_salvarFornecedor", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@cpfCNPJ", txtCPFCNPJ.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTel.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao Salvar os dados " + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //LEITURA DOS DADOS
+                Model_Fornecedor modelo = new Model_Fornecedor();
+                modelo.nome = txtNome.Text;
+                modelo.cpfCNPJ = txtCPF.Text;
+                modelo.telefone = txtTel.Text;
+                modelo.email = txtEmail.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Fornecedor bll = new BLL_Fornecedor(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Incluir(modelo);
+                MessageBox.Show("Fornecedor cadastrada com sucesso!");
+                this.Close();
             }
-            //SE OS CAMPOS ESTIVEREM VAZIOS MOSTRE
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                MessageBox.Show("Erro ao Cadastrar Fornecedor \n" + ex.Message);
             }
         }
 
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-               txtCPFCNPJ.Text.Trim() != "")
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarFornecedor", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_Fornecedor", txtId.Text);
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@cpfCNPJ", txtCPFCNPJ.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTel.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
+            try
+            {
+                //LEITURA DOS DADOS
+                Model_Fornecedor modelo = new Model_Fornecedor();
+                modelo.idFornecedor = Convert.ToInt32(txtId.Text);
+                modelo.nome = txtNome.Text;
+                modelo.cpfCNPJ = txtCPF.Text;
+                modelo.telefone = txtTel.Text;
+                modelo.email = txtEmail.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Fornecedor bll = new BLL_Fornecedor(con);
 
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao alterar os dados" + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //CADASTRAR UMA CATEGORIA
+                bll.Alterar(modelo);
+                MessageBox.Show("Fornecedor alterado com sucesso!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar Fornecedor \n" + ex.Message);
+            }
+        }
+
+        private void RbFisica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFisica.Checked == true )
+            {
+                lblNome.Text = "Nome";
+                lblCPF.Text = "CPF";
+                txtCPF.Mask = "000.000.000-00";
+            }
             else
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                lblNome.Text = "Razão Social";
+                lblCPF.Text = "CNPJ";
+                txtCPF.Mask = "00.000.000/0000-00";
             }
         }
     }

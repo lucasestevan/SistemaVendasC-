@@ -87,6 +87,7 @@
             this.dgvEndereco.Location = new System.Drawing.Point(12, 108);
             this.dgvEndereco.Name = "dgvEndereco";
             this.dgvEndereco.ReadOnly = true;
+            this.dgvEndereco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEndereco.Size = new System.Drawing.Size(289, 206);
             this.dgvEndereco.TabIndex = 17;
             this.dgvEndereco.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEndereco_CellClick);

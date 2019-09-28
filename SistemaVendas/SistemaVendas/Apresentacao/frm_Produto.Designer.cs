@@ -72,6 +72,7 @@
             this.dgvProduto.Location = new System.Drawing.Point(12, 117);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(450, 206);
             this.dgvProduto.TabIndex = 3;
             this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProduto_CellClick);

@@ -32,7 +32,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Cadastrar Categoria " + ex.Message);
+                MessageBox.Show("Erro ao Cadastrar Categoria \n" + ex.Message);
             }
 
         }
@@ -44,8 +44,9 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Categoria modelo = new Model_Categoria();
-                modelo.NomeCategoria = txtNome.Text;
                 modelo.IdCategoria = Convert.ToInt32(txtId.Text);
+                modelo.NomeCategoria = txtNome.Text;
+                
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Categoria bll = new BLL_Categoria(con);
@@ -57,7 +58,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Alterar Categoria " + ex.Message);
+                MessageBox.Show("Erro ao Alterar Categoria \n" + ex.Message);
             }
         }
     }

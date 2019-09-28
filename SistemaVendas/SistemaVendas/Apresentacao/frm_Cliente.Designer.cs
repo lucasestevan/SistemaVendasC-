@@ -53,6 +53,7 @@
             this.dgvCliente.Location = new System.Drawing.Point(12, 152);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(363, 214);
             this.dgvCliente.TabIndex = 23;
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCliente_CellClick);
