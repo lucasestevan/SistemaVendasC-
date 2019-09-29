@@ -37,13 +37,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCel = new System.Windows.Forms.MaskedTextBox();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labrl = new System.Windows.Forms.Label();
+            this.btnSenha = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(50, 289);
+            this.btnSalvar.Location = new System.Drawing.Point(16, 359);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 0;
@@ -53,7 +58,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(196, 289);
+            this.btnAlterar.Location = new System.Drawing.Point(126, 359);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 1;
@@ -70,16 +75,18 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(59, 116);
+            this.txtSenha.Location = new System.Drawing.Point(59, 156);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(200, 20);
             this.txtSenha.TabIndex = 3;
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(59, 234);
+            this.txtDesc.Location = new System.Drawing.Point(58, 268);
+            this.txtDesc.MaxLength = 50;
+            this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(200, 20);
+            this.txtDesc.Size = new System.Drawing.Size(200, 60);
             this.txtDesc.TabIndex = 5;
             // 
             // label1
@@ -94,7 +101,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 100);
+            this.label2.Location = new System.Drawing.Point(56, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 7;
@@ -103,7 +110,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 157);
+            this.label3.Location = new System.Drawing.Point(56, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 8;
@@ -112,19 +119,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 218);
+            this.label4.Location = new System.Drawing.Point(55, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Descrição";
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(59, 173);
-            this.txtCPF.Mask = "000.000.000-00";
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(88, 20);
-            this.txtCPF.TabIndex = 10;
             // 
             // txtId
             // 
@@ -133,13 +132,70 @@
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 11;
             // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(56, 213);
+            this.txtTelefone.Mask = "(99) 0000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(92, 20);
+            this.txtTelefone.TabIndex = 48;
+            // 
+            // txtCel
+            // 
+            this.txtCel.Location = new System.Drawing.Point(179, 213);
+            this.txtCel.Mask = "(99) 00000-0000";
+            this.txtCel.Name = "txtCel";
+            this.txtCel.Size = new System.Drawing.Size(92, 20);
+            this.txtCel.TabIndex = 47;
+            // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(59, 108);
+            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(92, 20);
+            this.txtCPF.TabIndex = 46;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(176, 197);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "Celular";
+            // 
+            // labrl
+            // 
+            this.labrl.AutoSize = true;
+            this.labrl.Location = new System.Drawing.Point(53, 197);
+            this.labrl.Name = "labrl";
+            this.labrl.Size = new System.Drawing.Size(49, 13);
+            this.labrl.TabIndex = 49;
+            this.labrl.Text = "Telefone";
+            // 
+            // btnSenha
+            // 
+            this.btnSenha.Location = new System.Drawing.Point(228, 359);
+            this.btnSenha.Name = "btnSenha";
+            this.btnSenha.Size = new System.Drawing.Size(75, 23);
+            this.btnSenha.TabIndex = 51;
+            this.btnSenha.Text = "Senha";
+            this.btnSenha.UseVisualStyleBackColor = true;
+            this.btnSenha.Click += new System.EventHandler(this.BtnSenha_Click);
+            // 
             // frm_CadColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 351);
-            this.Controls.Add(this.txtId);
+            this.ClientSize = new System.Drawing.Size(315, 403);
+            this.Controls.Add(this.btnSenha);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labrl);
+            this.Controls.Add(this.txtTelefone);
+            this.Controls.Add(this.txtCel);
             this.Controls.Add(this.txtCPF);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -167,6 +223,11 @@
         internal System.Windows.Forms.TextBox txtNome;
         internal System.Windows.Forms.TextBox txtSenha;
         internal System.Windows.Forms.TextBox txtDesc;
+        internal System.Windows.Forms.MaskedTextBox txtTelefone;
+        internal System.Windows.Forms.MaskedTextBox txtCel;
         internal System.Windows.Forms.MaskedTextBox txtCPF;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labrl;
+        public System.Windows.Forms.Button btnSenha;
     }
 }

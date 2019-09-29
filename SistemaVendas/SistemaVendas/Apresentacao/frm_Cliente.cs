@@ -29,8 +29,6 @@ namespace SistemaVendas.Apresentacao
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
-       
-
         //botao excluir
         private void BtnExcluir_Click(object sender, EventArgs e)
         {

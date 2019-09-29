@@ -1,7 +1,8 @@
-﻿using SistemaVendas.Apresentacao.Cadastro;
+﻿using BLL;
+using DAL;
+using Modelo;
+using SistemaVendas.Apresentacao.Cadastro;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -23,31 +24,42 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            Listar();
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Colaborador bll = new BLL_Colaborador(con);
+            dgvColaborador.DataSource = bll.Localizar(txtNome.Text);
+            FormatarDGV(); //FORMATA O DATA GRID
         }
 
-        //METODO LISTAR
-        private void Listar()
+        //BOTAO EXCLUIR
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-
-            try
+            if (txtId.Text != "")
             {
-                Modelo.ConexaoDados.abrir();
-                da = new SqlDataAdapter("SELECT * FROM Colaborador", Modelo.ConexaoDados.con);
-                //PREENCHER A TABELA
-                da.Fill(dt);
-                dgvColaborador.DataSource = dt.DefaultView;
-                da.Update(dt);
+                DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                //SE O ESCOLHER SIM FAÇA
+                if (msgSN == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //CRIAR CONEXAO
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Colaborador bll = new BLL_Colaborador(con);
 
-                //ContarLinhas();
-                // FormatarDgColaborador();
+                        //PASSAR O CODIGO QUE ESTA NA TELA
+                        bll.Excluir(Convert.ToInt32(txtId.Text));
+                        MessageBox.Show("Colaborador excluido com sucesso!");
+                        BtnPesquisar_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
+                        txtId.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir Colaborador, o registro está sendo utilizado em outro local \n " + ex.Message);
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro no metodo listar " + ex.Message);
-                Modelo.ConexaoDados.fechar();
+                MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
 
@@ -75,54 +87,65 @@ namespace SistemaVendas.Apresentacao
             cadColaborador.btnSalvar.Enabled = false;
 
             // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadColaborador.txtId.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[0].Value);
-            cadColaborador.txtNome.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[1].Value);
-            cadColaborador.txtCPF.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[2].Value);
-            cadColaborador.txtSenha.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[3].Value);
-            cadColaborador.txtDesc.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[4].Value);
-
+            cadColaborador.txtId.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[0].Value); //id
+            cadColaborador.txtNome.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[1].Value); //nome
+            cadColaborador.txtCPF.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[2].Value); // cpf
+            cadColaborador.txtSenha.Enabled = false; //senha
+            cadColaborador.txtTelefone.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[4].Value); // telefone 
+            cadColaborador.txtCel.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[5].Value); // celular 
+            cadColaborador.txtDesc.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[6].Value); // descricao 
         }
 
-        //BOTAO EXCLUIR
-        private void BtnExcluir_Click(object sender, EventArgs e)
+        //METODO formatar  DATA GRID
+        private void FormatarDGV()
         {
-            SqlCommand cmd = default(SqlCommand);
+            dgvColaborador.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvColaborador.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvColaborador.Columns[1].HeaderText = "Nome";
+            dgvColaborador.Columns[1].Width = 130;
+            dgvColaborador.Columns[2].HeaderText = "CPF";
+            dgvColaborador.Columns[2].Width = 90;
+            dgvColaborador.Columns[3].Visible = false; //senha
+            dgvColaborador.Columns[4].HeaderText = "Telefone";
+            dgvColaborador.Columns[4].Width = 90;
+            dgvColaborador.Columns[5].HeaderText = "Celular";
+            dgvColaborador.Columns[5].Width = 120;
+            dgvColaborador.Columns[6].HeaderText = "Descrição";
+            dgvColaborador.Columns[6].Width = 120;
+        }
 
+        //BOTAO APAGAR SENHA
+        private void BtnSenha_Click(object sender, EventArgs e)
+        {
             if (txtId.Text != "")
             {
-                DialogResult msgSN = MessageBox.Show("Deseja realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                DialogResult msgSN = MessageBox.Show("Deseja realmente apagar a senha?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
                 //SE O ESCOLHER SIM FAÇA
                 if (msgSN == DialogResult.Yes)
                 {
                     try
                     {
-                        Modelo.ConexaoDados.abrir();
-                        cmd = new SqlCommand("sp_excluirColaborador", Modelo.ConexaoDados.con);
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        //LEITURA DOS DADOS
+                        Model_Colaborador modelo = new Model_Colaborador();
+                        modelo.idColaborador = Convert.ToInt32(txtId.Text);
+                        modelo.senha = Convert.ToString("");
+                        //OBJ PARA GRAVAR NO BANCO
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Colaborador bll = new BLL_Colaborador(con);
 
-                        cmd.Parameters.AddWithValue("@id_colaborador", txtId.Text);
-
-                        cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                        cmd.ExecuteNonQuery();
-
-                        string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                        MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                        Listar();
-
-                        btnAlterar.Enabled = false;
-                        btnExcluir.Enabled = false;
-                        txtId.Text = "";
+                        //CADASTRAR UMA CATEGORIA
+                        bll.ApagarSenha(modelo);
+                        MessageBox.Show("Senha apagada com sucesso!");
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao Excluir os dados, existe vinculo deste Colaborador " + ex.Message);
-                        Modelo.ConexaoDados.fechar();
+                        MessageBox.Show("Erro ao apagar Senha \n" + ex.Message);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Selecione o Campo selecionar para poder excluir");
+                MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
     }

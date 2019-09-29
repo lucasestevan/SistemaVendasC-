@@ -32,6 +32,9 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCel = new System.Windows.Forms.MaskedTextBox();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -57,9 +60,6 @@
             this.lblBairro = new System.Windows.Forms.Label();
             this.lblrua = new System.Windows.Forms.Label();
             this.lblCep = new System.Windows.Forms.Label();
-            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
-            this.txtCel = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(192, 338);
+            this.btnAlterar.Location = new System.Drawing.Point(193, 363);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 18;
@@ -77,7 +77,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(38, 338);
+            this.btnSalvar.Location = new System.Drawing.Point(39, 363);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 17;
@@ -92,7 +92,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(327, 304);
+            this.tabControl1.Size = new System.Drawing.Size(301, 345);
             this.tabControl1.TabIndex = 29;
             // 
             // tabPage1
@@ -113,10 +113,34 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(319, 278);
+            this.tabPage1.Size = new System.Drawing.Size(293, 319);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(31, 155);
+            this.txtTelefone.Mask = "(99) 0000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(92, 20);
+            this.txtTelefone.TabIndex = 44;
+            // 
+            // txtCel
+            // 
+            this.txtCel.Location = new System.Drawing.Point(154, 155);
+            this.txtCel.Mask = "(99) 00000-0000";
+            this.txtCel.Name = "txtCel";
+            this.txtCel.Size = new System.Drawing.Size(92, 20);
+            this.txtCel.TabIndex = 43;
+            // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(31, 111);
+            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(92, 20);
+            this.txtCPF.TabIndex = 42;
             // 
             // label3
             // 
@@ -126,6 +150,7 @@
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 40;
             this.label3.Text = "Celular";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label2
             // 
@@ -138,7 +163,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(31, 198);
+            this.txtEmail.Location = new System.Drawing.Point(31, 203);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(178, 20);
             this.txtEmail.TabIndex = 37;
@@ -153,8 +178,10 @@
             // txtObs
             // 
             this.txtObs.Location = new System.Drawing.Point(31, 249);
+            this.txtObs.MaxLength = 50;
+            this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(203, 20);
+            this.txtObs.Size = new System.Drawing.Size(215, 48);
             this.txtObs.TabIndex = 34;
             // 
             // txtNome
@@ -177,7 +204,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(30, 182);
+            this.lblEmail.Location = new System.Drawing.Point(30, 187);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 31;
@@ -345,35 +372,11 @@
             this.lblCep.TabIndex = 38;
             this.lblCep.Text = "Cep";
             // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(31, 111);
-            this.txtCPF.Mask = "000.000.000-00";
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(92, 20);
-            this.txtCPF.TabIndex = 42;
-            // 
-            // txtCel
-            // 
-            this.txtCel.Location = new System.Drawing.Point(154, 155);
-            this.txtCel.Mask = "(99) 00000-0000";
-            this.txtCel.Name = "txtCel";
-            this.txtCel.Size = new System.Drawing.Size(92, 20);
-            this.txtCel.TabIndex = 43;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Location = new System.Drawing.Point(31, 155);
-            this.txtTelefone.Mask = "(99) 0000-0000";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(92, 20);
-            this.txtTelefone.TabIndex = 44;
-            // 
             // frm_CadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 374);
+            this.ClientSize = new System.Drawing.Size(318, 408);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);

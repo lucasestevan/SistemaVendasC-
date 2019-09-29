@@ -1,7 +1,5 @@
 ﻿using SistemaVendas.Apresentacao;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemaVendas
@@ -15,7 +13,7 @@ namespace SistemaVendas
         //BOTAO LOGIN
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            // CRIAR VARIAVEL
+            /*// CRIAR VARIAVEL
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
 
@@ -41,31 +39,21 @@ namespace SistemaVendas
 
                     //EXECUTAR NOSSA CONSULTA
                     cmd.ExecuteNonQuery();
-
-                    string msg = System.Convert.ToString(cmd.Parameters["@msg"].Value);
-                    MessageBox.Show(msg);
-
-                    //VERIFICAR QUAL MENSAGEM RETORNOU
-                    if (msg == "Dados Incorretos")
-                    {
-                        this.txtUsuario.Clear();
-                        this.txtSenha.Clear();
-                        this.txtUsuario.Focus();
-                    }
+                                       
                     else
-                    {
+                    {*/
                         frm_Menu Menu = new frm_Menu();
                         this.Hide();
                         Menu.ShowDialog();
                         this.Close();
-                    }
+                    /*}
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao fazer login " + ex.Message, "Erro");
                     Modelo.ConexaoDados.fechar();
                 }
-            }
+            }*/
         }
 
         //AO APERTAR O ENTER

@@ -1,6 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
@@ -15,75 +16,64 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtSenha.Text != "" &&
-                txtCPF.Text.Trim() != "   ,   ,   -  ")
+            try
             {
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    //CHAMAR O PROCEDIMENTO SALVAR COLABORADOR
-                    cmd = new SqlCommand("sp_salvarColaborador", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
-                    cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao Salvar os dados " + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
+                //LEITURA DOS DADOS
+                Model_Colaborador modelo = new Model_Colaborador();
+                modelo.nome = txtNome.Text;
+                modelo.cpf = txtCPF.Text;
+                modelo.senha = Convert.ToString(txtSenha.Text);
+                modelo.telefone = txtTelefone.Text;
+                modelo.celular = txtCel.Text;
+                modelo.descricao = txtDesc.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Colaborador bll = new BLL_Colaborador(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Incluir(modelo);
+                MessageBox.Show("Colaborador cadastrado com sucesso!");
+                this.Close();
             }
-            //SE OS CAMPOS ESTIVEREM VAZIOS MOSTRE
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                MessageBox.Show("Erro ao Cadastrar Colaborador \n" + ex.Message);
             }
         }
 
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = default(SqlCommand);
-            //SE OS CAMPOS NAO FOREM VAZIOS FAÇA..
-            if (txtNome.Text != "" &&
-                txtSenha.Text != "" &&
-                txtCPF.Text.Trim() != "")
-                try
-                {
-                    Modelo.ConexaoDados.abrir();
-                    cmd = new SqlCommand("sp_alterarColaborador", Modelo.ConexaoDados.con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_colaborador", txtId.Text);
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
-                    cmd.Parameters.AddWithValue("@descricao", txtDesc.Text);
-                    cmd.Parameters.Add("@mensagem", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-                    cmd.ExecuteNonQuery();
-
-                    string msg = cmd.Parameters["@mensagem"].Value.ToString();
-                    MessageBox.Show(msg, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao alterar os dados" + ex.Message);
-                    Modelo.ConexaoDados.fechar();
-                }
-            else
+            try
             {
-                MessageBox.Show("Insira os dados nos campos vazios!!");
+                //LEITURA DOS DADOS
+                Model_Colaborador modelo = new Model_Colaborador();
+                modelo.idColaborador = Convert.ToInt32(txtId.Text);
+                modelo.nome = txtNome.Text;
+                modelo.cpf = txtCPF.Text;
+                modelo.telefone = txtTelefone.Text;
+                modelo.celular = txtCel.Text;
+                modelo.descricao = txtDesc.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Colaborador bll = new BLL_Colaborador(con);
+
+                //CADASTRAR UMA CATEGORIA
+                bll.Alterar(modelo);
+                MessageBox.Show("Colaborador alterado com sucesso!");
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar Colaborador \n" + ex.Message);
+            }
+        }
+
+        //ALTERAR A SENHAA
+        private void BtnSenha_Click(object sender, EventArgs e)
+        {
+            frm_AlterarSenha alterarSenha = new frm_AlterarSenha();
+            alterarSenha.Show();
         }
     }
 }

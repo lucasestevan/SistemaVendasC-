@@ -99,5 +99,10 @@ namespace SistemaVendas.Apresentacao.Cadastro
             txtCidade.Text = Modelo.Estaticos.cidade;
             txtUf.Text = Modelo.Estaticos.uf;
         }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
