@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Modelo;
+using SistemaVendas;
 using System;
 using System.Data;
 
@@ -18,7 +19,7 @@ namespace BLL
         public void Incluir(Model_Endereco modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            
+                       
             if (modelo.rua.Trim().Length == 0)
             {
                 throw new Exception("O campo Rua é obrigatorio!");
@@ -28,6 +29,15 @@ namespace BLL
             {
                 throw new Exception("O Campo Bairro é obrigatorio!");
             }
+
+            //valida cep
+
+            if (Validacao.ValidaCep(modelo.cep) == false)
+            {
+                throw new Exception("O Cep é invalido!");
+            }
+
+
 
             DAL_Endereco DALobj = new DAL_Endereco(conexao);
             DALobj.Incluir(modelo);

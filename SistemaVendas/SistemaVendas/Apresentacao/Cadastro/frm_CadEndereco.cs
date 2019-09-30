@@ -94,5 +94,15 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 MessageBox.Show("Erro ao alterar Endereço \n" + ex.Message);
             }
         }
+
+        private void TxtCep_Leave(object sender, EventArgs e)
+        {
+            //valida cep
+
+            if (Validacao.ValidaCep(txtCep.Text) == false)
+            {
+                MessageBox.Show("O Cep é invalido!");
+            }
+        }
     }
 }

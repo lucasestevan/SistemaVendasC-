@@ -52,6 +52,20 @@ namespace SistemaVendas.Apresentacao
             Categoria.ShowDialog();
         }
 
+        //BOTAO ENDERECO
+        private void BtnEndereco_Click(object sender, EventArgs e)
+        {
+            var Endereco = new frm_Endereco();
+            Endereco.ShowDialog();
+        }
+
+        //BOTAO PAGAMENTO
+        private void TxtTipoPagto_Click(object sender, EventArgs e)
+        {
+            var pagamento = new frm_TipoPagamento();
+            pagamento.ShowDialog();
+        }
+
         //BOTAO LOGOUt
         private void BtnLogout_Click(object sender, EventArgs e)
         {
@@ -68,11 +82,6 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
-        //BOTAO ENDERECO
-        private void BtnEndereco_Click(object sender, EventArgs e)
-        {
-            var Endereco = new frm_Endereco();
-            Endereco.ShowDialog();
-        }
+       
     }
 }

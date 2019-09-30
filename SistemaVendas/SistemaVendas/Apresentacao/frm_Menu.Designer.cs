@@ -36,6 +36,7 @@
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnEndereco = new System.Windows.Forms.Button();
+            this.txtTipoPagto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCliente
@@ -118,11 +119,22 @@
             this.btnEndereco.UseVisualStyleBackColor = true;
             this.btnEndereco.Click += new System.EventHandler(this.BtnEndereco_Click);
             // 
+            // txtTipoPagto
+            // 
+            this.txtTipoPagto.Location = new System.Drawing.Point(85, 367);
+            this.txtTipoPagto.Name = "txtTipoPagto";
+            this.txtTipoPagto.Size = new System.Drawing.Size(75, 23);
+            this.txtTipoPagto.TabIndex = 8;
+            this.txtTipoPagto.Text = "Pagamento";
+            this.txtTipoPagto.UseVisualStyleBackColor = true;
+            this.txtTipoPagto.Click += new System.EventHandler(this.TxtTipoPagto_Click);
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 450);
+            this.Controls.Add(this.txtTipoPagto);
             this.Controls.Add(this.btnEndereco);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnCategoria);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnEndereco;
+        private System.Windows.Forms.Button txtTipoPagto;
     }
 }

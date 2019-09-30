@@ -36,7 +36,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar tabela Categoria: \n" + ex);
-                Modelo.ConexaoDados.fechar();
 
             }
 
@@ -53,7 +52,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar tabela Fornecedor: \n" + ex);
-                Modelo.ConexaoDados.fechar();
 
             }
         }
@@ -120,9 +118,9 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             if (e.KeyChar == '.' || e.KeyChar == ',')
             {
-                if (!txtPreco.Text.Contains("."))
+                if (!txtPreco.Text.Contains(","))
                 {
-                    e.KeyChar = '.';
+                    e.KeyChar = ',';
                 }
                 else e.Handled = true;
             }
@@ -131,27 +129,35 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //quando sair do cmapo preco
         private void TxtPreco_Leave(object sender, EventArgs e)
         {
-            if (txtPreco.Text.Contains(".") == false)
+            if (txtPreco.Text.Contains(",") == false)
             {
-                txtPreco.Text += ".";
+                txtPreco.Text += ",";
             }
             else
             {
-                if (txtPreco.Text.IndexOf(".") == txtPreco.Text.Length - 1)
+                if (txtPreco.Text.IndexOf(",") == txtPreco.Text.Length - 1)
                 {
                     txtPreco.Text += "00";
                 }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtPreco.Text);
+            }
+            catch
+            {
+                txtPreco.Text = "0,00";
             }
         }
 
         //AJUSTAR O CAMPO QUANTIDADE
         private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '.' || e.KeyChar == ',')
+            if (e.KeyChar == ',' || e.KeyChar == ',')
             {
-                if (!txtQtd.Text.Contains("."))
+                if (!txtQtd.Text.Contains(","))
                 {
-                    e.KeyChar = '.';
+                    e.KeyChar = ',';
                 }
                 else e.Handled = true;
             }
@@ -160,16 +166,24 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //AJUSTAR O CAMPO QUANTIDADE
         private void TxtQtd_Leave(object sender, EventArgs e)
         {
-            if (txtQtd.Text.Contains(".") == false)
+            if (txtQtd.Text.Contains(",") == false)
             {
-                txtQtd.Text += ".";
+                txtQtd.Text += ",00";
             }
             else
             {
-                if (txtQtd.Text.IndexOf(".") == txtQtd.Text.Length - 1)
+                if (txtQtd.Text.IndexOf(",") == txtQtd.Text.Length - 1)
                 {
                     txtQtd.Text += "00";
                 }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtPreco.Text);
+            }
+            catch
+            {
+                txtQtd.Text = "0,00";
             }
         }
     }

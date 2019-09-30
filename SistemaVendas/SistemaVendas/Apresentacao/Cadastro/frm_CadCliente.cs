@@ -90,14 +90,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
             endereco.btnExcluir.Visible = false;
             endereco.btnSelecionar.Visible = true;
             endereco.ShowDialog();
-
-            //PEGA O QUE ESTÁ NA CLASSE ESTATICA E JOGA NO TXT NOME E ID colaborador
-            txtIdEnde.Text = Modelo.Estaticos.IdEnde;
-            txtCep.Text = Modelo.Estaticos.cep;
-            txtRua.Text = Modelo.Estaticos.rua;
-            txtBairro.Text = Modelo.Estaticos.bairro;
-            txtCidade.Text = Modelo.Estaticos.cidade;
-            txtUf.Text = Modelo.Estaticos.uf;
         }
 
         private void Label3_Click(object sender, EventArgs e)

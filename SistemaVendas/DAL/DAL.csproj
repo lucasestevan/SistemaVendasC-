@@ -65,11 +65,13 @@
     <Compile Include="DAL_Categoria.cs" />
     <Compile Include="DAL_Cliente.cs" />
     <Compile Include="DAL_Colaborador.cs" />
+    <Compile Include="DAL_Compra.cs" />
     <Compile Include="DAL_Conexao.cs" />
     <Compile Include="DAL_Endereco.cs" />
     <Compile Include="DAL_Fornecedor.cs" />
     <Compile Include="DAL_Login.cs" />
     <Compile Include="DAL_Produto.cs" />
+    <Compile Include="DAL_TipoPagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>

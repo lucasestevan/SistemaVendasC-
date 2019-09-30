@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
 {
-    public partial class frm_Categoria : Form
+    public partial class frm_TipoPagamento : Form
     {
-        public frm_Categoria()
+        public frm_TipoPagamento()
         {
             InitializeComponent();
         }
@@ -16,16 +16,16 @@ namespace SistemaVendas.Apresentacao
         //BOTAO NOVO
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            frm_CadCategoria Categoria = new frm_CadCategoria();
-            Categoria.ShowDialog();
+            frm_CadTipoPagamento pagamento = new frm_CadTipoPagamento();
+            pagamento.ShowDialog();
         }
 
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Categoria bll = new BLL_Categoria(con);
-            dgvCategoria.DataSource = bll.Localizar(txtNome.Text);
+            BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
+            dgvTipoPag.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV();
         }
 
@@ -42,18 +42,18 @@ namespace SistemaVendas.Apresentacao
                     {
                         //CRIAR CONEXAO
                         DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                        BLL_Categoria bll = new BLL_Categoria(con);
+                        BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
 
                         //EXCLUIR  UMA CATEGORIA
                         //PASSAR O CODIGO QUE ESTA NA TELA
                         bll.Excluir(Convert.ToInt32(txtId.Text));
-                        MessageBox.Show("Categoria excluida com sucesso!");
+                        MessageBox.Show("Tipo de Pagamento excluido com sucesso!");
                         BtnPesquisar_Click(sender, e);
                         txtId.Text = "";
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao excluir Categoria, o registro está sendo utilizado em outro local \n " + ex.Message);
+                        MessageBox.Show("Erro ao excluir Tipo de Pagamento, o registro está sendo utilizado em outro local \n " + ex.Message);
                     }
                 }
             }
@@ -64,10 +64,10 @@ namespace SistemaVendas.Apresentacao
         }
 
         //EVENTO AO CLIKAR NA DATAGRID
-        private void DgvCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvTipoPag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //AO CLIKAR NA GRID JOGAR PARA O CAMPO txt id
-            txtId.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[0].Value);
+            txtId.Text = System.Convert.ToString(dgvTipoPag.CurrentRow.Cells[0].Value);
 
             //HABILITAR BOTOES
             btnAlterar.Enabled = true;
@@ -77,28 +77,27 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadCategoria cadCategoria = new frm_CadCategoria();
+            frm_CadTipoPagamento pagamento = new frm_CadTipoPagamento();
             //ABRIR O FORM DE CAD DE PACIENTE
-            cadCategoria.Show();
+            pagamento.Show();
 
             //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
             //cadCategoria.habilitarCampos();
-            cadCategoria.btnAlterar.Enabled = true;
-            cadCategoria.btnSalvar.Enabled = false;
+            pagamento.btnAlterar.Enabled = true;
+            pagamento.btnSalvar.Enabled = false;
 
             // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadCategoria.txtId.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[0].Value);
-            cadCategoria.txtNome.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[1].Value);
-
+            pagamento.txtId.Text = System.Convert.ToString(dgvTipoPag.CurrentRow.Cells[0].Value);
+            pagamento.txtNome.Text = System.Convert.ToString(dgvTipoPag.CurrentRow.Cells[1].Value);
         }
 
         //METODO  DATA GRID
         private void FormatarDGV()
         {
-            dgvCategoria.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvCategoria.Columns[0].Width = 50; //TAMANHO DA LARGURA
-            dgvCategoria.Columns[1].HeaderText = "Categoria";
-            dgvCategoria.Columns[1].Width = 150;
+            dgvTipoPag.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvTipoPag.Columns[0].Width = 50; //TAMANHO DA LARGURA
+            dgvTipoPag.Columns[1].HeaderText = "Tipo de Pagto";
+            dgvTipoPag.Columns[1].Width = 150;
         }
     }
 }

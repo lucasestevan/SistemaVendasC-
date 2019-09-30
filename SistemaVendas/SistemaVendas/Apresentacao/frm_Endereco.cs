@@ -114,14 +114,6 @@ namespace SistemaVendas.Apresentacao
         //botao selecionar
         private void BtnSelecionar_Click(object sender, EventArgs e)
         {
-            //SELECIONA O ID E O NOME E MANDA PARA A CLASSE ESTATICA
-            Modelo.Estaticos.IdEnde = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[0].Value);
-            Modelo.Estaticos.cep = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[1].Value);
-            Modelo.Estaticos.rua = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[2].Value);
-            Modelo.Estaticos.bairro = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[3].Value);
-            Modelo.Estaticos.cidade = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[4].Value);
-            Modelo.Estaticos.uf = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[5].Value);
-
             this.Close();
             this.Dispose();
         }

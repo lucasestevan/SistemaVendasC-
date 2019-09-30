@@ -163,6 +163,7 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(75, 20);
             this.txtCep.TabIndex = 72;
+            this.txtCep.Leave += new System.EventHandler(this.TxtCep_Leave);
             // 
             // frm_CadEndereco
             // 

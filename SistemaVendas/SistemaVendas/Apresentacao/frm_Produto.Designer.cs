@@ -32,16 +32,13 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.sistemaVendaDataSet = new SistemaVendas.SistemaVendaDataSet();
             this.produtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.produtoTableAdapter = new SistemaVendas.SistemaVendaDataSetTableAdapters.ProdutoTableAdapter();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,17 +78,13 @@
             // 
             // sistemaVendaDataSet
             // 
-            this.sistemaVendaDataSet.DataSetName = "SistemaVendaDataSet";
-            this.sistemaVendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // produtoBindingSource
             // 
             this.produtoBindingSource.DataMember = "Produto";
-            this.produtoBindingSource.DataSource = this.sistemaVendaDataSet;
             // 
             // produtoTableAdapter
             // 
-            this.produtoTableAdapter.ClearBeforeFill = true;
             // 
             // btnAlterar
             // 
@@ -152,7 +145,6 @@
             this.Name = "frm_Produto";
             this.Text = "Produto";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaVendaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,9 +156,7 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.DataGridView dgvProduto;
-        private SistemaVendaDataSet sistemaVendaDataSet;
         private System.Windows.Forms.BindingSource produtoBindingSource;
-        private SistemaVendaDataSetTableAdapters.ProdutoTableAdapter produtoTableAdapter;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtId;
