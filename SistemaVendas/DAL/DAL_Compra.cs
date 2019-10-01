@@ -66,13 +66,52 @@ namespace DAL
             conexao.Desconectar();
         }
 
-        //METODO LOCALIZAR
-        public DataTable LocalizarPorFonecedor(int codigo)
+        //METODO LOCALIZAR fornecedor poR CODIGO
+        public DataTable Localizar(int codigo)
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("select * Compra where id_fornecedor = " + codigo.ToString(), conexao.StringConexao);
+            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.total," +
+                " c.nparcelas, c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor " +
+                " where f.id_fornecedor = " + codigo.ToString(), conexao.StringConexao);
             da.Fill(dt);
+            return dt;
+        }
+
+        //METODO LOCALIZAR POR NOME DE FORCECEDOR
+        public DataTable LocalizarNome(String nome)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.total," +
+                " c.nparcelas, c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor where f.nome like '%" + nome + "%'", conexao.StringConexao);
+            da.Fill(dt);
+            return dt;
+        }
+
+        //METODO LOCALIZAR por data
+        public DataTable Localizar(DateTime inicial, DateTime final)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select c.id_compra, c.dataCompra, c.nfiscal, c.total," +
+                " c.nparcelas, c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor " +
+                " where c.dataCompra BETWEEN @inicial and @final";
+
+            cmd.Parameters.Add("@inicial", System.Data.SqlDbType.DateTime);
+            cmd.Parameters["@inicial"].Value = inicial;
+
+            cmd.Parameters.Add("@final", System.Data.SqlDbType.DateTime);
+            cmd.Parameters["@final"].Value = final;
+
+            //conexao.Conectar();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            //conexao.Desconectar();
             return dt;
         }
     }

@@ -31,6 +31,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 cmbCategoria.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cmbCategoria.DisplayMember = "nome";   //PEGA O NOME
                 cmbCategoria.ValueMember = "id_categoria"; //PEGA O ID
+                cmbCategoria.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cmbCategoria.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             }
             catch (Exception ex)
@@ -47,6 +49,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 cmbFornecedor.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cmbFornecedor.DisplayMember = "nome";   //PEGA O NOME
                 cmbFornecedor.ValueMember = "id_fornecedor"; //PEGA O ID
+                cmbFornecedor.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cmbFornecedor.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             }
             catch (Exception ex)

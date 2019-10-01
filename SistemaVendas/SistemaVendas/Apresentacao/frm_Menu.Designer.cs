@@ -37,6 +37,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnEndereco = new System.Windows.Forms.Button();
             this.txtTipoPagto = new System.Windows.Forms.Button();
+            this.btnCompra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCliente
@@ -129,11 +130,22 @@
             this.txtTipoPagto.UseVisualStyleBackColor = true;
             this.txtTipoPagto.Click += new System.EventHandler(this.TxtTipoPagto_Click);
             // 
+            // btnCompra
+            // 
+            this.btnCompra.Location = new System.Drawing.Point(262, 45);
+            this.btnCompra.Name = "btnCompra";
+            this.btnCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnCompra.TabIndex = 9;
+            this.btnCompra.Text = "Compra";
+            this.btnCompra.UseVisualStyleBackColor = true;
+            this.btnCompra.Click += new System.EventHandler(this.BtnCompra_Click);
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 450);
+            this.Controls.Add(this.btnCompra);
             this.Controls.Add(this.txtTipoPagto);
             this.Controls.Add(this.btnEndereco);
             this.Controls.Add(this.btnLogout);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnEndereco;
         private System.Windows.Forms.Button txtTipoPagto;
+        private System.Windows.Forms.Button btnCompra;
     }
 }

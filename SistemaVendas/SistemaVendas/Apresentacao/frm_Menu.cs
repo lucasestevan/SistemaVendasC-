@@ -82,6 +82,11 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
-       
+        //botao compra
+        private void BtnCompra_Click(object sender, EventArgs e)
+        {
+            var Compra = new frm_MovimentacaoCompra();
+            Compra.ShowDialog();
+        }
     }
 }
