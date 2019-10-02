@@ -234,6 +234,7 @@
             this.dgvCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompra.Size = new System.Drawing.Size(481, 149);
             this.dgvCompra.TabIndex = 43;
+            this.dgvCompra.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCompra_CellDoubleClick);
             // 
             // id_produto
             // 

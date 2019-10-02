@@ -8,7 +8,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
 {
     public partial class frm_CadMovimentacaoCompra : Form
     {
-        public double totalCompra = 0 ;
+        public double totalCompra = 0;
 
 
         public frm_CadMovimentacaoCompra()
@@ -19,29 +19,30 @@ namespace SistemaVendas.Apresentacao.Cadastro
         // BOTAO SALVAR
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
                 //LEITURA DOS DADOS
-                Model_Produto modelo = new Model_Produto();
-                modelo.nome = txtNome.Text;
-                modelo.preco = Convert.ToDouble(txtPreco.Text);
-                modelo.quantidade = Convert.ToDouble(txtQtd.Text);
-                modelo.descricao = txtDesc.Text;
-                modelo.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
-                modelo.idFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                Model_Compra modelo = new Model_Compra();
+                modelo.dataCompra = dtCompra.Value;
+                modelo.nFiscal = Convert.ToInt32(txtNfiscal.Text.Length);
+                modelo.nParcelas = Convert.ToInt32(txtNParcelas.Text);
+                modelo.CompraStatus = "Ativo";
+                modelo.total = Convert.ToInt32(txtTotalCompra.Text);
+                modelo.idFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
+                modelo.idTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Produto bll = new BLL_Produto(con);
+                BLL_Compra bll = new BLL_Compra(con);
 
-                //CADASTRAR UMA CATEGORIA
+                //CADASTRAR UMA compra
                 bll.Incluir(modelo);
-                MessageBox.Show("Produto cadastrado com sucesso!");
+                MessageBox.Show("Compra cadastrada com sucesso!");
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao Cadastrar Produto \n" + ex.Message);
-            }*/
+            }
         }
 
         //BOTAO ALTERAR
@@ -151,13 +152,35 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 this.dgvCompra.Rows.Add(i);
 
                 //LIMPAR OS CAMPOS DEPOS DE INSERIR
-                //cbProtudo.ValueMember = "";
-                //cbProtudo.DisplayMember = "";
                 txtQtd.Clear();
                 txtValorUni.Clear();
 
                 //ATUALIZAR O TOTAL DA COMPRA
                 txtTotalCompra.Text = this.totalCompra.ToString();
+            }
+        }
+
+        //EVENTO AO CLIKAR DUAS VEZES NA GRID
+        private void DgvCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //MOSTRAR MENSAGEM desejo remover item
+                DialogResult msg = MessageBox.Show("Deseja realmente remover o Item da compra?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                //SE O ESCOLHER SIM
+
+                if (msg == DialogResult.Yes)
+                {
+                    cbProtudo.Text = dgvCompra.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    txtQtd.Text = dgvCompra.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtValorUni.Text = dgvCompra.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    Double valor = Convert.ToDouble(dgvCompra.Rows[e.RowIndex].Cells[4].Value);
+                    this.totalCompra = this.totalCompra - valor;
+
+                    //REMOVER LINHA DGV
+                    dgvCompra.Rows.RemoveAt(e.RowIndex);
+                    txtTotalCompra.Text = this.totalCompra.ToString();
+                }
             }
         }
     }
