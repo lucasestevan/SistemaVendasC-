@@ -83,10 +83,10 @@ namespace BLL
         }
 
         //METODO LOCALIZAR CODIGO
-        public DataTable Localizar(int codigo)
+        public DataTable LocalizarGeral()
         {
             DAL_Compra DALobj = new DAL_Compra(conexao);
-            return DALobj.Localizar(codigo);
+            return DALobj.LocalizarGeral();
         }
 
         //METODO LOCALIZAR NOME
@@ -97,10 +97,10 @@ namespace BLL
         }
 
         //METODO LOCALIZAR DATA
-        public DataTable Localizar(DateTime inicial, DateTime final)
+        public DataTable LocalizarData(DateTime inicial, DateTime final)
         {
             DAL_Compra DALobj = new DAL_Compra(conexao);
-            return DALobj.Localizar(inicial, final);
+            return DALobj.LocalizarData(inicial, final);
         }
     }
 }

@@ -66,15 +66,15 @@ namespace DAL
             conexao.Desconectar();
         }
 
-        //METODO LOCALIZAR fornecedor poR CODIGO
-        public DataTable Localizar(int codigo)
+        //METODO LOCALIZAR fgeral
+        public DataTable LocalizarGeral()
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.total," +
-                " c.nparcelas, c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
-                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor " +
-                " where f.id_fornecedor = " + codigo.ToString(), conexao.StringConexao);
+            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.nparcelas, c.total," +
+                " c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor ", conexao.StringConexao);
+              //  " where f.id_fornecedor = " + codigo.ToString(), conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
@@ -84,23 +84,23 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.total," +
-                " c.nparcelas, c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
-                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor where f.nome like '%" + nome + "%'", conexao.StringConexao);
+            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.nparcelas, c.total," +
+                "  c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor where f.nome like '%" + nome + "%' order by f.nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
 
         //METODO LOCALIZAR por data
-        public DataTable Localizar(DateTime inicial, DateTime final)
+        public DataTable LocalizarData(DateTime inicial, DateTime final)
         {
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select c.id_compra, c.dataCompra, c.nfiscal, c.total," +
-                " c.nparcelas, c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+            cmd.CommandText = "select c.id_compra, c.dataCompra, c.nfiscal, c.nparcelas, c.total," +
+                "  c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
                 " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor " +
-                " where c.dataCompra BETWEEN @inicial and @final";
+                " where c.dataCompra BETWEEN @inicial and @final order by c.dataCompra";
 
             cmd.Parameters.Add("@inicial", System.Data.SqlDbType.DateTime);
             cmd.Parameters["@inicial"].Value = inicial;

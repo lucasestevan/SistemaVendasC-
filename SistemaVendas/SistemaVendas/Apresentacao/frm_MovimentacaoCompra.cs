@@ -20,14 +20,7 @@ namespace SistemaVendas.Apresentacao
             cadMovimentacaoCompra.ShowDialog();
         }
 
-        //BOTAO PESQUISAR 
-        private void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Compra bll = new BLL_Compra(con);
-            dgvCompra.DataSource = bll.LocalizarNome(txtNome.Text);
-            //FormatarDGV(); //FORMATA O DATA GRID
-        }
+        
 
         //BOTAO EXCLUIR
         private void BtnExcluir_Click(object sender, EventArgs e)
@@ -76,30 +69,80 @@ namespace SistemaVendas.Apresentacao
         //EVENTO LOAD
         private void Frm_MovimentacaoCompra_Load(object sender, EventArgs e)
         {
-
+            RbGeral_CheckedChanged(sender, e);
         }
 
-        public void ExecutaConsulta(int op)
+
+        private void RbGeral_CheckedChanged(object sender, EventArgs e)
         {
-            // OP 1 TODAS AS COMPRAS
-            if (op == 1)
-            {
+            //OCUTAR PAINEIS
+            gbData.Visible = false;
+            gbFornecedor.Visible = false;
+            btnPesquisarGeral.Visible = false;
 
+            //LIMPAR O GRID
+            dgvCompra.DataSource = null;
+
+            if (rbGeral.Checked == true)
+            {
+                btnPesquisarGeral.Visible = true;
+            }
+            if ((rbData.Checked == true))
+            {
+                gbData.Visible = true;
             }
 
-            // OP 2 FORNECEDOR
-            if (op == 1)
+            if ((RbFornecedor.Checked == true))
             {
-
+                gbFornecedor.Visible = true;
             }
+        }
 
+        //BOTAO PESQUISAR geral
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Compra bll = new BLL_Compra(con);
+            dgvCompra.DataSource = bll.LocalizarGeral();
+            FormatarDGV(); //FORMATA O DATA GRID
+        }
 
-            //OP 3 DATA DA COMPRA
-            if (op == 1)
-            {
+        //BOTAO PESQUISAR FORNECEDOR
+        private void BtnPesquisarFornecedor_Click(object sender, EventArgs e)
+        {
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Compra bll = new BLL_Compra(con);
+            dgvCompra.DataSource = bll.LocalizarNome(txtNome.Text);
+            FormatarDGV(); //FORMATA O DATA GRID
+        }
 
-            }
+        private void BtnPesquisaData_Click(object sender, EventArgs e)
+        {
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Compra bll = new BLL_Compra(con);
+            dgvCompra.DataSource = bll.LocalizarData(dtInicial.Value, dtFinal.Value);
+            FormatarDGV(); //FORMATA O DATA GRID
+        }
 
+        //FORMATA O DATA GRID
+        private void FormatarDGV()
+        {
+            dgvCompra.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvCompra.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvCompra.Columns[1].HeaderText = "Data da Compra";
+            dgvCompra.Columns[1].Width = 120;
+            dgvCompra.Columns[2].HeaderText = "Nota Fiscal";
+            dgvCompra.Columns[2].Width = 85;
+            dgvCompra.Columns[3].HeaderText = "N° Parcelas";
+            dgvCompra.Columns[3].Width = 90;
+            dgvCompra.Columns[4].HeaderText = "Total";
+            dgvCompra.Columns[4].Width = 80;
+            dgvCompra.Columns[5].HeaderText = "Status";
+            dgvCompra.Columns[5].Width = 60;
+            dgvCompra.Columns[6].Visible = false;
+            dgvCompra.Columns[7].Visible = false;
+            dgvCompra.Columns[8].HeaderText = "Fornecedor";
+            dgvCompra.Columns[8].Width = 140;
         }
     }
 }
