@@ -69,6 +69,7 @@
     <Compile Include="DAL_Conexao.cs" />
     <Compile Include="DAL_Endereco.cs" />
     <Compile Include="DAL_Fornecedor.cs" />
+    <Compile Include="DAL_ItensCompra.cs" />
     <Compile Include="DAL_Login.cs" />
     <Compile Include="DAL_Produto.cs" />
     <Compile Include="DAL_TipoPagamento.cs" />

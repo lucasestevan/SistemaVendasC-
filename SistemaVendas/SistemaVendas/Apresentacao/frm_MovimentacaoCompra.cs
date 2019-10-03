@@ -72,5 +72,34 @@ namespace SistemaVendas.Apresentacao
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
         }
+
+        //EVENTO LOAD
+        private void Frm_MovimentacaoCompra_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ExecutaConsulta(int op)
+        {
+            // OP 1 TODAS AS COMPRAS
+            if (op == 1)
+            {
+
+            }
+
+            // OP 2 FORNECEDOR
+            if (op == 1)
+            {
+
+            }
+
+
+            //OP 3 DATA DA COMPRA
+            if (op == 1)
+            {
+
+            }
+
+        }
     }
 }

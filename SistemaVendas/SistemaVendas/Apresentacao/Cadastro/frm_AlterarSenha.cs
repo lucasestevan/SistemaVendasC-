@@ -20,7 +20,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 //LEITURA DOS DADOS
                 Model_Colaborador modelo = new Model_Colaborador();
                 modelo.idColaborador = Convert.ToInt32(txtId.Text);
-                modelo.senha = Convert.ToString(txtSenhanova.Text);
+                modelo.senha = txtSenhanova.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Colaborador bll = new BLL_Colaborador(con);

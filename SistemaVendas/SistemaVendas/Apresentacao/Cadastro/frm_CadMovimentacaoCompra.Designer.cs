@@ -294,7 +294,7 @@
             this.dtCompra.Name = "dtCompra";
             this.dtCompra.Size = new System.Drawing.Size(99, 20);
             this.dtCompra.TabIndex = 37;
-            this.dtCompra.Value = new System.DateTime(2019, 9, 30, 0, 0, 0, 0);
+            this.dtCompra.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -321,7 +321,7 @@
             this.dtPgtoInicial.Name = "dtPgtoInicial";
             this.dtPgtoInicial.Size = new System.Drawing.Size(99, 20);
             this.dtPgtoInicial.TabIndex = 41;
-            this.dtPgtoInicial.Value = new System.DateTime(2019, 9, 30, 0, 0, 0, 0);
+            this.dtPgtoInicial.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
             // 
             // txtTotalCompra
             // 

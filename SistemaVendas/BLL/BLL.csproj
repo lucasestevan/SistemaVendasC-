@@ -48,6 +48,7 @@
     <Compile Include="BLL_Compra.cs" />
     <Compile Include="BLL_Endereco.cs" />
     <Compile Include="BLL_Fornecedor.cs" />
+    <Compile Include="BLL_ItensCompra.cs" />
     <Compile Include="BLL_Login.cs" />
     <Compile Include="BLL_Produto.cs" />
     <Compile Include="BLL_TipoPagamento.cs" />
