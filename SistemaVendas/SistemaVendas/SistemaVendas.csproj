@@ -166,6 +166,12 @@
     <Compile Include="Apresentacao\frm_Produto.Designer.cs">
       <DependentUpon>frm_Produto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\frm_VisualizarItensCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_VisualizarItensCompra.Designer.cs">
+      <DependentUpon>frm_VisualizarItensCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_AlterarSenha.resx">
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_TipoPagamento.resx">
       <DependentUpon>frm_TipoPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_VisualizarItensCompra.resx">
+      <DependentUpon>frm_VisualizarItensCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

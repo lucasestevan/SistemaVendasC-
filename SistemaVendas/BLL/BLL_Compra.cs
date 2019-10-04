@@ -82,11 +82,27 @@ namespace BLL
             DALobj.Excluir(idCompra);
         }
 
-        //METODO LOCALIZAR CODIGO
+
+        //METODO CARRREGA MODELO COMPRA
+        public Model_Compra CarregaModeloCompra(int idCompra)
+        {
+            DAL_Compra DALobj = new DAL_Compra(conexao);
+            return DALobj.CarregaModeloCompra(idCompra);
+        }
+
+
+        //METODO LOCALIZAR GERAL
         public DataTable LocalizarGeral()
         {
             DAL_Compra DALobj = new DAL_Compra(conexao);
             return DALobj.LocalizarGeral();
+        }
+
+        //METODO LOCALIZAR PELO IDCOMPRA
+        public DataTable localizarIdCompra(int idCompra)
+        {
+            DAL_Compra DALobj = new DAL_Compra(conexao);
+            return DALobj.LocalizaridCompra(idCompra);
         }
 
         //METODO LOCALIZAR NOME

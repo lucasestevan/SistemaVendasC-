@@ -66,8 +66,36 @@ namespace DAL
             conexao.Desconectar();
         }
 
-        //METODO LOCALIZAR fgeral
-        public DataTable LocalizarGeral()
+        //METODO CARREGA MODELO
+        public Model_Compra CarregaModeloCompra(int id_compra)
+        {
+            Model_Compra modelo = new Model_Compra();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Compra where id_compra = @id_compra";
+            cmd.Parameters.AddWithValue("@id_compra", id_compra);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idCompra = Convert.ToInt32(registro["id_compra"]);
+                modelo.dataCompra = Convert.ToDateTime(registro["dataCompra"]);
+                modelo.nFiscal = Convert.ToInt32(registro["nFiscal"]);
+                modelo.total = Convert.ToDouble(registro["total"]);
+                modelo.nParcelas = Convert.ToInt32(registro["nparcelas"]);
+                modelo.CompraStatus = Convert.ToString(registro["compraStatus"]);
+                modelo.idFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
+                modelo.idTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
+            //METODO LOCALIZAR fgeral
+            public DataTable LocalizarGeral()
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
@@ -75,6 +103,18 @@ namespace DAL
                 " c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
                 " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor ", conexao.StringConexao);
               //  " where f.id_fornecedor = " + codigo.ToString(), conexao.StringConexao);
+            da.Fill(dt);
+            return dt;
+        }
+
+        //METODO LOCALIZAR IDCOMPRA
+        public DataTable LocalizaridCompra(int idCompra)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.nparcelas, c.total," +
+                " c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor where c.id_compra = " + idCompra, conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }

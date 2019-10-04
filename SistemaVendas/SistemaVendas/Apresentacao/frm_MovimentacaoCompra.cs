@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,9 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_MovimentacaoCompra : Form
     {
+        public int idCompra = 0;
+
+
         public frm_MovimentacaoCompra()
         {
             InitializeComponent();
@@ -19,8 +23,6 @@ namespace SistemaVendas.Apresentacao
             frm_CadMovimentacaoCompra cadMovimentacaoCompra = new frm_CadMovimentacaoCompra();
             cadMovimentacaoCompra.ShowDialog();
         }
-
-        
 
         //BOTAO EXCLUIR
         private void BtnExcluir_Click(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace SistemaVendas.Apresentacao
         //EVENTO AO CLIKAR NA DATAGRID
         private void DgvCompra_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             //AO CLIKAR NA GRID JOGAR PARA O CAMPO ID exame
             txtId.Text = System.Convert.ToString(dgvCompra.CurrentRow.Cells[0].Value);
 
@@ -72,12 +75,12 @@ namespace SistemaVendas.Apresentacao
             RbGeral_CheckedChanged(sender, e);
         }
 
-
         private void RbGeral_CheckedChanged(object sender, EventArgs e)
         {
             //OCUTAR PAINEIS
             gbData.Visible = false;
             gbFornecedor.Visible = false;
+            gbCodigo.Visible = false;
             btnPesquisarGeral.Visible = false;
 
             //LIMPAR O GRID
@@ -96,6 +99,11 @@ namespace SistemaVendas.Apresentacao
             {
                 gbFornecedor.Visible = true;
             }
+
+            if ((rbCodigo.Checked == true))
+            {
+                gbCodigo.Visible = true;
+            }
         }
 
         //BOTAO PESQUISAR geral
@@ -104,6 +112,15 @@ namespace SistemaVendas.Apresentacao
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarGeral();
+            FormatarDGV(); //FORMATA O DATA GRID
+        }
+
+        //BOTAO PESQUISAR IDCOMPRA
+        private void BtnPesquisarCod_Click(object sender, EventArgs e)
+        {
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Compra bll = new BLL_Compra(con);
+            dgvCompra.DataSource = bll.localizarIdCompra(Convert.ToInt32(txtIdCompraPes.Text.Length));
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -116,6 +133,7 @@ namespace SistemaVendas.Apresentacao
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
+        //BOTAO PESQUISAR Data
         private void BtnPesquisaData_Click(object sender, EventArgs e)
         {
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
@@ -143,6 +161,52 @@ namespace SistemaVendas.Apresentacao
             dgvCompra.Columns[7].Visible = false;
             dgvCompra.Columns[8].HeaderText = "Fornecedor";
             dgvCompra.Columns[8].Width = 140;
+        }
+
+        //BOTAO VIZUALIZAR
+        private void BtnVisualizar_Click(object sender, EventArgs e)
+        {
+            if (dgvCompra.SelectedRows.Count > 0)
+            {
+                //CRIAR O FORM VIZUALIZAR ITEM
+                frm_VisualizarItensCompra visualizarItensCompra = new frm_VisualizarItensCompra();
+
+
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
+
+                visualizarItensCompra.dgvItensCompra.DataSource = bllItens.Localizar(Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
+                visualizarItensCompra.ShowDialog();
+
+            }
+        }
+
+        //BOTAO ALTERA
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            if (dgvCompra.SelectedRows.Count > 0)
+            {
+                //pega o id da data grid
+                this.idCompra = (Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
+
+                //chamr modelo bll e dal compra
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Compra bll = new BLL_Compra(con);
+                Model_Compra modelo = bll.CarregaModeloCompra(idCompra);
+
+                //CHAMAR O FORM CAD COMPRA
+                frm_CadMovimentacaoCompra cadMovimentacaoCompra = new frm_CadMovimentacaoCompra();
+                cadMovimentacaoCompra.btnSalvar.Enabled = false;
+
+                cadMovimentacaoCompra.txtId.Text = modelo.idCompra.ToString();
+                cadMovimentacaoCompra.txtNfiscal.Text = modelo.nFiscal.ToString();
+                cadMovimentacaoCompra.dtCompra.Value = modelo.dataCompra;
+                cadMovimentacaoCompra.cbFornecedor.SelectedValue = modelo.idFornecedor;
+                cadMovimentacaoCompra.cbFormaPagto.SelectedValue = modelo.idTipoPagamento;
+                cadMovimentacaoCompra.txtTotalCompra.Text = modelo.total.ToString();
+                cadMovimentacaoCompra.totalCompra = modelo.total;
+                cadMovimentacaoCompra.ShowDialog();
+            }
         }
     }
 }

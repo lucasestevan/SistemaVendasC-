@@ -429,7 +429,6 @@
         private System.Windows.Forms.DataGridView dgvCompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtCompra;
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.TextBox txtNfiscal;
         private System.Windows.Forms.DateTimePicker dtPgtoInicial;
@@ -449,5 +448,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn proQtd;
         private System.Windows.Forms.DataGridViewTextBoxColumn proValorUnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn proValorTotal;
+        internal System.Windows.Forms.DateTimePicker dtCompra;
     }
 }

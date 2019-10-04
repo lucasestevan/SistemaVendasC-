@@ -65,7 +65,8 @@ namespace DAL
         {
             DataTable dt = new DataTable(); 
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("select * from ItensCompra where id_compra = " + idCompra.ToString(), conexao.StringConexao);
+            da = new SqlDataAdapter("Select i.id_itensCompra, p.nome , i.quantidade, i.valor, i.id_compra, " +
+                "i.id_produto from ItensCompra as i INNER JOIN Produto as p on p.id_produto = i.id_produto where i.id_compra = " + idCompra.ToString(), conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
