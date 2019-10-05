@@ -52,6 +52,28 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_Categoria CarregaModeloCategoria(int idCategoria)
+        {
+            Model_Categoria modelo = new Model_Categoria();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Categoria where id_categoria = @id_categoria";
+            cmd.Parameters.AddWithValue("@id_categoria", idCategoria);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.IdCategoria = Convert.ToInt32(registro["id_categoria"]);
+                modelo.NomeCategoria = Convert.ToString(registro["nome"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

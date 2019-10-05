@@ -87,6 +87,14 @@ namespace BLL
             DALobj.Excluir(idProduto);
         }
 
+        //METODO CARRREGA MODELO 
+        public Model_Produto CarregaModeloProduto(int idProduto)
+        {
+            DAL_Produto DALobj = new DAL_Produto(conexao);
+            return DALobj.CarregaModeloProduto(idProduto);
+        }
+
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_Produto : Form
     {
+        public int idProduto = 0;
         public frm_Produto()
         {
             InitializeComponent();
@@ -76,23 +78,28 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadProduto cadProduto = new frm_CadProduto();
-            //ABRIR O FORM DE CAD DE PRODUTO
-            cadProduto.Show();
+            //pega o id da data grid
+            this.idProduto = (Convert.ToInt32(dgvProduto.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Produto bll = new BLL_Produto(con);
+            Model_Produto modelo = bll.CarregaModeloProduto(idProduto);
+
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadProduto cadProduto = new frm_CadProduto();
             cadProduto.btnAlterar.Enabled = true;
             cadProduto.btnSalvar.Enabled = false;
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadProduto.txtId.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[0].Value); //id
-            cadProduto.txtNome.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[1].Value); //nome
-            cadProduto.txtPreco.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[2].Value); //preco
-            cadProduto.txtQtd.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[3].Value); // qtd
-            cadProduto.txtDesc.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[4].Value); // descricao
-            cadProduto.cmbCategoria.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[5].Value); //categora texxto
-            cadProduto.cmbFornecedor.Text = System.Convert.ToString(dgvProduto.CurrentRow.Cells[6].Value); //fornecedor texto
+            cadProduto.txtId.Text = modelo.idProduto.ToString();//id
+            cadProduto.txtNome.Text = modelo.nome.ToString(); //nome
+            cadProduto.txtPreco.Text = modelo.preco.ToString();//preco
+            cadProduto.txtQtd.Text = modelo.quantidade.ToString(); // qtd
+            cadProduto.txtDesc.Text = modelo.descricao.ToString(); // descricao
+            cadProduto.cmbCategoria.SelectedValue = modelo.idCategoria;//categora 
+            cadProduto.cmbFornecedor.SelectedValue = modelo.idFornecedor; //fornecedor 
+            cadProduto.ShowDialog();
+            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO formatar  DATA GRID

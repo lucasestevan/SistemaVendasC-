@@ -39,6 +39,28 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_TipoPagamento CarregaModeloTipoPag(int idTipoPag)
+        {
+            Model_TipoPagamento modelo = new Model_TipoPagamento();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from TipoPagamento where id_tipoPagamento = @id_tipoPagamento";
+            cmd.Parameters.AddWithValue("@id_tipoPagamento", idTipoPag);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
+                modelo.nome = Convert.ToString(registro["nome"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO EXCLUIR
         public void Excluir(int idTipoPagamento)
         {

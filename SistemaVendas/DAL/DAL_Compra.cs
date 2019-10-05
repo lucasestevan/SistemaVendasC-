@@ -38,7 +38,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE Cliente set dataCompra = @dataCompra, nfiscal = @nfiscal, total = @total, nparcelas = @nparcelas, compraStatus = @compraStatus," +
+            cmd.CommandText = "UPDATE Compra set dataCompra = @dataCompra, nfiscal = @nfiscal, total = @total, nparcelas = @nparcelas, compraStatus = @compraStatus," +
                 "id_fornecedor = @id_fornecedor, id_tipoPagamento = @id_tipoPagamento where id_compra = @id_compra";
             cmd.Parameters.AddWithValue("@id_compra", modelo.idCompra);
             cmd.Parameters.Add("@dataCompra", System.Data.SqlDbType.DateTime); //data

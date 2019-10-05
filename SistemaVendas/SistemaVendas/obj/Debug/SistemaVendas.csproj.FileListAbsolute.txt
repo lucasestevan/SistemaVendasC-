@@ -41,6 +41,6 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\bin\Debug\DA
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_AlterarSenha.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadTipoPagamento.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_TipoPagamento.resources
-C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadMovimentacaoCompra.resources
-C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_MovimentacaoCompra.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_VisualizarItensCompra.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Compra.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadCompra.resources

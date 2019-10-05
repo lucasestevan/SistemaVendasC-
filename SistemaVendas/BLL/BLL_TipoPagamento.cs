@@ -51,6 +51,13 @@ namespace BLL
             DALobj.Excluir(idTipoPagamento);
         }
 
+        //METODO CARRREGA MODELO 
+        public Model_TipoPagamento CarregaModeloTipoPagto(int idTipoPagto)
+        {
+            DAL_TipoPagamento DALobj = new DAL_TipoPagamento(conexao);
+            return DALobj.CarregaModeloTipoPag(idTipoPagto);
+        }
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

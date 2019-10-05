@@ -45,6 +45,31 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_Fornecedor CarregaModeloFornecedor(int idFornecedor)
+        {
+            Model_Fornecedor modelo = new Model_Fornecedor();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Fornecedor where id_fornecedor = @id_fornecedor";
+            cmd.Parameters.AddWithValue("@id_fornecedor", idFornecedor);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
+                modelo.nome = Convert.ToString(registro["nome"]);
+                modelo.cpfCNPJ = Convert.ToString(registro["cpfCNPJ"]);
+                modelo.telefone = Convert.ToString(registro["telefone"]);
+                modelo.email = Convert.ToString(registro["email"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO EXCLUIR
         public void Excluir(int idFornecedor)
         {

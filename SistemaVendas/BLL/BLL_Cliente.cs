@@ -61,6 +61,14 @@ namespace BLL
             DALobj.Excluir(idProduto);
         }
 
+        //METODO CARRREGA MODELO COMPRA
+        public Model_Cliente CarregaModeloCliente(int idCliente)
+        {
+            DAL_Cliente DALobj = new DAL_Cliente(conexao);
+            return DALobj.CarregaModeloCliente(idCliente);
+        }
+
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

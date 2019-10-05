@@ -58,7 +58,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.email = txtEmail.Text;
                 modelo.observacao = txtObs.Text;
                 modelo.idEndereco = Convert.ToInt32(txtIdEnde.Text);
-                modelo.numeroEnde =txtNumero.Text;
+                modelo.numeroEnde = txtNumero.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Cliente bll = new BLL_Cliente(con);

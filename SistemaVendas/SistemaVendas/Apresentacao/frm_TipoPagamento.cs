@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_TipoPagamento : Form
     {
+        public int idTipoPagamento = 0;
         public frm_TipoPagamento()
         {
             InitializeComponent();
@@ -77,18 +79,23 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadTipoPagamento pagamento = new frm_CadTipoPagamento();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            pagamento.Show();
+            //pega o id da data grid
+            this.idTipoPagamento = (Convert.ToInt32(dgvTipoPag.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
-            pagamento.btnAlterar.Enabled = true;
-            pagamento.btnSalvar.Enabled = false;
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
+            Model_TipoPagamento modelo = bll.CarregaModeloTipoPagto(idTipoPagamento);
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            pagamento.txtId.Text = System.Convert.ToString(dgvTipoPag.CurrentRow.Cells[0].Value);
-            pagamento.txtNome.Text = System.Convert.ToString(dgvTipoPag.CurrentRow.Cells[1].Value);
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadTipoPagamento cadPagamento = new frm_CadTipoPagamento();
+            cadPagamento.btnAlterar.Enabled = true;
+            cadPagamento.btnSalvar.Enabled = false;
+
+            cadPagamento.txtId.Text = modelo.idTipoPagamento.ToString();
+            cadPagamento.txtNome.Text = modelo.nome.ToString();
+            cadPagamento.ShowDialog();
+            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO  DATA GRID

@@ -102,7 +102,22 @@ namespace BLL
             DAL_ItensCompra DALobj = new DAL_ItensCompra(conexao);
             DALobj.Excluir(modelo);
         }
-    
+
+        //METODO EXCLUIR tudo
+        public void ExcluirTodosItens(int idCompra)
+        {
+            DAL_ItensCompra DALobj = new DAL_ItensCompra(conexao);
+            DALobj.ExcluirTodosItens(idCompra);
+        }
+
+
+        //METODO CARRREGA MODELO COMPRA
+        public Model_ItensCompra CarregaModeloItensCompra(int idCompra)
+        {
+            DAL_ItensCompra DALobj = new DAL_ItensCompra(conexao);
+            return DALobj.CarregaModeloItensCompra(idCompra);
+        }
+
         //METODO LOCALIZAR
         public DataTable Localizar(int idCompra)
         {

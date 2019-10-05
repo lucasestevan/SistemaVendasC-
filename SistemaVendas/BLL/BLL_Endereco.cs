@@ -69,6 +69,14 @@ namespace BLL
             DALobj.Excluir(idEndereco);
         }
 
+        //METODO CARRREGA MODELO
+        public Model_Endereco CarregaModeloEndereco(int idEndereco)
+        {
+            DAL_Endereco DALobj = new DAL_Endereco(conexao);
+            return DALobj.CarregaModeloEndereco(idEndereco);
+        }
+
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

@@ -16,7 +16,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //LOAD DO FORM
         private void Frm_CadProduto_Load(object sender, EventArgs e)
         {
-            listarComboboxBox();
+            
         }
 
         //METODO LISTAR COMBOBOX
@@ -189,6 +189,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 txtQtd.Text = "0,00";
             }
+        }
+
+        private void CmbCategoria_Click(object sender, EventArgs e)
+        {
+            listarComboboxBox();
         }
     }
 }

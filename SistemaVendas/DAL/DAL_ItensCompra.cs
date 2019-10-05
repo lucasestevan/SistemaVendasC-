@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -35,7 +36,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE ItensCompra set quantidade = @quantidade, " +
-                "valor = @valor, where id_itensCompra = @id_itensCompra and id_compra = @id_compra and id_produto = @id_produto";
+                "valor = @valor where id_itensCompra = @id_itensCompra and id_compra = @id_compra and id_produto = @id_produto";
             cmd.Parameters.AddWithValue("@id_itensCompra", modelo.idItensCompra);
             cmd.Parameters.AddWithValue("@quantidade", modelo.Quantidade);
             cmd.Parameters.AddWithValue("@valor", modelo.Valor);
@@ -45,6 +46,32 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
+
+        //METODO CARREGA MODELO
+        public Model_ItensCompra CarregaModeloItensCompra(int idItensCompra)
+        {
+            Model_ItensCompra modelo = new Model_ItensCompra();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from ItensCompra where id_itensCompra = @id_itensCompra";
+            cmd.Parameters.AddWithValue("@id_itensCompra", idItensCompra);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idItensCompra = Convert.ToInt32(registro["id_itensCompra"]);
+                modelo.Quantidade = Convert.ToDouble(registro["quantidade"]);
+                modelo.Valor = Convert.ToDouble(registro["valor"]);
+                modelo.idCompraItensCompra = Convert.ToInt32(registro["id_compra"]);
+                modelo.idProdutoItensCompra = Convert.ToInt32(registro["id_produto"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
 
         //METODO EXCLUIR
         public void Excluir(Model_ItensCompra modelo)
@@ -59,6 +86,19 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
+
+        //METODO EXCLUIR todos 
+        public void ExcluirTodosItens(int idCompra)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "delete from ItensCompra where id_compra = @id_compra";
+            cmd.Parameters.AddWithValue("@id_compra", idCompra);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
+
 
         //METODO LOCALIZAR
         public DataTable Localizar(int idCompra)

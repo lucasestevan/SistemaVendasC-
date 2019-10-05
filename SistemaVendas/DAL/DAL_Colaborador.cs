@@ -49,6 +49,33 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_Colaborador CarregaModeloColaborador(int idColaborador)
+        {
+            Model_Colaborador modelo = new Model_Colaborador();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Colaborador where id_colaborador = @id_colaborador";
+            cmd.Parameters.AddWithValue("@id_colaborador", idColaborador);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idColaborador = Convert.ToInt32(registro["id_colaborador"]);
+                modelo.nome = Convert.ToString(registro["nome"]);
+                modelo.cpf = Convert.ToString(registro["cpf"]);
+                modelo.senha = Convert.ToString(registro["senha"]);
+                modelo.telefone = Convert.ToString(registro["telefone"]);
+                modelo.celular = Convert.ToString(registro["celular"]);
+                modelo.descricao = Convert.ToString(registro["descricao"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO EXCLUIR
         public void Excluir(int idColaborador)
         {

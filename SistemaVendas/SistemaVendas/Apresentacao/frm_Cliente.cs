@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_Cliente : Form
     {
+        public int idCliente = 0;
+
         public frm_Cliente()
         {
             InitializeComponent();
@@ -76,35 +79,39 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadCliente cadCliente = new frm_CadCliente();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            cadCliente.Show();
+            //pega o id da data grid
+            this.idCliente = (Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Cliente bll = new BLL_Cliente(con);
+            Model_Cliente modelo = bll.CarregaModeloCliente(idCliente);
+
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadCliente cadCliente = new frm_CadCliente();
             cadCliente.btnAlterar.Enabled = true;
             cadCliente.btnSalvar.Enabled = false;
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadCliente.txtId.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[0].Value);
-            cadCliente.txtNome.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[1].Value);
-            cadCliente.txtCPF.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[2].Value);
-            cadCliente.txtTelefone.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[3].Value);
-            cadCliente.txtCel.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[4].Value);
-            cadCliente.txtEmail.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[5].Value);
-            cadCliente.txtObs.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[6].Value);
-            cadCliente.txtIdEnde.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[7].Value);
-            cadCliente.txtCep.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[8].Value); //Cep
-            cadCliente.txtRua.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[9].Value); //RUA
-            cadCliente.txtNumero.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[10].Value); // NUMERO
-            cadCliente.txtBairro.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[11].Value); // BAIRRO
-            cadCliente.txtCidade.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[12].Value);// CIDADE//
-            cadCliente.txtUf.Text = System.Convert.ToString(dgvCliente.CurrentRow.Cells[13].Value); //UF
-
+            cadCliente.txtId.Text = modelo.idCliente.ToString();
+            cadCliente.txtNome.Text = modelo.nome.ToString();
+            cadCliente.txtCPF.Text = modelo.cpf.ToString();
+            cadCliente.txtTelefone.Text = modelo.telefone.ToString();
+            cadCliente.txtCel.Text = modelo.celular.ToString();
+            cadCliente.txtEmail.Text = modelo.email.ToString();
+            cadCliente.txtObs.Text = modelo.observacao.ToString();
+            cadCliente.txtIdEnde.Text = modelo.idEndereco.ToString();
+            cadCliente.txtCep.Text = modelo.celular.ToString();
+            //cadCliente.txtRua.Text = modelo.nome.ToString(); //RUA
+            cadCliente.txtNumero.Text = modelo.numeroEnde.ToString();// NUMERO
+           // cadCliente.txtBairro.Text = modelo.nome.ToString(); // BAIRRO
+           // cadCliente.txtCidade.Text = modelo.nome.ToString();// CIDADE//
+            //cadCliente.txtUf.Text = modelo.nome.ToString(); //UF
+            cadCliente.ShowDialog();
+            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO formatar  DATA GRID
-       private void FormatarDGV()
+        private void FormatarDGV()
         {
             dgvCliente.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
             dgvCliente.Columns[0].Width = 45; //TAMANHO DA LARGURA

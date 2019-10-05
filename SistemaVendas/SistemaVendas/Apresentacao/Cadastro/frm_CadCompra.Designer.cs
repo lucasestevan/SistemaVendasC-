@@ -1,6 +1,6 @@
 ﻿namespace SistemaVendas.Apresentacao.Cadastro
 {
-    partial class frm_CadMovimentacaoCompra
+    partial class frm_CadCompra
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.txtNParcelas = new System.Windows.Forms.NumericUpDown();
             this.cbProtudo = new System.Windows.Forms.ComboBox();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnAddProdu = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -55,13 +56,11 @@
             this.txtNfiscal = new System.Windows.Forms.TextBox();
             this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
             this.txtTotalCompra = new System.Windows.Forms.TextBox();
-            this.txtIdCompra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFormaPagto = new System.Windows.Forms.ComboBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
@@ -79,7 +78,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(521, 18);
+            this.btnSalvar.Location = new System.Drawing.Point(521, 27);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 44;
@@ -92,6 +91,7 @@
             this.groupBox1.Controls.Add(this.txtNParcelas);
             this.groupBox1.Controls.Add(this.cbProtudo);
             this.groupBox1.Controls.Add(this.cbFornecedor);
+            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.btnAddProdu);
             this.groupBox1.Controls.Add(this.label12);
@@ -108,7 +108,6 @@
             this.groupBox1.Controls.Add(this.txtNfiscal);
             this.groupBox1.Controls.Add(this.dtPgtoInicial);
             this.groupBox1.Controls.Add(this.txtTotalCompra);
-            this.groupBox1.Controls.Add(this.txtIdCompra);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
@@ -142,6 +141,14 @@
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(202, 21);
             this.cbFornecedor.TabIndex = 57;
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(10, 32);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(156, 20);
+            this.txtId.TabIndex = 46;
             // 
             // label13
             // 
@@ -294,7 +301,7 @@
             this.dtCompra.Name = "dtCompra";
             this.dtCompra.Size = new System.Drawing.Size(99, 20);
             this.dtCompra.TabIndex = 37;
-            this.dtCompra.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
+            this.dtCompra.Value = new System.DateTime(2019, 10, 5, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -332,14 +339,6 @@
             this.txtTotalCompra.Size = new System.Drawing.Size(80, 29);
             this.txtTotalCompra.TabIndex = 35;
             this.txtTotalCompra.Text = "0.00";
-            // 
-            // txtIdCompra
-            // 
-            this.txtIdCompra.Location = new System.Drawing.Point(8, 32);
-            this.txtIdCompra.MaxLength = 50;
-            this.txtIdCompra.Name = "txtIdCompra";
-            this.txtIdCompra.Size = new System.Drawing.Size(203, 20);
-            this.txtIdCompra.TabIndex = 27;
             // 
             // label4
             // 
@@ -385,14 +384,7 @@
             this.cbFormaPagto.Size = new System.Drawing.Size(143, 21);
             this.cbFormaPagto.TabIndex = 29;
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(539, 381);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(35, 20);
-            this.txtId.TabIndex = 46;
-            // 
-            // frm_CadMovimentacaoCompra
+            // frm_CadCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -400,16 +392,14 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtId);
-            this.Name = "frm_CadMovimentacaoCompra";
-            this.Text = "frm_CadMovimentacaoCompra";
+            this.Name = "frm_CadCompra";
+            this.Text = "Cadastro Compra";
             this.Load += new System.EventHandler(this.Frm_CadMovimentacaoCompra_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -426,14 +416,12 @@
         internal System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dgvCompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.TextBox txtNfiscal;
         private System.Windows.Forms.DateTimePicker dtPgtoInicial;
         internal System.Windows.Forms.TextBox txtTotalCompra;
-        internal System.Windows.Forms.TextBox txtIdCompra;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -442,12 +430,13 @@
         internal System.Windows.Forms.TextBox txtId;
         internal System.Windows.Forms.ComboBox cbFornecedor;
         internal System.Windows.Forms.ComboBox cbProtudo;
-        private System.Windows.Forms.NumericUpDown txtNParcelas;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn proQtd;
         private System.Windows.Forms.DataGridViewTextBoxColumn proValorUnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn proValorTotal;
         internal System.Windows.Forms.DateTimePicker dtCompra;
+        internal System.Windows.Forms.DataGridView dgvCompra;
+        internal System.Windows.Forms.NumericUpDown txtNParcelas;
     }
 }

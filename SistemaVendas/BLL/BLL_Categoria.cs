@@ -51,6 +51,13 @@ namespace BLL
             DALobj.Excluir(idCategoria);
         }
 
+        //METODO CARRREGA MODELO COMPRA
+        public Model_Categoria CarregaModeloCategoria(int idCategoria)
+        {
+            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            return DALobj.CarregaModeloCategoria(idCategoria);
+        }
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

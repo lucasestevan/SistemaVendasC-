@@ -3,16 +3,16 @@ using DAL;
 using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
 {
-    public partial class frm_MovimentacaoCompra : Form
+    public partial class frm_Compra : Form
     {
         public int idCompra = 0;
 
-
-        public frm_MovimentacaoCompra()
+        public frm_Compra()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO NOVO
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            frm_CadMovimentacaoCompra cadMovimentacaoCompra = new frm_CadMovimentacaoCompra();
+            frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
             cadMovimentacaoCompra.ShowDialog();
         }
 
@@ -35,15 +35,21 @@ namespace SistemaVendas.Apresentacao
                 {
                     try
                     {
-                        //CRIAR CONEXAO
+                        //EXCLUIR ITENS DA COMPRA 
                         DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                        BLL_Compra bll = new BLL_Compra(con);
+                        BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
+                        bllItens.ExcluirTodosItens(Convert.ToInt32(txtId.Text));
 
-                        //PASSAR O CODIGO QUE ESTA NA TELA
-                        bll.Excluir(Convert.ToInt32(txtId.Text));
+
+                        //excluir Compra
+                        BLL_Compra bllCompra = new BLL_Compra(con);
+                        bllCompra.Excluir(Convert.ToInt32(txtId.Text));
+
                         MessageBox.Show("Compra excluida com sucesso!");
                         BtnPesquisar_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
                         txtId.Text = "";
+
+                        //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
                     }
                     catch (Exception ex)
                     {
@@ -60,7 +66,7 @@ namespace SistemaVendas.Apresentacao
         //EVENTO AO CLIKAR NA DATAGRID
         private void DgvCompra_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             //AO CLIKAR NA GRID JOGAR PARA O CAMPO ID exame
             txtId.Text = System.Convert.ToString(dgvCompra.CurrentRow.Cells[0].Value);
 
@@ -171,13 +177,11 @@ namespace SistemaVendas.Apresentacao
                 //CRIAR O FORM VIZUALIZAR ITEM
                 frm_VisualizarItensCompra visualizarItensCompra = new frm_VisualizarItensCompra();
 
-
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
 
                 visualizarItensCompra.dgvItensCompra.DataSource = bllItens.Localizar(Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
                 visualizarItensCompra.ShowDialog();
-
             }
         }
 
@@ -195,16 +199,35 @@ namespace SistemaVendas.Apresentacao
                 Model_Compra modelo = bll.CarregaModeloCompra(idCompra);
 
                 //CHAMAR O FORM CAD COMPRA
-                frm_CadMovimentacaoCompra cadMovimentacaoCompra = new frm_CadMovimentacaoCompra();
+                frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
                 cadMovimentacaoCompra.btnSalvar.Enabled = false;
 
                 cadMovimentacaoCompra.txtId.Text = modelo.idCompra.ToString();
                 cadMovimentacaoCompra.txtNfiscal.Text = modelo.nFiscal.ToString();
                 cadMovimentacaoCompra.dtCompra.Value = modelo.dataCompra;
                 cadMovimentacaoCompra.cbFornecedor.SelectedValue = modelo.idFornecedor;
+                cadMovimentacaoCompra.txtNParcelas.Value = modelo.nParcelas;
                 cadMovimentacaoCompra.cbFormaPagto.SelectedValue = modelo.idTipoPagamento;
                 cadMovimentacaoCompra.txtTotalCompra.Text = modelo.total.ToString();
                 cadMovimentacaoCompra.totalCompra = modelo.total;
+
+                //itens da compra
+                BLL_ItensCompra bll_Itens = new BLL_ItensCompra(con);
+                DataTable tabela = bll_Itens.Localizar(modelo.idCompra);
+
+                //jogar todos os itens na tela
+                for (int i = 0; i < tabela.Rows.Count; i++)
+                {
+                    string icod = tabela.Rows[i]["id_produto"].ToString();
+                    string inome = tabela.Rows[i]["nome"].ToString();
+                    string iqtd = tabela.Rows[i]["quantidade"].ToString();
+                    string ivaloruni = tabela.Rows[i]["valor"].ToString();
+                    Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
+
+                    String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
+                    cadMovimentacaoCompra.dgvCompra.Rows.Add(it);
+                }
+
                 cadMovimentacaoCompra.ShowDialog();
             }
         }

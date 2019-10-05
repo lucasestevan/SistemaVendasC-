@@ -125,6 +125,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(143, 21);
             this.cmbCategoria.TabIndex = 10;
+            this.cmbCategoria.Click += new System.EventHandler(this.CmbCategoria_Click);
             // 
             // txtPreco
             // 

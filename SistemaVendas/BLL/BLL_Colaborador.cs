@@ -63,6 +63,14 @@ namespace BLL
             DALobj.Excluir(idColaborador);
         }
 
+        //METODO CARRREGA MODELO
+        public Model_Colaborador CarregaModeloColaborador(int idColaborador)
+        {
+            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            return DALobj.CarregaModeloColaborador(idColaborador);
+        }
+
+
         //METODO APAGAR SENHA
         public void ApagarSenha(Model_Colaborador modelo)
         {

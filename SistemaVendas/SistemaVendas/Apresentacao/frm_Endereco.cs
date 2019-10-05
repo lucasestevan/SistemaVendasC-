@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_Endereco : Form
     {
+        public int idEndereco = 0;
+
         public frm_Endereco()
         {
             InitializeComponent();
@@ -65,22 +68,27 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadEndereco cadEndereco = new frm_CadEndereco();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            cadEndereco.Show();
+            //pega o id da data grid
+            this.idEndereco = (Convert.ToInt32(dgvEndereco.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Endereco bll = new BLL_Endereco(con);
+            Model_Endereco modelo = bll.CarregaModeloEndereco(idEndereco);
+
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadEndereco cadEndereco = new frm_CadEndereco();
             cadEndereco.btnAlterar.Enabled = true;
             cadEndereco.btnSalvar.Enabled = false;
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadEndereco.txtId.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[0].Value);
-            cadEndereco.txtCep.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[1].Value);
-            cadEndereco.txtRua.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[2].Value);
-            cadEndereco.txtBairro.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[3].Value);
-            cadEndereco.txtCidade.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[4].Value);
-            cadEndereco.txtUf.Text = System.Convert.ToString(dgvEndereco.CurrentRow.Cells[5].Value);
+            cadEndereco.txtId.Text = modelo.idEndereco.ToString();
+            cadEndereco.txtCep.Text = modelo.cep.ToString();
+            cadEndereco.txtRua.Text = modelo.rua.ToString();
+            cadEndereco.txtBairro.Text = modelo.bairro.ToString();
+            cadEndereco.txtCidade.Text = modelo.cidade.ToString();
+            cadEndereco.txtUf.Text = modelo.uf.ToString();
+            cadEndereco.ShowDialog();
+            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO FORMATAR DATA GRID

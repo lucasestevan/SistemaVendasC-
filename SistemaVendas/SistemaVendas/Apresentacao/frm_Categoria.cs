@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_Categoria : Form
     {
+        public int idCategoria = 0;
+
         public frm_Categoria()
         {
             InitializeComponent();
@@ -77,19 +80,23 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadCategoria cadCategoria = new frm_CadCategoria();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            cadCategoria.Show();
+            //pega o id da data grid
+            this.idCategoria = (Convert.ToInt32(dgvCategoria.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Categoria bll = new BLL_Categoria(con);
+            Model_Categoria modelo = bll.CarregaModeloCategoria(idCategoria);
+
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadCategoria cadCategoria = new frm_CadCategoria();
             cadCategoria.btnAlterar.Enabled = true;
             cadCategoria.btnSalvar.Enabled = false;
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadCategoria.txtId.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[0].Value);
-            cadCategoria.txtNome.Text = System.Convert.ToString(dgvCategoria.CurrentRow.Cells[1].Value);
-
+            cadCategoria.txtId.Text = modelo.IdCategoria.ToString();
+            cadCategoria.txtNome.Text = modelo.NomeCategoria.ToString();
+            cadCategoria.ShowDialog();
+            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO  DATA GRID

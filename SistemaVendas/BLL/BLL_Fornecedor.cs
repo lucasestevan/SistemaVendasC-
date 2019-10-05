@@ -57,6 +57,13 @@ namespace BLL
             DALobj.Excluir(idFornecedor);
         }
 
+        //METODO CARRREGA MODELO 
+        public Model_Fornecedor CarregaModeloFornecedor(int idFornecedor)
+        {
+            DAL_Fornecedor DALobj = new DAL_Fornecedor(conexao);
+            return DALobj.CarregaModeloFornecedor(idFornecedor);
+        }
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

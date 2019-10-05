@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
 {
-    public partial class frm_CadMovimentacaoCompra : Form
+    public partial class frm_CadCompra : Form
     {
         public double totalCompra = 0;
 
 
-        public frm_CadMovimentacaoCompra()
+        public frm_CadCompra()
         {
             InitializeComponent();
         }
@@ -70,30 +70,54 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
+                //cOMPRA
                 //LEITURA DOS DADOS
-                Model_Produto modelo = new Model_Produto();
-                modelo.idProduto = Convert.ToInt32(txtId.Text);
-                modelo.nome = txtNome.Text;
-                modelo.preco = Convert.ToDouble(txtPreco.Text);
-                modelo.quantidade = Convert.ToDouble(txtQtd.Text);
-                modelo.descricao = txtDesc.Text;
-                modelo.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
-                modelo.idFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                Model_Compra modeloCompra = new Model_Compra();
+                modeloCompra.idCompra = Convert.ToInt32(txtId.Text);
+                modeloCompra.dataCompra = dtCompra.Value;
+                modeloCompra.nFiscal = Convert.ToInt32(txtNfiscal.Text);
+                modeloCompra.nParcelas = Convert.ToInt32(txtNParcelas.Text);
+                modeloCompra.CompraStatus = "Ativo";
+                modeloCompra.total = Convert.ToInt32(txtTotalCompra.Text);
+                modeloCompra.idFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
+                modeloCompra.idTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
+
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Produto bll = new BLL_Produto(con);
+                BLL_Compra bllCompra = new BLL_Compra(con);
+                //CADASTRAR compra
+                bllCompra.Alterar(modeloCompra);
 
-                //CADASTRAR UMA CATEGORIA
-                bll.Alterar(modelo);
-                MessageBox.Show("Produto alterado com sucesso!");
+                //ITENS COMPRA
+                Model_ItensCompra modeloItensCompra = new Model_ItensCompra();
+                BLL_ItensCompra bllItensCompra = new BLL_ItensCompra(con);
+
+                //EXCLUIR TODOS OS ITENS DA COMPRA
+               bllItensCompra.ExcluirTodosItens(modeloCompra.idCompra);
+
+                //CADASTRAR ITENS COMPRA
+                for (int i = 0; i < dgvCompra.RowCount; i++)
+                {
+                    modeloItensCompra.idItensCompra = i + 1;
+                    modeloItensCompra.idCompraItensCompra = modeloCompra.idCompra;
+                    modeloItensCompra.idProdutoItensCompra = Convert.ToInt32(dgvCompra.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
+                    modeloItensCompra.Quantidade = Convert.ToDouble(dgvCompra.Rows[i].Cells[2].Value); //PEGA A qtd  DO DATA GRID
+                    modeloItensCompra.Valor = Convert.ToDouble(dgvCompra.Rows[i].Cells[3].Value); //PEGA O valor DO DATA GRID
+                    bllItensCompra.Incluir(modeloItensCompra);
+
+                    //ALTERAR A QUANTIDADE DE PRODUTOS COMPRADOS NA TABLE DA PRODUTOS
+                    //executar a TRIGGER CRIADA NO BD
+                }
+
+                MessageBox.Show("Compra alterada com sucesso!");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao alterar o Produto \n" + ex.Message);
-            }*/
+                MessageBox.Show("Erro ao alterada Produto \n" + ex.Message);
+            }
         }
 
         //LOAD DO FORM

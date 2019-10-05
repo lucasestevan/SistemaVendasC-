@@ -47,6 +47,32 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_Endereco CarregaModeloEndereco(int idEndereco)
+        {
+            Model_Endereco modelo = new Model_Endereco();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Endereco where id_endereco = @id_endereco";
+            cmd.Parameters.AddWithValue("@id_endereco", idEndereco);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idEndereco = Convert.ToInt32(registro["id_endereco"]);
+                modelo.cep = Convert.ToString(registro["cep"]);
+                modelo.rua = Convert.ToString(registro["rua"]);
+                modelo.bairro = Convert.ToString(registro["bairro"]);
+                modelo.cidade = Convert.ToString(registro["cidade"]);
+                modelo.uf = Convert.ToString(registro["uf"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO EXCLUIR
         public void Excluir(int idEndereco)
         {

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_Fornecedor : Form
     {
+        public int idFornecedor = 0;
         public frm_Fornecedor()
         {
             InitializeComponent();
@@ -76,22 +78,26 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadFornecedor cadFornecedor = new frm_CadFornecedor();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            cadFornecedor.Show();
+            //pega o id da data grid
+            this.idFornecedor = (Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Fornecedor bll = new BLL_Fornecedor(con);
+            Model_Fornecedor modelo = bll.CarregaModeloFornecedor(idFornecedor);
+
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadFornecedor cadFornecedor = new frm_CadFornecedor();
             cadFornecedor.btnAlterar.Enabled = true;
             cadFornecedor.btnSalvar.Enabled = false;
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadFornecedor.txtId.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[0].Value);
-
-            cadFornecedor.txtNome.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[1].Value);
-            cadFornecedor.txtCPF.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[2].Value);
-            cadFornecedor.txtTel.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[3].Value);
-            cadFornecedor.txtEmail.Text = System.Convert.ToString(dgvFornecedor.CurrentRow.Cells[4].Value);
+            cadFornecedor.txtId.Text = modelo.idFornecedor.ToString();
+            cadFornecedor.txtNome.Text = modelo.nome.ToString();
+            cadFornecedor.txtCPF.Text = modelo.cpfCNPJ.ToString();
+            cadFornecedor.txtTel.Text = modelo.telefone.ToString();
+            cadFornecedor.txtEmail.Text = modelo.email.ToString();
+            cadFornecedor.ShowDialog();
+            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO  DATA GRID

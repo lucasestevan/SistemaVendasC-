@@ -1,6 +1,6 @@
 ﻿namespace SistemaVendas.Apresentacao
 {
-    partial class frm_MovimentacaoCompra
+    partial class frm_Compra
     {
         /// <summary>
         /// Required designer variable.

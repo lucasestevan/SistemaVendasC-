@@ -66,6 +66,35 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_Cliente CarregaModeloCliente(int idCliente)
+        {
+            Model_Cliente modelo = new Model_Cliente();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Cliente where id_cliente = @id_cliente";
+            cmd.Parameters.AddWithValue("@id_cliente", idCliente);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idCliente = Convert.ToInt32(registro["id_cliente"]);
+                modelo.nome = Convert.ToString(registro["nome"]);
+                modelo.cpf = Convert.ToString(registro["cpf"]);
+                modelo.telefone = Convert.ToString(registro["telefone"]);
+                modelo.celular = Convert.ToString(registro["celular"]);
+                modelo.email = Convert.ToString(registro["email"]);
+                modelo.observacao = Convert.ToString(registro["observacao"]);
+                modelo.idEndereco = Convert.ToInt32(registro["id_endereco"]);
+                modelo.numeroEnde = Convert.ToString(registro["numeroEnde"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {

@@ -49,6 +49,33 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO CARREGA MODELO
+        public Model_Produto CarregaModeloProduto(int idProduto)
+        {
+            Model_Produto modelo = new Model_Produto();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from Produto where id_produto = @id_produto";
+            cmd.Parameters.AddWithValue("@id_produto", idProduto);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            //SE EXITIR ALGUMA LINHA EXECUTAR
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.idProduto = Convert.ToInt32(registro["id_produto"]);
+                modelo.nome = Convert.ToString(registro["nome"]);
+                modelo.preco = Convert.ToDouble(registro["preco"]);
+                modelo.quantidade = Convert.ToDouble(registro["quantidade"]);
+                modelo.descricao = Convert.ToString(registro["descricao"]);
+                modelo.idCategoria = Convert.ToInt32(registro["id_categoria"]);
+                modelo.idFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         //METODO EXCLUIR
         public void Excluir(int idProduto)
         {

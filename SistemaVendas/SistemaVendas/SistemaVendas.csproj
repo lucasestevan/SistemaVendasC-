@@ -82,11 +82,11 @@
     <Compile Include="Apresentacao\Cadastro\frm_CadFornecedor.Designer.cs">
       <DependentUpon>frm_CadFornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\Cadastro\frm_CadMovimentacaoCompra.cs">
+    <Compile Include="Apresentacao\Cadastro\frm_CadCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\Cadastro\frm_CadMovimentacaoCompra.Designer.cs">
-      <DependentUpon>frm_CadMovimentacaoCompra.cs</DependentUpon>
+    <Compile Include="Apresentacao\Cadastro\frm_CadCompra.Designer.cs">
+      <DependentUpon>frm_CadCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Cadastro\frm_CadProduto.cs">
       <SubType>Form</SubType>
@@ -142,11 +142,11 @@
     <Compile Include="Apresentacao\frm_Menu.Designer.cs">
       <DependentUpon>frm_Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\frm_MovimentacaoCompra.cs">
+    <Compile Include="Apresentacao\frm_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\frm_MovimentacaoCompra.Designer.cs">
-      <DependentUpon>frm_MovimentacaoCompra.cs</DependentUpon>
+    <Compile Include="Apresentacao\frm_Compra.Designer.cs">
+      <DependentUpon>frm_Compra.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\frm_TipoPagamento.cs">
       <SubType>Form</SubType>
@@ -192,8 +192,8 @@
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadFornecedor.resx">
       <DependentUpon>frm_CadFornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadMovimentacaoCompra.resx">
-      <DependentUpon>frm_CadMovimentacaoCompra.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadCompra.resx">
+      <DependentUpon>frm_CadCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadProduto.resx">
       <DependentUpon>frm_CadProduto.cs</DependentUpon>
@@ -222,8 +222,8 @@
     <EmbeddedResource Include="Apresentacao\frm_Menu.resx">
       <DependentUpon>frm_Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\frm_MovimentacaoCompra.resx">
-      <DependentUpon>frm_MovimentacaoCompra.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\frm_Compra.resx">
+      <DependentUpon>frm_Compra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Produto.resx">
       <DependentUpon>frm_Produto.cs</DependentUpon>

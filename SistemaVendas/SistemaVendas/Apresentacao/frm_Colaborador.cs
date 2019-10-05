@@ -9,6 +9,8 @@ namespace SistemaVendas.Apresentacao
 {
     public partial class frm_Colaborador : Form
     {
+        public int idColaborador = 0;
+
         public frm_Colaborador()
         {
             InitializeComponent();
@@ -77,23 +79,28 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            frm_CadColaborador cadColaborador = new frm_CadColaborador();
-            //ABRIR O FORM DE CAD DE PACIENTE
-            cadColaborador.Show();
+            //pega o id da data grid
+            this.idColaborador = (Convert.ToInt32(dgvColaborador.CurrentRow.Cells[0].Value));
 
-            //HABILITAR CAMPOS e botao alterar NO FORM PARA PODER ALTERAR
-            //cadCategoria.habilitarCampos();
+            //chamr modelo bll e dal 
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Colaborador bll = new BLL_Colaborador(con);
+            Model_Colaborador modelo = bll.CarregaModeloColaborador(idColaborador);
+
+            //CHAMAR O FORM Card e passar as informacoes
+            frm_CadColaborador cadColaborador = new frm_CadColaborador();
             cadColaborador.btnAlterar.Enabled = true;
             cadColaborador.btnSalvar.Enabled = false;
 
-            // ENVIAR PARA OS DADOS AO FORM PARA ALTERAR
-            cadColaborador.txtId.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[0].Value); //id
-            cadColaborador.txtNome.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[1].Value); //nome
-            cadColaborador.txtCPF.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[2].Value); // cpf
+            cadColaborador.txtId.Text = modelo.idColaborador.ToString();//id
+            cadColaborador.txtNome.Text = modelo.nome.ToString(); //nome
+            cadColaborador.txtCPF.Text = modelo.cpf.ToString();// cpf
             cadColaborador.txtSenha.Enabled = false; //senha
-            cadColaborador.txtTelefone.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[4].Value); // telefone 
-            cadColaborador.txtCel.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[5].Value); // celular 
-            cadColaborador.txtDesc.Text = System.Convert.ToString(dgvColaborador.CurrentRow.Cells[6].Value); // descricao 
+            cadColaborador.txtTelefone.Text = modelo.telefone.ToString(); // telefone 
+            cadColaborador.txtCel.Text = modelo.celular.ToString(); // celular 
+            cadColaborador.txtDesc.Text = modelo.descricao.ToString(); // descricao 
+            cadColaborador.ShowDialog();
+            this.BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
         //METODO formatar  DATA GRID
