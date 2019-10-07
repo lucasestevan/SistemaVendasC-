@@ -38,6 +38,7 @@
             this.btnEndereco = new System.Windows.Forms.Button();
             this.txtTipoPagto = new System.Windows.Forms.Button();
             this.btnCompra = new System.Windows.Forms.Button();
+            this.btnPagamento = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCliente
@@ -140,11 +141,22 @@
             this.btnCompra.UseVisualStyleBackColor = true;
             this.btnCompra.Click += new System.EventHandler(this.BtnCompra_Click);
             // 
+            // btnPagamento
+            // 
+            this.btnPagamento.Location = new System.Drawing.Point(262, 90);
+            this.btnPagamento.Name = "btnPagamento";
+            this.btnPagamento.Size = new System.Drawing.Size(75, 23);
+            this.btnPagamento.TabIndex = 10;
+            this.btnPagamento.Text = "Pagamento";
+            this.btnPagamento.UseVisualStyleBackColor = true;
+            this.btnPagamento.Click += new System.EventHandler(this.BtnPagamento_Click);
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 450);
+            this.Controls.Add(this.btnPagamento);
             this.Controls.Add(this.btnCompra);
             this.Controls.Add(this.txtTipoPagto);
             this.Controls.Add(this.btnEndereco);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Button btnEndereco;
         private System.Windows.Forms.Button txtTipoPagto;
         private System.Windows.Forms.Button btnCompra;
+        private System.Windows.Forms.Button btnPagamento;
     }
 }

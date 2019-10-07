@@ -44,3 +44,4 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\Si
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_VisualizarItensCompra.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Compra.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadCompra.resources
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.frm_PagamentoCompra.resources

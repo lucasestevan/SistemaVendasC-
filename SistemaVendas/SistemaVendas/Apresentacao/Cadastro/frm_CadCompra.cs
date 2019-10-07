@@ -10,7 +10,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
     {
         public double totalCompra = 0;
 
-
         public frm_CadCompra()
         {
             InitializeComponent();
@@ -25,9 +24,9 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 //LEITURA DOS DADOS
                 Model_Compra modeloCompra = new Model_Compra();
                 modeloCompra.dataCompra = dtCompra.Value;
-                modeloCompra.nFiscal = Convert.ToInt32(txtNfiscal.Text.Length);
+                modeloCompra.nFiscal = Convert.ToInt32(txtNfiscal.Text);
                 modeloCompra.nParcelas = Convert.ToInt32(txtNParcelas.Text);
-                modeloCompra.CompraStatus = "Ativo";
+                modeloCompra.CompraStatus = "ABERTO";
                 modeloCompra.total = Convert.ToInt32(txtTotalCompra.Text);
                 modeloCompra.idFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
                 modeloCompra.idTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
@@ -55,9 +54,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
 
                     //ALTERAR A QUANTIDADE DE PRODUTOS COMPRADOS NA TABLE DA PRODUTOS
                     //TRIGGER CRIADA NO BD
-
                 }
-
                 MessageBox.Show("Compra cadastrada com sucesso!");
                 this.Close();
             }
@@ -79,7 +76,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modeloCompra.dataCompra = dtCompra.Value;
                 modeloCompra.nFiscal = Convert.ToInt32(txtNfiscal.Text);
                 modeloCompra.nParcelas = Convert.ToInt32(txtNParcelas.Text);
-                modeloCompra.CompraStatus = "Ativo";
+                modeloCompra.CompraStatus = "ABERTO";
                 modeloCompra.total = Convert.ToInt32(txtTotalCompra.Text);
                 modeloCompra.idFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
                 modeloCompra.idTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);

@@ -50,6 +50,8 @@
             this.gbCodigo = new System.Windows.Forms.GroupBox();
             this.txtIdCompraPes = new System.Windows.Forms.TextBox();
             this.btnPesquisarCod = new System.Windows.Forms.Button();
+            this.btnSelecionar = new System.Windows.Forms.Button();
+            this.btnEstornar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbFornecedor.SuspendLayout();
@@ -282,11 +284,33 @@
             this.btnPesquisarCod.UseVisualStyleBackColor = true;
             this.btnPesquisarCod.Click += new System.EventHandler(this.BtnPesquisarCod_Click);
             // 
-            // frm_MovimentacaoCompra
+            // btnSelecionar
+            // 
+            this.btnSelecionar.Location = new System.Drawing.Point(473, 214);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSelecionar.TabIndex = 49;
+            this.btnSelecionar.Text = "Selecionar";
+            this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
+            // 
+            // btnEstornar
+            // 
+            this.btnEstornar.Location = new System.Drawing.Point(473, 253);
+            this.btnEstornar.Name = "btnEstornar";
+            this.btnEstornar.Size = new System.Drawing.Size(75, 23);
+            this.btnEstornar.TabIndex = 50;
+            this.btnEstornar.Text = "Estornar";
+            this.btnEstornar.UseVisualStyleBackColor = true;
+            this.btnEstornar.Click += new System.EventHandler(this.BtnEstornar_Click);
+            // 
+            // frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 394);
+            this.Controls.Add(this.btnEstornar);
+            this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.gbData);
@@ -298,7 +322,7 @@
             this.Controls.Add(this.dgvCompra);
             this.Controls.Add(this.btnPesquisarGeral);
             this.Controls.Add(this.btnNovo);
-            this.Name = "frm_MovimentacaoCompra";
+            this.Name = "frm_Compra";
             this.Text = "frm_MovimentacaoCompra";
             this.Load += new System.EventHandler(this.Frm_MovimentacaoCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).EndInit();
@@ -320,7 +344,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.DataGridView dgvCompra;
         private System.Windows.Forms.Button btnPesquisarGeral;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -338,5 +361,8 @@
         private System.Windows.Forms.GroupBox gbCodigo;
         private System.Windows.Forms.Button btnPesquisarCod;
         internal System.Windows.Forms.TextBox txtIdCompraPes;
+        private System.Windows.Forms.Button btnSelecionar;
+        internal System.Windows.Forms.DataGridView dgvCompra;
+        private System.Windows.Forms.Button btnEstornar;
     }
 }

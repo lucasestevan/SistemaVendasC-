@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Data;
+using System.Reflection;
 
 namespace BLL
 {
@@ -73,6 +74,20 @@ namespace BLL
 
             DAL_Compra DALobj = new DAL_Compra(conexao);
             DALobj.Alterar(modelo);
+        }
+
+        //METODO PAGAR CONTA
+        public void PagarConta(Model_Compra modelo)
+        {
+            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DALobj.PagarConta(modelo);
+        }
+
+        //METODO ESTORNAR CONTA
+        public void EstornarConta(Model_Compra modelo)
+        {
+            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DALobj.EstornarConta(modelo);
         }
 
         //METODO EXCLUIR

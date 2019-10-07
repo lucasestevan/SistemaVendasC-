@@ -11,7 +11,7 @@ namespace Modelo
             this.nFiscal = 0;
             this.total = 0;
             this.nParcelas = 0; 
-            this.CompraStatus = "Válida";
+            this.CompraStatus = "Aberta";
             this.idFornecedor = 0;
             this.idTipoPagamento = 0;
         }

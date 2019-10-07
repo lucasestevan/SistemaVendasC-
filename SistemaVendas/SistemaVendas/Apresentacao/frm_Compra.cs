@@ -11,6 +11,7 @@ namespace SistemaVendas.Apresentacao
     public partial class frm_Compra : Form
     {
         public int idCompra = 0;
+        public string Status = "";
 
         public frm_Compra()
         {
@@ -35,21 +36,32 @@ namespace SistemaVendas.Apresentacao
                 {
                     try
                     {
+                        Model_Compra modeloCompra = new Model_Compra();
+                        this.idCompra = Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value);
                         //EXCLUIR ITENS DA COMPRA 
                         DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                         BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
-                        bllItens.ExcluirTodosItens(Convert.ToInt32(txtId.Text));
-
-
                         //excluir Compra
                         BLL_Compra bllCompra = new BLL_Compra(con);
-                        bllCompra.Excluir(Convert.ToInt32(txtId.Text));
+                        this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
 
-                        MessageBox.Show("Compra excluida com sucesso!");
-                        BtnPesquisar_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
-                        txtId.Text = "";
+                        //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR EXCLUIR
+                        if (Status == "PAGO")
+                        {
+                            MessageBox.Show("A Compra está com status de PAGA, não é possível excluir!");
+                        }
+                        else
+                        {
+                            bllItens.ExcluirTodosItens(Convert.ToInt32(txtId.Text));
 
-                        //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
+                            bllCompra.Excluir(Convert.ToInt32(txtId.Text));
+
+                            MessageBox.Show("Compra excluida com sucesso!");
+                            BtnPesquisar_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
+                            txtId.Text = "";
+
+                            //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -188,47 +200,99 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERA
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
+
+            this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
+
+            //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR alterar
+            if (Status == "PAGO")
+            {
+                MessageBox.Show("A Compra está com status de PAGO, não é possível Alterar!");
+            }
+            else
+            {
+                if (dgvCompra.SelectedRows.Count > 0)
+                {
+                    //pega o id da data grid
+                    this.idCompra = (Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
+
+                    //chamr modelo bll e dal compra
+                    DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                    BLL_Compra bll = new BLL_Compra(con);
+                    Model_Compra modelo = bll.CarregaModeloCompra(idCompra);
+
+                    //CHAMAR O FORM CAD COMPRA
+                    frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
+                    cadMovimentacaoCompra.btnSalvar.Enabled = false;
+
+                    cadMovimentacaoCompra.txtId.Text = modelo.idCompra.ToString();
+                    cadMovimentacaoCompra.txtNfiscal.Text = modelo.nFiscal.ToString();
+                    cadMovimentacaoCompra.dtCompra.Value = modelo.dataCompra;
+                    cadMovimentacaoCompra.cbFornecedor.SelectedValue = modelo.idFornecedor;
+                    cadMovimentacaoCompra.txtNParcelas.Value = modelo.nParcelas;
+                    cadMovimentacaoCompra.cbFormaPagto.SelectedValue = modelo.idTipoPagamento;
+                    cadMovimentacaoCompra.txtTotalCompra.Text = modelo.total.ToString();
+                    cadMovimentacaoCompra.totalCompra = modelo.total;
+
+                    //itens da compra
+                    BLL_ItensCompra bll_Itens = new BLL_ItensCompra(con);
+                    DataTable tabela = bll_Itens.Localizar(modelo.idCompra);
+
+                    //jogar todos os itens na tela
+                    for (int i = 0; i < tabela.Rows.Count; i++)
+                    {
+                        string icod = tabela.Rows[i]["id_produto"].ToString();
+                        string inome = tabela.Rows[i]["nome"].ToString();
+                        string iqtd = tabela.Rows[i]["quantidade"].ToString();
+                        string ivaloruni = tabela.Rows[i]["valor"].ToString();
+                        Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
+
+                        String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
+                        cadMovimentacaoCompra.dgvCompra.Rows.Add(it);
+                    }
+                    cadMovimentacaoCompra.ShowDialog();
+                }
+            }
+        }
+
+        //BOTAO SELECIONAR
+        private void BtnSelecionar_Click(object sender, EventArgs e)
+        {
             if (dgvCompra.SelectedRows.Count > 0)
             {
-                //pega o id da data grid
-                this.idCompra = (Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
+                this.idCompra = Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value);
+                this.Close();
+            }
+        }
 
-                //chamr modelo bll e dal compra
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Compra bll = new BLL_Compra(con);
-                Model_Compra modelo = bll.CarregaModeloCompra(idCompra);
-
-                //CHAMAR O FORM CAD COMPRA
-                frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
-                cadMovimentacaoCompra.btnSalvar.Enabled = false;
-
-                cadMovimentacaoCompra.txtId.Text = modelo.idCompra.ToString();
-                cadMovimentacaoCompra.txtNfiscal.Text = modelo.nFiscal.ToString();
-                cadMovimentacaoCompra.dtCompra.Value = modelo.dataCompra;
-                cadMovimentacaoCompra.cbFornecedor.SelectedValue = modelo.idFornecedor;
-                cadMovimentacaoCompra.txtNParcelas.Value = modelo.nParcelas;
-                cadMovimentacaoCompra.cbFormaPagto.SelectedValue = modelo.idTipoPagamento;
-                cadMovimentacaoCompra.txtTotalCompra.Text = modelo.total.ToString();
-                cadMovimentacaoCompra.totalCompra = modelo.total;
-
-                //itens da compra
-                BLL_ItensCompra bll_Itens = new BLL_ItensCompra(con);
-                DataTable tabela = bll_Itens.Localizar(modelo.idCompra);
-
-                //jogar todos os itens na tela
-                for (int i = 0; i < tabela.Rows.Count; i++)
+        //botao estornar compra
+        private void BtnEstornar_Click(object sender, EventArgs e)
+        {
+            this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
+            try
+            {
+                //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR estornar
+                if (this.Status == "ABERTO")
                 {
-                    string icod = tabela.Rows[i]["id_produto"].ToString();
-                    string inome = tabela.Rows[i]["nome"].ToString();
-                    string iqtd = tabela.Rows[i]["quantidade"].ToString();
-                    string ivaloruni = tabela.Rows[i]["valor"].ToString();
-                    Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
-
-                    String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
-                    cadMovimentacaoCompra.dgvCompra.Rows.Add(it);
+                    MessageBox.Show("A Compra está com status em 'ABERTO',\nNão é possível Estorna-la!");
                 }
+                else
+                {
+                    //LEITURA DOS DADOS
+                    Model_Compra modelo = new Model_Compra();
+                    modelo.idCompra = Convert.ToInt32(txtId.Text);
+                    modelo.CompraStatus = "ABERTO";
+                    //OBJ PARA GRAVAR NO BANCO
+                    DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                    BLL_Compra bll = new BLL_Compra(con);
 
-                cadMovimentacaoCompra.ShowDialog();
+                    //CADASTRAR UMA CATEGORIA
+                    bll.EstornarConta(modelo);
+                    MessageBox.Show("Estorno efetuado com sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao efeturar estorno da Compra\n" + ex.Message);
             }
         }
     }

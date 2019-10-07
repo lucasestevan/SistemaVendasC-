@@ -54,6 +54,32 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        //METODO PAGAR CONTA
+        public void PagarConta(Model_Compra modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "UPDATE Compra set compraStatus = @compraStatus where id_compra = @id_compra";
+            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompra);
+            cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
+
+        //METODO ESTORNAR CONTA
+        public void EstornarConta(Model_Compra modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "UPDATE Compra set compraStatus = @compraStatus where id_compra = @id_compra";
+            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompra);
+            cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
+
         //METODO EXCLUIR
         public void Excluir(int idCompra)
         {

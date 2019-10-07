@@ -15,6 +15,7 @@ namespace SistemaVendas.Apresentacao
         {
             var frm_Cliente = new frm_Cliente();
             frm_Cliente.ShowDialog();
+            frm_Cliente.Dispose();
         }
 
         //BOTAO COLABORADOR
@@ -22,6 +23,7 @@ namespace SistemaVendas.Apresentacao
         {
             var Colaborador = new frm_Colaborador();
             Colaborador.ShowDialog();
+            Colaborador.Dispose();
         }
 
         //BOTAO fornecedor
@@ -29,6 +31,7 @@ namespace SistemaVendas.Apresentacao
         {
             var frm_Fornecedor = new frm_Fornecedor();
             frm_Fornecedor.ShowDialog();
+            frm_Fornecedor.Dispose();
         }
 
         //BOTAO PRODUTO
@@ -36,6 +39,7 @@ namespace SistemaVendas.Apresentacao
         {
             var frm_Produto = new frm_Produto();
             frm_Produto.ShowDialog();
+            frm_Produto.Dispose();
         }
 
         //BOTAO VENDAS
@@ -43,6 +47,7 @@ namespace SistemaVendas.Apresentacao
         {
             frm_Venda venda = new frm_Venda();
             venda.ShowDialog();
+            venda.Dispose();
         }
 
         //botao categoria
@@ -50,6 +55,7 @@ namespace SistemaVendas.Apresentacao
         {
             var Categoria = new frm_Categoria();
             Categoria.ShowDialog();
+            Categoria.Dispose();
         }
 
         //BOTAO ENDERECO
@@ -57,6 +63,7 @@ namespace SistemaVendas.Apresentacao
         {
             var Endereco = new frm_Endereco();
             Endereco.ShowDialog();
+            Endereco.Dispose();
         }
 
         //BOTAO PAGAMENTO
@@ -64,6 +71,7 @@ namespace SistemaVendas.Apresentacao
         {
             var pagamento = new frm_TipoPagamento();
             pagamento.ShowDialog();
+            pagamento.Dispose();
         }
 
         //BOTAO LOGOUt
@@ -87,6 +95,15 @@ namespace SistemaVendas.Apresentacao
         {
             var Compra = new frm_Compra();
             Compra.ShowDialog();
+            Compra.Dispose();
+        }
+
+        //botao pagamento
+        private void BtnPagamento_Click(object sender, EventArgs e)
+        {
+            var Pagamento = new frm_PagamentoCompra();
+            Pagamento.ShowDialog();
+            Pagamento.Dispose();
         }
     }
 }
