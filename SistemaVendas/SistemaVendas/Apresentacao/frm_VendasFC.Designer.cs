@@ -1,6 +1,6 @@
 ﻿namespace SistemaVendas.Apresentacao
 {
-    partial class frm_Venda
+    partial class frm_VendasFC
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // frm_Venda
+            // frm_VendasFC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 450);
-            this.Name = "frm_Venda";
-            this.Text = "frm_Venda";
+            this.ClientSize = new System.Drawing.Size(571, 450);
+            this.Name = "frm_VendasFC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.Text = "Tela de Venda";
             this.ResumeLayout(false);
 
         }

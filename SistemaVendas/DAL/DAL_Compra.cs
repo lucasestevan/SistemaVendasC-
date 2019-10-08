@@ -140,7 +140,7 @@ namespace DAL
             SqlDataAdapter da = default(SqlDataAdapter);
             da = new SqlDataAdapter("select c.id_compra, c.dataCompra, c.nfiscal, c.nparcelas, c.total," +
                 " c.compraStatus, c.id_fornecedor, c.id_tipoPagamento," +
-                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor where c.id_compra = " + idCompra, conexao.StringConexao);
+                " f.nome from Compra as C inner join Fornecedor as f on c.id_fornecedor = f.id_fornecedor where c.id_compra = " + idCompra.ToString(), conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
