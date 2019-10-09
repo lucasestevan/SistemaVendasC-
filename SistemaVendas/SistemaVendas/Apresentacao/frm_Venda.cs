@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaVendas.Apresentacao.Cadastro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace SistemaVendas.Apresentacao
         public frm_Venda()
         {
             InitializeComponent();
+        }
+
+        //botao novo
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            frm_CadVenda venda = new frm_CadVenda();
+            venda.ShowDialog();
         }
     }
 }

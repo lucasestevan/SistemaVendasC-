@@ -52,6 +52,7 @@
     <Compile Include="BLL_Login.cs" />
     <Compile Include="BLL_Produto.cs" />
     <Compile Include="BLL_TipoPagamento.cs" />
+    <Compile Include="BLL_Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validacao.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />

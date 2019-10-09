@@ -120,11 +120,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //LOAD DO FORM
         private void Frm_CadMovimentacaoCompra_Load(object sender, EventArgs e)
         {
-            listarComboboxBox();
+            listarComboBox();
         }
 
         //METODO LISTAR COMBOBOX
-        private void listarComboboxBox()
+        private void listarComboBox()
         {
             //CARREGAR TIPO DE PAGAMENTO
             try
@@ -160,7 +160,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 MessageBox.Show("Erro ao carregar tabela Fornecedor \n" + ex);
             }
 
-            //CARREGAR FORNECEDOR
+            //CARREGAR produto
             try
             {
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
@@ -182,24 +182,35 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //BOTAO ADICONAR PRODUTO
         private void BtnAddProdu_Click(object sender, EventArgs e)
         {
-            //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
-            if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "") && (txtValorUni.Text != ""))
+            try
             {
-                Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtValorUni.Text);
+                //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
+                if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtValorUni.Text != "") && (txtValorUni.Text != "0,00"))
+                {
+                    Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtValorUni.Text);
 
-                //FAZER QUE MINHA VARIAVEL TOTAL COMPRA RECEBA O VALOR DO TOTAL LOCAL
-                this.totalCompra = this.totalCompra + TotalLocal;
+                    //FAZER QUE MINHA VARIAVEL TOTAL COMPRA RECEBA O VALOR DO TOTAL LOCAL
+                    this.totalCompra = this.totalCompra + TotalLocal;
 
-                //inserir produto na grid com vetor
-                String[] i = new String[] { cbProtudo.SelectedValue.ToString(), cbProtudo.Text.ToString(), txtQtd.Text, txtValorUni.Text, TotalLocal.ToString() };
-                this.dgvCompra.Rows.Add(i);
+                    //inserir produto na grid com vetor
+                    String[] i = new String[] { cbProtudo.SelectedValue.ToString(), cbProtudo.Text.ToString(), txtQtd.Text, txtValorUni.Text, TotalLocal.ToString() };
+                    this.dgvCompra.Rows.Add(i);
 
-                //LIMPAR OS CAMPOS DEPOS DE INSERIR
-                txtQtd.Clear();
-                txtValorUni.Clear();
+                    //LIMPAR OS CAMPOS DEPOS DE INSERIR
+                    txtQtd.Clear();
+                    txtValorUni.Clear();
 
-                //ATUALIZAR O TOTAL DA COMPRA
-                txtTotalCompra.Text = this.totalCompra.ToString();
+                    //ATUALIZAR O TOTAL DA COMPRA
+                    txtTotalCompra.Text = this.totalCompra.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Quantidade e Valor devem ser maiores que zero!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Informe apenas números nos campos Valor e Quantidade");
             }
         }
 

@@ -100,6 +100,12 @@
     <Compile Include="Apresentacao\Cadastro\frm_CadTipoPagamento.Designer.cs">
       <DependentUpon>frm_CadTipoPagamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Cadastro\frm_CadVenda.Designer.cs">
+      <DependentUpon>frm_CadVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\frm_Categoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadTipoPagamento.resx">
       <DependentUpon>frm_CadTipoPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadVenda.resx">
+      <DependentUpon>frm_CadVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Categoria.resx">
       <DependentUpon>frm_Categoria.cs</DependentUpon>

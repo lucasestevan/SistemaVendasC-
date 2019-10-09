@@ -74,6 +74,7 @@ namespace DAL
             da = new SqlDataAdapter("Select id_itensVenda, quantidade, id_produto from ItensVenda where id_venda = " + idVenda.ToString(), conexao.StringConexao);
             da.Fill(dt);
 
+            //alterar a quantisdade do estoque
             Model_Produto produto;
             DAL_Produto dalProduto = new DAL_Produto(conexao);
 

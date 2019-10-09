@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [SistemaVenda]    Script Date: 05/10/2019 18:13:34 ******/
+/****** Object:  Database [SistemaVenda]    Script Date: 08/10/2019 21:45:42 ******/
 CREATE DATABASE [SistemaVenda]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -79,7 +79,7 @@ ALTER DATABASE [SistemaVenda] SET QUERY_STORE = OFF
 GO
 USE [SistemaVenda]
 GO
-/****** Object:  Table [dbo].[Categoria]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[Categoria]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +93,7 @@ CREATE TABLE [dbo].[Categoria](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cliente]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[Cliente]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,7 +114,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Colaborador]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[Colaborador]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -133,7 +133,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Compra]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[Compra]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -153,7 +153,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Endereco]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[Endereco]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +171,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Fornecedor]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[Fornecedor]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,7 +188,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ItensCompra]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[ItensCompra]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -201,7 +201,7 @@ CREATE TABLE [dbo].[ItensCompra](
 	[id_produto] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ItensVenda]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[ItensVenda]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +218,20 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Produto]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[ParcelasVenda]    Script Date: 08/10/2019 21:45:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ParcelasVenda](
+	[id_parcelasVenda] [int] NOT NULL,
+	[valor] [money] NULL,
+	[dataPagto] [date] NULL,
+	[dataVento] [date] NULL,
+	[id_venda] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Produto]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -237,7 +250,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoPagamento]    Script Date: 05/10/2019 18:13:35 ******/
+/****** Object:  Table [dbo].[TipoPagamento]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,6 +261,27 @@ CREATE TABLE [dbo].[TipoPagamento](
 PRIMARY KEY CLUSTERED 
 (
 	[id_tipoPagamento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Venda]    Script Date: 08/10/2019 21:45:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Venda](
+	[id_venda] [int] IDENTITY(1,1) NOT NULL,
+	[dataVenda] [datetime] NULL,
+	[nfiscal] [int] NULL,
+	[total] [money] NULL,
+	[nparcelas] [int] NULL,
+	[vendaStatus] [varchar](30) NULL,
+	[id_cliente] [int] NULL,
+	[id_tipoPagamento] [int] NULL,
+	[Avista] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_venda] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -276,6 +310,21 @@ REFERENCES [dbo].[Produto] ([id_produto])
 GO
 ALTER TABLE [dbo].[ItensCompra] CHECK CONSTRAINT [FK_idProduto_tbProduto]
 GO
+ALTER TABLE [dbo].[ItensVenda]  WITH CHECK ADD  CONSTRAINT [FK_idProduto_tblProduto] FOREIGN KEY([id_produto])
+REFERENCES [dbo].[Produto] ([id_produto])
+GO
+ALTER TABLE [dbo].[ItensVenda] CHECK CONSTRAINT [FK_idProduto_tblProduto]
+GO
+ALTER TABLE [dbo].[ItensVenda]  WITH CHECK ADD  CONSTRAINT [FK_IdVenda_tbVenda] FOREIGN KEY([id_venda])
+REFERENCES [dbo].[Venda] ([id_venda])
+GO
+ALTER TABLE [dbo].[ItensVenda] CHECK CONSTRAINT [FK_IdVenda_tbVenda]
+GO
+ALTER TABLE [dbo].[ParcelasVenda]  WITH CHECK ADD  CONSTRAINT [FK_idVenda_tblVenda] FOREIGN KEY([id_venda])
+REFERENCES [dbo].[Venda] ([id_venda])
+GO
+ALTER TABLE [dbo].[ParcelasVenda] CHECK CONSTRAINT [FK_idVenda_tblVenda]
+GO
 ALTER TABLE [dbo].[Produto]  WITH CHECK ADD  CONSTRAINT [FK_Idcategoria_Categoria] FOREIGN KEY([id_categoria])
 REFERENCES [dbo].[Categoria] ([id_categoria])
 GO
@@ -286,7 +335,17 @@ REFERENCES [dbo].[Fornecedor] ([id_fornecedor])
 GO
 ALTER TABLE [dbo].[Produto] CHECK CONSTRAINT [FK_IdFornecedor_Fornecedor]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Login]    Script Date: 05/10/2019 18:13:35 ******/
+ALTER TABLE [dbo].[Venda]  WITH CHECK ADD  CONSTRAINT [FK_idCleinte_tbCliente] FOREIGN KEY([id_cliente])
+REFERENCES [dbo].[Cliente] ([id_cliente])
+GO
+ALTER TABLE [dbo].[Venda] CHECK CONSTRAINT [FK_idCleinte_tbCliente]
+GO
+ALTER TABLE [dbo].[Venda]  WITH CHECK ADD  CONSTRAINT [FK_idTipoPagamento_tbTipoPagamento] FOREIGN KEY([id_tipoPagamento])
+REFERENCES [dbo].[TipoPagamento] ([id_tipoPagamento])
+GO
+ALTER TABLE [dbo].[Venda] CHECK CONSTRAINT [FK_idTipoPagamento_tbTipoPagamento]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Login]    Script Date: 08/10/2019 21:45:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

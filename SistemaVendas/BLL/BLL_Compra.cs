@@ -2,7 +2,6 @@
 using Modelo;
 using System;
 using System.Data;
-using System.Reflection;
 
 namespace BLL
 {

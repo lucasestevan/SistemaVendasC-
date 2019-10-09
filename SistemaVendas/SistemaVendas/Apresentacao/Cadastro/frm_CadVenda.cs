@@ -1,0 +1,197 @@
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
+using System.Windows.Forms;
+
+namespace SistemaVendas.Apresentacao.Cadastro
+{
+    public partial class frm_CadVenda : Form
+    {
+        public double totalVenda = 0;
+
+        public frm_CadVenda()
+        {
+            InitializeComponent();
+        }
+
+        //botao salvar
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            dgvParcelas.Rows.Clear();
+            int parcelas = Convert.ToInt32(txtNParcelas.Value);
+            Double totalLocal = this.totalVenda;
+            double valor = totalLocal / parcelas;
+            DateTime dt = new DateTime();
+            dt = dtPgtoInicial.Value;
+            lblTotalVenda.Text = this.totalVenda.ToString();
+            for (int i = 1; i <= parcelas; i++)
+            {
+                string[] k = new String[] { i.ToString(), valor.ToString(), dt.Date.ToString() };
+                this.dgvParcelas.Rows.Add(k);
+
+                if (dt.Month != 12)
+                {
+                    dt = new DateTime(dt.Year, dt.Month + 1, dt.Day);
+                }
+                else
+                {
+                    dt = new DateTime(dt.Year + 1, 1, dt.Day);
+                }
+            }
+            pnFinalizaCompra.Visible = true;
+        }
+
+        //BOTAO ALTERAR
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //metodo load do form
+        private void Frm_CadVenda_Load(object sender, EventArgs e)
+        {
+            listarComboBox();
+            txtNParcelas.Value = 0;
+        }
+
+        //METODO LISTAR COMBOBOX
+        private void listarComboBox()
+        {
+            //CARREGAR TIPO DE PAGAMENTO
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
+                cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME
+                cbFormaPagto.ValueMember = "id_tipoPagamento"; //PEGA O ID
+               // cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                //cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao carregar tabela Tipo de Pagamento: \n");
+            }
+
+            //CARREGAR CLIENTE
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Cliente bll = new BLL_Cliente(con);
+                cbCliente.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbCliente.DisplayMember = "nome";   //PEGA O NOME
+                cbCliente.ValueMember = "id_cliente"; //PEGA O ID
+                //cbCliente.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                //cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao carregar tabela Cliente \n");
+            }
+
+            //CARREGAR produto
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+                cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbProtudo.DisplayMember = "nome";   //PEGA O NOME
+                cbProtudo.ValueMember = "id_produto"; //PEGA O ID
+
+                Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
+
+                txtValorUni.Text = modelo.preco.ToString();
+                //cbProtudo.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                //cbProtudo.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao carregar tabela Produto \n");
+            }
+
+        }
+
+        //BOTAO ADICONAR PRODUTO
+        private void BtnAddProdu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
+                if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtValorUni.Text != "") && (txtValorUni.Text != "0,00"))
+                {
+                    Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtValorUni.Text);
+
+                    //FAZER QUE MINHA VARIAVEL TOTAL COMPRA RECEBA O VALOR DO TOTAL LOCAL
+                    this.totalVenda = this.totalVenda + TotalLocal;
+
+                    //inserir produto na grid com vetor
+                    String[] i = new String[] { cbProtudo.SelectedValue.ToString(), cbProtudo.Text.ToString(), txtQtd.Text, txtValorUni.Text, TotalLocal.ToString() };
+                    this.dgvVenda.Rows.Add(i);
+
+                    //LIMPAR OS CAMPOS DEPOS DE INSERIR
+                    txtQtd.Clear();
+                    txtValorUni.Clear();
+
+                    //ATUALIZAR O TOTAL DA COMPRA
+                    txtTotalCompra.Text = this.totalVenda.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Quantidade e Valor devem ser maiores que zero!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Informe apenas números nos campos Valor e Quantidade");
+            }
+        }
+
+        //EVENTO AO CLIKAR DUAS VEZES NA GRID
+        private void DgvVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //MOSTRAR MENSAGEM desejo remover item
+                DialogResult msg = MessageBox.Show("Deseja realmente remover o Item da Venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                //SE O ESCOLHER SIM
+
+                if (msg == DialogResult.Yes)
+                {
+                    cbProtudo.Text = dgvVenda.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    txtQtd.Text = dgvVenda.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtValorUni.Text = dgvVenda.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    Double valor = Convert.ToDouble(dgvVenda.Rows[e.RowIndex].Cells[4].Value);
+                    this.totalVenda = this.totalVenda - valor;
+
+                    //REMOVER LINHA DGV
+                    dgvVenda.Rows.RemoveAt(e.RowIndex);
+                    txtTotalCompra.Text = this.totalVenda.ToString();
+                }
+            }
+        }
+
+        //EVENTO CHEcAR a vista
+        private void CbAvista_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxAvista.Checked == true)
+            {
+                txtNParcelas.Value = 1;
+                txtNParcelas.Enabled = false;
+            }
+            else
+            {
+                txtNParcelas.Enabled = true;
+            }
+        }
+
+        //Botao cancelar
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            pnFinalizaCompra.Visible = false;
+        }
+    }
+}
