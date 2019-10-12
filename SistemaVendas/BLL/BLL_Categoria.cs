@@ -18,7 +18,7 @@ namespace BLL
         public void Incluir(Model_Categoria modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.NomeCategoria.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome da categora é obrigatorio");
             }
@@ -31,11 +31,11 @@ namespace BLL
         public void Alterar(Model_Categoria modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.IdCategoria <= 0)
+            if (modelo.Id_categoria <= 0)
             {
                 throw new Exception("O codigo da categora é obrigatorio");
             }
-            if (modelo.NomeCategoria.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome da categora é obrigatorio");
             }

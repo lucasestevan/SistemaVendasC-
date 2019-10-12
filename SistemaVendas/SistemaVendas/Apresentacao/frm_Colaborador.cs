@@ -92,13 +92,13 @@ namespace SistemaVendas.Apresentacao
             cadColaborador.btnAlterar.Enabled = true;
             cadColaborador.btnSalvar.Enabled = false;
 
-            cadColaborador.txtId.Text = modelo.idColaborador.ToString();//id
-            cadColaborador.txtNome.Text = modelo.nome.ToString(); //nome
-            cadColaborador.txtCPF.Text = modelo.cpf.ToString();// cpf
+            cadColaborador.txtId.Text = modelo.IdColaborador.ToString();//id
+            cadColaborador.txtNome.Text = modelo.Nome.ToString(); //nome
+            cadColaborador.txtCPF.Text = modelo.Cpf.ToString();// cpf
             cadColaborador.txtSenha.Enabled = false; //senha
-            cadColaborador.txtTelefone.Text = modelo.telefone.ToString(); // telefone 
-            cadColaborador.txtCel.Text = modelo.celular.ToString(); // celular 
-            cadColaborador.txtDesc.Text = modelo.descricao.ToString(); // descricao 
+            cadColaborador.txtTelefone.Text = modelo.Telefone.ToString(); // telefone 
+            cadColaborador.txtCel.Text = modelo.Celular.ToString(); // celular 
+            cadColaborador.txtDesc.Text = modelo.Descricao.ToString(); // descricao 
             cadColaborador.ShowDialog();
             this.BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
@@ -134,8 +134,8 @@ namespace SistemaVendas.Apresentacao
                     {
                         //LEITURA DOS DADOS
                         Model_Colaborador modelo = new Model_Colaborador();
-                        modelo.idColaborador = Convert.ToInt32(txtId.Text);
-                        modelo.senha = Convert.ToString("");
+                        modelo.IdColaborador = Convert.ToInt32(txtId.Text);
+                        modelo.Senha = Convert.ToString("");
                         //OBJ PARA GRAVAR NO BANCO
                         DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                         BLL_Colaborador bll = new BLL_Colaborador(con);

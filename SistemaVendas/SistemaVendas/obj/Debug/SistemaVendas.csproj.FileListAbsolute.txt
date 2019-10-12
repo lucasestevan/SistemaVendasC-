@@ -48,3 +48,43 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\Si
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadVenda.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Venda.resources
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_VendasFC.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\SistemaVendas.exe.config
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\SistemaVendas.exe
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\SistemaVendas.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\BLL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\DAL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Modelo.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\BLL.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\DAL.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Modelo.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csprojAssemblyReference.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_AlterarSenha.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadCategoria.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadCliente.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadColaborador.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadEndereco.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadFornecedor.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadCompra.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadProduto.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadTipoPagamento.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Cadastro.frm_CadVenda.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Categoria.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Cliente.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Colaborador.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Endereco.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Fornecedor.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.frm_Login.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Menu.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Compra.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Produto.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_TipoPagamento.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Venda.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_VendasFC.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_VisualizarItensCompra.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.frm_PagamentoCompra.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Properties.Resources.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.GenerateResource.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.CoreCompileInputs.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.CopyComplete
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.exe
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.pdb

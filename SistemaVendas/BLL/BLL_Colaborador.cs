@@ -18,17 +18,17 @@ namespace BLL
         public void Incluir(Model_Colaborador modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Colaborador é obrigatorio");
             }
 
-            if (modelo.senha.Trim().Length == 0)
+            if (modelo.Senha.Trim().Length == 0)
             {
                 throw new Exception("o Campo senha é obrigatorio");
             }
 
-            if (modelo.cpf.Trim().Length == 0)
+            if (modelo.Cpf.Trim().Length == 0)
             {
                 throw new Exception("O CPF do Colaborador é obrigatorio");
             }
@@ -42,12 +42,12 @@ namespace BLL
         public void Alterar(Model_Colaborador modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Colaborador é obrigatorio");
             }
 
-            if (modelo.cpf.Trim().Length == 0)
+            if (modelo.Cpf.Trim().Length == 0)
             {
                 throw new Exception("O CPF do Colaborador é obrigatorio");
             }
@@ -75,11 +75,11 @@ namespace BLL
         public void ApagarSenha(Model_Colaborador modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.idColaborador <= 0)
+            if (modelo.IdColaborador <= 0)
             {
                 throw new Exception("Selecione o Colaborador");
             }
-           
+
             DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
             DALobj.ApagarSenha(modelo);
         }

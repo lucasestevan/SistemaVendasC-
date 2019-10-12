@@ -93,8 +93,8 @@ namespace SistemaVendas.Apresentacao
             cadCategoria.btnAlterar.Enabled = true;
             cadCategoria.btnSalvar.Enabled = false;
 
-            cadCategoria.txtId.Text = modelo.IdCategoria.ToString();
-            cadCategoria.txtNome.Text = modelo.NomeCategoria.ToString();
+            cadCategoria.txtId.Text = modelo.Id_categoria.ToString();
+            cadCategoria.txtNome.Text = modelo.Nome.ToString();
             cadCategoria.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }

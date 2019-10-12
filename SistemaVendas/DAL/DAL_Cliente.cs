@@ -20,16 +20,16 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Cliente (nome, cpf, telefone, celular, email, observacao, id_endereco, numeroEnde)" +
                 "values (@nome, @cpf, @telefone, @celular, @email, @observacao, @id_endereco, @numeroEnde); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@cpf", modelo.cpf);
-            cmd.Parameters.AddWithValue("@telefone", modelo.telefone);
-            cmd.Parameters.AddWithValue("@celular", modelo.celular);
-            cmd.Parameters.AddWithValue("@email", modelo.email);
-            cmd.Parameters.AddWithValue("@observacao", modelo.observacao);
-            cmd.Parameters.AddWithValue("@id_endereco", modelo.idEndereco);
-            cmd.Parameters.AddWithValue("@numeroEnde", modelo.numeroEnde);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@cpf", modelo.Cpf);
+            cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
+            cmd.Parameters.AddWithValue("@celular", modelo.Celular);
+            cmd.Parameters.AddWithValue("@email", modelo.Email);
+            cmd.Parameters.AddWithValue("@observacao", modelo.Observacao);
+            cmd.Parameters.AddWithValue("@id_endereco", modelo.IdEndereco);
+            cmd.Parameters.AddWithValue("@numeroEnde", modelo.NumeroEnde);
             conexao.Conectar();
-            modelo.idCliente = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdCliente = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -38,17 +38,17 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE Cliente set nome = @nome, cpf = @cpf, telefone = @telefone, celular = @celular, email = @email,"+
+            cmd.CommandText = "UPDATE Cliente set nome = @nome, cpf = @cpf, telefone = @telefone, celular = @celular, email = @email," +
                 "observacao = @observacao, id_endereco = @id_endereco, numeroEnde = @numeroEnde where id_cliente = @id_cliente";
-            cmd.Parameters.AddWithValue("@id_cliente", modelo.idCliente);
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@cpf", modelo.cpf);
-            cmd.Parameters.AddWithValue("@telefone", modelo.telefone);
-            cmd.Parameters.AddWithValue("@celular", modelo.celular);
-            cmd.Parameters.AddWithValue("@email", modelo.email);
-            cmd.Parameters.AddWithValue("@observacao", modelo.observacao);
-            cmd.Parameters.AddWithValue("@id_endereco", modelo.idEndereco);
-            cmd.Parameters.AddWithValue("@numeroEnde", modelo.numeroEnde);
+            cmd.Parameters.AddWithValue("@id_cliente", modelo.IdCliente);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@cpf", modelo.Cpf);
+            cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
+            cmd.Parameters.AddWithValue("@celular", modelo.Celular);
+            cmd.Parameters.AddWithValue("@email", modelo.Email);
+            cmd.Parameters.AddWithValue("@observacao", modelo.Observacao);
+            cmd.Parameters.AddWithValue("@id_endereco", modelo.IdEndereco);
+            cmd.Parameters.AddWithValue("@numeroEnde", modelo.NumeroEnde);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -81,15 +81,15 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idCliente = Convert.ToInt32(registro["id_cliente"]);
-                modelo.nome = Convert.ToString(registro["nome"]);
-                modelo.cpf = Convert.ToString(registro["cpf"]);
-                modelo.telefone = Convert.ToString(registro["telefone"]);
-                modelo.celular = Convert.ToString(registro["celular"]);
-                modelo.email = Convert.ToString(registro["email"]);
-                modelo.observacao = Convert.ToString(registro["observacao"]);
-                modelo.idEndereco = Convert.ToInt32(registro["id_endereco"]);
-                modelo.numeroEnde = Convert.ToString(registro["numeroEnde"]);
+                modelo.IdCliente = Convert.ToInt32(registro["id_cliente"]);
+                modelo.Nome = Convert.ToString(registro["nome"]);
+                modelo.Cpf = Convert.ToString(registro["cpf"]);
+                modelo.Telefone = Convert.ToString(registro["telefone"]);
+                modelo.Celular = Convert.ToString(registro["celular"]);
+                modelo.Email = Convert.ToString(registro["email"]);
+                modelo.Observacao = Convert.ToString(registro["observacao"]);
+                modelo.IdEndereco = Convert.ToInt32(registro["id_endereco"]);
+                modelo.NumeroEnde = Convert.ToString(registro["numeroEnde"]);
             }
             conexao.Desconectar();
             return modelo;

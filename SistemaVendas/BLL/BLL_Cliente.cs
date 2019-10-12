@@ -18,16 +18,16 @@ namespace BLL
         public void Incluir(Model_Cliente modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do cliente é obrigatorio");
             }
 
-            if (modelo.cpf.Trim().Length == 0)
+            if (modelo.Cpf.Trim().Length == 0)
             {
                 throw new Exception("O CPF do cliente é obrigatorio");
             }
-            if (modelo.idEndereco <= 0)
+            if (modelo.IdEndereco <= 0)
             {
                 throw new Exception("O Endereco é obrigatorio");
             }
@@ -40,12 +40,12 @@ namespace BLL
         public void Alterar(Model_Cliente modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do cliente é obrigatorio");
             }
 
-            if (modelo.cpf.Trim().Length == 0)
+            if (modelo.Cpf.Trim().Length == 0)
             {
                 throw new Exception("O CPF do cliente é obrigatorio");
             }

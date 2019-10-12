@@ -20,7 +20,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Categoria modelo = new Model_Categoria();
-                modelo.NomeCategoria = txtNome.Text;
+                modelo.Nome = txtNome.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con1 = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Categoria bll1 = new BLL_Categoria(con1);
@@ -44,9 +44,9 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Categoria modelo = new Model_Categoria();
-                modelo.IdCategoria = Convert.ToInt32(txtId.Text);
-                modelo.NomeCategoria = txtNome.Text;
-                
+                modelo.Id_categoria = Convert.ToInt32(txtId.Text);
+                modelo.Nome = txtNome.Text;
+
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Categoria bll = new BLL_Categoria(con);

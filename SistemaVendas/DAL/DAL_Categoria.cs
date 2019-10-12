@@ -20,9 +20,9 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Categoria (nome) values (@nome); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.NomeCategoria);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             conexao.Conectar();
-            modelo.IdCategoria = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.Id_categoria = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -33,8 +33,8 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "update Categoria set nome = @nome where id_categoria = @id_categoria";
-            cmd.Parameters.AddWithValue("@id_categoria", modelo.IdCategoria);
-            cmd.Parameters.AddWithValue("@nome", modelo.NomeCategoria);
+            cmd.Parameters.AddWithValue("@id_categoria", modelo.Id_categoria);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -67,8 +67,8 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.IdCategoria = Convert.ToInt32(registro["id_categoria"]);
-                modelo.NomeCategoria = Convert.ToString(registro["nome"]);
+                modelo.Id_categoria = Convert.ToInt32(registro["id_categoria"]);
+                modelo.Nome = Convert.ToString(registro["nome"]);
             }
             conexao.Desconectar();
             return modelo;

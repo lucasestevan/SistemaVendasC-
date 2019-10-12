@@ -5,124 +5,20 @@ namespace Modelo
 {
     public class Model_Colaborador
     {
-        public Model_Colaborador()
-        {
-            this.idColaborador = 0;
-            this.nome = "";
-            this.cpf = "";
-            this.senha = "";
-            this.telefone = "";
-            this.celular = "";
-            this.descricao = "";
-        }
+        private int idColaborador;
+        private string nome;
+        private string cpf;
+        private string senha;
+        private string telefone;
+        private string celular;
+        private string descricao;
 
-        public Model_Colaborador(int idColaborador, String nome, String cpf, String senha, String telefone, String celular, String descricao)
-        {
-            this.idColaborador = idColaborador;
-            this.nome = nome;
-            this.cpf = cpf;
-            this.senha = senha;
-            this.telefone = telefone;
-            this.celular = celular;
-            this.descricao = descricao;
-        }
-
-        private int _idColaborador;
-
-        public int idColaborador
-        {
-            get
-            {
-                return this._idColaborador;
-            }
-            set
-            {
-                this._idColaborador = value;
-            }
-        }
-
-        private String _nome;
-
-        public String nome
-        {
-            get
-            {
-                return this._nome;
-            }
-            set
-            {
-                this._nome = value;
-            }
-        }
-
-        private String _cpf;
-
-        public String cpf
-        {
-            get
-            {
-                return this._cpf;
-            }
-            set
-            {
-                this._cpf = value;
-            }
-        }
-
-        private String _senha;
-
-        public String senha
-        {
-            get
-            {
-                return this._senha;
-            }
-            set
-            {
-                this._senha = value;
-            }
-        }
-
-        private String _telefone;
-
-        public String telefone
-        {
-            get
-            {
-                return this._telefone;
-            }
-            set
-            {
-                this._telefone = value;
-            }
-        }
-
-        private String _celular;
-
-        public String celular
-        {
-            get
-            {
-                return this._celular;
-            }
-            set
-            {
-                this._celular = value;
-            }
-        }
-
-        private String _descricao;
-
-        public String descricao
-        {
-            get
-            {
-                return this._descricao;
-            }
-            set
-            {
-                this._descricao = value;
-            }
-        }
+        public int IdColaborador { get => idColaborador; set => idColaborador = value; }
+        public string Nome { get => nome; set => nome = value; }
+        public string Cpf { get => cpf; set => cpf = value; }
+        public string Senha { get => senha; set => senha = value; }
+        public string Telefone { get => telefone; set => telefone = value; }
+        public string Celular { get => celular; set => celular = value; }
+        public string Descricao { get => descricao; set => descricao = value; }
     }
 }

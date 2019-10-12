@@ -20,14 +20,14 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Colaborador (nome, cpf, senha, telefone, celular, descricao)" +
                 "values (@nome, @cpf, HASHBYTES('md2', @senha), @telefone, @celular, @descricao); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@cpf", modelo.cpf);
-            cmd.Parameters.AddWithValue("@senha", modelo.senha);
-            cmd.Parameters.AddWithValue("@telefone", modelo.telefone);
-            cmd.Parameters.AddWithValue("@celular", modelo.celular);
-            cmd.Parameters.AddWithValue("@descricao", modelo.descricao);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@cpf", modelo.Cpf);
+            cmd.Parameters.AddWithValue("@senha", modelo.Senha);
+            cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
+            cmd.Parameters.AddWithValue("@celular", modelo.Celular);
+            cmd.Parameters.AddWithValue("@descricao", modelo.Descricao);
             conexao.Conectar();
-            modelo.idColaborador = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdColaborador = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -38,12 +38,12 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Colaborador set nome = @nome, cpf = @cpf, telefone = @telefone, celular = @celular," +
                 "descricao = @descricao where id_colaborador = @id_colaborador";
-            cmd.Parameters.AddWithValue("@id_colaborador", modelo.idColaborador);
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@cpf", modelo.cpf);
-            cmd.Parameters.AddWithValue("@telefone", modelo.telefone);
-            cmd.Parameters.AddWithValue("@celular", modelo.celular);
-            cmd.Parameters.AddWithValue("@descricao", modelo.descricao);
+            cmd.Parameters.AddWithValue("@id_colaborador", modelo.IdColaborador);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@cpf", modelo.Cpf);
+            cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
+            cmd.Parameters.AddWithValue("@celular", modelo.Celular);
+            cmd.Parameters.AddWithValue("@descricao", modelo.Descricao);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -64,13 +64,13 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idColaborador = Convert.ToInt32(registro["id_colaborador"]);
-                modelo.nome = Convert.ToString(registro["nome"]);
-                modelo.cpf = Convert.ToString(registro["cpf"]);
-                modelo.senha = Convert.ToString(registro["senha"]);
-                modelo.telefone = Convert.ToString(registro["telefone"]);
-                modelo.celular = Convert.ToString(registro["celular"]);
-                modelo.descricao = Convert.ToString(registro["descricao"]);
+                modelo.IdColaborador = Convert.ToInt32(registro["id_colaborador"]);
+                modelo.Nome = Convert.ToString(registro["nome"]);
+                modelo.Cpf = Convert.ToString(registro["cpf"]);
+                modelo.Senha = Convert.ToString(registro["senha"]);
+                modelo.Telefone = Convert.ToString(registro["telefone"]);
+                modelo.Celular = Convert.ToString(registro["celular"]);
+                modelo.Descricao = Convert.ToString(registro["descricao"]);
             }
             conexao.Desconectar();
             return modelo;
@@ -104,8 +104,8 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Colaborador set senha = HASHBYTES('md2', @senha) where id_colaborador = @id_colaborador";
-            cmd.Parameters.AddWithValue("@id_colaborador", modelo.idColaborador);
-            cmd.Parameters.AddWithValue("@senha", modelo.senha);
+            cmd.Parameters.AddWithValue("@id_colaborador", modelo.IdColaborador);
+            cmd.Parameters.AddWithValue("@senha", modelo.Senha);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();

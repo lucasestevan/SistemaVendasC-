@@ -17,3 +17,22 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\DAL\bin\Debug\Microsoft.We
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\DAL\bin\Debug\Newtonsoft.Json.dll
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\DAL\bin\Debug\Transformer.NET.dll
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\DAL\bin\Debug\WebActivatorEx.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\DAL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\DAL.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Ext.Net.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Ext.Net.Utilities.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Modelo.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Transformer.NET.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\WebActivatorEx.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Modelo.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Ext.Net.xml
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Ext.Net.Utilities.xml
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Transformer.NET.xml
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.pdb

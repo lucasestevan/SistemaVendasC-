@@ -4,3 +4,9 @@ C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\Modelo\obj\Debug\Modelo.cs
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\Modelo\obj\Debug\Modelo.dll
 C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\Modelo\bin\Debug\Modelo.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.pdb

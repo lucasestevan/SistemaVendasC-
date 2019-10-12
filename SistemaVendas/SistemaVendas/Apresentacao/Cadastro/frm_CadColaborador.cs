@@ -20,12 +20,12 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Colaborador modelo = new Model_Colaborador();
-                modelo.nome = txtNome.Text;
-                modelo.cpf = txtCPF.Text;
-                modelo.senha = Convert.ToString(txtSenha.Text);
-                modelo.telefone = txtTelefone.Text;
-                modelo.celular = txtCel.Text;
-                modelo.descricao = txtDesc.Text;
+                modelo.Nome = txtNome.Text;
+                modelo.Cpf = txtCPF.Text;
+                modelo.Senha = txtSenha.Text;
+                modelo.Telefone = txtTelefone.Text;
+                modelo.Celular = txtCel.Text;
+                modelo.Descricao = txtDesc.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Colaborador bll = new BLL_Colaborador(con);
@@ -48,12 +48,12 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Colaborador modelo = new Model_Colaborador();
-                modelo.idColaborador = Convert.ToInt32(txtId.Text);
-                modelo.nome = txtNome.Text;
-                modelo.cpf = txtCPF.Text;
-                modelo.telefone = txtTelefone.Text;
-                modelo.celular = txtCel.Text;
-                modelo.descricao = txtDesc.Text;
+                modelo.IdColaborador = Convert.ToInt32(txtId.Text);
+                modelo.Nome = txtNome.Text;
+                modelo.Cpf = txtCPF.Text;
+                modelo.Telefone = txtTelefone.Text;
+                modelo.Celular = txtCel.Text;
+                modelo.Descricao = txtDesc.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Colaborador bll = new BLL_Colaborador(con);

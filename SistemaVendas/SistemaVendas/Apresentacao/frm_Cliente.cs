@@ -84,33 +84,36 @@ namespace SistemaVendas.Apresentacao
 
             //chamr modelo bll e dal 
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Cliente bll = new BLL_Cliente(con);
-            Model_Cliente modelo = bll.CarregaModeloCliente(idCliente);
+            BLL_Cliente bllCliente = new BLL_Cliente(con);
+            Model_Cliente modelo = bllCliente.CarregaModeloCliente(idCliente);
+
+            BLL_Endereco bllEnde = new BLL_Endereco(con);
+            Model_Endereco modeloEnde = bllEnde.CarregaModeloEndereco(idCliente);
 
             //CHAMAR O FORM Card e passar as informacoes
             frm_CadCliente cadCliente = new frm_CadCliente();
             cadCliente.btnAlterar.Enabled = true;
             cadCliente.btnSalvar.Enabled = false;
 
-            cadCliente.txtId.Text = modelo.idCliente.ToString();
-            cadCliente.txtNome.Text = modelo.nome.ToString();
-            cadCliente.txtCPF.Text = modelo.cpf.ToString();
-            cadCliente.txtTelefone.Text = modelo.telefone.ToString();
-            cadCliente.txtCel.Text = modelo.celular.ToString();
-            cadCliente.txtEmail.Text = modelo.email.ToString();
-            cadCliente.txtObs.Text = modelo.observacao.ToString();
-            cadCliente.txtIdEnde.Text = modelo.idEndereco.ToString();
-            cadCliente.txtCep.Text = modelo.celular.ToString();
-            //cadCliente.txtRua.Text = modelo.nome.ToString(); //RUA
-            cadCliente.txtNumero.Text = modelo.numeroEnde.ToString();// NUMERO
-           // cadCliente.txtBairro.Text = modelo.nome.ToString(); // BAIRRO
-           // cadCliente.txtCidade.Text = modelo.nome.ToString();// CIDADE//
-            //cadCliente.txtUf.Text = modelo.nome.ToString(); //UF
+            cadCliente.txtId.Text = modelo.IdCliente.ToString();
+            cadCliente.txtNome.Text = modelo.Nome.ToString();
+            cadCliente.txtCPF.Text = modelo.Cpf.ToString();
+            cadCliente.txtTelefone.Text = modelo.Telefone.ToString();
+            cadCliente.txtCel.Text = modelo.Celular.ToString();
+            cadCliente.txtEmail.Text = modelo.Email.ToString();
+            cadCliente.txtObs.Text = modelo.Observacao.ToString();
+            cadCliente.txtIdEnde.Text = modelo.IdEndereco.ToString();
+            cadCliente.txtCep.Text = modeloEnde.cep.ToString();
+            cadCliente.txtRua.Text = modeloEnde.rua.ToString(); //RUA
+            cadCliente.txtNumero.Text = modelo.NumeroEnde.ToString();// NUMERO
+            cadCliente.txtBairro.Text = modeloEnde.bairro.ToString(); // BAIRRO
+            cadCliente.txtCidade.Text = modeloEnde.cidade.ToString();// CIDADE//
+            cadCliente.txtUf.Text = modeloEnde.uf.ToString(); //UF
             cadCliente.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
 
-        //METODO formatar  DATA GRID
+        //METODO formatar  DATA GRIDu
         private void FormatarDGV()
         {
             dgvCliente.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO

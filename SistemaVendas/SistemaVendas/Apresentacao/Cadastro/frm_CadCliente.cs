@@ -20,14 +20,14 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Cliente modelo = new Model_Cliente();
-                modelo.nome = txtNome.Text;
-                modelo.cpf = txtCPF.Text;
-                modelo.telefone = txtTelefone.Text;
-                modelo.celular = txtCel.Text;
-                modelo.email = txtEmail.Text;
-                modelo.observacao = txtObs.Text;
-                modelo.idEndereco = Convert.ToInt32(txtIdEnde.Text);
-                modelo.numeroEnde = txtNumero.Text;
+                modelo.Nome = txtNome.Text;
+                modelo.Cpf = txtCPF.Text;
+                modelo.Telefone = txtTelefone.Text;
+                modelo.Celular = txtCel.Text;
+                modelo.Email = txtEmail.Text;
+                modelo.Observacao = txtObs.Text;
+                modelo.IdEndereco = Convert.ToInt32(txtIdEnde.Text);
+                modelo.NumeroEnde = txtNumero.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Cliente bll = new BLL_Cliente(con);
@@ -50,15 +50,15 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Cliente modelo = new Model_Cliente();
-                modelo.idCliente = Convert.ToInt32(txtId.Text);
-                modelo.nome = txtNome.Text;
-                modelo.cpf = txtCPF.Text;
-                modelo.telefone = txtTelefone.Text;
-                modelo.celular = txtCel.Text;
-                modelo.email = txtEmail.Text;
-                modelo.observacao = txtObs.Text;
-                modelo.idEndereco = Convert.ToInt32(txtIdEnde.Text);
-                modelo.numeroEnde = txtNumero.Text;
+                modelo.IdCliente = Convert.ToInt32(txtId.Text);
+                modelo.Nome = txtNome.Text;
+                modelo.Cpf = txtCPF.Text;
+                modelo.Telefone = txtTelefone.Text;
+                modelo.Celular = txtCel.Text;
+                modelo.Email = txtEmail.Text;
+                modelo.Observacao = txtObs.Text;
+                modelo.IdEndereco = Convert.ToInt32(txtIdEnde.Text);
+                modelo.NumeroEnde = txtNumero.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Cliente bll = new BLL_Cliente(con);
