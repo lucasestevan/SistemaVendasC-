@@ -20,11 +20,11 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into ItensCompra (id_itensCompra, quantidade, valor, id_compra, id_produto)" +
                 "values (@id_itensCompra, @quantidade, @valor, @id_compra, @id_produto)";
-            cmd.Parameters.AddWithValue("@id_itensCompra", modelo.idItensCompra);
+            cmd.Parameters.AddWithValue("@id_itensCompra", modelo.IdItensCompra);
             cmd.Parameters.AddWithValue("@quantidade", modelo.Quantidade);
             cmd.Parameters.AddWithValue("@valor", modelo.Valor);
-            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompraItensCompra);
-            cmd.Parameters.AddWithValue("@id_produto", modelo.idProdutoItensCompra);
+            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompraItensCompra);
+            cmd.Parameters.AddWithValue("@id_produto", modelo.IdProdutoItensCompra);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -37,11 +37,11 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE ItensCompra set quantidade = @quantidade, " +
                 "valor = @valor where id_itensCompra = @id_itensCompra and id_compra = @id_compra and id_produto = @id_produto";
-            cmd.Parameters.AddWithValue("@id_itensCompra", modelo.idItensCompra);
+            cmd.Parameters.AddWithValue("@id_itensCompra", modelo.IdItensCompra);
             cmd.Parameters.AddWithValue("@quantidade", modelo.Quantidade);
             cmd.Parameters.AddWithValue("@valor", modelo.Valor);
-            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompraItensCompra);
-            cmd.Parameters.AddWithValue("@id_produto", modelo.idProdutoItensCompra);
+            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompraItensCompra);
+            cmd.Parameters.AddWithValue("@id_produto", modelo.IdProdutoItensCompra);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -62,11 +62,11 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idItensCompra = Convert.ToInt32(registro["id_itensCompra"]);
+                modelo.IdItensCompra = Convert.ToInt32(registro["id_itensCompra"]);
                 modelo.Quantidade = Convert.ToDouble(registro["quantidade"]);
                 modelo.Valor = Convert.ToDouble(registro["valor"]);
-                modelo.idCompraItensCompra = Convert.ToInt32(registro["id_compra"]);
-                modelo.idProdutoItensCompra = Convert.ToInt32(registro["id_produto"]);
+                modelo.IdCompraItensCompra = Convert.ToInt32(registro["id_compra"]);
+                modelo.IdProdutoItensCompra = Convert.ToInt32(registro["id_produto"]);
             }
             conexao.Desconectar();
             return modelo;
@@ -79,9 +79,9 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "delete from ItensCompra where id_itensCompra = @id_itensCompra and id_compra = @id_compra and id_produto = @id_produto";
-            cmd.Parameters.AddWithValue("@id_itensCompra", modelo.idItensCompra);
-            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompraItensCompra);
-            cmd.Parameters.AddWithValue("@id_produto", modelo.idProdutoItensCompra);
+            cmd.Parameters.AddWithValue("@id_itensCompra", modelo.IdItensCompra);
+            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompraItensCompra);
+            cmd.Parameters.AddWithValue("@id_produto", modelo.IdProdutoItensCompra);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();

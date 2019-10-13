@@ -66,8 +66,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME
                 cbFormaPagto.ValueMember = "id_tipoPagamento"; //PEGA O ID
-               // cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                //cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
+                cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             }
             catch (Exception)
@@ -83,8 +83,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 cbCliente.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbCliente.DisplayMember = "nome";   //PEGA O NOME
                 cbCliente.ValueMember = "id_cliente"; //PEGA O ID
-                //cbCliente.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                //cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+                cbCliente.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             }
             catch (Exception)
@@ -103,7 +103,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
 
                 Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
 
-                txtValorUni.Text = modelo.preco.ToString();
+                txtValorUni.Text = modelo.Preco.ToString();
                 //cbProtudo.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
                 //cbProtudo.AutoCompleteSource = AutoCompleteSource.ListItems;
 
@@ -192,6 +192,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             pnFinalizaCompra.Visible = false;
+        }
+
+        private void btnSalvarFinal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

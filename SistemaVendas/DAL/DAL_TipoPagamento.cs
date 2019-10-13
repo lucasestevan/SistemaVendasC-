@@ -20,9 +20,9 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into TipoPagamento (nome) values (@nome); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             conexao.Conectar();
-            modelo.idTipoPagamento = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdTipoPagamento = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -32,8 +32,8 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "update TipoPagamento set nome = @nome where id_tipoPagamento = @id_tipoPagamento";
-            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.idTipoPagamento);
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
+            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.IdTipoPagamento);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -54,8 +54,8 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
-                modelo.nome = Convert.ToString(registro["nome"]);
+                modelo.IdTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
+                modelo.Nome = Convert.ToString(registro["nome"]);
             }
             conexao.Desconectar();
             return modelo;

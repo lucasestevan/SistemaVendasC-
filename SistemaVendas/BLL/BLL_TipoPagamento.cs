@@ -18,7 +18,7 @@ namespace BLL
         public void Incluir(Model_TipoPagamento modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Tipo de pagamento é obrigatorio");
             }
@@ -31,11 +31,11 @@ namespace BLL
         public void Alterar(Model_TipoPagamento modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.idTipoPagamento <= 0)
+            if (modelo.IdTipoPagamento <= 0)
             {
                 throw new Exception("O codigo do tipo de pagamento é obrigatorio");
             }
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do tipo de pagamento é obrigatorio");
             }

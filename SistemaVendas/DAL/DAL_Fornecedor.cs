@@ -20,12 +20,12 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Fornecedor (nome, cpfCNPJ, telefone, email)"+
                 "values (@nome, @cpfCNPJ, @telefone, @email); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@cpfCNPJ", modelo.cpfCNPJ);
-            cmd.Parameters.AddWithValue("@telefone", modelo.telefone);
-            cmd.Parameters.AddWithValue("@email", modelo.email);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@cpfCNPJ", modelo.CpfCNPJ);
+            cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
+            cmd.Parameters.AddWithValue("@email", modelo.Email);
             conexao.Conectar();
-            modelo.idFornecedor = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdFornecedor = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -35,11 +35,11 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Fornecedor set nome = @nome, cpfCNPJ = @cpfCNPJ, telefone = @telefone, email = @email where id_fornecedor = @id_fornecedor";
-            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.idFornecedor);
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@cpfCNPJ", modelo.cpfCNPJ);
-            cmd.Parameters.AddWithValue("@telefone", modelo.telefone);
-            cmd.Parameters.AddWithValue("@email", modelo.email);
+            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.IdFornecedor);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@cpfCNPJ", modelo.CpfCNPJ);
+            cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
+            cmd.Parameters.AddWithValue("@email", modelo.Email);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -60,11 +60,11 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
-                modelo.nome = Convert.ToString(registro["nome"]);
-                modelo.cpfCNPJ = Convert.ToString(registro["cpfCNPJ"]);
-                modelo.telefone = Convert.ToString(registro["telefone"]);
-                modelo.email = Convert.ToString(registro["email"]);
+                modelo.IdFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
+                modelo.Nome = Convert.ToString(registro["nome"]);
+                modelo.CpfCNPJ = Convert.ToString(registro["cpfCNPJ"]);
+                modelo.Telefone = Convert.ToString(registro["telefone"]);
+                modelo.Email = Convert.ToString(registro["email"]);
             }
             conexao.Desconectar();
             return modelo;

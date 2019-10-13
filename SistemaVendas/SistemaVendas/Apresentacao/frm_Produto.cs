@@ -91,13 +91,13 @@ namespace SistemaVendas.Apresentacao
             cadProduto.btnAlterar.Enabled = true;
             cadProduto.btnSalvar.Enabled = false;
 
-            cadProduto.txtId.Text = modelo.idProduto.ToString();//id
-            cadProduto.txtNome.Text = modelo.nome.ToString(); //nome
-            cadProduto.txtPreco.Text = modelo.preco.ToString();//preco
-            cadProduto.txtQtd.Text = modelo.quantidade.ToString(); // qtd
-            cadProduto.txtDesc.Text = modelo.descricao.ToString(); // descricao
-            cadProduto.cmbCategoria.SelectedValue = modelo.idCategoria;//categora 
-            cadProduto.cmbFornecedor.SelectedValue = modelo.idFornecedor; //fornecedor 
+            cadProduto.txtId.Text = modelo.IdProduto.ToString();//id
+            cadProduto.txtNome.Text = modelo.Nome.ToString(); //nome
+            cadProduto.txtPreco.Text = modelo.Preco.ToString();//preco
+            cadProduto.txtQtd.Text = modelo.Quantidade.ToString(); // qtd
+            cadProduto.txtDesc.Text = modelo.Descricao.ToString(); // descricao
+            cadProduto.cmbCategoria.SelectedValue = modelo.IdCategoria;//categora 
+            cadProduto.cmbFornecedor.SelectedValue = modelo.IdFornecedor; //fornecedor 
             cadProduto.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }

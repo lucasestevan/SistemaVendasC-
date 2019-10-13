@@ -20,19 +20,19 @@ namespace BLL
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
                        
-            if (modelo.rua.Trim().Length == 0)
+            if (modelo.Rua.Trim().Length == 0)
             {
                 throw new Exception("O campo Rua é obrigatorio!");
             }
 
-            if (modelo.bairro.Trim().Length == 0)
+            if (modelo.Bairro.Trim().Length == 0)
             {
                 throw new Exception("O Campo Bairro é obrigatorio!");
             }
 
             //valida cep
 
-            if (Validacao.ValidaCep(modelo.cep) == false)
+            if (Validacao.ValidaCep(modelo.Cep) == false)
             {
                 throw new Exception("O Cep é invalido!");
             }
@@ -48,12 +48,12 @@ namespace BLL
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
            
-            if (modelo.rua.Trim().Length == 0)
+            if (modelo.Rua.Trim().Length == 0)
             {
                 throw new Exception("O campo Rua é obrigatorio!");
             }
 
-            if (modelo.bairro.Trim().Length == 0)
+            if (modelo.Bairro.Trim().Length == 0)
             {
                 throw new Exception("O Campo Bairro é obrigatorio!");
             }

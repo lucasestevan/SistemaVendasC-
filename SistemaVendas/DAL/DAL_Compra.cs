@@ -21,15 +21,15 @@ namespace DAL
             cmd.CommandText = "insert into Compra (dataCompra, nfiscal, total, nparcelas, compraStatus, id_fornecedor, id_tipoPagamento)" +
                 "values (@dataCompra, @nfiscal, @total, @nparcelas, @compraStatus, @id_fornecedor, @id_tipoPagamento); select @@IDENTITY;";
             cmd.Parameters.Add("@dataCompra", System.Data.SqlDbType.DateTime); //data
-            cmd.Parameters["@dataCompra"].Value = modelo.dataCompra; //data
-            cmd.Parameters.AddWithValue("@nfiscal", modelo.nFiscal);
-            cmd.Parameters.AddWithValue("@total", modelo.total);
-            cmd.Parameters.AddWithValue("@nparcelas", modelo.nParcelas);
+            cmd.Parameters["@dataCompra"].Value = modelo.DataCompra; //data
+            cmd.Parameters.AddWithValue("@nfiscal", modelo.NFiscal);
+            cmd.Parameters.AddWithValue("@total", modelo.Total);
+            cmd.Parameters.AddWithValue("@nparcelas", modelo.NParcelas);
             cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
-            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.idFornecedor);
-            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.idTipoPagamento);
+            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.IdFornecedor);
+            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.IdTipoPagamento);
             conexao.Conectar();
-            modelo.idCompra = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdCompra = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -40,15 +40,15 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Compra set dataCompra = @dataCompra, nfiscal = @nfiscal, total = @total, nparcelas = @nparcelas, compraStatus = @compraStatus," +
                 "id_fornecedor = @id_fornecedor, id_tipoPagamento = @id_tipoPagamento where id_compra = @id_compra";
-            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompra);
+            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompra);
             cmd.Parameters.Add("@dataCompra", System.Data.SqlDbType.DateTime); //data
-            cmd.Parameters["@dataCompra"].Value = modelo.dataCompra; //data
-            cmd.Parameters.AddWithValue("@nfiscal", modelo.nFiscal);
-            cmd.Parameters.AddWithValue("@total", modelo.total);
-            cmd.Parameters.AddWithValue("@nparcelas", modelo.nParcelas);
+            cmd.Parameters["@dataCompra"].Value = modelo.DataCompra; //data
+            cmd.Parameters.AddWithValue("@nfiscal", modelo.NFiscal);
+            cmd.Parameters.AddWithValue("@total", modelo.Total);
+            cmd.Parameters.AddWithValue("@nparcelas", modelo.NParcelas);
             cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
-            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.idFornecedor);
-            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.idTipoPagamento);
+            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.IdFornecedor);
+            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.IdTipoPagamento);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -60,7 +60,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Compra set compraStatus = @compraStatus where id_compra = @id_compra";
-            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompra);
+            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompra);
             cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -73,7 +73,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Compra set compraStatus = @compraStatus where id_compra = @id_compra";
-            cmd.Parameters.AddWithValue("@id_compra", modelo.idCompra);
+            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompra);
             cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -107,14 +107,14 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idCompra = Convert.ToInt32(registro["id_compra"]);
-                modelo.dataCompra = Convert.ToDateTime(registro["dataCompra"]);
-                modelo.nFiscal = Convert.ToInt32(registro["nFiscal"]);
-                modelo.total = Convert.ToDouble(registro["total"]);
-                modelo.nParcelas = Convert.ToInt32(registro["nparcelas"]);
+                modelo.IdCompra = Convert.ToInt32(registro["id_compra"]);
+                modelo.DataCompra = Convert.ToDateTime(registro["dataCompra"]);
+                modelo.NFiscal = Convert.ToInt32(registro["nFiscal"]);
+                modelo.Total = Convert.ToDouble(registro["total"]);
+                modelo.NParcelas = Convert.ToInt32(registro["nparcelas"]);
                 modelo.CompraStatus = Convert.ToString(registro["compraStatus"]);
-                modelo.idFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
-                modelo.idTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
+                modelo.IdFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
+                modelo.IdTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
             }
             conexao.Desconectar();
             return modelo;

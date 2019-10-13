@@ -23,13 +23,13 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 //cOMPRA
                 //LEITURA DOS DADOS
                 Model_Compra modeloCompra = new Model_Compra();
-                modeloCompra.dataCompra = dtCompra.Value;
-                modeloCompra.nFiscal = Convert.ToInt32(txtNfiscal.Text);
-                modeloCompra.nParcelas = Convert.ToInt32(txtNParcelas.Text);
+                modeloCompra.DataCompra = dtCompra.Value;
+                modeloCompra.NFiscal = Convert.ToInt32(txtNfiscal.Text);
+                modeloCompra.NParcelas = Convert.ToInt32(txtNParcelas.Text);
                 modeloCompra.CompraStatus = "ABERTO";
-                modeloCompra.total = Convert.ToInt32(txtTotalCompra.Text);
-                modeloCompra.idFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
-                modeloCompra.idTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
+                modeloCompra.Total = Convert.ToInt32(txtTotalCompra.Text);
+                modeloCompra.IdFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
+                modeloCompra.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Compra bllCompra = new BLL_Compra(con);
@@ -45,9 +45,9 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 //CADASTRAR ITENS COMPRA
                 for (int i = 0; i < dgvCompra.RowCount; i++)
                 {
-                    modeloItensCompra.idItensCompra = i + 1;
-                    modeloItensCompra.idCompraItensCompra = modeloCompra.idCompra;
-                    modeloItensCompra.idProdutoItensCompra = Convert.ToInt32(dgvCompra.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
+                    modeloItensCompra.IdItensCompra = i + 1;
+                    modeloItensCompra.IdCompraItensCompra = modeloCompra.IdCompra;
+                    modeloItensCompra.IdProdutoItensCompra = Convert.ToInt32(dgvCompra.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
                     modeloItensCompra.Quantidade = Convert.ToDouble(dgvCompra.Rows[i].Cells[2].Value); //PEGA A qtd  DO DATA GRID
                     modeloItensCompra.Valor = Convert.ToDouble(dgvCompra.Rows[i].Cells[3].Value); //PEGA O valor DO DATA GRID
                     bllItensCompra.Incluir(modeloItensCompra);
@@ -72,14 +72,14 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 //cOMPRA
                 //LEITURA DOS DADOS
                 Model_Compra modeloCompra = new Model_Compra();
-                modeloCompra.idCompra = Convert.ToInt32(txtId.Text);
-                modeloCompra.dataCompra = dtCompra.Value;
-                modeloCompra.nFiscal = Convert.ToInt32(txtNfiscal.Text);
-                modeloCompra.nParcelas = Convert.ToInt32(txtNParcelas.Text);
+                modeloCompra.IdCompra = Convert.ToInt32(txtId.Text);
+                modeloCompra.DataCompra = dtCompra.Value;
+                modeloCompra.NFiscal = Convert.ToInt32(txtNfiscal.Text);
+                modeloCompra.NParcelas = Convert.ToInt32(txtNParcelas.Text);
                 modeloCompra.CompraStatus = "ABERTO";
-                modeloCompra.total = Convert.ToInt32(txtTotalCompra.Text);
-                modeloCompra.idFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
-                modeloCompra.idTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
+                modeloCompra.Total = Convert.ToInt32(txtTotalCompra.Text);
+                modeloCompra.IdFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
+                modeloCompra.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
 
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
@@ -92,14 +92,14 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 BLL_ItensCompra bllItensCompra = new BLL_ItensCompra(con);
 
                 //EXCLUIR TODOS OS ITENS DA COMPRA
-               bllItensCompra.ExcluirTodosItens(modeloCompra.idCompra);
+               bllItensCompra.ExcluirTodosItens(modeloCompra.IdCompra);
 
                 //CADASTRAR ITENS COMPRA
                 for (int i = 0; i < dgvCompra.RowCount; i++)
                 {
-                    modeloItensCompra.idItensCompra = i + 1;
-                    modeloItensCompra.idCompraItensCompra = modeloCompra.idCompra;
-                    modeloItensCompra.idProdutoItensCompra = Convert.ToInt32(dgvCompra.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
+                    modeloItensCompra.IdItensCompra = i + 1;
+                    modeloItensCompra.IdCompraItensCompra = modeloCompra.IdCompra;
+                    modeloItensCompra.IdProdutoItensCompra = Convert.ToInt32(dgvCompra.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
                     modeloItensCompra.Quantidade = Convert.ToDouble(dgvCompra.Rows[i].Cells[2].Value); //PEGA A qtd  DO DATA GRID
                     modeloItensCompra.Valor = Convert.ToDouble(dgvCompra.Rows[i].Cells[3].Value); //PEGA O valor DO DATA GRID
                     bllItensCompra.Incluir(modeloItensCompra);

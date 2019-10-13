@@ -47,11 +47,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Endereco modelo = new Model_Endereco();
-                modelo.cep = txtCep.Text;
-                modelo.rua = txtRua.Text;
-                modelo.bairro = txtBairro.Text;
-                modelo.cidade = txtCidade.Text;
-                modelo.uf = txtUf.Text;
+                modelo.Cep = txtCep.Text;
+                modelo.Rua = txtRua.Text;
+                modelo.Bairro = txtBairro.Text;
+                modelo.Cidade = txtCidade.Text;
+                modelo.Uf = txtUf.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Endereco bll = new BLL_Endereco(con);
@@ -74,12 +74,12 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Endereco modelo = new Model_Endereco();
-                modelo.idEndereco = Convert.ToInt32(txtId.Text);
-                modelo.cep = txtCep.Text;
-                modelo.rua = txtRua.Text;
-                modelo.bairro = txtBairro.Text;
-                modelo.cidade = txtCidade.Text;
-                modelo.uf = txtUf.Text;
+                modelo.IdEndereco = Convert.ToInt32(txtId.Text);
+                modelo.Cep = txtCep.Text;
+                modelo.Rua = txtRua.Text;
+                modelo.Bairro = txtBairro.Text;
+                modelo.Cidade = txtCidade.Text;
+                modelo.Uf = txtUf.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Endereco bll = new BLL_Endereco(con);

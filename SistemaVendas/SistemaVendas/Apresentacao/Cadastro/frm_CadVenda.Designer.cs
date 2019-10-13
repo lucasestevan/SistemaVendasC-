@@ -63,16 +63,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbFormaPagto = new System.Windows.Forms.ComboBox();
             this.pnFinalizaCompra = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnSalvarFinal = new System.Windows.Forms.Button();
             this.dgvParcelas = new System.Windows.Forms.DataGridView();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblTotalVenda = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalvarFinal = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblTotalVenda = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
@@ -427,6 +427,16 @@
             this.pnFinalizaCompra.TabStop = false;
             this.pnFinalizaCompra.Visible = false;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(385, 451);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -435,6 +445,16 @@
             this.label17.Size = new System.Drawing.Size(97, 13);
             this.label17.TabIndex = 45;
             this.label17.Text = "Parcelas da Venda";
+            // 
+            // btnSalvarFinal
+            // 
+            this.btnSalvarFinal.Location = new System.Drawing.Point(6, 439);
+            this.btnSalvarFinal.Name = "btnSalvarFinal";
+            this.btnSalvarFinal.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarFinal.TabIndex = 62;
+            this.btnSalvarFinal.Text = "Salvar";
+            this.btnSalvarFinal.UseVisualStyleBackColor = true;
+            this.btnSalvarFinal.Click += new System.EventHandler(this.btnSalvarFinal_Click);
             // 
             // dgvParcelas
             // 
@@ -452,6 +472,25 @@
             this.dgvParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParcelas.Size = new System.Drawing.Size(460, 305);
             this.dgvParcelas.TabIndex = 43;
+            // 
+            // Parcela
+            // 
+            this.Parcela.HeaderText = "Parcela";
+            this.Parcela.Name = "Parcela";
+            this.Parcela.ReadOnly = true;
+            this.Parcela.Width = 60;
+            // 
+            // ValorParcela
+            // 
+            this.ValorParcela.HeaderText = "Valor da parcela";
+            this.ValorParcela.Name = "ValorParcela";
+            this.ValorParcela.ReadOnly = true;
+            // 
+            // dataVencimento
+            // 
+            this.dataVencimento.HeaderText = "Data Vencimento";
+            this.dataVencimento.Name = "dataVencimento";
+            this.dataVencimento.ReadOnly = true;
             // 
             // label19
             // 
@@ -480,44 +519,6 @@
             this.label24.Size = new System.Drawing.Size(110, 13);
             this.label24.TabIndex = 23;
             this.label24.Text = "Dados do Pagamento";
-            // 
-            // Parcela
-            // 
-            this.Parcela.HeaderText = "Parcela";
-            this.Parcela.Name = "Parcela";
-            this.Parcela.ReadOnly = true;
-            this.Parcela.Width = 60;
-            // 
-            // ValorParcela
-            // 
-            this.ValorParcela.HeaderText = "Valor da parcela";
-            this.ValorParcela.Name = "ValorParcela";
-            this.ValorParcela.ReadOnly = true;
-            // 
-            // dataVencimento
-            // 
-            this.dataVencimento.HeaderText = "Data Vencimento";
-            this.dataVencimento.Name = "dataVencimento";
-            this.dataVencimento.ReadOnly = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(385, 451);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 63;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // btnSalvarFinal
-            // 
-            this.btnSalvarFinal.Location = new System.Drawing.Point(6, 439);
-            this.btnSalvarFinal.Name = "btnSalvarFinal";
-            this.btnSalvarFinal.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvarFinal.TabIndex = 62;
-            this.btnSalvarFinal.Text = "Salvar";
-            this.btnSalvarFinal.UseVisualStyleBackColor = true;
             // 
             // frm_CadVenda
             // 

@@ -20,14 +20,14 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Produto (nome, preco, quantidade, descricao, id_categoria, id_fornecedor)" +
                 " values (@nome, @preco, @quantidade, @descricao, @id_categoria, @id_fornecedor); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@preco", modelo.preco);
-            cmd.Parameters.AddWithValue("@quantidade", modelo.quantidade);
-            cmd.Parameters.AddWithValue("@descricao", modelo.descricao);
-            cmd.Parameters.AddWithValue("@id_categoria", modelo.idCategoria);
-            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.idFornecedor);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@preco", modelo.Preco);
+            cmd.Parameters.AddWithValue("@quantidade", modelo.Quantidade);
+            cmd.Parameters.AddWithValue("@descricao", modelo.Descricao);
+            cmd.Parameters.AddWithValue("@id_categoria", modelo.IdCategoria);
+            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.IdFornecedor);
             conexao.Conectar();
-            modelo.idProduto = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdProduto = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -37,13 +37,13 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Produto set nome = @nome, preco = @preco, quantidade = @quantidade, descricao = @descricao, id_categoria = @id_categoria, id_fornecedor = @id_fornecedor WHERE id_produto = @id_produto";
-            cmd.Parameters.AddWithValue("@id_produto", modelo.idProduto);
-            cmd.Parameters.AddWithValue("@nome", modelo.nome);
-            cmd.Parameters.AddWithValue("@preco", modelo.preco);
-            cmd.Parameters.AddWithValue("@quantidade", modelo.quantidade);
-            cmd.Parameters.AddWithValue("@descricao", modelo.descricao);
-            cmd.Parameters.AddWithValue("@id_categoria", modelo.idCategoria);
-            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.idFornecedor);
+            cmd.Parameters.AddWithValue("@id_produto", modelo.IdProduto);
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@preco", modelo.Preco);
+            cmd.Parameters.AddWithValue("@quantidade", modelo.Quantidade);
+            cmd.Parameters.AddWithValue("@descricao", modelo.Descricao);
+            cmd.Parameters.AddWithValue("@id_categoria", modelo.IdCategoria);
+            cmd.Parameters.AddWithValue("@id_fornecedor", modelo.IdFornecedor);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -64,13 +64,13 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idProduto = Convert.ToInt32(registro["id_produto"]);
-                modelo.nome = Convert.ToString(registro["nome"]);
-                modelo.preco = Convert.ToDouble(registro["preco"]);
-                modelo.quantidade = Convert.ToDouble(registro["quantidade"]);
-                modelo.descricao = Convert.ToString(registro["descricao"]);
-                modelo.idCategoria = Convert.ToInt32(registro["id_categoria"]);
-                modelo.idFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
+                modelo.IdProduto = Convert.ToInt32(registro["id_produto"]);
+                modelo.Nome = Convert.ToString(registro["nome"]);
+                modelo.Preco = Convert.ToDouble(registro["preco"]);
+                modelo.Quantidade = Convert.ToDouble(registro["quantidade"]);
+                modelo.Descricao = Convert.ToString(registro["descricao"]);
+                modelo.IdCategoria = Convert.ToInt32(registro["id_categoria"]);
+                modelo.IdFornecedor = Convert.ToInt32(registro["id_fornecedor"]);
             }
             conexao.Desconectar();
             return modelo;

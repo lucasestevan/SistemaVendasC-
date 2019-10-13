@@ -81,12 +81,12 @@ namespace SistemaVendas.Apresentacao
             cadEndereco.btnAlterar.Enabled = true;
             cadEndereco.btnSalvar.Enabled = false;
 
-            cadEndereco.txtId.Text = modelo.idEndereco.ToString();
-            cadEndereco.txtCep.Text = modelo.cep.ToString();
-            cadEndereco.txtRua.Text = modelo.rua.ToString();
-            cadEndereco.txtBairro.Text = modelo.bairro.ToString();
-            cadEndereco.txtCidade.Text = modelo.cidade.ToString();
-            cadEndereco.txtUf.Text = modelo.uf.ToString();
+            cadEndereco.txtId.Text = modelo.IdEndereco.ToString();
+            cadEndereco.txtCep.Text = modelo.Cep.ToString();
+            cadEndereco.txtRua.Text = modelo.Rua.ToString();
+            cadEndereco.txtBairro.Text = modelo.Bairro.ToString();
+            cadEndereco.txtCidade.Text = modelo.Cidade.ToString();
+            cadEndereco.txtUf.Text = modelo.Uf.ToString();
             cadEndereco.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }

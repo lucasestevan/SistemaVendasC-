@@ -30,15 +30,15 @@ namespace SistemaVendas
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Compra bllCompra = new BLL_Compra(con);
                 Model_Compra modeloCom = bllCompra.CarregaModeloCompra(Compra.idCompra);
-                txtId.Text = modeloCom.idCompra.ToString();
-                dtCompra.Value = modeloCom.dataCompra;
-                txtValor.Text = modeloCom.total.ToString();
+                txtId.Text = modeloCom.IdCompra.ToString();
+                dtCompra.Value = modeloCom.DataCompra;
+                txtValor.Text = modeloCom.Total.ToString();
                 this.status = modeloCom.CompraStatus;
 
                 //pegar nome do fonecedor
                 BLL_Fornecedor bllf = new BLL_Fornecedor(con);
-                Model_Fornecedor modeloFor = bllf.CarregaModeloFornecedor(modeloCom.idFornecedor);
-                txtFornecedor.Text = modeloFor.nome;
+                Model_Fornecedor modeloFor = bllf.CarregaModeloFornecedor(modeloCom.IdFornecedor);
+                txtFornecedor.Text = modeloFor.Nome;
             }
         }
 
@@ -56,7 +56,7 @@ namespace SistemaVendas
                 {
                     //LEITURA DOS DADOS
                     Model_Compra modelo = new Model_Compra();
-                    modelo.idCompra = Convert.ToInt32(txtId.Text);
+                    modelo.IdCompra = Convert.ToInt32(txtId.Text);
                     modelo.CompraStatus = "PAGO";
                     //OBJ PARA GRAVAR NO BANCO
                     DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);

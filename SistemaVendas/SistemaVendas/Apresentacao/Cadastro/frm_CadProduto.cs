@@ -16,7 +16,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //LOAD DO FORM
         private void Frm_CadProduto_Load(object sender, EventArgs e)
         {
-            
+            listarComboboxBox();
         }
 
         //METODO LISTAR COMBOBOX
@@ -67,12 +67,12 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Produto modelo = new Model_Produto();
-                modelo.nome = txtNome.Text;
-                modelo.preco = Convert.ToDouble(txtPreco.Text);
-                modelo.quantidade = Convert.ToDouble(txtQtd.Text);
-                modelo.descricao = txtDesc.Text;
-                modelo.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
-                modelo.idFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                modelo.Nome = txtNome.Text;
+                modelo.Preco = Convert.ToDouble(txtPreco.Text);
+                modelo.Quantidade = Convert.ToDouble(txtQtd.Text);
+                modelo.Descricao = txtDesc.Text;
+                modelo.IdCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
+                modelo.IdFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
@@ -95,13 +95,13 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Produto modelo = new Model_Produto();
-                modelo.idProduto = Convert.ToInt32(txtId.Text);
-                modelo.nome = txtNome.Text;
-                modelo.preco = Convert.ToDouble(txtPreco.Text);
-                modelo.quantidade = Convert.ToDouble(txtQtd.Text);
-                modelo.descricao = txtDesc.Text;
-                modelo.idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
-                modelo.idFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                modelo.IdProduto = Convert.ToInt32(txtId.Text);
+                modelo.Nome = txtNome.Text;
+                modelo.Preco = Convert.ToDouble(txtPreco.Text);
+                modelo.Quantidade = Convert.ToDouble(txtQtd.Text);
+                modelo.Descricao = txtDesc.Text;
+                modelo.IdCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
+                modelo.IdFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
@@ -189,11 +189,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 txtQtd.Text = "0,00";
             }
-        }
-
-        private void CmbCategoria_Click(object sender, EventArgs e)
-        {
-            listarComboboxBox();
         }
     }
 }

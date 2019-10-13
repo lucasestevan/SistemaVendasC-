@@ -21,10 +21,10 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Fornecedor modelo = new Model_Fornecedor();
-                modelo.nome = txtNome.Text;
-                modelo.cpfCNPJ = txtCPF.Text;
-                modelo.telefone = txtTel.Text;
-                modelo.email = txtEmail.Text;
+                modelo.Nome = txtNome.Text;
+                modelo.CpfCNPJ = txtCPF.Text;
+                modelo.Telefone = txtTel.Text;
+                modelo.Email = txtEmail.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Fornecedor bll = new BLL_Fornecedor(con);
@@ -47,11 +47,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //LEITURA DOS DADOS
                 Model_Fornecedor modelo = new Model_Fornecedor();
-                modelo.idFornecedor = Convert.ToInt32(txtId.Text);
-                modelo.nome = txtNome.Text;
-                modelo.cpfCNPJ = txtCPF.Text;
-                modelo.telefone = txtTel.Text;
-                modelo.email = txtEmail.Text;
+                modelo.IdFornecedor = Convert.ToInt32(txtId.Text);
+                modelo.Nome = txtNome.Text;
+                modelo.CpfCNPJ = txtCPF.Text;
+                modelo.Telefone = txtTel.Text;
+                modelo.Email = txtEmail.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Fornecedor bll = new BLL_Fornecedor(con);

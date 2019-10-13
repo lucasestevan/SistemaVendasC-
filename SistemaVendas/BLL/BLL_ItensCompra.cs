@@ -18,12 +18,12 @@ namespace BLL
         public void Incluir(Model_ItensCompra modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.idCompraItensCompra <= 0)
+            if (modelo.IdCompraItensCompra <= 0)
             {
                 throw new Exception("O Código da Compra é obrigatorio");
             }
 
-            if (modelo.idItensCompra <= 0)
+            if (modelo.IdItensCompra <= 0)
             {
                 throw new Exception("o Código do item da compra é obrigatorio");
             }
@@ -38,7 +38,7 @@ namespace BLL
                 throw new Exception("O Valor do Item deve ser maior que zero");
             }
 
-            if (modelo.idProdutoItensCompra <= 0)
+            if (modelo.IdProdutoItensCompra <= 0)
             {
                 throw new Exception("O Código do produto é obrigatorio");
             }
@@ -51,12 +51,12 @@ namespace BLL
         public void Alterar(Model_ItensCompra modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.idCompraItensCompra <= 0)
+            if (modelo.IdCompraItensCompra <= 0)
             {
                 throw new Exception("O Código da Compra é obrigatorio");
             }
 
-            if (modelo.idItensCompra <= 0)
+            if (modelo.IdItensCompra <= 0)
             {
                 throw new Exception("o Código do item da compra é obrigatorio");
             }
@@ -71,7 +71,7 @@ namespace BLL
                 throw new Exception("O Valor do Item deve ser maior que zero");
             }
 
-            if (modelo.idProdutoItensCompra <= 0)
+            if (modelo.IdProdutoItensCompra <= 0)
             {
                 throw new Exception("O Código do produto é obrigatorio");
             }
@@ -84,17 +84,17 @@ namespace BLL
         public void Excluir(Model_ItensCompra modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.idCompraItensCompra <= 0)
+            if (modelo.IdCompraItensCompra <= 0)
             {
                 throw new Exception("O Código da Compra é obrigatorio");
             }
 
-            if (modelo.idItensCompra <= 0)
+            if (modelo.IdItensCompra <= 0)
             {
                 throw new Exception("o Código do item da compra é obrigatorio");
             }
 
-            if (modelo.idProdutoItensCompra <= 0)
+            if (modelo.IdProdutoItensCompra <= 0)
             {
                 throw new Exception("O Código do produto é obrigatorio");
             }

@@ -21,16 +21,16 @@ namespace DAL
             cmd.CommandText = "insert into Venda (dataVenda, nfiscal, total, nparcelas, VendaStatus, id_cliente, id_tipoPagamento, avista)" +
                 "values (@dataVenda, @nfiscal, @total, @nparcelas, @VendaStatus, @id_cliente, @id_tipoPagamento, @avista); select @@IDENTITY;";
             cmd.Parameters.Add("@dataVenda", System.Data.SqlDbType.DateTime); //data
-            cmd.Parameters["@dataVenda"].Value = modelo.dataVenda; //data
-            cmd.Parameters.AddWithValue("@nfiscal", modelo.nFiscal);
-            cmd.Parameters.AddWithValue("@total", modelo.total);
-            cmd.Parameters.AddWithValue("@nparcelas", modelo.nParcelas);
-            cmd.Parameters.AddWithValue("@VendaStatus", modelo.vendaStatus);
-            cmd.Parameters.AddWithValue("@id_cliente", modelo.idCliente);
-            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.idTipoPagamento);
-            cmd.Parameters.AddWithValue("@avista", modelo.avista);
+            cmd.Parameters["@dataVenda"].Value = modelo.DataVenda; //data
+            cmd.Parameters.AddWithValue("@nfiscal", modelo.NFiscal);
+            cmd.Parameters.AddWithValue("@total", modelo.Total);
+            cmd.Parameters.AddWithValue("@nparcelas", modelo.NParcelas);
+            cmd.Parameters.AddWithValue("@VendaStatus", modelo.VendaStatus);
+            cmd.Parameters.AddWithValue("@id_cliente", modelo.IdCliente);
+            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.IdTipoPagamento);
+            cmd.Parameters.AddWithValue("@avista", modelo.Avista);
             conexao.Conectar();
-            modelo.idVenda = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdVenda = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -41,16 +41,16 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Venda set dataVenda = @dataVenda, nfiscal = @nfiscal, total = @total, nparcelas = @nparcelas, VendaStatus = @VendaStatus," +
                 "id_cliente = @id_cliente, id_tipoPagamento = @id_tipoPagamento, avista = @avista where id_venda = @id_venda";
-            cmd.Parameters.AddWithValue("@id_venda", modelo.idVenda);
+            cmd.Parameters.AddWithValue("@id_venda", modelo.IdVenda);
             cmd.Parameters.Add("@dataVenda", System.Data.SqlDbType.DateTime); //data
-            cmd.Parameters["@dataVenda"].Value = modelo.dataVenda; //data
-            cmd.Parameters.AddWithValue("@nfiscal", modelo.nFiscal);
-            cmd.Parameters.AddWithValue("@total", modelo.total);
-            cmd.Parameters.AddWithValue("@nparcelas", modelo.nParcelas);
-            cmd.Parameters.AddWithValue("@VendaStatus", modelo.vendaStatus);
-            cmd.Parameters.AddWithValue("@id_cliente", modelo.idCliente);
-            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.idTipoPagamento);
-            cmd.Parameters.AddWithValue("@avista", modelo.avista);
+            cmd.Parameters["@dataVenda"].Value = modelo.DataVenda; //data
+            cmd.Parameters.AddWithValue("@nfiscal", modelo.NFiscal);
+            cmd.Parameters.AddWithValue("@total", modelo.Total);
+            cmd.Parameters.AddWithValue("@nparcelas", modelo.NParcelas);
+            cmd.Parameters.AddWithValue("@VendaStatus", modelo.VendaStatus);
+            cmd.Parameters.AddWithValue("@id_cliente", modelo.IdCliente);
+            cmd.Parameters.AddWithValue("@id_tipoPagamento", modelo.IdTipoPagamento);
+            cmd.Parameters.AddWithValue("@avista", modelo.Avista);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -81,7 +81,7 @@ namespace DAL
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(dt.Rows[i]["id_produto"]));
-                produto.quantidade = produto.quantidade + Convert.ToDouble(dt.Rows[i]["quantidade"]);
+                produto.Quantidade = produto.Quantidade + Convert.ToDouble(dt.Rows[i]["quantidade"]);
                 dalProduto.Alterar(produto);
 
             }
@@ -114,15 +114,15 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idVenda = Convert.ToInt32(registro["id_venda"]);
-                modelo.dataVenda = Convert.ToDateTime(registro["dataVenda"]);
-                modelo.nFiscal = Convert.ToInt32(registro["nFiscal"]);
-                modelo.total = Convert.ToDouble(registro["total"]);
-                modelo.nParcelas = Convert.ToInt32(registro["nparcelas"]);
-                modelo.vendaStatus = Convert.ToString(registro["vendaStatus"]);
-                modelo.idCliente = Convert.ToInt32(registro["id_cliente"]);
-                modelo.idTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
-                modelo.avista = Convert.ToInt32(registro["avista"]);
+                modelo.IdVenda = Convert.ToInt32(registro["id_venda"]);
+                modelo.DataVenda = Convert.ToDateTime(registro["dataVenda"]);
+                modelo.NFiscal = Convert.ToInt32(registro["nFiscal"]);
+                modelo.Total = Convert.ToDouble(registro["total"]);
+                modelo.NParcelas = Convert.ToInt32(registro["nparcelas"]);
+                modelo.VendaStatus = Convert.ToString(registro["vendaStatus"]);
+                modelo.IdCliente = Convert.ToInt32(registro["id_cliente"]);
+                modelo.IdTipoPagamento = Convert.ToInt32(registro["id_tipoPagamento"]);
+                modelo.Avista = Convert.ToInt32(registro["avista"]);
             }
             conexao.Desconectar();
             return modelo;

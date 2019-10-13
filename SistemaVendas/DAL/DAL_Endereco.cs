@@ -20,13 +20,13 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Endereco (cep, rua, bairro, cidade, uf)" +
                 "values (@cep, @rua, @bairro, @cidade, @uf); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@cep", modelo.cep);
-            cmd.Parameters.AddWithValue("@rua", modelo.rua);
-            cmd.Parameters.AddWithValue("@bairro", modelo.bairro);
-            cmd.Parameters.AddWithValue("@cidade", modelo.cidade);
-            cmd.Parameters.AddWithValue("@uf", modelo.uf);
+            cmd.Parameters.AddWithValue("@cep", modelo.Cep);
+            cmd.Parameters.AddWithValue("@rua", modelo.Rua);
+            cmd.Parameters.AddWithValue("@bairro", modelo.Bairro);
+            cmd.Parameters.AddWithValue("@cidade", modelo.Cidade);
+            cmd.Parameters.AddWithValue("@uf", modelo.Uf);
             conexao.Conectar();
-            modelo.idEndereco = Convert.ToInt32(cmd.ExecuteScalar());
+            modelo.IdEndereco = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
         }
 
@@ -36,12 +36,12 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Endereco set cep = @cep, rua = @rua, bairro = @bairro, cidade = @cidade, uf = @uf where id_endereco = @id_endereco";
-            cmd.Parameters.AddWithValue("@id_endereco", modelo.idEndereco);
-            cmd.Parameters.AddWithValue("@cep", modelo.cep);
-            cmd.Parameters.AddWithValue("@rua", modelo.rua);
-            cmd.Parameters.AddWithValue("@bairro", modelo.bairro);
-            cmd.Parameters.AddWithValue("@cidade", modelo.cidade);
-            cmd.Parameters.AddWithValue("@uf", modelo.uf);
+            cmd.Parameters.AddWithValue("@id_endereco", modelo.IdEndereco);
+            cmd.Parameters.AddWithValue("@cep", modelo.Cep);
+            cmd.Parameters.AddWithValue("@rua", modelo.Rua);
+            cmd.Parameters.AddWithValue("@bairro", modelo.Bairro);
+            cmd.Parameters.AddWithValue("@cidade", modelo.Cidade);
+            cmd.Parameters.AddWithValue("@uf", modelo.Uf);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -62,12 +62,12 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.idEndereco = Convert.ToInt32(registro["id_endereco"]);
-                modelo.cep = Convert.ToString(registro["cep"]);
-                modelo.rua = Convert.ToString(registro["rua"]);
-                modelo.bairro = Convert.ToString(registro["bairro"]);
-                modelo.cidade = Convert.ToString(registro["cidade"]);
-                modelo.uf = Convert.ToString(registro["uf"]);
+                modelo.IdEndereco = Convert.ToInt32(registro["id_endereco"]);
+                modelo.Cep = Convert.ToString(registro["cep"]);
+                modelo.Rua = Convert.ToString(registro["rua"]);
+                modelo.Bairro = Convert.ToString(registro["bairro"]);
+                modelo.Cidade = Convert.ToString(registro["cidade"]);
+                modelo.Uf = Convert.ToString(registro["uf"]);
             }
             conexao.Desconectar();
             return modelo;

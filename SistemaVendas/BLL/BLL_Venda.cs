@@ -18,12 +18,12 @@ namespace BLL
         public void Incluir(Model_Venda modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.total < 0)
+            if (modelo.Total < 0)
             {
                 throw new Exception("O Total da venda dever ser maior que zero");
             }
 
-            if (modelo.idTipoPagamento <= 0)
+            if (modelo.IdTipoPagamento <= 0)
             {
                 throw new Exception("O tipo de pagamento é obrigatorio!");
             }
@@ -33,7 +33,7 @@ namespace BLL
             //    throw new Exception("O Cliente é obrigatorio");
             // }
 
-            if (modelo.nParcelas <= 0)
+            if (modelo.NParcelas <= 0)
             {
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }
@@ -46,17 +46,17 @@ namespace BLL
         public void Alterar(Model_Venda modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.idVenda <= 0)
+            if (modelo.IdVenda <= 0)
             {
                 throw new Exception("o código da compra deve ser informado");
             }
 
-            if (modelo.total < 0)
+            if (modelo.Total < 0)
             {
                 throw new Exception("O Total da venda dever ser maior que zero");
             }
 
-            if (modelo.idTipoPagamento <= 0)
+            if (modelo.IdTipoPagamento <= 0)
             {
                 throw new Exception("O tipo de pagamento é obrigatorio!");
             }
@@ -66,7 +66,7 @@ namespace BLL
             //    throw new Exception("O Cliente é obrigatorio");
             // }
 
-            if (modelo.nParcelas <= 0)
+            if (modelo.NParcelas <= 0)
             {
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }

@@ -224,18 +224,18 @@ namespace SistemaVendas.Apresentacao
                     frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
                     cadMovimentacaoCompra.btnSalvar.Enabled = false;
 
-                    cadMovimentacaoCompra.txtId.Text = modelo.idCompra.ToString();
-                    cadMovimentacaoCompra.txtNfiscal.Text = modelo.nFiscal.ToString();
-                    cadMovimentacaoCompra.dtCompra.Value = modelo.dataCompra;
-                    cadMovimentacaoCompra.cbFornecedor.SelectedValue = modelo.idFornecedor;
-                    cadMovimentacaoCompra.txtNParcelas.Value = modelo.nParcelas;
-                    cadMovimentacaoCompra.cbFormaPagto.SelectedValue = modelo.idTipoPagamento;
-                    cadMovimentacaoCompra.txtTotalCompra.Text = modelo.total.ToString();
-                    cadMovimentacaoCompra.totalCompra = modelo.total;
+                    cadMovimentacaoCompra.txtId.Text = modelo.IdCompra.ToString();
+                    cadMovimentacaoCompra.txtNfiscal.Text = modelo.NFiscal.ToString();
+                    cadMovimentacaoCompra.dtCompra.Value = modelo.DataCompra;
+                    cadMovimentacaoCompra.cbFornecedor.SelectedValue = modelo.IdFornecedor;
+                    cadMovimentacaoCompra.txtNParcelas.Value = modelo.NParcelas;
+                    cadMovimentacaoCompra.cbFormaPagto.SelectedValue = modelo.IdTipoPagamento;
+                    cadMovimentacaoCompra.txtTotalCompra.Text = modelo.Total.ToString();
+                    cadMovimentacaoCompra.totalCompra = modelo.Total;
 
                     //itens da compra
                     BLL_ItensCompra bll_Itens = new BLL_ItensCompra(con);
-                    DataTable tabela = bll_Itens.Localizar(modelo.idCompra);
+                    DataTable tabela = bll_Itens.Localizar(modelo.IdCompra);
 
                     //jogar todos os itens na tela
                     for (int i = 0; i < tabela.Rows.Count; i++)
@@ -279,7 +279,7 @@ namespace SistemaVendas.Apresentacao
                 {
                     //LEITURA DOS DADOS
                     Model_Compra modelo = new Model_Compra();
-                    modelo.idCompra = Convert.ToInt32(txtId.Text);
+                    modelo.IdCompra = Convert.ToInt32(txtId.Text);
                     modelo.CompraStatus = "ABERTO";
                     //OBJ PARA GRAVAR NO BANCO
                     DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);

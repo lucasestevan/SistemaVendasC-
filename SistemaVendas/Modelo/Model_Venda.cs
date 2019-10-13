@@ -4,156 +4,24 @@ namespace Modelo
 {
     public class Model_Venda
     {
-        public Model_Venda()
-        {
-            this.idVenda = 0;
-            this.dataVenda = DateTime.Now;
-            this.nFiscal = 0;
-            this.total = 0;
-            this.nParcelas = 0;
-            this.vendaStatus = "ABERTO";
-            this.idCliente = 0;
-            this.idTipoPagamento = 0;
-            this.avista = 0;
-        }
+        private int idVenda;
+        private DateTime dataVenda;
+        private int nFiscal;
+        private double total;
+        private double nParcelas;
+        private string vendaStatus;
+        private int idCliente;
+        private int idTipoPagamento;
+        private int avista;
 
-        public Model_Venda(int idVenda, DateTime dataVenda, int nFiscal, double total, int nParcelas, String vendaStatus, int idCliente, int idTipoPagament, int avista)
-        {
-            this.idVenda = idVenda;
-            this.dataVenda = dataVenda;
-            this.nFiscal = nFiscal;
-            this.total = total;
-            this.nParcelas = nParcelas;
-            this.vendaStatus = vendaStatus;
-            this.idCliente = idCliente;
-            this.idTipoPagamento = idTipoPagamento;
-            this.avista = avista;
-        }
-
-        private int _idVenda;
-
-        public int idVenda
-        {
-            get
-            {
-                return this._idVenda;
-            }
-            set
-            {
-                this._idVenda = value;
-            }
-        }
-
-        private DateTime _dataVenda;
-
-        public DateTime dataVenda
-        {
-            get
-            {
-                return this._dataVenda;
-            }
-            set
-            {
-                this._dataVenda = value;
-            }
-        }
-
-        private int _nFiscal;
-
-        public int nFiscal
-        {
-            get
-            {
-                return this._nFiscal;
-            }
-            set
-            {
-                this._nFiscal = value;
-            }
-        }
-
-        private Double _total;
-
-        public Double total
-        {
-            get
-            {
-                return this._total;
-            }
-            set
-            {
-                this._total = value;
-            }
-        }
-
-        private int _nParcelas;
-
-        public int nParcelas
-        {
-            get
-            {
-                return this._nParcelas;
-            }
-            set
-            {
-                this._nParcelas = value;
-            }
-        }
-
-        private string _vendaStatus;
-
-        public string vendaStatus
-        {
-            get
-            {
-                return this._vendaStatus;
-            }
-            set
-            {
-                this._vendaStatus = value;
-            }
-        }
-
-        private int _idCliente;
-
-        public int idCliente
-        {
-            get
-            {
-                return this._idCliente;
-            }
-            set
-            {
-                this._idCliente = value;
-            }
-        }
-
-        private int _idTipoPagamento;
-
-        public int idTipoPagamento
-        {
-            get
-            {
-                return this._idTipoPagamento;
-            }
-            set
-            {
-                this._idTipoPagamento = value;
-            }
-        }
-
-        private int _avista;
-
-        public int avista
-        {
-            get
-            {
-                return this._avista;
-            }
-            set
-            {
-                this._avista = value;
-            }
-        }
+        public int IdVenda { get => idVenda; set => idVenda = value; }
+        public DateTime DataVenda { get => dataVenda; set => dataVenda = value; }
+        public int NFiscal { get => nFiscal; set => nFiscal = value; }
+        public double Total { get => total; set => total = value; }
+        public double NParcelas { get => nParcelas; set => nParcelas = value; }
+        public string VendaStatus { get => vendaStatus; set => vendaStatus = value; }
+        public int IdCliente { get => idCliente; set => idCliente = value; }
+        public int IdTipoPagamento { get => idTipoPagamento; set => idTipoPagamento = value; }
+        public int Avista { get => avista; set => avista = value; }
     }
 }

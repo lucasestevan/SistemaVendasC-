@@ -103,12 +103,12 @@ namespace SistemaVendas.Apresentacao
             cadCliente.txtEmail.Text = modelo.Email.ToString();
             cadCliente.txtObs.Text = modelo.Observacao.ToString();
             cadCliente.txtIdEnde.Text = modelo.IdEndereco.ToString();
-            cadCliente.txtCep.Text = modeloEnde.cep.ToString();
-            cadCliente.txtRua.Text = modeloEnde.rua.ToString(); //RUA
+            cadCliente.txtCep.Text = modeloEnde.Cep.ToString();
+            cadCliente.txtRua.Text = modeloEnde.Rua.ToString(); //RUA
             cadCliente.txtNumero.Text = modelo.NumeroEnde.ToString();// NUMERO
-            cadCliente.txtBairro.Text = modeloEnde.bairro.ToString(); // BAIRRO
-            cadCliente.txtCidade.Text = modeloEnde.cidade.ToString();// CIDADE//
-            cadCliente.txtUf.Text = modeloEnde.uf.ToString(); //UF
+            cadCliente.txtBairro.Text = modeloEnde.Bairro.ToString(); // BAIRRO
+            cadCliente.txtCidade.Text = modeloEnde.Cidade.ToString();// CIDADE//
+            cadCliente.txtUf.Text = modeloEnde.Uf.ToString(); //UF
             cadCliente.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }

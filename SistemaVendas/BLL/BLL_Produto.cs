@@ -18,27 +18,27 @@ namespace BLL
         public void Incluir(Model_Produto modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome da produto é obrigatorio");
             }
 
-            if (modelo.preco <= 0)
+            if (modelo.Preco <= 0)
             {
                 throw new Exception("O Preço é obrigatorio");
             }
 
-            if (modelo.quantidade <= 0)
+            if (modelo.Quantidade <= 0)
             {
                 throw new Exception("A quantidade deve ser 0 ou maior!");
             }
 
-            if (modelo.idCategoria <= 0)
+            if (modelo.IdCategoria <= 0)
             {
                 throw new Exception("A Categoria é obrigatoria");
             }
 
-            if (modelo.idFornecedor <= 0)
+            if (modelo.IdFornecedor <= 0)
             {
                 throw new Exception("O Fornecedor é obrigatorio");
             }
@@ -51,27 +51,27 @@ namespace BLL
         public void Alterar(Model_Produto modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome da produto é obrigatorio");
             }
 
-            if (modelo.preco <= 0)
+            if (modelo.Preco <= 0)
             {
                 throw new Exception("O Preço é obrigatorio");
             }
 
-            if (modelo.quantidade <= 0)
+            if (modelo.Quantidade <= 0)
             {
                 throw new Exception("A quantidade deve ser 0 ou maior!");
             }
 
-            if (modelo.idCategoria <= 0)
+            if (modelo.IdCategoria <= 0)
             {
                 throw new Exception("A Categoria é obrigatoria");
             }
 
-            if (modelo.idFornecedor <= 0)
+            if (modelo.IdFornecedor <= 0)
             {
                 throw new Exception("O Fornecedor é obrigatorio");
             }
@@ -93,7 +93,6 @@ namespace BLL
             DAL_Produto DALobj = new DAL_Produto(conexao);
             return DALobj.CarregaModeloProduto(idProduto);
         }
-
 
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)

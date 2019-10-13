@@ -18,12 +18,12 @@ namespace BLL
         public void Incluir(Model_Fornecedor modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Fornecedor é obrigatorio");
             }
 
-            if (modelo.cpfCNPJ.Trim().Length == 0)
+            if (modelo.CpfCNPJ.Trim().Length == 0)
             {
                 throw new Exception("O CPF ou CNPJ é obrigatorio");
             }
@@ -36,12 +36,12 @@ namespace BLL
         public void Alterar(Model_Fornecedor modelo)
         {
             //VERIFICAR SE O CAMPO NÃO É VAZIO
-            if (modelo.nome.Trim().Length == 0)
+            if (modelo.Nome.Trim().Length == 0)
             {
                 throw new Exception("O nome do Fornecedor é obrigatorio");
             }
 
-            if (modelo.cpfCNPJ.Trim().Length == 0)
+            if (modelo.CpfCNPJ.Trim().Length == 0)
             {
                 throw new Exception("O CPF ou CNPJ é obrigatorio");
             }

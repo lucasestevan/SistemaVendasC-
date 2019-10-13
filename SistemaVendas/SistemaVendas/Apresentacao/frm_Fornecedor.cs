@@ -91,11 +91,11 @@ namespace SistemaVendas.Apresentacao
             cadFornecedor.btnAlterar.Enabled = true;
             cadFornecedor.btnSalvar.Enabled = false;
 
-            cadFornecedor.txtId.Text = modelo.idFornecedor.ToString();
-            cadFornecedor.txtNome.Text = modelo.nome.ToString();
-            cadFornecedor.txtCPF.Text = modelo.cpfCNPJ.ToString();
-            cadFornecedor.txtTel.Text = modelo.telefone.ToString();
-            cadFornecedor.txtEmail.Text = modelo.email.ToString();
+            cadFornecedor.txtId.Text = modelo.IdFornecedor.ToString();
+            cadFornecedor.txtNome.Text = modelo.Nome.ToString();
+            cadFornecedor.txtCPF.Text = modelo.CpfCNPJ.ToString();
+            cadFornecedor.txtTel.Text = modelo.Telefone.ToString();
+            cadFornecedor.txtEmail.Text = modelo.Email.ToString();
             cadFornecedor.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }

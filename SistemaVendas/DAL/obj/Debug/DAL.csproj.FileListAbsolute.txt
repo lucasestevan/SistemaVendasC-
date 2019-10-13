@@ -32,7 +32,6 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\bin\Debug\Transformer.NET.xml
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.dll
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\DAL\obj\Debug\DAL.pdb

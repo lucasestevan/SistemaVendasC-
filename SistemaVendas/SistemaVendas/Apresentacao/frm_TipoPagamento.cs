@@ -92,8 +92,8 @@ namespace SistemaVendas.Apresentacao
             cadPagamento.btnAlterar.Enabled = true;
             cadPagamento.btnSalvar.Enabled = false;
 
-            cadPagamento.txtId.Text = modelo.idTipoPagamento.ToString();
-            cadPagamento.txtNome.Text = modelo.nome.ToString();
+            cadPagamento.txtId.Text = modelo.IdTipoPagamento.ToString();
+            cadPagamento.txtNome.Text = modelo.Nome.ToString();
             cadPagamento.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
