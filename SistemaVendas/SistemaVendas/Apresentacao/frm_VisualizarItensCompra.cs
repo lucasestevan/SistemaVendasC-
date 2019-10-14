@@ -26,7 +26,7 @@ namespace SistemaVendas.Apresentacao
         {
             dgvItensCompra.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
             dgvItensCompra.Columns[0].Width = 45; //TAMANHO DA LARGURA
-            dgvItensCompra.Columns[1].HeaderText = "Nome";
+            dgvItensCompra.Columns[1].HeaderText = "Produto";
             dgvItensCompra.Columns[1].Width = 160;
             dgvItensCompra.Columns[2].HeaderText = "Quant.";
             dgvItensCompra.Columns[2].Width = 80;

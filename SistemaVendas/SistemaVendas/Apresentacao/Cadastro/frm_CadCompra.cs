@@ -60,7 +60,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Cadastrar Produto \n" + ex.Message);
+                MessageBox.Show("Erro ao Cadastrar Compra \n" + ex.Message);
             }
         }
 

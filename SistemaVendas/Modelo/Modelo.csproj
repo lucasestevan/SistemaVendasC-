@@ -49,7 +49,9 @@
     <Compile Include="Model_Endereco.cs" />
     <Compile Include="Model_Fornecedor.cs" />
     <Compile Include="Model_ItensCompra.cs" />
+    <Compile Include="Model_ItensVenda.cs" />
     <Compile Include="Model_Login.cs" />
+    <Compile Include="Model_ParcelasVenda.cs" />
     <Compile Include="Model_Produto.cs" />
     <Compile Include="Model_TipoPagamento.cs" />
     <Compile Include="Model_Venda.cs" />

@@ -15,7 +15,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             InitializeComponent();
         }
 
-        //botao salvar
+        //botao Ok
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             dgvParcelas.Rows.Clear();
@@ -194,9 +194,80 @@ namespace SistemaVendas.Apresentacao.Cadastro
             pnFinalizaCompra.Visible = false;
         }
 
-        private void btnSalvarFinal_Click(object sender, EventArgs e)
+        //Botao SALVAR VENDA
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //cOMPRA
+                //LEITURA DOS DADOS
+                Model_Venda modeloVenda = new Model_Venda();
+                modeloVenda.DataVenda = dtVenda.Value;
+                modeloVenda.NFiscal = Convert.ToInt32(txtNfiscal.Text);
+                modeloVenda.NParcelas = Convert.ToInt32(txtNParcelas.Text);
+                modeloVenda.VendaStatus = "ABERTO";
+                modeloVenda.Total = Convert.ToInt32(txtTotalCompra.Text);
+                modeloVenda.IdCliente = Convert.ToInt32(cbCliente.SelectedValue);
+                modeloVenda.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
+                if (cbxAvista.Checked == true)
+                {
+                    modeloVenda.Avista = 1;
+                }
+                else
+                {
+                    modeloVenda.Avista = 0;
+                }
+                
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Venda bllVenda = new BLL_Venda(con);
 
+                //ITENS VENDA
+                Model_ItensVenda modeloItensVendas = new Model_ItensVenda();
+                BLL_ItensVendas bllItenVenda = new BLL_ItensVendas(con);
+
+                //PARCELAS VENDA
+                Model_ParcelasVenda modeloParcelas = new Model_ParcelasVenda();
+                BLL_ParcelasVenda bllParcelas = new BLL_ParcelasVenda(con);
+
+
+                //CADASTRAR Venda
+                bllVenda.Incluir(modeloVenda);
+
+                //CADASTRAR ITENS Venda
+                for (int i = 0; i < dgvVenda.RowCount; i++)
+                {
+                    modeloItensVendas.IdItensVenda = i + 1;
+                    modeloItensVendas.IdVendaItensVendas = modeloVenda.IdVenda;
+                    modeloItensVendas.IdProdutoItensVenda = Convert.ToInt32(dgvVenda.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
+                    modeloItensVendas.Quantidade = Convert.ToDouble(dgvVenda.Rows[i].Cells[2].Value); //PEGA A qtd  DO DATA GRID
+                    modeloItensVendas.Valor = Convert.ToDouble(dgvVenda.Rows[i].Cells[3].Value); //PEGA O valor DO DATA GRID
+
+                    bllItenVenda.Incluir(modeloItensVendas);
+
+                    //ALTERAR A QUANTIDADE DE PRODUTOS vendidos NA TABLE DA PRODUTOS
+                    //TRIGGER CRIADA NO BD
+                }
+
+                //CADASTRAR PARCELAS VENDA
+                for (int i = 0; i < dgvParcelas.RowCount; i++)
+                {
+                    modeloParcelas.IdVenda = modeloVenda.IdVenda;
+                    modeloParcelas.IdParcelasVenda = Convert.ToInt32(dgvParcelas.Rows[i].Cells[0].Value); ; //PEGA O IDE DO DATA GRID
+                    modeloParcelas.Valor = Convert.ToDouble(dgvParcelas.Rows[i].Cells[1].Value); //PEGA a valor
+                    modeloParcelas.DataVencimento = Convert.ToDateTime(dgvParcelas.Rows[i].Cells[2].Value); //PEGA a data DO DATA GRID
+
+                   bllParcelas.Incluir(modeloParcelas);
+                }
+
+                MessageBox.Show("Venda cadastrada com sucesso!");
+                this.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao Cadastrar Venda \n" + ex.Message);
+            }
         }
     }
 }

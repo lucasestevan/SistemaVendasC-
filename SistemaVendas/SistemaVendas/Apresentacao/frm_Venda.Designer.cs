@@ -81,9 +81,9 @@
             // 
             this.gbCodigo.Controls.Add(this.txtIdVenda);
             this.gbCodigo.Controls.Add(this.btnPesquisarCod);
-            this.gbCodigo.Location = new System.Drawing.Point(148, 9);
+            this.gbCodigo.Location = new System.Drawing.Point(150, 3);
             this.gbCodigo.Name = "gbCodigo";
-            this.gbCodigo.Size = new System.Drawing.Size(300, 101);
+            this.gbCodigo.Size = new System.Drawing.Size(300, 102);
             this.gbCodigo.TabIndex = 61;
             this.gbCodigo.TabStop = false;
             this.gbCodigo.Text = "Código";
@@ -103,6 +103,7 @@
             this.btnPesquisarCod.TabIndex = 47;
             this.btnPesquisarCod.Text = "Pesquisar";
             this.btnPesquisarCod.UseVisualStyleBackColor = true;
+            this.btnPesquisarCod.Click += new System.EventHandler(this.BtnPesquisarCod_Click);
             // 
             // btnVisualizar
             // 
@@ -112,15 +113,16 @@
             this.btnVisualizar.TabIndex = 60;
             this.btnVisualizar.Text = "Visualizar";
             this.btnVisualizar.UseVisualStyleBackColor = true;
+            this.btnVisualizar.Click += new System.EventHandler(this.BtnVisualizar_Click);
             // 
             // gbData
             // 
             this.gbData.Controls.Add(this.btnPesquisaData);
             this.gbData.Controls.Add(this.dtFinal);
             this.gbData.Controls.Add(this.dtInicial);
-            this.gbData.Location = new System.Drawing.Point(148, 9);
+            this.gbData.Location = new System.Drawing.Point(153, 3);
             this.gbData.Name = "gbData";
-            this.gbData.Size = new System.Drawing.Size(300, 101);
+            this.gbData.Size = new System.Drawing.Size(300, 102);
             this.gbData.TabIndex = 59;
             this.gbData.TabStop = false;
             this.gbData.Text = "Data";
@@ -133,6 +135,7 @@
             this.btnPesquisaData.TabIndex = 47;
             this.btnPesquisaData.Text = "Pesquisar";
             this.btnPesquisaData.UseVisualStyleBackColor = true;
+            this.btnPesquisaData.Click += new System.EventHandler(this.BtnPesquisaData_Click);
             // 
             // dtFinal
             // 
@@ -155,9 +158,9 @@
             // 
             this.gbCliente.Controls.Add(this.btnPesquisaCliente);
             this.gbCliente.Controls.Add(this.txtNome);
-            this.gbCliente.Location = new System.Drawing.Point(148, 12);
+            this.gbCliente.Location = new System.Drawing.Point(152, 3);
             this.gbCliente.Name = "gbCliente";
-            this.gbCliente.Size = new System.Drawing.Size(300, 98);
+            this.gbCliente.Size = new System.Drawing.Size(300, 102);
             this.gbCliente.TabIndex = 58;
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Cliente";
@@ -170,6 +173,7 @@
             this.btnPesquisaCliente.TabIndex = 46;
             this.btnPesquisaCliente.Text = "Pesquisar";
             this.btnPesquisaCliente.UseVisualStyleBackColor = true;
+            this.btnPesquisaCliente.Click += new System.EventHandler(this.BtnPesquisaCliente_Click);
             // 
             // txtNome
             // 
@@ -199,6 +203,7 @@
             this.rbCodigo.TabIndex = 3;
             this.rbCodigo.Text = "Cód. Venda";
             this.rbCodigo.UseVisualStyleBackColor = true;
+            this.rbCodigo.CheckedChanged += new System.EventHandler(this.RbGeral_CheckedChanged);
             // 
             // rbGeral
             // 
@@ -211,6 +216,7 @@
             this.rbGeral.TabStop = true;
             this.rbGeral.Text = "Todas as Vendas";
             this.rbGeral.UseVisualStyleBackColor = true;
+            this.rbGeral.CheckedChanged += new System.EventHandler(this.RbGeral_CheckedChanged);
             // 
             // rbData
             // 
@@ -221,6 +227,7 @@
             this.rbData.TabIndex = 1;
             this.rbData.Text = "Data da Venda";
             this.rbData.UseVisualStyleBackColor = true;
+            this.rbData.CheckedChanged += new System.EventHandler(this.RbGeral_CheckedChanged);
             // 
             // rbCliente
             // 
@@ -231,6 +238,7 @@
             this.rbCliente.TabIndex = 0;
             this.rbCliente.Text = "Cliente";
             this.rbCliente.UseVisualStyleBackColor = true;
+            this.rbCliente.CheckedChanged += new System.EventHandler(this.RbGeral_CheckedChanged);
             // 
             // txtId
             // 
@@ -247,6 +255,7 @@
             this.btnExcluir.TabIndex = 55;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -256,6 +265,7 @@
             this.btnAlterar.TabIndex = 54;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // dgvVenda
             // 
@@ -270,6 +280,7 @@
             this.dgvVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVenda.Size = new System.Drawing.Size(450, 263);
             this.dgvVenda.TabIndex = 53;
+            this.dgvVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVenda_CellClick);
             // 
             // btnPesquisarGeral
             // 
@@ -279,6 +290,7 @@
             this.btnPesquisarGeral.TabIndex = 52;
             this.btnPesquisarGeral.Text = "Pesquisar";
             this.btnPesquisarGeral.UseVisualStyleBackColor = true;
+            this.btnPesquisarGeral.Click += new System.EventHandler(this.BtnPesquisarGeral_Click);
             // 
             // btnNovo
             // 
@@ -294,13 +306,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 397);
+            this.ClientSize = new System.Drawing.Size(553, 394);
+            this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSelecionar);
-            this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.gbData);
-            this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.gbCliente);
+            this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnExcluir);
@@ -310,6 +322,7 @@
             this.Controls.Add(this.btnNovo);
             this.Name = "frm_Venda";
             this.Text = "frm_Venda";
+            this.Load += new System.EventHandler(this.Frm_Venda_Load);
             this.gbCodigo.ResumeLayout(false);
             this.gbCodigo.PerformLayout();
             this.gbData.ResumeLayout(false);

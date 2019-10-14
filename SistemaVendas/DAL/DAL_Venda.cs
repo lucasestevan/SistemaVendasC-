@@ -135,7 +135,7 @@ namespace DAL
             SqlDataAdapter da = default(SqlDataAdapter);
             da = new SqlDataAdapter("select v.id_venda,  v.dataVenda, c.nome, v.nparcelas, v.total," +
                 " v.vendaStatus, v.id_cliente, v.id_tipoPagamento, v.avista," +
-                " v.nfiscal, from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente ", conexao.StringConexao);
+                " v.nfiscal from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente ", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
@@ -147,7 +147,7 @@ namespace DAL
             SqlDataAdapter da = default(SqlDataAdapter);
             da = new SqlDataAdapter("select v.id_venda,  v.dataVenda, c.nome, v.nparcelas, v.total," +
                 " v.vendaStatus, v.id_cliente, v.id_tipoPagamento, v.avista," +
-                " v.nfiscal, from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente where v.id_venda =" + idVenda.ToString(), conexao.StringConexao);
+                " v.nfiscal from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente where v.id_venda =" + idVenda.ToString(), conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
@@ -159,7 +159,7 @@ namespace DAL
             SqlDataAdapter da = default(SqlDataAdapter);
             da = new SqlDataAdapter("select v.id_venda,  v.dataVenda, c.nome, v.nparcelas, v.total," +
                 " v.vendaStatus, v.id_cliente, v.id_tipoPagamento, v.avista," +
-                "  v.nfiscal from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente where c.nome like '%" + nome + "%' order by f.nome", conexao.StringConexao);
+                "  v.nfiscal from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente where c.nome like '%" + nome + "%' order by c.nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
@@ -172,8 +172,8 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "select v.id_venda,  v.dataVenda, c.nome, v.nparcelas, v.total," +
                 " v.vendaStatus, v.id_cliente, v.id_tipoPagamento, v.avista," +
-                " v.nfiscal, from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente" +
-                " where v.dataVenda BETWEEN @inicial and @final order by c.dataVenda";
+                " v.nfiscal from Venda as v inner join Cliente as c on v.id_cliente = c.id_cliente" +
+                " where v.dataVenda BETWEEN @inicial and @final order by v.dataVenda";
 
             cmd.Parameters.Add("@inicial", System.Data.SqlDbType.DateTime);
             cmd.Parameters["@inicial"].Value = inicial;

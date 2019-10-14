@@ -87,3 +87,4 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.csproj.CopyComplete
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.exe
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.pdb
+C:\Users\user\Desktop\Sistema vendas c#\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_VisualizarItensVenda.resources
