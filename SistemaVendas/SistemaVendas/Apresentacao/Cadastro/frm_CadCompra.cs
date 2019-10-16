@@ -9,6 +9,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
     public partial class frm_CadCompra : Form
     {
         public double totalCompra = 0;
+        public string alterabotao = "0";
 
         public frm_CadCompra()
         {
@@ -121,6 +122,17 @@ namespace SistemaVendas.Apresentacao.Cadastro
         private void Frm_CadMovimentacaoCompra_Load(object sender, EventArgs e)
         {
             listarComboBox();
+            if (this.alterabotao == "0")
+            {
+                btnSalvar.Enabled = true;
+                btnAlterar.Enabled = false;
+            }
+
+            if (this.alterabotao == "1")
+            {
+                btnAlterar.Enabled = true;
+                btnSalvar.Enabled = false;
+            }
         }
 
         //METODO LISTAR COMBOBOX
@@ -185,7 +197,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
             try
             {
                 //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
-                if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtValorUni.Text != "") && (txtValorUni.Text != "0,00"))
+                if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") &&
+                    (txtValorUni.Text != "") && (txtValorUni.Text != "0,00") && (txtValorUni.Text != "0,") && (txtValorUni.Text != "0"))
                 {
                     Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtValorUni.Text);
 
@@ -235,6 +248,76 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     dgvCompra.Rows.RemoveAt(e.RowIndex);
                     txtTotalCompra.Text = this.totalCompra.ToString();
                 }
+            }
+        }
+
+        private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtQtd.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void TxtQtd_Leave(object sender, EventArgs e)
+        {
+            if (txtQtd.Text.Contains(",") == false)
+            {
+                txtQtd.Text += ",";
+            }
+            else
+            {
+                if (txtQtd.Text.IndexOf(",") == txtQtd.Text.Length - 1)
+                {
+                    txtQtd.Text += "00";
+                }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtQtd.Text);
+            }
+            catch
+            {
+                txtQtd.Text = "0,00";
+            }
+        }
+
+        private void TxtValorUni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtValorUni.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void TxtValorUni_Leave(object sender, EventArgs e)
+        {
+            if (txtValorUni.Text.Contains(",") == false)
+            {
+                txtValorUni.Text += ",";
+            }
+            else
+            {
+                if (txtValorUni.Text.IndexOf(",") == txtValorUni.Text.Length - 1)
+                {
+                    txtValorUni.Text += "00";
+                }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtValorUni.Text);
+            }
+            catch
+            {
+                txtValorUni.Text = "0,00";
             }
         }
     }

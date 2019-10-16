@@ -67,12 +67,12 @@
             this.label17 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dgvParcelas = new System.Windows.Forms.DataGridView();
-            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label19 = new System.Windows.Forms.Label();
             this.lblTotalVenda = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
@@ -82,7 +82,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(107, 451);
+            this.btnAlterar.Location = new System.Drawing.Point(521, 93);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 49;
@@ -98,7 +98,7 @@
             this.btnOk.TabIndex = 48;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnSalvar_Click);
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // pnVenda
             // 
@@ -211,7 +211,8 @@
             this.txtValorUni.Name = "txtValorUni";
             this.txtValorUni.Size = new System.Drawing.Size(60, 20);
             this.txtValorUni.TabIndex = 54;
-            this.txtValorUni.Text = "0,00";
+            this.txtValorUni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorUni_KeyPress);
+            this.txtValorUni.Leave += new System.EventHandler(this.TxtValorUni_Leave);
             // 
             // label11
             // 
@@ -229,7 +230,8 @@
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(60, 20);
             this.txtQtd.TabIndex = 52;
-            this.txtQtd.Text = "0,00";
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
+            this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
             // 
             // label5
             // 
@@ -413,24 +415,21 @@
             // 
             // pnFinalizaCompra
             // 
-            this.pnFinalizaCompra.Controls.Add(this.btnAlterar);
-            this.pnFinalizaCompra.Controls.Add(this.btnCancelar);
             this.pnFinalizaCompra.Controls.Add(this.label17);
-            this.pnFinalizaCompra.Controls.Add(this.btnSalvar);
             this.pnFinalizaCompra.Controls.Add(this.dgvParcelas);
             this.pnFinalizaCompra.Controls.Add(this.label19);
             this.pnFinalizaCompra.Controls.Add(this.lblTotalVenda);
             this.pnFinalizaCompra.Controls.Add(this.label24);
-            this.pnFinalizaCompra.Location = new System.Drawing.Point(602, 12);
+            this.pnFinalizaCompra.Location = new System.Drawing.Point(12, 12);
             this.pnFinalizaCompra.Name = "pnFinalizaCompra";
-            this.pnFinalizaCompra.Size = new System.Drawing.Size(468, 506);
+            this.pnFinalizaCompra.Size = new System.Drawing.Size(494, 506);
             this.pnFinalizaCompra.TabIndex = 61;
             this.pnFinalizaCompra.TabStop = false;
             this.pnFinalizaCompra.Visible = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(385, 451);
+            this.btnCancelar.Location = new System.Drawing.Point(521, 126);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 63;
@@ -449,7 +448,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(11, 451);
+            this.btnSalvar.Location = new System.Drawing.Point(521, 56);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 62;
@@ -471,32 +470,13 @@
             this.dgvParcelas.Name = "dgvParcelas";
             this.dgvParcelas.ReadOnly = true;
             this.dgvParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParcelas.Size = new System.Drawing.Size(460, 305);
+            this.dgvParcelas.Size = new System.Drawing.Size(488, 305);
             this.dgvParcelas.TabIndex = 43;
-            // 
-            // Parcela
-            // 
-            this.Parcela.HeaderText = "Parcela";
-            this.Parcela.Name = "Parcela";
-            this.Parcela.ReadOnly = true;
-            this.Parcela.Width = 60;
-            // 
-            // ValorParcela
-            // 
-            this.ValorParcela.HeaderText = "Valor da parcela";
-            this.ValorParcela.Name = "ValorParcela";
-            this.ValorParcela.ReadOnly = true;
-            // 
-            // dataVencimento
-            // 
-            this.dataVencimento.HeaderText = "Data Vencimento";
-            this.dataVencimento.Name = "dataVencimento";
-            this.dataVencimento.ReadOnly = true;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(320, 376);
+            this.label19.Location = new System.Drawing.Point(320, 381);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(83, 13);
             this.label19.TabIndex = 42;
@@ -506,7 +486,7 @@
             // 
             this.lblTotalVenda.AutoSize = true;
             this.lblTotalVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalVenda.Location = new System.Drawing.Point(406, 368);
+            this.lblTotalVenda.Location = new System.Drawing.Point(406, 372);
             this.lblTotalVenda.Name = "lblTotalVenda";
             this.lblTotalVenda.Size = new System.Drawing.Size(45, 24);
             this.lblTotalVenda.TabIndex = 34;
@@ -521,14 +501,38 @@
             this.label24.TabIndex = 23;
             this.label24.Text = "Dados do Pagamento";
             // 
+            // Parcela
+            // 
+            this.Parcela.HeaderText = "Parcela";
+            this.Parcela.Name = "Parcela";
+            this.Parcela.ReadOnly = true;
+            this.Parcela.Width = 60;
+            // 
+            // ValorParcela
+            // 
+            this.ValorParcela.HeaderText = "Valor da parcela";
+            this.ValorParcela.Name = "ValorParcela";
+            this.ValorParcela.ReadOnly = true;
+            this.ValorParcela.Width = 120;
+            // 
+            // dataVencimento
+            // 
+            this.dataVencimento.HeaderText = "Data Vencimento";
+            this.dataVencimento.Name = "dataVencimento";
+            this.dataVencimento.ReadOnly = true;
+            this.dataVencimento.Width = 120;
+            // 
             // frm_CadVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 536);
+            this.ClientSize = new System.Drawing.Size(605, 536);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.pnFinalizaCompra);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.pnVenda);
+            this.Controls.Add(this.btnSalvar);
             this.Name = "frm_CadVenda";
             this.Text = "frm_CadVenda";
             this.Load += new System.EventHandler(this.Frm_CadVenda_Load);
@@ -583,12 +587,12 @@
         private System.Windows.Forms.Label label17;
         internal System.Windows.Forms.Button btnSalvar;
         internal System.Windows.Forms.DataGridView dgvParcelas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataVencimento;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblTotalVenda;
         private System.Windows.Forms.Label label24;
         internal System.Windows.Forms.CheckBox cbxAvista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataVencimento;
     }
 }

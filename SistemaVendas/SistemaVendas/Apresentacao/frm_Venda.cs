@@ -76,27 +76,27 @@ namespace SistemaVendas.Apresentacao
                 {
                     try
                     {
-                        Model_Compra modeloCompra = new Model_Compra();
+                        Model_Venda modeloVenda = new Model_Venda();
                         this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
                         //EXCLUIR ITENS DA COMPRA 
                         DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                        BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
+                        BLL_ItensVendas bllItens = new BLL_ItensVendas(con);
                         //excluir Compra
-                        BLL_Compra bllCompra = new BLL_Compra(con);
+                        BLL_Venda bllVenda = new BLL_Venda(con);
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR EXCLUIR
                         if (Status == "PAGO")
                         {
-                            MessageBox.Show("A veNDA está com status de PAGA, não é possível excluir!");
+                            MessageBox.Show("A Venda está com status de PAGA, não é possível excluir!");
                         }
                         else
                         {
                             bllItens.ExcluirTodosItens(Convert.ToInt32(txtId.Text));
 
-                            bllCompra.Excluir(Convert.ToInt32(txtId.Text));
+                            bllVenda.Excluir(Convert.ToInt32(txtId.Text));
 
-                            MessageBox.Show("Compra excluida com sucesso!");
+                            MessageBox.Show("Venda excluida com sucesso!");
                             BtnPesquisarGeral_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
                             txtId.Text = "";
 
@@ -105,7 +105,7 @@ namespace SistemaVendas.Apresentacao
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao excluir vENDA, o registro está sendo utilizado em outro local \n " + ex.Message);
+                        MessageBox.Show("Erro ao excluir Venda, o registro está sendo utilizado em outro local \n " + ex.Message);
                     }
                 }
             }
@@ -161,6 +161,90 @@ namespace SistemaVendas.Apresentacao
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
+        //BOTAO VIZUALIZAR
+        private void BtnVisualizar_Click(object sender, EventArgs e)
+        {
+            if (dgvVenda.SelectedRows.Count > 0)
+            {
+                //CRIAR O FORM VIZUALIZAR ITEM
+                frm_VisualizarItensVenda visualizar = new frm_VisualizarItensVenda();
+
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_ItensVendas bllItens = new BLL_ItensVendas(con);
+                BLL_ParcelasVenda bllParcelas = new BLL_ParcelasVenda(con);
+
+                visualizar.dgvItensVenda.DataSource = bllItens.Localizar(Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
+                visualizar.dgvParcelasVenda.DataSource = bllParcelas.Localizar(Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
+                visualizar.ShowDialog();
+            }
+        }
+
+        //botao alterar
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
+
+                //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR alterar
+                if (Status == "PAGO")
+                {
+                    MessageBox.Show("A venda está com status de PAGO, não é possível Alterar!");
+                }
+                else
+                {
+                    if (dgvVenda.SelectedRows.Count > 0)
+                    {
+                        //pega o id da data grid
+                        this.idVenda = (Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
+
+                        //chamr modelo bll e dal compra
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Venda bll = new BLL_Venda(con);
+                        Model_Venda modelo = bll.CarregaModeloVenda(idVenda);
+
+                        //CHAMAR O FORM CAD COMPRA
+                        frm_CadVenda cadVenda = new frm_CadVenda();
+                        cadVenda.alterabotao = "1";
+                        cadVenda.btnSalvar.Enabled = false;
+
+                        cadVenda.txtId.Text = modelo.IdVenda.ToString();
+                        cadVenda.txtNfiscal.Text = modelo.NFiscal.ToString();
+                        cadVenda.dtVenda.Value = modelo.DataVenda;
+                        cadVenda.cbCliente.SelectedValue = modelo.IdVenda;
+                        cadVenda.txtNParcelas.Value = Convert.ToInt32(modelo.NParcelas.ToString());
+                        cadVenda.cbFormaPagto.SelectedValue = modelo.IdTipoPagamento;
+                        cadVenda.txtTotalCompra.Text = modelo.Total.ToString();
+                        if (modelo.Avista == 1) cadVenda.cbxAvista.Checked = true;
+                        else cadVenda.cbxAvista.Checked = false;
+                        cadVenda.totalVenda = modelo.Total;
+
+                        //itens da venda
+                        BLL_ItensVendas bll_Itens = new BLL_ItensVendas(con);
+                        DataTable tabela = bll_Itens.Localizar(modelo.IdVenda);
+
+                        //jogar todos os itens na tela
+                        for (int i = 0; i < tabela.Rows.Count; i++)
+                        {
+                            string icod = tabela.Rows[i]["id_produto"].ToString();
+                            string inome = tabela.Rows[i]["nome"].ToString();
+                            string iqtd = tabela.Rows[i]["quantidade"].ToString();
+                            string ivaloruni = tabela.Rows[i]["valor"].ToString();
+                            Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
+
+                            String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
+                            cadVenda.dgvVenda.Rows.Add(it);
+                        }
+                        cadVenda.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo para poder Alterar");
+            }
+        }
+
         //FORMATA O DATA GRID
         private void FormatarDGV()
         {
@@ -183,86 +267,9 @@ namespace SistemaVendas.Apresentacao
             dgvVenda.Columns[9].Width = 90;
         }
 
-        //BOTAO VIZUALIZAR
-        private void BtnVisualizar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            if (dgvVenda.SelectedRows.Count > 0)
-            {
-                //CRIAR O FORM VIZUALIZAR ITEM
-                frm_VisualizarItensVenda visualizar = new frm_VisualizarItensVenda();
 
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_ItensVendas bllItens = new BLL_ItensVendas(con);
-                BLL_ParcelasVenda bllParcelas = new BLL_ParcelasVenda(con);
-
-                visualizar.dgvItensVenda.DataSource = bllItens.Localizar(Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
-                visualizar.dgvParcelasVenda.DataSource = bllParcelas.Localizar(Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
-                visualizar.ShowDialog();
-            }
-        }
-
-        //botao alterar
-        private void BtnAlterar_Click(object sender, EventArgs e)
-        {
-            this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
-
-            //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR alterar
-            if (Status == "PAGO")
-            {
-                MessageBox.Show("A venda está com status de PAGO, não é possível Alterar!");
-            }
-            else
-            {
-                if (dgvVenda.SelectedRows.Count > 0)
-                {
-                    //pega o id da data grid
-                    this.idVenda = (Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
-
-                    //chamr modelo bll e dal compra
-                    DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                    BLL_Venda bll = new BLL_Venda(con);
-                    Model_Venda modelo = bll.CarregaModeloVenda(idVenda);
-
-                    //CHAMAR O FORM CAD COMPRA
-                    frm_CadVenda cadVenda = new frm_CadVenda();
-                    cadVenda.btnSalvar.Enabled = false;
-
-                    cadVenda.txtId.Text = modelo.IdVenda.ToString();
-                    cadVenda.txtNfiscal.Text = modelo.NFiscal.ToString();
-                    cadVenda.dtVenda.Value = modelo.DataVenda;
-                    cadVenda.cbCliente.SelectedValue = modelo.IdVenda;
-                    cadVenda.txtNParcelas.Value = Convert.ToInt32(modelo.NParcelas.ToString());
-                    cadVenda.cbFormaPagto.SelectedValue = modelo.IdTipoPagamento;
-                    cadVenda.txtTotalCompra.Text = modelo.Total.ToString();
-                    if (modelo.Avista == 1) cadVenda.cbxAvista.Checked = true;
-                    else cadVenda.cbxAvista.Checked = false;
-                    cadVenda.totalVenda = modelo.Total;
-
-                    //itens da venda
-                    BLL_ItensVendas bll_Itens = new BLL_ItensVendas(con);
-                    DataTable tabela = bll_Itens.Localizar(modelo.IdVenda);
-
-                    //jogar todos os itens na tela
-                    for (int i = 0; i < tabela.Rows.Count; i++)
-                    {
-                        string icod = tabela.Rows[i]["id_produto"].ToString();
-                        string inome = tabela.Rows[i]["nome"].ToString();
-                        string iqtd = tabela.Rows[i]["quantidade"].ToString();
-                        string ivaloruni = tabela.Rows[i]["valor"].ToString();
-                        Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
-
-                        String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
-                        cadVenda.dgvVenda.Rows.Add(it);
-                    }
-
-
-
-
-
-
-                    cadVenda.ShowDialog();
-                }
-            }
         }
     }
 }

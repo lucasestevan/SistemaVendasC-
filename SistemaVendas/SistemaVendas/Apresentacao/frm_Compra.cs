@@ -223,6 +223,7 @@ namespace SistemaVendas.Apresentacao
                     //CHAMAR O FORM CAD COMPRA
                     frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
                     cadMovimentacaoCompra.btnSalvar.Enabled = false;
+                    cadMovimentacaoCompra.alterabotao = "1";
 
                     cadMovimentacaoCompra.txtId.Text = modelo.IdCompra.ToString();
                     cadMovimentacaoCompra.txtNfiscal.Text = modelo.NFiscal.ToString();

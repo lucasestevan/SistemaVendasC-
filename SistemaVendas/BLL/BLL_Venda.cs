@@ -33,7 +33,7 @@ namespace BLL
             //    throw new Exception("O Cliente é obrigatorio");
             // }
 
-            if (modelo.NParcelas <= 0)
+            if (modelo.NParcelas < 0)
             {
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }
@@ -48,7 +48,7 @@ namespace BLL
             //VERIFICAR SE O CAMPO NÃO É VAZIO
             if (modelo.IdVenda <= 0)
             {
-                throw new Exception("o código da compra deve ser informado");
+                throw new Exception("o código da Venda deve ser informado");
             }
 
             if (modelo.Total < 0)
@@ -66,7 +66,7 @@ namespace BLL
             //    throw new Exception("O Cliente é obrigatorio");
             // }
 
-            if (modelo.NParcelas <= 0)
+            if (modelo.NParcelas < 0)
             {
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }

@@ -86,7 +86,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "delete from ParcelasCompra where id_venda = @id_venda";
+            cmd.CommandText = "delete from ParcelasVenda where id_venda = @id_venda";
             cmd.Parameters.AddWithValue("@id_venda", idVenda);
             conexao.Conectar();
             cmd.ExecuteNonQuery();

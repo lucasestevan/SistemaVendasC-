@@ -186,6 +186,8 @@
             this.txtValorUni.Size = new System.Drawing.Size(60, 20);
             this.txtValorUni.TabIndex = 54;
             this.txtValorUni.Text = "0.00";
+            this.txtValorUni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorUni_KeyPress);
+            this.txtValorUni.Leave += new System.EventHandler(this.TxtValorUni_Leave);
             // 
             // label11
             // 
@@ -204,6 +206,8 @@
             this.txtQtd.Size = new System.Drawing.Size(60, 20);
             this.txtQtd.TabIndex = 52;
             this.txtQtd.Text = "0.00";
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
+            this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
             // 
             // label5
             // 
