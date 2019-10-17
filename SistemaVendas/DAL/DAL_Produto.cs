@@ -32,7 +32,7 @@ namespace DAL
         }
 
         //METODO ALTERAR
-        public void Alterar(Model_Produto modelo)
+        public void Alterar(Model_Produto modelo, Boolean teste)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;

@@ -4,6 +4,7 @@ using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -86,9 +87,9 @@ namespace SistemaVendas.Apresentacao
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR EXCLUIR
-                        if (Status == "PAGO")
+                        if (Status == "PAGO" || Status == "CANCELADO")
                         {
-                            MessageBox.Show("A Venda está com status de PAGA, não é possível excluir!");
+                            MessageBox.Show("A Venda está com status de PAGA/CANCELADO, não é possível excluir!");
                         }
                         else
                         {
@@ -97,7 +98,6 @@ namespace SistemaVendas.Apresentacao
                             bllVenda.Excluir(Convert.ToInt32(txtId.Text));
 
                             MessageBox.Show("Venda excluida com sucesso!");
-                            BtnPesquisarGeral_Click(sender, e); //RECARREGA A TELA COM O ITEM EXCLUIDO
                             txtId.Text = "";
 
                             //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
@@ -187,9 +187,9 @@ namespace SistemaVendas.Apresentacao
                 this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                 //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR alterar
-                if (Status == "PAGO")
+                if (Status == "PAGO" || Status == "CANCELADO")
                 {
-                    MessageBox.Show("A venda está com status de PAGO, não é possível Alterar!");
+                    MessageBox.Show("A venda está com status de PAGO/CANCELADO, não é possível Alterar!");
                 }
                 else
                 {
@@ -259,17 +259,70 @@ namespace SistemaVendas.Apresentacao
             dgvVenda.Columns[4].HeaderText = "Total";
             dgvVenda.Columns[4].Width = 80;
             dgvVenda.Columns[5].HeaderText = "Status";
-            dgvVenda.Columns[5].Width = 60;
+            dgvVenda.Columns[5].Width = 80;
             dgvVenda.Columns[6].Visible = false;
             dgvVenda.Columns[7].Visible = false;
             dgvVenda.Columns[8].Visible = false; ;
             dgvVenda.Columns[9].HeaderText = "Nota Fiscal";
             dgvVenda.Columns[9].Width = 90;
+
+            for (int i = 0; i < dgvVenda.Rows.Count; i++)
+            {
+                string Campostatus = Convert.ToString(dgvVenda.Rows[i].Cells[5].Value.ToString());
+                if (Campostatus == "CANCELADO")
+                {
+                    dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.Red;
+                }
+                if (Campostatus == "PAGO")
+                {
+                    dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                }
+            }
         }
 
+        //botao cancelar
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            if (txtId.Text != "")
+            {
+                DialogResult msgSN = MessageBox.Show("Deseja realmente Cancelar a venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                //SE O ESCOLHER SIM FAÇA
+                if (msgSN == DialogResult.Yes)
+                {
+                    try
+                    {
+                        this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
+                        //EXCLUIR ITENS DA COMPRA 
+                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        //excluir Compra
+                        BLL_Venda bllVenda = new BLL_Venda(con);
+                        this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
+                        //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR cancelar
+                        if (Status == "PAGO" || Status == "CANCELADO")
+                        {
+                            MessageBox.Show("A Venda está com status de PAGA/CANCELADO \n Não é possível Cancelar!");
+                        }
+                        else
+                        {
+                            bllVenda.CancelarVenda(Convert.ToInt32(txtId.Text));
+
+                            MessageBox.Show("Venda Cancelada com sucesso!");
+                            txtId.Text = "";
+
+                            //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao Cancelar a Venda" + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo para poder Cancelar");
+            }
         }
     }
 }

@@ -57,34 +57,46 @@ namespace DAL
         }
 
         //METODO CANCELAR VENDA
-        public void CancelarVenda(int idVenda)
+        public Boolean CancelarVenda(int idVenda)
         {
+            Boolean retorno = true;
             //ATUALIZAR TABELA DE VENDA
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE Venda set VendaStatus = 'CANCELADO' where id_venda = @id_venda";
-            cmd.Parameters.AddWithValue("@id_venda", idVenda);
-            cmd.ExecuteNonQuery();
+            conexao.Conectar();
 
-            //INCLEMENTEAR O ESTOQUE COM OS ITENS DA VENDA CANCELADA
-
-            //LOCALIZAR OS ITENS DA VENDA
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("Select id_itensVenda, quantidade, id_produto from ItensVenda where id_venda = " + idVenda.ToString(), conexao.StringConexao);
-            da.Fill(dt);
-
-            //alterar a quantisdade do estoque
-            Model_Produto produto;
-            DAL_Produto dalProduto = new DAL_Produto(conexao);
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(dt.Rows[i]["id_produto"]));
-                produto.Quantidade = produto.Quantidade + Convert.ToDouble(dt.Rows[i]["quantidade"]);
-                dalProduto.Alterar(produto);
+                cmd.CommandText = "UPDATE Venda set VendaStatus = 'CANCELADO' where id_venda = @id_venda";
+                cmd.Parameters.AddWithValue("@id_venda", idVenda);
+                cmd.ExecuteNonQuery();
 
+                //INCLEMENTEAR O ESTOQUE COM OS ITENS DA VENDA CANCELADA
+
+                //LOCALIZAR OS ITENS DA VENDA
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = default(SqlDataAdapter);
+                da = new SqlDataAdapter("Select id_itensVenda, quantidade, id_produto from ItensVenda where id_venda = " + idVenda.ToString(), conexao.StringConexao);
+                da.Fill(dt);
+
+                //alterar a quantisdade do estoque
+                Model_Produto produto;
+                DAL_Conexao cxPL = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAL_Produto dalProduto = new DAL_Produto(cxPL);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(dt.Rows[i]["id_produto"]));
+                    produto.Quantidade = produto.Quantidade + Convert.ToDouble(dt.Rows[i]["quantidade"]);
+                    dalProduto.Alterar(produto, true);
+                }
+                conexao.Desconectar();
             }
+            catch (Exception)
+            {
+                retorno = false;
+                conexao.Desconectar();
+            }
+            return retorno;
         }
 
         //METODO EXCLUIR

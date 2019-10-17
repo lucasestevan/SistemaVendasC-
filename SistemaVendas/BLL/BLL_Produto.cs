@@ -77,7 +77,7 @@ namespace BLL
             }
 
             DAL_Produto DALobj = new DAL_Produto(conexao);
-            DALobj.Alterar(modelo);
+            DALobj.Alterar(modelo, true);
         }
 
         //METODO EXCLUIR
