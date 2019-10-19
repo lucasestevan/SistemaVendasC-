@@ -224,5 +224,18 @@ namespace DAL
             conexao.Desconectar();
             return qtde;
         }
+
+        //METODO PAGAR Venda
+        public void PagarParcelaVenda(Model_Venda modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "UPDATE Venda set vendaStatus = @vendaStatus where id_venda = @id_venda";
+            cmd.Parameters.AddWithValue("@id_venda", modelo.IdVenda);
+            cmd.Parameters.AddWithValue("@vendaStatus", modelo.VendaStatus);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
     }
 }

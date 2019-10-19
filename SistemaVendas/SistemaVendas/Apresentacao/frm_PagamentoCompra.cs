@@ -62,7 +62,7 @@ namespace SistemaVendas
                     DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                     BLL_Compra bll = new BLL_Compra(con);
 
-                    //CADASTRAR UMA CATEGORIA
+                    
                     bll.PagarConta(modelo);
                     MessageBox.Show("Pagamento efetuado com sucesso!");
                     this.Close();

@@ -105,5 +105,13 @@ namespace SistemaVendas.Apresentacao
             Pagamento.ShowDialog();
             Pagamento.Dispose();
         }
+
+        //botao recebimento
+        private void BtnRecebimentoV_Click(object sender, EventArgs e)
+        {
+            var recebimento = new frm_RecebimentoVenda();
+            recebimento.ShowDialog();
+            recebimento.Dispose();
+        }
     }
 }

@@ -138,5 +138,12 @@ namespace BLL
             DAL_Venda DALobj = new DAL_Venda(conexao);
             return DALobj.ParcelasNaoPagas(idVenda);
         }
-     }
+
+        //METODO PAGAR Venda
+        public void PagarParcelaVenda(Model_Venda modelo)
+        {
+            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DALobj.PagarParcelaVenda(modelo);
+        }
+    }
 }

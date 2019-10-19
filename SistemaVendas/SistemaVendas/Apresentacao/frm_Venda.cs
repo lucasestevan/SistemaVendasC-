@@ -198,7 +198,7 @@ namespace SistemaVendas.Apresentacao
                         //pega o id da data grid
                         this.idVenda = (Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
 
-                        //chamr modelo bll e dal compra
+                        //chamr modelo bll e dal venda
                         DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                         BLL_Venda bll = new BLL_Venda(con);
                         Model_Venda modelo = bll.CarregaModeloVenda(idVenda);
@@ -322,6 +322,16 @@ namespace SistemaVendas.Apresentacao
             else
             {
                 MessageBox.Show("Selecione algum campo para poder Cancelar");
+            }
+        }
+
+        //BOTAO SELECIONAR
+        private void BtnSelecionar_Click(object sender, EventArgs e)
+        {
+            if (dgvVenda.SelectedRows.Count > 0)
+            {
+                this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
+                this.Close();
             }
         }
     }

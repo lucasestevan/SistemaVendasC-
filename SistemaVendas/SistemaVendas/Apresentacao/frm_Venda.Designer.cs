@@ -77,6 +77,7 @@
             this.btnSelecionar.TabIndex = 62;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
             // 
             // gbCodigo
             // 

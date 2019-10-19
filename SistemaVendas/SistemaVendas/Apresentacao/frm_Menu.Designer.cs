@@ -39,6 +39,7 @@
             this.txtTipoPagto = new System.Windows.Forms.Button();
             this.btnCompra = new System.Windows.Forms.Button();
             this.btnPagamento = new System.Windows.Forms.Button();
+            this.btnRecebimentoV = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCliente
@@ -125,9 +126,9 @@
             // 
             this.txtTipoPagto.Location = new System.Drawing.Point(85, 367);
             this.txtTipoPagto.Name = "txtTipoPagto";
-            this.txtTipoPagto.Size = new System.Drawing.Size(75, 23);
+            this.txtTipoPagto.Size = new System.Drawing.Size(92, 46);
             this.txtTipoPagto.TabIndex = 8;
-            this.txtTipoPagto.Text = "Pagamento";
+            this.txtTipoPagto.Text = "Pagamento Compra";
             this.txtTipoPagto.UseVisualStyleBackColor = true;
             this.txtTipoPagto.Click += new System.EventHandler(this.TxtTipoPagto_Click);
             // 
@@ -151,11 +152,22 @@
             this.btnPagamento.UseVisualStyleBackColor = true;
             this.btnPagamento.Click += new System.EventHandler(this.BtnPagamento_Click);
             // 
+            // btnRecebimentoV
+            // 
+            this.btnRecebimentoV.Location = new System.Drawing.Point(262, 136);
+            this.btnRecebimentoV.Name = "btnRecebimentoV";
+            this.btnRecebimentoV.Size = new System.Drawing.Size(92, 50);
+            this.btnRecebimentoV.TabIndex = 11;
+            this.btnRecebimentoV.Text = "Recebimento Venda";
+            this.btnRecebimentoV.UseVisualStyleBackColor = true;
+            this.btnRecebimentoV.Click += new System.EventHandler(this.BtnRecebimentoV_Click);
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 450);
+            this.Controls.Add(this.btnRecebimentoV);
             this.Controls.Add(this.btnPagamento);
             this.Controls.Add(this.btnCompra);
             this.Controls.Add(this.txtTipoPagto);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Button txtTipoPagto;
         private System.Windows.Forms.Button btnCompra;
         private System.Windows.Forms.Button btnPagamento;
+        private System.Windows.Forms.Button btnRecebimentoV;
     }
 }

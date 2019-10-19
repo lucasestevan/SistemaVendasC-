@@ -154,6 +154,12 @@
     <Compile Include="Apresentacao\frm_Compra.Designer.cs">
       <DependentUpon>frm_Compra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\frm_RecebimentoVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_RecebimentoVenda.Designer.cs">
+      <DependentUpon>frm_RecebimentoVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\frm_TipoPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Produto.resx">
       <DependentUpon>frm_Produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_RecebimentoVenda.resx">
+      <DependentUpon>frm_RecebimentoVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_TipoPagamento.resx">
       <DependentUpon>frm_TipoPagamento.cs</DependentUpon>

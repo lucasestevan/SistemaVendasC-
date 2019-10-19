@@ -113,5 +113,21 @@ namespace BLL
             DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
             return DALobj.Localizar(idVenda);
         }
+
+        //RECEBIMENTO VENDA
+        public void RecebimentoParcela(int idVenda, int idParcelaVenda, DateTime dtPagto)
+        {
+            if (dtPagto != null)
+            {
+                DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+                DALobj.RecebimentoParcela(idVenda, idParcelaVenda, dtPagto);
+            }
+            else
+            {
+                throw new Exception("Data do recebimento é obrigatorio");
+            }
+        }
+
+
     }
 }

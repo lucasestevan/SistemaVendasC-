@@ -144,5 +144,20 @@ namespace DAL
             da.Fill(dt);
             return dt;
         }
+
+        //RECEBIMENTO VENDA
+        public void RecebimentoParcela(int idVenda, int idParcelaVenda, DateTime dtPagto)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "UPDATE ParcelasVenda set dataPagto = @dataPagto where id_parcelasVenda = @id_parcelasVenda and id_venda = @id_venda";
+            cmd.Parameters.AddWithValue("@id_parcelasVenda", idParcelaVenda);
+            cmd.Parameters.AddWithValue("@id_venda", idVenda);
+            cmd.Parameters.Add("@dataPagto", System.Data.SqlDbType.Date);
+            cmd.Parameters["@dataPagto"].Value = dtPagto.Date;
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
     }
 }
