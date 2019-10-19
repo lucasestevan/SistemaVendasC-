@@ -122,8 +122,11 @@ namespace SistemaVendas.Apresentacao
         //botao selecionar
         private void BtnSelecionar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose();
+            if (dgvEndereco.SelectedRows.Count > 0)
+            {
+                this.idEndereco = Convert.ToInt32(dgvEndereco.CurrentRow.Cells[0].Value);
+                this.Close();
+            }
         }
     }
 }

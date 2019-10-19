@@ -83,13 +83,26 @@ namespace SistemaVendas.Apresentacao.Cadastro
             txtCidade.Text = "";
             txtUf.Text = "";
 
-
             frm_Endereco endereco = new frm_Endereco();
             //DESABILITAR OS BOTOES PRIMEIRO E DPS CHAMAR O FORM enderecoO
             endereco.btnAlterar.Visible = false;
             endereco.btnExcluir.Visible = false;
             endereco.btnSelecionar.Visible = true;
             endereco.ShowDialog();
+            if (endereco.idEndereco != 0)
+            {
+                //chamr modelo bll e dal endereco
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Endereco bllEndereco = new BLL_Endereco(con);
+                Model_Endereco modelEndereco = bllEndereco.CarregaModeloEndereco(endereco.idEndereco);
+                txtIdEnde.Text = modelEndereco.IdEndereco.ToString();
+                txtCep.Text = modelEndereco.Cep.ToString();
+                txtRua.Text = modelEndereco.Rua.ToString();
+                txtBairro.Text = modelEndereco.Bairro.ToString();
+                txtCidade.Text = modelEndereco.Cidade.ToString();
+                txtUf.Text = modelEndereco.Uf.ToString();
+            }
+
         }
 
         private void Label3_Click(object sender, EventArgs e)
