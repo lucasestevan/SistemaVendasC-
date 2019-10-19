@@ -214,7 +214,7 @@ namespace SistemaVendas.Apresentacao
                         cadVenda.cbCliente.SelectedValue = modelo.IdVenda;
                         cadVenda.txtNParcelas.Value = Convert.ToInt32(modelo.NParcelas.ToString());
                         cadVenda.cbFormaPagto.SelectedValue = modelo.IdTipoPagamento;
-                        cadVenda.txtTotalCompra.Text = modelo.Total.ToString();
+                        cadVenda.txtTotalVenda.Text = modelo.Total.ToString();
                         if (modelo.Avista == 1) cadVenda.cbxAvista.Checked = true;
                         else cadVenda.cbxAvista.Checked = false;
                         cadVenda.totalVenda = modelo.Total;

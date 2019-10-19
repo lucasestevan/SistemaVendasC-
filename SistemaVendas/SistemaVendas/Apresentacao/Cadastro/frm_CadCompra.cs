@@ -122,6 +122,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
         private void Frm_CadMovimentacaoCompra_Load(object sender, EventArgs e)
         {
             listarComboBox();
+            txtNfiscal.Text = "0";
+
             if (this.alterabotao == "0")
             {
                 btnSalvar.Enabled = true;
@@ -198,7 +200,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
                 if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") &&
-                    (txtValorUni.Text != "") && (txtValorUni.Text != "0,00") && (txtValorUni.Text != "0,") && (txtValorUni.Text != "0"))
+                  (txtValorUni.Text != "") && (txtValorUni.Text != "0,00") && (txtValorUni.Text != "0,") && (txtValorUni.Text != "0"))
                 {
                     Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtValorUni.Text);
 
@@ -267,7 +269,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             if (txtQtd.Text.Contains(",") == false)
             {
-                txtQtd.Text += ",";
+                txtQtd.Text += ",00";
             }
             else
             {
@@ -302,7 +304,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             if (txtValorUni.Text.Contains(",") == false)
             {
-                txtValorUni.Text += ",";
+                txtValorUni.Text += ",00";
             }
             else
             {

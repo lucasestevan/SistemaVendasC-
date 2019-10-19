@@ -18,14 +18,23 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into ParcelasVenda (id_parcelasVenda, valor, dataVencimento, id_venda)" +
-                "values (@id_parcelasVenda, @valor, @dataVencimento, @id_venda);";
+            cmd.CommandText = "insert into ParcelasVenda (id_parcelasVenda, valor, dataPagto, dataVencimento, id_venda)" +
+                "values (@id_parcelasVenda, @valor, @dataPagto, @dataVencimento, @id_venda);";
             cmd.Parameters.AddWithValue("@id_parcelasVenda", modelo.IdParcelasVenda);
             cmd.Parameters.AddWithValue("@valor", modelo.Valor);
             cmd.Parameters.AddWithValue("@id_venda", modelo.IdVenda);
+            cmd.Parameters.Add("@dataPagto", System.Data.SqlDbType.Date);
+            if (modelo.DataPagto == null)
+            {
+                cmd.Parameters["@dataPagto"].Value = DBNull.Value;
+            }
+            else
+            {
+                cmd.Parameters["@dataPagto"].Value = modelo.DataPagto;
+            }
 
             cmd.Parameters.Add("@dataVencimento", System.Data.SqlDbType.Date);
-            if (modelo.DataPagto == null)
+            if (modelo.DataVencimento == null)
             {
                 cmd.Parameters["@dataVencimento"].Value = DBNull.Value;
             }
@@ -61,7 +70,14 @@ namespace DAL
             }
 
             cmd.Parameters.Add("@dataVencimento", System.Data.SqlDbType.Date);
-            cmd.Parameters["@dataVencimento"].Value = modelo.DataVencimento;
+            if (modelo.DataVencimento == null)
+            {
+                cmd.Parameters["@dataVencimento"].Value = DBNull.Value;
+            }
+            else
+            {
+                cmd.Parameters["@dataVencimento"].Value = modelo.DataVencimento;
+            }
 
             conexao.Conectar();
             cmd.ExecuteNonQuery();

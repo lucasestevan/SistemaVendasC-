@@ -110,39 +110,28 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 MessageBox.Show("Erro ao carregar tabela Cliente \n");
             }
-
-            //CARREGAR produto
-            try
-            {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Produto bll = new BLL_Produto(con);
-                cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
-                cbProtudo.DisplayMember = "nome";   //PEGA O NOME
-                cbProtudo.ValueMember = "id_produto"; //PEGA O ID
-
-                Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
-
-                txtValorUni.Text = modelo.Preco.ToString();
-                //cbProtudo.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                //cbProtudo.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Erro ao carregar tabela Produto \n");
-            }
-
         }
 
         //BOTAO ADICONAR PRODUTO
         private void BtnAddProdu_Click(object sender, EventArgs e)
         {
+            Double QTD = 0;
+
             try
             {
                 //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
                 if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") &&
                     (txtValorUni.Text != "") && (txtValorUni.Text != "0,00") && (txtValorUni.Text != "0,") && (txtValorUni.Text != "0"))
                 {
+                    if (cbVerificaEstoque.Checked == true)
+                    {
+                        QTD = verificaProdutoEstoque(Convert.ToInt32(cbProtudo.SelectedValue));
+                        if (Convert.ToDouble(txtQtd.Text) > QTD)
+                        {
+                            MessageBox.Show("Quantidade vendida maior que a disponivel no estoque");
+                            return;
+                        }
+                    }
                     Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(txtValorUni.Text);
 
                     //FAZER QUE MINHA VARIAVEL TOTAL COMPRA RECEBA O VALOR DO TOTAL LOCAL
@@ -157,7 +146,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     txtValorUni.Clear();
 
                     //ATUALIZAR O TOTAL DA COMPRA
-                    txtTotalCompra.Text = this.totalVenda.ToString();
+                    txtTotalVenda.Text = this.totalVenda.ToString();
                 }
                 else
                 {
@@ -189,7 +178,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
 
                     //REMOVER LINHA DGV
                     dgvVenda.Rows.RemoveAt(e.RowIndex);
-                    txtTotalCompra.Text = this.totalVenda.ToString();
+                    txtTotalVenda.Text = this.totalVenda.ToString();
                 }
             }
         }
@@ -230,17 +219,18 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modeloVenda.DataVenda = dtVenda.Value;
                 modeloVenda.NFiscal = Convert.ToInt32(txtNfiscal.Text);
                 modeloVenda.NParcelas = Convert.ToInt32(txtNParcelas.Text);
-                modeloVenda.VendaStatus = "ABERTO";
-                modeloVenda.Total = Convert.ToInt32(txtTotalCompra.Text);
+                modeloVenda.Total = Convert.ToDouble(txtTotalVenda.Text);
                 modeloVenda.IdCliente = Convert.ToInt32(cbCliente.SelectedValue);
                 modeloVenda.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
                 if (cbxAvista.Checked == true)
                 {
                     modeloVenda.Avista = 1;
+                    modeloVenda.VendaStatus = "PAGO";
                 }
                 else
                 {
                     modeloVenda.Avista = 0;
+                    modeloVenda.VendaStatus = "ABERTO";
                 }
 
                 //OBJ PARA GRAVAR NO BANCO
@@ -278,9 +268,14 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 for (int i = 0; i < dgvParcelas.RowCount; i++)
                 {
                     modeloParcelas.IdVenda = modeloVenda.IdVenda;
-                    modeloParcelas.IdParcelasVenda = Convert.ToInt32(dgvParcelas.Rows[i].Cells[0].Value); ; //PEGA O IDE DO DATA GRID
+                    modeloParcelas.IdParcelasVenda = Convert.ToInt32(dgvParcelas.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
                     modeloParcelas.Valor = Convert.ToDouble(dgvParcelas.Rows[i].Cells[1].Value); //PEGA a valor
                     modeloParcelas.DataVencimento = Convert.ToDateTime(dgvParcelas.Rows[i].Cells[2].Value); //PEGA a data DO DATA GRID
+                    if (modeloVenda.Avista == 1)
+                    {
+                        modeloParcelas.DataPagto = Convert.ToDateTime(dtPgtoInicial.Text);
+                    }
+
 
                     bllParcelas.Incluir(modeloParcelas);
                 }
@@ -305,17 +300,18 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modeloVenda.DataVenda = dtVenda.Value;
                 modeloVenda.NFiscal = Convert.ToInt32(txtNfiscal.Text);
                 modeloVenda.NParcelas = Convert.ToInt32(txtNParcelas.Text);
-                modeloVenda.VendaStatus = "ABERTO";
-                modeloVenda.Total = Convert.ToInt32(txtTotalCompra.Text);
+                modeloVenda.Total = Convert.ToInt32(txtTotalVenda.Text);
                 modeloVenda.IdCliente = Convert.ToInt32(cbCliente.SelectedValue);
                 modeloVenda.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
                 if (cbxAvista.Checked == true)
                 {
                     modeloVenda.Avista = 1;
+                    modeloVenda.VendaStatus = "PAGO";
                 }
                 else
                 {
                     modeloVenda.Avista = 0;
+                    modeloVenda.VendaStatus = "ABERTO";
                 }
 
                 //OBJ PARA GRAVAR NO BANCO
@@ -359,10 +355,13 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 for (int i = 0; i < dgvParcelas.RowCount; i++)
                 {
                     modeloParcelas.IdVenda = modeloVenda.IdVenda;
-                    modeloParcelas.IdParcelasVenda = Convert.ToInt32(dgvParcelas.Rows[i].Cells[0].Value); ; //PEGA O IDE DO DATA GRID
+                    modeloParcelas.IdParcelasVenda = Convert.ToInt32(dgvParcelas.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
                     modeloParcelas.Valor = Convert.ToDouble(dgvParcelas.Rows[i].Cells[1].Value); //PEGA a valor
                     modeloParcelas.DataVencimento = Convert.ToDateTime(dgvParcelas.Rows[i].Cells[2].Value); //PEGA a data DO DATA GRID
-
+                    if (modeloVenda.Avista == 1)
+                    {
+                        modeloParcelas.DataPagto = Convert.ToDateTime(dtPgtoInicial.Text);
+                    }
                     bllParcelas.Incluir(modeloParcelas);
                 }
 
@@ -394,7 +393,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             if (txtQtd.Text.Contains(",") == false)
             {
-                txtQtd.Text += ",";
+                txtQtd.Text += ",00";
             }
             else
             {
@@ -413,25 +412,71 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
-        //AJUSTAR O CAMPO qtd
-        private void TxtValorUni_KeyPress(object sender, KeyPressEventArgs e)
+        //evento seleicona o produto
+        private void CbProtudo_Enter(object sender, EventArgs e)
         {
-            if (e.KeyChar == '.' || e.KeyChar == ',')
+            //CARREGAR produto
+            try
             {
-                if (!txtValorUni.Text.Contains(","))
-                {
-                    e.KeyChar = ',';
-                }
-                else e.Handled = true;
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+                cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbProtudo.DisplayMember = "nome";   //PEGA O NOME
+                cbProtudo.ValueMember = "id_produto"; //PEGA O ID
+                cbProtudo.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao carregar tabela Produto \n");
             }
         }
 
-        //AJUSTAR O CAMPO qtd
-        private void TxtValorUni_Leave(object sender, EventArgs e)
+        //VERIFICA QTD PRODUTO
+        private Double verificaProdutoEstoque(int idProduto)
         {
+            Double QtdEstoque = 0;
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+                Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
+                QtdEstoque = modelo.Quantidade;
+
+                //verifica produtos na grid
+                //CADASTRAR ITENS Venda
+                for (int i = 0; i < dgvVenda.RowCount; i++)
+                {
+                    if (Convert.ToInt32(dgvVenda.Rows[i].Cells[0].Value) == idProduto)
+                    {
+                        QtdEstoque = QtdEstoque - Convert.ToDouble(dgvVenda.Rows[i].Cells[2].Value); //PEGA A qtd  DO DATA GRID
+                    }
+                }
+
+            }
+
+            catch (Exception)
+            {
+
+            }
+            return QtdEstoque;
+        }
+
+        //EVENTO BUSCA O PRECO DO PRODUTO
+        private void CbProtudo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            BLL_Produto bll = new BLL_Produto(con);
+            Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
+
+            txtValorUni.Text = modelo.Preco.ToString();
+            lblEstoque.Text = modelo.Quantidade.ToString();
+
+
+            //AJUSTAR O CAMPO VALOR AO ADICIONAR O PRODUTO
             if (txtValorUni.Text.Contains(",") == false)
             {
-                txtValorUni.Text += ",";
+                txtValorUni.Text += ",00";
             }
             else
             {

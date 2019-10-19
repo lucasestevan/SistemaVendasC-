@@ -59,7 +59,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbFormaPagto = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
@@ -91,7 +90,6 @@
             this.groupBox1.Controls.Add(this.txtNParcelas);
             this.groupBox1.Controls.Add(this.cbProtudo);
             this.groupBox1.Controls.Add(this.cbFornecedor);
-            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.btnAddProdu);
             this.groupBox1.Controls.Add(this.label12);
@@ -111,7 +109,6 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbFormaPagto);
             this.groupBox1.Location = new System.Drawing.Point(21, 12);
             this.groupBox1.Name = "groupBox1";
@@ -129,7 +126,7 @@
             // cbProtudo
             // 
             this.cbProtudo.FormattingEnabled = true;
-            this.cbProtudo.Location = new System.Drawing.Point(10, 130);
+            this.cbProtudo.Location = new System.Drawing.Point(10, 81);
             this.cbProtudo.Name = "cbProtudo";
             this.cbProtudo.Size = new System.Drawing.Size(201, 21);
             this.cbProtudo.TabIndex = 58;
@@ -137,7 +134,7 @@
             // cbFornecedor
             // 
             this.cbFornecedor.FormattingEnabled = true;
-            this.cbFornecedor.Location = new System.Drawing.Point(9, 81);
+            this.cbFornecedor.Location = new System.Drawing.Point(9, 32);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(202, 21);
             this.cbFornecedor.TabIndex = 57;
@@ -145,15 +142,15 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(10, 32);
+            this.txtId.Location = new System.Drawing.Point(536, 169);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(156, 20);
+            this.txtId.Size = new System.Drawing.Size(57, 20);
             this.txtId.TabIndex = 46;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 224);
+            this.label13.Location = new System.Drawing.Point(6, 175);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 13);
             this.label13.TabIndex = 56;
@@ -161,7 +158,7 @@
             // 
             // btnAddProdu
             // 
-            this.btnAddProdu.Location = new System.Drawing.Point(170, 188);
+            this.btnAddProdu.Location = new System.Drawing.Point(170, 133);
             this.btnAddProdu.Name = "btnAddProdu";
             this.btnAddProdu.Size = new System.Drawing.Size(28, 23);
             this.btnAddProdu.TabIndex = 55;
@@ -172,7 +169,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(85, 174);
+            this.label12.Location = new System.Drawing.Point(85, 119);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(68, 13);
             this.label12.TabIndex = 53;
@@ -180,19 +177,19 @@
             // 
             // txtValorUni
             // 
-            this.txtValorUni.Location = new System.Drawing.Point(88, 190);
+            this.txtValorUni.Location = new System.Drawing.Point(88, 135);
             this.txtValorUni.MaxLength = 6;
             this.txtValorUni.Name = "txtValorUni";
             this.txtValorUni.Size = new System.Drawing.Size(60, 20);
             this.txtValorUni.TabIndex = 54;
-            this.txtValorUni.Text = "0.00";
+            this.txtValorUni.Text = "0,00";
             this.txtValorUni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorUni_KeyPress);
             this.txtValorUni.Leave += new System.EventHandler(this.TxtValorUni_Leave);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 174);
+            this.label11.Location = new System.Drawing.Point(6, 119);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(27, 13);
             this.label11.TabIndex = 51;
@@ -200,19 +197,19 @@
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(9, 190);
+            this.txtQtd.Location = new System.Drawing.Point(9, 135);
             this.txtQtd.MaxLength = 6;
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(60, 20);
             this.txtQtd.TabIndex = 52;
-            this.txtQtd.Text = "0.00";
+            this.txtQtd.Text = "0,00";
             this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
             this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 114);
+            this.label5.Location = new System.Drawing.Point(6, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 50;
@@ -221,7 +218,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 65);
+            this.label9.Location = new System.Drawing.Point(6, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 45;
@@ -239,11 +236,11 @@
             this.proQtd,
             this.proValorUnd,
             this.proValorTotal});
-            this.dgvCompra.Location = new System.Drawing.Point(6, 240);
+            this.dgvCompra.Location = new System.Drawing.Point(6, 191);
             this.dgvCompra.Name = "dgvCompra";
             this.dgvCompra.ReadOnly = true;
             this.dgvCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCompra.Size = new System.Drawing.Size(481, 149);
+            this.dgvCompra.Size = new System.Drawing.Size(481, 198);
             this.dgvCompra.TabIndex = 43;
             this.dgvCompra.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCompra_CellDoubleClick);
             // 
@@ -371,15 +368,6 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "Forma de Pagto.";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Código";
-            // 
             // cbFormaPagto
             // 
             this.cbFormaPagto.FormattingEnabled = true;
@@ -396,6 +384,7 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtId);
             this.Name = "frm_CadCompra";
             this.Text = "Cadastro Compra";
             this.Load += new System.EventHandler(this.Frm_CadMovimentacaoCompra_Load);
@@ -404,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -429,7 +419,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.ComboBox cbFormaPagto;
         internal System.Windows.Forms.TextBox txtId;
         internal System.Windows.Forms.ComboBox cbFornecedor;
