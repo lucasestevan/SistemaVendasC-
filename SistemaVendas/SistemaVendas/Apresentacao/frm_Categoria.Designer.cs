@@ -119,7 +119,7 @@
             this.txtNome.Location = new System.Drawing.Point(21, 40);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(237, 20);
-            this.txtNome.TabIndex = 7;
+            this.txtNome.TabIndex = 1;
             // 
             // frm_Categoria
             // 
