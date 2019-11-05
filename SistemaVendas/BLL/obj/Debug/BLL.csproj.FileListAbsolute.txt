@@ -19,3 +19,13 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.dll
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema vendas\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\bin\Debug\BLL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\bin\Debug\BLL.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\bin\Debug\DAL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\bin\Debug\Modelo.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\bin\Debug\DAL.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\bin\Debug\Modelo.pdb
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\Sistema venas pc2\SistemaVendasC-\SistemaVendas\BLL\obj\Debug\BLL.pdb
