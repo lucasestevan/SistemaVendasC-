@@ -64,7 +64,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(470, 252);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -74,7 +74,7 @@
             this.btnSelecionar.Location = new System.Drawing.Point(470, 213);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSelecionar.TabIndex = 62;
+            this.btnSelecionar.TabIndex = 6;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = true;
             this.btnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
@@ -112,7 +112,7 @@
             this.btnVisualizar.Location = new System.Drawing.Point(470, 171);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnVisualizar.TabIndex = 60;
+            this.btnVisualizar.TabIndex = 5;
             this.btnVisualizar.Text = "Visualizar";
             this.btnVisualizar.UseVisualStyleBackColor = true;
             this.btnVisualizar.Click += new System.EventHandler(this.BtnVisualizar_Click);
@@ -179,6 +179,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(7, 18);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(287, 20);
@@ -247,14 +248,15 @@
             this.txtId.Location = new System.Drawing.Point(479, 292);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
-            this.txtId.TabIndex = 56;
+            this.txtId.TabIndex = 8;
+            this.txtId.Visible = false;
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(470, 131);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 55;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
@@ -264,7 +266,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(470, 90);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 54;
+            this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -289,7 +291,7 @@
             this.btnPesquisarGeral.Location = new System.Drawing.Point(470, 52);
             this.btnPesquisarGeral.Name = "btnPesquisarGeral";
             this.btnPesquisarGeral.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisarGeral.TabIndex = 52;
+            this.btnPesquisarGeral.TabIndex = 2;
             this.btnPesquisarGeral.Text = "Pesquisar";
             this.btnPesquisarGeral.UseVisualStyleBackColor = true;
             this.btnPesquisarGeral.Click += new System.EventHandler(this.BtnPesquisarGeral_Click);
@@ -299,7 +301,7 @@
             this.btnNovo.Location = new System.Drawing.Point(470, 14);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 51;
+            this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
@@ -309,10 +311,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 394);
-            this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSelecionar);
-            this.Controls.Add(this.gbData);
             this.Controls.Add(this.gbCliente);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.groupBox1);
@@ -322,7 +322,12 @@
             this.Controls.Add(this.dgvVenda);
             this.Controls.Add(this.btnPesquisarGeral);
             this.Controls.Add(this.btnNovo);
+            this.Controls.Add(this.gbCodigo);
+            this.Controls.Add(this.gbData);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_Venda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Venda";
             this.Load += new System.EventHandler(this.Frm_Venda_Load);
             this.gbCodigo.ResumeLayout(false);

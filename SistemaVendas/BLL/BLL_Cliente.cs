@@ -27,10 +27,7 @@ namespace BLL
             {
                 throw new Exception("O CPF do cliente é obrigatorio");
             }
-            if (modelo.IdEndereco <= 0)
-            {
-                throw new Exception("O Endereco é obrigatorio");
-            }
+            
 
             DAL_Cliente DALobj = new DAL_Cliente(conexao);
             DALobj.Incluir(modelo);

@@ -99,6 +99,26 @@ namespace SistemaVendas.Apresentacao
                 MessageBox.Show("Parcela já está paga!");
             }
         }
+
+        private void Frm_RecebimentoVenda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtIdVenda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtValor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -12,7 +12,7 @@ namespace Modelo
         private string celular;
         private string email;
         private string observacao;
-        private int idEndereco;
+        private string cep;
         private string numeroEnde;
 
         public int IdCliente { get => this.idCliente; set => this.idCliente = value; }
@@ -22,7 +22,7 @@ namespace Modelo
         public string Celular { get => celular; set => celular = value; }
         public string Email { get => this.email; set => this.email = value; }
         public string Observacao { get => this.observacao; set => this.observacao = value; }
-        public int IdEndereco { get => this.idEndereco; set => this.idEndereco = value; }
+        public string Cep { get => this.cep; set => this.cep = value; }
         public string NumeroEnde { get => this.numeroEnde; set => this.numeroEnde = value; }
     }
 }

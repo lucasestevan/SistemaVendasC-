@@ -46,6 +46,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 53;
+            this.txtId.Visible = false;
             // 
             // btnFechar
             // 
@@ -112,7 +113,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnFechar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_VisualizarItensVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_VisualizarItensVenda";
             this.Load += new System.EventHandler(this.Frm_VisualizarItensVenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItensVenda)).EndInit();

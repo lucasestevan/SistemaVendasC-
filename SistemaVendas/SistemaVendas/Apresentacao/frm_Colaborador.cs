@@ -155,5 +155,10 @@ namespace SistemaVendas.Apresentacao
                 MessageBox.Show("Selecione algum campo para poder excluir");
             }
         }
+
+        private void TxtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,6 +31,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.pnVenda = new System.Windows.Forms.GroupBox();
+            this.cbVerificaEstoque = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEstoque = new System.Windows.Forms.Label();
             this.cbxAvista = new System.Windows.Forms.CheckBox();
@@ -74,7 +75,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.cbVerificaEstoque = new System.Windows.Forms.CheckBox();
             this.pnVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
@@ -87,7 +87,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(556, 87);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 49;
+            this.btnAlterar.TabIndex = 12;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -97,7 +97,7 @@
             this.btnOk.Location = new System.Drawing.Point(556, 12);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 48;
+            this.btnOk.TabIndex = 10;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
@@ -137,6 +137,16 @@
             this.pnVenda.TabIndex = 50;
             this.pnVenda.TabStop = false;
             // 
+            // cbVerificaEstoque
+            // 
+            this.cbVerificaEstoque.AutoSize = true;
+            this.cbVerificaEstoque.Location = new System.Drawing.Point(323, 163);
+            this.cbVerificaEstoque.Name = "cbVerificaEstoque";
+            this.cbVerificaEstoque.Size = new System.Drawing.Size(103, 17);
+            this.cbVerificaEstoque.TabIndex = 63;
+            this.cbVerificaEstoque.Text = "Verifica Estoque";
+            this.cbVerificaEstoque.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -171,7 +181,7 @@
             this.txtNParcelas.Location = new System.Drawing.Point(183, 511);
             this.txtNParcelas.Name = "txtNParcelas";
             this.txtNParcelas.Size = new System.Drawing.Size(53, 20);
-            this.txtNParcelas.TabIndex = 59;
+            this.txtNParcelas.TabIndex = 8;
             // 
             // cbProtudo
             // 
@@ -179,7 +189,7 @@
             this.cbProtudo.Location = new System.Drawing.Point(11, 81);
             this.cbProtudo.Name = "cbProtudo";
             this.cbProtudo.Size = new System.Drawing.Size(271, 21);
-            this.cbProtudo.TabIndex = 58;
+            this.cbProtudo.TabIndex = 2;
             this.cbProtudo.SelectionChangeCommitted += new System.EventHandler(this.CbProtudo_SelectionChangeCommitted);
             this.cbProtudo.Enter += new System.EventHandler(this.CbProtudo_Enter);
             // 
@@ -189,7 +199,7 @@
             this.cbCliente.Location = new System.Drawing.Point(10, 32);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(272, 21);
-            this.cbCliente.TabIndex = 57;
+            this.cbCliente.TabIndex = 1;
             // 
             // label13
             // 
@@ -225,7 +235,7 @@
             this.txtValorUni.MaxLength = 6;
             this.txtValorUni.Name = "txtValorUni";
             this.txtValorUni.Size = new System.Drawing.Size(60, 20);
-            this.txtValorUni.TabIndex = 54;
+            this.txtValorUni.TabIndex = 4;
             // 
             // label11
             // 
@@ -242,7 +252,7 @@
             this.txtQtd.MaxLength = 6;
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(60, 20);
-            this.txtQtd.TabIndex = 52;
+            this.txtQtd.TabIndex = 3;
             this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
             this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
             // 
@@ -341,7 +351,7 @@
             this.dtVenda.Location = new System.Drawing.Point(361, 33);
             this.dtVenda.Name = "dtVenda";
             this.dtVenda.Size = new System.Drawing.Size(99, 20);
-            this.dtVenda.TabIndex = 37;
+            this.dtVenda.TabIndex = 5;
             this.dtVenda.Value = new System.DateTime(2019, 10, 5, 0, 0, 0, 0);
             // 
             // label6
@@ -360,7 +370,7 @@
             this.txtNfiscal.MaxLength = 50;
             this.txtNfiscal.Name = "txtNfiscal";
             this.txtNfiscal.Size = new System.Drawing.Size(106, 20);
-            this.txtNfiscal.TabIndex = 36;
+            this.txtNfiscal.TabIndex = 6;
             // 
             // dtPgtoInicial
             // 
@@ -368,7 +378,7 @@
             this.dtPgtoInicial.Location = new System.Drawing.Point(271, 512);
             this.dtPgtoInicial.Name = "dtPgtoInicial";
             this.dtPgtoInicial.Size = new System.Drawing.Size(99, 20);
-            this.dtPgtoInicial.TabIndex = 41;
+            this.dtPgtoInicial.TabIndex = 9;
             this.dtPgtoInicial.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
             // 
             // txtTotalVenda
@@ -415,7 +425,7 @@
             this.cbFormaPagto.Location = new System.Drawing.Point(6, 511);
             this.cbFormaPagto.Name = "cbFormaPagto";
             this.cbFormaPagto.Size = new System.Drawing.Size(143, 21);
-            this.cbFormaPagto.TabIndex = 29;
+            this.cbFormaPagto.TabIndex = 7;
             // 
             // txtId
             // 
@@ -424,6 +434,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(59, 20);
             this.txtId.TabIndex = 46;
+            this.txtId.Visible = false;
             // 
             // pnFinalizaCompra
             // 
@@ -519,7 +530,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(556, 120);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -529,20 +540,10 @@
             this.btnSalvar.Location = new System.Drawing.Point(556, 50);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 62;
+            this.btnSalvar.TabIndex = 11;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnConfirmar_Click);
-            // 
-            // cbVerificaEstoque
-            // 
-            this.cbVerificaEstoque.AutoSize = true;
-            this.cbVerificaEstoque.Location = new System.Drawing.Point(323, 163);
-            this.cbVerificaEstoque.Name = "cbVerificaEstoque";
-            this.cbVerificaEstoque.Size = new System.Drawing.Size(103, 17);
-            this.cbVerificaEstoque.TabIndex = 63;
-            this.cbVerificaEstoque.Text = "Verifica Estoque";
-            this.cbVerificaEstoque.UseVisualStyleBackColor = true;
             // 
             // frm_CadVenda
             // 
@@ -556,8 +557,11 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.pnVenda);
             this.Controls.Add(this.pnFinalizaCompra);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_CadVenda";
-            this.Text = "frm_CadVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastrar Venda";
             this.Load += new System.EventHandler(this.Frm_CadVenda_Load);
             this.pnVenda.ResumeLayout(false);
             this.pnVenda.PerformLayout();

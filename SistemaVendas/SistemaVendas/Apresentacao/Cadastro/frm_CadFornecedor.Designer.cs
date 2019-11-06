@@ -50,7 +50,8 @@
             this.txtId.Location = new System.Drawing.Point(12, 2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 20);
-            this.txtId.TabIndex = 22;
+            this.txtId.TabIndex = 67;
+            this.txtId.Visible = false;
             // 
             // txtCPF
             // 
@@ -58,7 +59,7 @@
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(120, 20);
-            this.txtCPF.TabIndex = 21;
+            this.txtCPF.TabIndex = 2;
             // 
             // label4
             // 
@@ -98,24 +99,26 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Location = new System.Drawing.Point(51, 249);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
-            this.txtEmail.TabIndex = 16;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(50, 81);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(200, 20);
-            this.txtNome.TabIndex = 14;
+            this.txtNome.TabIndex = 1;
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(179, 302);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 13;
+            this.btnAlterar.TabIndex = 6;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -125,7 +128,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(41, 302);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 12;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -170,7 +173,7 @@
             this.txtTel.Mask = "(99) 000000000";
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(101, 20);
-            this.txtTel.TabIndex = 28;
+            this.txtTel.TabIndex = 3;
             // 
             // frm_CadFornecedor
             // 
@@ -189,8 +192,11 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_CadFornecedor";
-            this.Text = "frm_CadFornecedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro Fornecedor ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

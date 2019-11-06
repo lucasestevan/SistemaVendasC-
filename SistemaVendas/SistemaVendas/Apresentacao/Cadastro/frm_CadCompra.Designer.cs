@@ -34,7 +34,6 @@
             this.txtNParcelas = new System.Windows.Forms.NumericUpDown();
             this.cbProtudo = new System.Windows.Forms.ComboBox();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnAddProdu = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbFormaPagto = new System.Windows.Forms.ComboBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
@@ -70,7 +70,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(521, 59);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 45;
+            this.btnAlterar.TabIndex = 12;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -80,7 +80,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(521, 27);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 44;
+            this.btnSalvar.TabIndex = 11;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -121,7 +121,7 @@
             this.txtNParcelas.Location = new System.Drawing.Point(180, 421);
             this.txtNParcelas.Name = "txtNParcelas";
             this.txtNParcelas.Size = new System.Drawing.Size(53, 20);
-            this.txtNParcelas.TabIndex = 59;
+            this.txtNParcelas.TabIndex = 10;
             // 
             // cbProtudo
             // 
@@ -129,7 +129,7 @@
             this.cbProtudo.Location = new System.Drawing.Point(10, 81);
             this.cbProtudo.Name = "cbProtudo";
             this.cbProtudo.Size = new System.Drawing.Size(201, 21);
-            this.cbProtudo.TabIndex = 58;
+            this.cbProtudo.TabIndex = 2;
             // 
             // cbFornecedor
             // 
@@ -137,15 +137,7 @@
             this.cbFornecedor.Location = new System.Drawing.Point(9, 32);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(202, 21);
-            this.cbFornecedor.TabIndex = 57;
-            // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(536, 169);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(57, 20);
-            this.txtId.TabIndex = 46;
+            this.cbFornecedor.TabIndex = 1;
             // 
             // label13
             // 
@@ -161,7 +153,7 @@
             this.btnAddProdu.Location = new System.Drawing.Point(170, 133);
             this.btnAddProdu.Name = "btnAddProdu";
             this.btnAddProdu.Size = new System.Drawing.Size(28, 23);
-            this.btnAddProdu.TabIndex = 55;
+            this.btnAddProdu.TabIndex = 5;
             this.btnAddProdu.Text = "+";
             this.btnAddProdu.UseVisualStyleBackColor = true;
             this.btnAddProdu.Click += new System.EventHandler(this.BtnAddProdu_Click);
@@ -181,7 +173,7 @@
             this.txtValorUni.MaxLength = 6;
             this.txtValorUni.Name = "txtValorUni";
             this.txtValorUni.Size = new System.Drawing.Size(60, 20);
-            this.txtValorUni.TabIndex = 54;
+            this.txtValorUni.TabIndex = 4;
             this.txtValorUni.Text = "0,00";
             this.txtValorUni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorUni_KeyPress);
             this.txtValorUni.Leave += new System.EventHandler(this.TxtValorUni_Leave);
@@ -201,7 +193,7 @@
             this.txtQtd.MaxLength = 6;
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(60, 20);
-            this.txtQtd.TabIndex = 52;
+            this.txtQtd.TabIndex = 3;
             this.txtQtd.Text = "0,00";
             this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
             this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
@@ -301,8 +293,9 @@
             this.dtCompra.Location = new System.Drawing.Point(361, 33);
             this.dtCompra.Name = "dtCompra";
             this.dtCompra.Size = new System.Drawing.Size(99, 20);
-            this.dtCompra.TabIndex = 37;
+            this.dtCompra.TabIndex = 7;
             this.dtCompra.Value = new System.DateTime(2019, 10, 5, 0, 0, 0, 0);
+            this.dtCompra.ValueChanged += new System.EventHandler(this.DtCompra_ValueChanged);
             // 
             // label6
             // 
@@ -317,10 +310,11 @@
             // txtNfiscal
             // 
             this.txtNfiscal.Location = new System.Drawing.Point(361, 81);
-            this.txtNfiscal.MaxLength = 50;
+            this.txtNfiscal.MaxLength = 4;
             this.txtNfiscal.Name = "txtNfiscal";
             this.txtNfiscal.Size = new System.Drawing.Size(106, 20);
-            this.txtNfiscal.TabIndex = 36;
+            this.txtNfiscal.TabIndex = 8;
+            this.txtNfiscal.TextChanged += new System.EventHandler(this.TxtNfiscal_TextChanged);
             // 
             // dtPgtoInicial
             // 
@@ -328,7 +322,7 @@
             this.dtPgtoInicial.Location = new System.Drawing.Point(10, 468);
             this.dtPgtoInicial.Name = "dtPgtoInicial";
             this.dtPgtoInicial.Size = new System.Drawing.Size(99, 20);
-            this.dtPgtoInicial.TabIndex = 41;
+            this.dtPgtoInicial.TabIndex = 10;
             this.dtPgtoInicial.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
             // 
             // txtTotalCompra
@@ -374,7 +368,16 @@
             this.cbFormaPagto.Location = new System.Drawing.Point(10, 421);
             this.cbFormaPagto.Name = "cbFormaPagto";
             this.cbFormaPagto.Size = new System.Drawing.Size(143, 21);
-            this.cbFormaPagto.TabIndex = 29;
+            this.cbFormaPagto.TabIndex = 9;
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(536, 169);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(57, 20);
+            this.txtId.TabIndex = 46;
+            this.txtId.Visible = false;
             // 
             // frm_CadCompra
             // 
@@ -385,7 +388,10 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_CadCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Compra";
             this.Load += new System.EventHandler(this.Frm_CadMovimentacaoCompra_Load);
             this.groupBox1.ResumeLayout(false);

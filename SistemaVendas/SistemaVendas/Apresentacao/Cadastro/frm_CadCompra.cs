@@ -322,5 +322,15 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 txtValorUni.Text = "0,00";
             }
         }
+
+        private void TxtNfiscal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtCompra_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

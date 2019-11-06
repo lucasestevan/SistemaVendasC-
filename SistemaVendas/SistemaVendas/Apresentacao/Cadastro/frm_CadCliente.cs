@@ -2,6 +2,7 @@
 using DAL;
 using Modelo;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.Cadastro
@@ -18,22 +19,35 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             try
             {
-                //LEITURA DOS DADOS
-                Model_Cliente modelo = new Model_Cliente();
-                modelo.Nome = txtNome.Text;
-                modelo.Cpf = txtCPF.Text;
-                modelo.Telefone = txtTelefone.Text;
-                modelo.Celular = txtCel.Text;
-                modelo.Email = txtEmail.Text;
-                modelo.Observacao = txtObs.Text;
-                modelo.IdEndereco = Convert.ToInt32(txtIdEnde.Text);
-                modelo.NumeroEnde = txtNumero.Text;
-                //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Cliente bll = new BLL_Cliente(con);
+
+                //LEITURA DOS DADOS endereco
+                Model_Endereco modeloE = new Model_Endereco();
+                modeloE.Cep = txtCep.Text;
+                modeloE.Rua = txtRua.Text;
+                modeloE.Bairro = txtBairro.Text;
+                modeloE.Cidade = txtCidade.Text;
+                modeloE.Uf = txtUf.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                BLL_Endereco bllE = new BLL_Endereco(con);
+                //CADASTRAR UM endereco
+                bllE.Incluir(modeloE);
+
+                //LEITURA DOS DADOS cliente
+                Model_Cliente modeloC = new Model_Cliente();
+                modeloC.Nome = txtNome.Text;
+                modeloC.Cpf = txtCPF.Text;
+                modeloC.Telefone = txtTelefone.Text;
+                modeloC.Celular = txtCel.Text;
+                modeloC.Email = txtEmail.Text;
+                modeloC.Observacao = txtObs.Text;
+                modeloC.Cep = txtCep.Text;
+                modeloC.NumeroEnde = txtNumero.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                BLL_Cliente bllC = new BLL_Cliente(con);
 
                 //CADASTRAR UMA CATEGORIA
-                bll.Incluir(modelo);
+                bllC.Incluir(modeloC);
                 MessageBox.Show("Cliente cadastrado com sucesso!");
                 this.Close();
             }
@@ -57,7 +71,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.Celular = txtCel.Text;
                 modelo.Email = txtEmail.Text;
                 modelo.Observacao = txtObs.Text;
-                modelo.IdEndereco = Convert.ToInt32(txtIdEnde.Text);
+                modelo.Cep = txtCep.Text;
                 modelo.NumeroEnde = txtNumero.Text;
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
@@ -74,40 +88,37 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
-        //botao localizar endereco
-        private void BtnEndereco_Click(object sender, EventArgs e)
+        private void txtCep_Leave_1(object sender, EventArgs e)
         {
-            txtCep.Text = "";
+            BuscarCEP();
+        }
+
+        private void btnEndereco_Click_1(object sender, EventArgs e)
+        {
+            BuscarCEP();
+        }
+
+        //METODO BUSCAR CEP
+        public void BuscarCEP()
+        {
             txtRua.Text = "";
             txtBairro.Text = "";
             txtCidade.Text = "";
             txtUf.Text = "";
 
-            frm_Endereco endereco = new frm_Endereco();
-            //DESABILITAR OS BOTOES PRIMEIRO E DPS CHAMAR O FORM enderecoO
-            endereco.btnAlterar.Visible = false;
-            endereco.btnExcluir.Visible = false;
-            endereco.btnSelecionar.Visible = true;
-            endereco.ShowDialog();
-            if (endereco.idEndereco != 0)
-            {
-                //chamr modelo bll e dal endereco
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Endereco bllEndereco = new BLL_Endereco(con);
-                Model_Endereco modelEndereco = bllEndereco.CarregaModeloEndereco(endereco.idEndereco);
-                txtIdEnde.Text = modelEndereco.IdEndereco.ToString();
-                txtCep.Text = modelEndereco.Cep.ToString();
-                txtRua.Text = modelEndereco.Rua.ToString();
-                txtBairro.Text = modelEndereco.Bairro.ToString();
-                txtCidade.Text = modelEndereco.Cidade.ToString();
-                txtUf.Text = modelEndereco.Uf.ToString();
-            }
+            string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml"
+                .Replace("@cep", txtCep.Text);
+
+            DataSet ds = new DataSet();
+            ds.ReadXml(xml);
+
+            txtRua.Text = ds.Tables[0].Rows[0][6].ToString();
+            txtBairro.Text = ds.Tables[0].Rows[0][4].ToString();
+            txtCidade.Text = ds.Tables[0].Rows[0][3].ToString();
+            txtUf.Text = ds.Tables[0].Rows[0][2].ToString();
 
         }
 
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

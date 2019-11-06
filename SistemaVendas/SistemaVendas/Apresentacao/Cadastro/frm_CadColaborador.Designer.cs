@@ -51,7 +51,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(16, 359);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -61,33 +61,38 @@
             this.btnAlterar.Location = new System.Drawing.Point(126, 359);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(58, 59);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(200, 20);
-            this.txtNome.TabIndex = 2;
+            this.txtNome.TabIndex = 1;
             // 
             // txtSenha
             // 
+            this.txtSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSenha.Location = new System.Drawing.Point(59, 156);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(200, 20);
             this.txtSenha.TabIndex = 3;
+            this.txtSenha.TextChanged += new System.EventHandler(this.TxtSenha_TextChanged);
             // 
             // txtDesc
             // 
+            this.txtDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDesc.Location = new System.Drawing.Point(58, 268);
             this.txtDesc.MaxLength = 50;
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(200, 60);
-            this.txtDesc.TabIndex = 5;
+            this.txtDesc.TabIndex = 6;
             // 
             // label1
             // 
@@ -131,6 +136,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 11;
+            this.txtId.Visible = false;
             // 
             // txtTelefone
             // 
@@ -138,7 +144,7 @@
             this.txtTelefone.Mask = "(99) 0000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(92, 20);
-            this.txtTelefone.TabIndex = 48;
+            this.txtTelefone.TabIndex = 4;
             // 
             // txtCel
             // 
@@ -146,7 +152,8 @@
             this.txtCel.Mask = "(99) 00000-0000";
             this.txtCel.Name = "txtCel";
             this.txtCel.Size = new System.Drawing.Size(92, 20);
-            this.txtCel.TabIndex = 47;
+            this.txtCel.TabIndex = 5;
+            this.txtCel.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TxtCel_MaskInputRejected);
             // 
             // txtCPF
             // 
@@ -154,7 +161,7 @@
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(92, 20);
-            this.txtCPF.TabIndex = 46;
+            this.txtCPF.TabIndex = 2;
             // 
             // label5
             // 
@@ -179,7 +186,7 @@
             this.btnSenha.Location = new System.Drawing.Point(228, 359);
             this.btnSenha.Name = "btnSenha";
             this.btnSenha.Size = new System.Drawing.Size(75, 23);
-            this.btnSenha.TabIndex = 51;
+            this.btnSenha.TabIndex = 9;
             this.btnSenha.Text = "Senha";
             this.btnSenha.UseVisualStyleBackColor = true;
             this.btnSenha.Click += new System.EventHandler(this.BtnSenha_Click);
@@ -205,7 +212,10 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_CadColaborador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Colaborador";
             this.ResumeLayout(false);
             this.PerformLayout();

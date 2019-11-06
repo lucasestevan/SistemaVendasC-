@@ -41,10 +41,11 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(15, 62);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(237, 20);
-            this.txtNome.TabIndex = 15;
+            this.txtNome.TabIndex = 1;
             // 
             // label1
             // 
@@ -60,14 +61,15 @@
             this.txtId.Location = new System.Drawing.Point(271, 341);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
-            this.txtId.TabIndex = 13;
+            this.txtId.TabIndex = 6;
+            this.txtId.Visible = false;
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(271, 104);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 12;
+            this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -90,7 +92,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(271, 146);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
@@ -100,7 +102,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(271, 62);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 9;
+            this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
@@ -110,7 +112,7 @@
             this.btnNovo.Location = new System.Drawing.Point(271, 20);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 8;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
@@ -128,7 +130,10 @@
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnNovo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_TipoPagamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_TipoPagamento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoPag)).EndInit();
             this.ResumeLayout(false);

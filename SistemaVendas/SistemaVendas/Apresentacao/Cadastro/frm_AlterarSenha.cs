@@ -34,5 +34,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 MessageBox.Show("Erro ao alterar Senha \n" + ex.Message);
             }
         }
+
+        
     }
 }

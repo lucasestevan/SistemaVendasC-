@@ -45,27 +45,25 @@
             this.btnExcluir.Location = new System.Drawing.Point(324, 153);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 16;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(324, 112);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 15;
+            this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Location = new System.Drawing.Point(324, 67);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
@@ -75,10 +73,9 @@
             this.btnNovo.Location = new System.Drawing.Point(324, 25);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 13;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // dgvEndereco
             // 
@@ -86,11 +83,11 @@
             this.dgvEndereco.AllowUserToDeleteRows = false;
             this.dgvEndereco.AllowUserToOrderColumns = true;
             this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEndereco.Location = new System.Drawing.Point(12, 108);
+            this.dgvEndereco.Location = new System.Drawing.Point(12, 79);
             this.dgvEndereco.Name = "dgvEndereco";
             this.dgvEndereco.ReadOnly = true;
             this.dgvEndereco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEndereco.Size = new System.Drawing.Size(289, 206);
+            this.dgvEndereco.Size = new System.Drawing.Size(289, 235);
             this.dgvEndereco.TabIndex = 17;
             this.dgvEndereco.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEndereco_CellClick);
             // 
@@ -100,32 +97,35 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 18;
+            this.txtId.Visible = false;
             // 
             // btnSelecionar
             // 
-            this.btnSelecionar.Location = new System.Drawing.Point(324, 203);
+            this.btnSelecionar.Location = new System.Drawing.Point(324, 199);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSelecionar.TabIndex = 19;
+            this.btnSelecionar.TabIndex = 6;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = true;
             this.btnSelecionar.Click += new System.EventHandler(this.BtnSelecionar_Click);
             // 
             // txtRua
             // 
-            this.txtRua.Location = new System.Drawing.Point(12, 51);
+            this.txtRua.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtRua.Location = new System.Drawing.Point(12, 41);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(289, 20);
-            this.txtRua.TabIndex = 34;
+            this.txtRua.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 35);
+            this.label1.Location = new System.Drawing.Point(9, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "Rua";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // frm_Endereco
             // 
@@ -141,7 +141,10 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnNovo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_Endereco";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_endereco";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).EndInit();
             this.ResumeLayout(false);

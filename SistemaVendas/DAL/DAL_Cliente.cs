@@ -18,15 +18,15 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into Cliente (nome, cpf, telefone, celular, email, observacao, id_endereco, numeroEnde)" +
-                "values (@nome, @cpf, @telefone, @celular, @email, @observacao, @id_endereco, @numeroEnde); select @@IDENTITY;";
+            cmd.CommandText = "insert into Cliente (nome, cpf, telefone, celular, email, observacao, cep, numeroEnde)" +
+                "values (@nome, @cpf, @telefone, @celular, @email, @observacao, @cep, @numeroEnde); select @@IDENTITY;";
             cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             cmd.Parameters.AddWithValue("@cpf", modelo.Cpf);
             cmd.Parameters.AddWithValue("@telefone", modelo.Telefone);
             cmd.Parameters.AddWithValue("@celular", modelo.Celular);
             cmd.Parameters.AddWithValue("@email", modelo.Email);
             cmd.Parameters.AddWithValue("@observacao", modelo.Observacao);
-            cmd.Parameters.AddWithValue("@id_endereco", modelo.IdEndereco);
+            cmd.Parameters.AddWithValue("@cep", modelo.Cep);
             cmd.Parameters.AddWithValue("@numeroEnde", modelo.NumeroEnde);
             conexao.Conectar();
             modelo.IdCliente = Convert.ToInt32(cmd.ExecuteScalar());
@@ -39,7 +39,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE Cliente set nome = @nome, cpf = @cpf, telefone = @telefone, celular = @celular, email = @email," +
-                "observacao = @observacao, id_endereco = @id_endereco, numeroEnde = @numeroEnde where id_cliente = @id_cliente";
+                "observacao = @observacao, cep = @cep, numeroEnde = @numeroEnde where id_cliente = @id_cliente";
             cmd.Parameters.AddWithValue("@id_cliente", modelo.IdCliente);
             cmd.Parameters.AddWithValue("@nome", modelo.Nome);
             cmd.Parameters.AddWithValue("@cpf", modelo.Cpf);
@@ -47,7 +47,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@celular", modelo.Celular);
             cmd.Parameters.AddWithValue("@email", modelo.Email);
             cmd.Parameters.AddWithValue("@observacao", modelo.Observacao);
-            cmd.Parameters.AddWithValue("@id_endereco", modelo.IdEndereco);
+            cmd.Parameters.AddWithValue("@cep", modelo.Cep);
             cmd.Parameters.AddWithValue("@numeroEnde", modelo.NumeroEnde);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -88,7 +88,7 @@ namespace DAL
                 modelo.Celular = Convert.ToString(registro["celular"]);
                 modelo.Email = Convert.ToString(registro["email"]);
                 modelo.Observacao = Convert.ToString(registro["observacao"]);
-                modelo.IdEndereco = Convert.ToInt32(registro["id_endereco"]);
+                modelo.Cep = Convert.ToString(registro["cep"]);
                 modelo.NumeroEnde = Convert.ToString(registro["numeroEnde"]);
             }
             conexao.Desconectar();
@@ -100,7 +100,9 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("Select cli.id_cliente, cli.nome, cli.cpf, cli.telefone, cli.celular, cli.email, cli.observacao, cli.id_endereco, Ende.cep, ende.rua, cli.numeroEnde, ende.bairro, Ende.cidade, Ende.uf from Cliente as Cli INNER JOIN Endereco as Ende on cli.id_endereco = Ende.id_endereco where nome like '%" + valor + "%' order by nome", conexao.StringConexao);
+            da = new SqlDataAdapter("Select cli.id_cliente, cli.nome, cli.cpf, cli.telefone, cli.celular, cli.email, cli.observacao, cli.cep," +
+                " ende.rua, cli.numeroEnde, ende.bairro, Ende.cidade," +
+                " Ende.uf from Cliente as Cli INNER JOIN Endereco as Ende on cli.cep = Ende.cep where nome like '%" + valor + "%' order by nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }

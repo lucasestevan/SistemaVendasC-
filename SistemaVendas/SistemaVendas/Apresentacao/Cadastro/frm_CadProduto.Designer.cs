@@ -50,7 +50,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(43, 393);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -60,7 +60,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(195, 393);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -103,20 +103,22 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(54, 62);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(203, 20);
-            this.txtNome.TabIndex = 6;
+            this.txtNome.TabIndex = 1;
             // 
             // txtDesc
             // 
+            this.txtDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDesc.Location = new System.Drawing.Point(54, 323);
             this.txtDesc.MaxLength = 50;
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(203, 53);
-            this.txtDesc.TabIndex = 8;
+            this.txtDesc.TabIndex = 6;
             // 
             // cmbCategoria
             // 
@@ -124,7 +126,7 @@
             this.cmbCategoria.Location = new System.Drawing.Point(54, 219);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(143, 21);
-            this.cmbCategoria.TabIndex = 10;
+            this.cmbCategoria.TabIndex = 4;
             // 
             // txtPreco
             // 
@@ -132,7 +134,7 @@
             this.txtPreco.MaxLength = 6;
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(50, 20);
-            this.txtPreco.TabIndex = 15;
+            this.txtPreco.TabIndex = 2;
             this.txtPreco.Text = "0.00";
             this.txtPreco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPreco_KeyPress);
             this.txtPreco.Leave += new System.EventHandler(this.TxtPreco_Leave);
@@ -143,6 +145,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 16;
+            this.txtId.Visible = false;
             // 
             // cmbFornecedor
             // 
@@ -150,7 +153,7 @@
             this.cmbFornecedor.Location = new System.Drawing.Point(53, 273);
             this.cmbFornecedor.Name = "cmbFornecedor";
             this.cmbFornecedor.Size = new System.Drawing.Size(167, 21);
-            this.cmbFornecedor.TabIndex = 18;
+            this.cmbFornecedor.TabIndex = 5;
             // 
             // label5
             // 
@@ -167,7 +170,7 @@
             this.txtQtd.MaxLength = 6;
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(50, 20);
-            this.txtQtd.TabIndex = 20;
+            this.txtQtd.TabIndex = 3;
             this.txtQtd.Text = "0.00";
             this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
             this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
@@ -201,7 +204,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_CadProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastrar Produto";
             this.Load += new System.EventHandler(this.Frm_CadProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

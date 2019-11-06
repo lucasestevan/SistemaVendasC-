@@ -88,7 +88,7 @@ namespace SistemaVendas.Apresentacao
             Model_Cliente modelo = bllCliente.CarregaModeloCliente(idCliente);
 
             BLL_Endereco bllEnde = new BLL_Endereco(con);
-            Model_Endereco modeloEnde = bllEnde.CarregaModeloEndereco(idCliente);
+            Model_Endereco modeloEnde = bllEnde.CarregaModeloEndereco(modelo.Cep);
 
             //CHAMAR O FORM Card e passar as informacoes
             frm_CadCliente cadCliente = new frm_CadCliente();
@@ -102,13 +102,14 @@ namespace SistemaVendas.Apresentacao
             cadCliente.txtCel.Text = modelo.Celular.ToString();
             cadCliente.txtEmail.Text = modelo.Email.ToString();
             cadCliente.txtObs.Text = modelo.Observacao.ToString();
-            cadCliente.txtIdEnde.Text = modelo.IdEndereco.ToString();
             cadCliente.txtCep.Text = modeloEnde.Cep.ToString();
             cadCliente.txtRua.Text = modeloEnde.Rua.ToString(); //RUA
             cadCliente.txtNumero.Text = modelo.NumeroEnde.ToString();// NUMERO
             cadCliente.txtBairro.Text = modeloEnde.Bairro.ToString(); // BAIRRO
             cadCliente.txtCidade.Text = modeloEnde.Cidade.ToString();// CIDADE//
             cadCliente.txtUf.Text = modeloEnde.Uf.ToString(); //UF
+            cadCliente.btnAlterar.Visible = true;
+            cadCliente.btnSalvar.Visible = false;
             cadCliente.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
@@ -130,13 +131,14 @@ namespace SistemaVendas.Apresentacao
             dgvCliente.Columns[5].Width = 120;
             dgvCliente.Columns[6].HeaderText = "Observação";
             dgvCliente.Columns[6].Width = 120;
-            dgvCliente.Columns[7].Visible = false;
-            dgvCliente.Columns[8].Visible = false;
-            dgvCliente.Columns[9].Visible = false;
-            dgvCliente.Columns[10].Visible = false;
+            dgvCliente.Columns[7].Visible = false; //cep
+            dgvCliente.Columns[8].HeaderText = "Rua";
+            dgvCliente.Columns[8].Width = 120;
+            dgvCliente.Columns[9].Visible = false; //numero 
+            dgvCliente.Columns[10].HeaderText = "Bairro"; 
+            dgvCliente.Columns[10].Width = 120;
             dgvCliente.Columns[11].Visible = false;
             dgvCliente.Columns[12].Visible = false;
-            dgvCliente.Columns[13].Visible = false;
         }
     }
 }

@@ -37,6 +37,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(46, 73);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(257, 20);
@@ -66,7 +67,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(46, 109);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.TabIndex = 2;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -77,6 +78,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(35, 20);
             this.txtId.TabIndex = 5;
+            this.txtId.Visible = false;
             // 
             // frm_CadCategoria
             // 
@@ -88,7 +90,10 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_CadCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Categoria";
             this.ResumeLayout(false);
             this.PerformLayout();

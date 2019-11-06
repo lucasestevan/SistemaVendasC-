@@ -18,43 +18,69 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into Endereco (cep, rua, bairro, cidade, uf)" +
-                "values (@cep, @rua, @bairro, @cidade, @uf); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@cep", modelo.Cep);
-            cmd.Parameters.AddWithValue("@rua", modelo.Rua);
-            cmd.Parameters.AddWithValue("@bairro", modelo.Bairro);
-            cmd.Parameters.AddWithValue("@cidade", modelo.Cidade);
-            cmd.Parameters.AddWithValue("@uf", modelo.Uf);
             conexao.Conectar();
-            modelo.IdEndereco = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
-        }
 
-        //METODO ALTERAR
-        public void Alterar(Model_Endereco modelo)
-        {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE Endereco set cep = @cep, rua = @rua, bairro = @bairro, cidade = @cidade, uf = @uf where id_endereco = @id_endereco";
-            cmd.Parameters.AddWithValue("@id_endereco", modelo.IdEndereco);
+            cmd.CommandText = "SELECT cep from Endereco where cep = @cep";
             cmd.Parameters.AddWithValue("@cep", modelo.Cep);
-            cmd.Parameters.AddWithValue("@rua", modelo.Rua);
-            cmd.Parameters.AddWithValue("@bairro", modelo.Bairro);
-            cmd.Parameters.AddWithValue("@cidade", modelo.Cidade);
-            cmd.Parameters.AddWithValue("@uf", modelo.Uf);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
+            SqlDataReader read = cmd.ExecuteReader();
+            //SE EXISTIR ELE ENTRA NO IF e altera o endeco ja existente
+            if (read.Read())
+            {
+                conexao.Desconectar();
+                try
+                {
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = conexao.ObjetoConexao;
+                    cmd2.CommandText = "UPDATE Endereco set cep = @cep, rua = @rua, bairro = @bairro, cidade = @cidade, uf = @uf where id_endereco = @id_endereco";
+                    cmd2.Parameters.AddWithValue("@cep", modelo.Cep);
+                    cmd2.Parameters.AddWithValue("@rua", modelo.Rua);
+                    cmd2.Parameters.AddWithValue("@bairro", modelo.Bairro);
+                    cmd2.Parameters.AddWithValue("@cidade", modelo.Cidade);
+                    cmd2.Parameters.AddWithValue("@uf", modelo.Uf);
+                    conexao.Conectar();
+                    cmd2.ExecuteNonQuery();
+                    conexao.Desconectar();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            //SENÃO NÃO EXISTIR ELE ADD
+            else
+            {
+                conexao.Desconectar();
+                try
+                {
+                    SqlCommand cmd1 = new SqlCommand();
+                    cmd1.Connection = conexao.ObjetoConexao;
+                    cmd1.CommandText = "insert into Endereco (cep, rua, bairro, cidade, uf)" +
+                        "VALUES (@cep, @rua, @bairro, @cidade, @uf)";
+                    cmd1.Parameters.AddWithValue("@cep", modelo.Cep);
+                    cmd1.Parameters.AddWithValue("@rua", modelo.Rua);
+                    cmd1.Parameters.AddWithValue("@bairro", modelo.Bairro);
+                    cmd1.Parameters.AddWithValue("@cidade", modelo.Cidade);
+                    cmd1.Parameters.AddWithValue("@uf", modelo.Uf);
+                    conexao.Conectar();
+                    cmd1.ExecuteNonQuery();
+                    conexao.Desconectar();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
             conexao.Desconectar();
         }
 
         //METODO CARREGA MODELO
-        public Model_Endereco CarregaModeloEndereco(int idEndereco)
+        public Model_Endereco CarregaModeloEndereco(string cep)
         {
             Model_Endereco modelo = new Model_Endereco();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select * from Endereco where id_endereco = @id_endereco";
-            cmd.Parameters.AddWithValue("@id_endereco", idEndereco);
+            cmd.CommandText = "select * from Endereco where cep = @cep";
+            cmd.Parameters.AddWithValue("@cep", cep);
             conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();
 
@@ -62,7 +88,6 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.IdEndereco = Convert.ToInt32(registro["id_endereco"]);
                 modelo.Cep = Convert.ToString(registro["cep"]);
                 modelo.Rua = Convert.ToString(registro["rua"]);
                 modelo.Bairro = Convert.ToString(registro["bairro"]);
@@ -71,18 +96,6 @@ namespace DAL
             }
             conexao.Desconectar();
             return modelo;
-        }
-
-        //METODO EXCLUIR
-        public void Excluir(int idEndereco)
-        {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "delete from Endereco where id_endereco = @id_endereco";
-            cmd.Parameters.AddWithValue("@id_endereco", idEndereco);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
         }
 
         //METODO LOCALIZAR

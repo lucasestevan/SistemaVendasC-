@@ -41,33 +41,30 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(277, 37);
+            this.btnNovo.Location = new System.Drawing.Point(277, 24);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Padding = new System.Windows.Forms.Padding(2);
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 0;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(277, 69);
+            this.btnPesquisar.Location = new System.Drawing.Point(277, 66);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Padding = new System.Windows.Forms.Padding(2);
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 1;
+            this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(277, 133);
+            this.btnExcluir.Location = new System.Drawing.Point(277, 150);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Padding = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
@@ -87,9 +84,8 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(277, 101);
+            this.btnAlterar.Location = new System.Drawing.Point(277, 108);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Padding = new System.Windows.Forms.Padding(2);
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
@@ -101,7 +97,7 @@
             this.txtId.Location = new System.Drawing.Point(277, 345);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
-            this.txtId.TabIndex = 5;
+            this.txtId.TabIndex = 6;
             this.txtId.Visible = false;
             // 
             // label1
@@ -137,6 +133,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frm_Categoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categoria";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);

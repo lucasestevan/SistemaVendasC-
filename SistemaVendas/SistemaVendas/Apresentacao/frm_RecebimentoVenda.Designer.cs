@@ -125,6 +125,7 @@
             this.txtIdVenda.Name = "txtIdVenda";
             this.txtIdVenda.Size = new System.Drawing.Size(100, 20);
             this.txtIdVenda.TabIndex = 8;
+            this.txtIdVenda.TextChanged += new System.EventHandler(this.TxtIdVenda_TextChanged);
             // 
             // txtValor
             // 
@@ -132,6 +133,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(100, 20);
             this.txtValor.TabIndex = 9;
+            this.txtValor.TextChanged += new System.EventHandler(this.TxtValor_TextChanged);
             // 
             // txtCliente
             // 
@@ -139,6 +141,7 @@
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(284, 20);
             this.txtCliente.TabIndex = 10;
+            this.txtCliente.TextChanged += new System.EventHandler(this.TxtCliente_TextChanged);
             // 
             // dtRecebimento
             // 
@@ -189,8 +192,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_RecebimentoVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_RecebimentoVenda";
+            this.Load += new System.EventHandler(this.Frm_RecebimentoVenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvParcelas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

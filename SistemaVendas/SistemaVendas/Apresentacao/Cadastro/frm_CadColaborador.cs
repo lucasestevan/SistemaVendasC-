@@ -75,5 +75,15 @@ namespace SistemaVendas.Apresentacao.Cadastro
             frm_AlterarSenha alterarSenha = new frm_AlterarSenha();
             alterarSenha.Show();
         }
+
+        private void TxtSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

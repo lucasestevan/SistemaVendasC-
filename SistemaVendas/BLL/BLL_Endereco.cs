@@ -43,37 +43,13 @@ namespace BLL
             DALobj.Incluir(modelo);
         }
 
-        //METODO ALTERAR
-        public void Alterar(Model_Endereco modelo)
-        {
-            //VERIFICAR SE O CAMPO NÃO É VAZIO
-           
-            if (modelo.Rua.Trim().Length == 0)
-            {
-                throw new Exception("O campo Rua é obrigatorio!");
-            }
-
-            if (modelo.Bairro.Trim().Length == 0)
-            {
-                throw new Exception("O Campo Bairro é obrigatorio!");
-            }
-
-            DAL_Endereco DALobj = new DAL_Endereco(conexao);
-            DALobj.Alterar(modelo);
-        }
-
-        //METODO EXCLUIR
-        public void Excluir(int idEndereco)
-        {
-            DAL_Endereco DALobj = new DAL_Endereco(conexao);
-            DALobj.Excluir(idEndereco);
-        }
+      
 
         //METODO CARRREGA MODELO
-        public Model_Endereco CarregaModeloEndereco(int idEndereco)
+        public Model_Endereco CarregaModeloEndereco(string cep)
         {
             DAL_Endereco DALobj = new DAL_Endereco(conexao);
-            return DALobj.CarregaModeloEndereco(idEndereco);
+            return DALobj.CarregaModeloEndereco(cep);
         }
 
 

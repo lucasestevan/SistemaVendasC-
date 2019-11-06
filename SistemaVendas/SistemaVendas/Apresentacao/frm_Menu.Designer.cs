@@ -128,7 +128,7 @@
             this.txtTipoPagto.Name = "txtTipoPagto";
             this.txtTipoPagto.Size = new System.Drawing.Size(92, 46);
             this.txtTipoPagto.TabIndex = 8;
-            this.txtTipoPagto.Text = "Pagamento Compra";
+            this.txtTipoPagto.Text = "Pagamento ";
             this.txtTipoPagto.UseVisualStyleBackColor = true;
             this.txtTipoPagto.Click += new System.EventHandler(this.TxtTipoPagto_Click);
             // 
@@ -148,7 +148,7 @@
             this.btnPagamento.Name = "btnPagamento";
             this.btnPagamento.Size = new System.Drawing.Size(75, 23);
             this.btnPagamento.TabIndex = 10;
-            this.btnPagamento.Text = "Pagamento";
+            this.btnPagamento.Text = "Pagamento Compra";
             this.btnPagamento.UseVisualStyleBackColor = true;
             this.btnPagamento.Click += new System.EventHandler(this.BtnPagamento_Click);
             // 
@@ -179,7 +179,10 @@
             this.Controls.Add(this.btnFornecedor);
             this.Controls.Add(this.btnColaborador);
             this.Controls.Add(this.btnCliente);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frm_Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Menu";
             this.ResumeLayout(false);
 
