@@ -83,19 +83,30 @@ namespace SistemaVendas.Apresentacao
 
             //chamr modelo bll e dal 
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Fornecedor bll = new BLL_Fornecedor(con);
-            Model_Fornecedor modelo = bll.CarregaModeloFornecedor(idFornecedor);
+            BLL_Fornecedor bllF = new BLL_Fornecedor(con);
+            Model_Fornecedor modeloF = bllF.CarregaModeloFornecedor(idFornecedor);
+
+            BLL_Endereco bllEnde = new BLL_Endereco(con);
+            Model_Endereco modeloEnde = bllEnde.CarregaModeloEndereco(modeloF.Cep);
 
             //CHAMAR O FORM Card e passar as informacoes
             frm_CadFornecedor cadFornecedor = new frm_CadFornecedor();
-            cadFornecedor.btnAlterar.Enabled = true;
-            cadFornecedor.btnSalvar.Enabled = false;
 
-            cadFornecedor.txtId.Text = modelo.IdFornecedor.ToString();
-            cadFornecedor.txtNome.Text = modelo.Nome.ToString();
-            cadFornecedor.txtCPF.Text = modelo.CpfCNPJ.ToString();
-            cadFornecedor.txtTel.Text = modelo.Telefone.ToString();
-            cadFornecedor.txtEmail.Text = modelo.Email.ToString();
+            cadFornecedor.txtId.Text = modeloF.IdFornecedor.ToString();
+            cadFornecedor.txtNome.Text = modeloF.Nome.ToString();
+            cadFornecedor.txtCPF.Text = modeloF.CpfCNPJ.ToString();
+            cadFornecedor.txtTelefone.Text = modeloF.Telefone.ToString();
+            cadFornecedor.txtCel.Text = modeloF.Celular.ToString();
+            cadFornecedor.txtEmail.Text = modeloF.Email.ToString();
+            cadFornecedor.txtObs.Text = modeloF.Observacao.ToString();
+            cadFornecedor.txtCep.Text = modeloEnde.Cep.ToString();
+            cadFornecedor.txtRua.Text = modeloEnde.Rua.ToString(); //RUA
+            cadFornecedor.txtNumero.Text = modeloF.NumeroEnde.ToString();// NUMERO
+            cadFornecedor.txtBairro.Text = modeloEnde.Bairro.ToString(); // BAIRRO
+            cadFornecedor.txtCidade.Text = modeloEnde.Cidade.ToString();// CIDADE//
+            cadFornecedor.txtUf.Text = modeloEnde.Uf.ToString(); //UF
+            cadFornecedor.btnAlterar.Visible = true;
+            cadFornecedor.btnSalvar.Visible = false;
             cadFornecedor.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
@@ -110,9 +121,21 @@ namespace SistemaVendas.Apresentacao
             dgvFornecedor.Columns[2].HeaderText = "CPF / CNPJ";
             dgvFornecedor.Columns[2].Width = 110;
             dgvFornecedor.Columns[3].HeaderText = "Telefone";
-            dgvFornecedor.Columns[3].Width = 85;
-            dgvFornecedor.Columns[4].HeaderText = "E-mail";
-            dgvFornecedor.Columns[4].Width = 110;
+            dgvFornecedor.Columns[3].Width = 90;
+            dgvFornecedor.Columns[4].HeaderText = "Celular";
+            dgvFornecedor.Columns[4].Width = 90;
+            dgvFornecedor.Columns[5].HeaderText = "E-mail";
+            dgvFornecedor.Columns[5].Width = 120;
+            dgvFornecedor.Columns[6].HeaderText = "Observação";
+            dgvFornecedor.Columns[6].Width = 120;
+            dgvFornecedor.Columns[7].Visible = false; //cep
+            dgvFornecedor.Columns[8].HeaderText = "Rua";
+            dgvFornecedor.Columns[8].Width = 120;
+            dgvFornecedor.Columns[9].Visible = false; //numero 
+            dgvFornecedor.Columns[10].HeaderText = "Bairro";
+            dgvFornecedor.Columns[10].Width = 120;
+            dgvFornecedor.Columns[11].Visible = false;
+            dgvFornecedor.Columns[12].Visible = false;
         }
     }
 }

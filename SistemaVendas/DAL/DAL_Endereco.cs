@@ -31,7 +31,7 @@ namespace DAL
                 {
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.Connection = conexao.ObjetoConexao;
-                    cmd2.CommandText = "UPDATE Endereco set cep = @cep, rua = @rua, bairro = @bairro, cidade = @cidade, uf = @uf where id_endereco = @id_endereco";
+                    cmd2.CommandText = "UPDATE Endereco set cep = @cep, rua = @rua, bairro = @bairro, cidade = @cidade, uf = @uf where cep = @cep";
                     cmd2.Parameters.AddWithValue("@cep", modelo.Cep);
                     cmd2.Parameters.AddWithValue("@rua", modelo.Rua);
                     cmd2.Parameters.AddWithValue("@bairro", modelo.Bairro);

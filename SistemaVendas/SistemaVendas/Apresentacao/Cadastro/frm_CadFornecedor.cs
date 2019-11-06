@@ -2,6 +2,7 @@
 using DAL;
 using Modelo;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 
@@ -19,18 +20,36 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             try
             {
-                //LEITURA DOS DADOS
-                Model_Fornecedor modelo = new Model_Fornecedor();
-                modelo.Nome = txtNome.Text;
-                modelo.CpfCNPJ = txtCPF.Text;
-                modelo.Telefone = txtTel.Text;
-                modelo.Email = txtEmail.Text;
-                //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Fornecedor bll = new BLL_Fornecedor(con);
 
-                //CADASTRAR UMA CATEGORIA
-                bll.Incluir(modelo);
+                //LEITURA DOS DADOS endereco
+                Model_Endereco modeloE = new Model_Endereco();
+                modeloE.Cep = txtCep.Text;
+                modeloE.Rua = txtRua.Text;
+                modeloE.Bairro = txtBairro.Text;
+                modeloE.Cidade = txtCidade.Text;
+                modeloE.Uf = txtUf.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                BLL_Endereco bllE = new BLL_Endereco(con);
+                //CADASTRAR UM endereco
+                bllE.Incluir(modeloE);
+
+                //LEITURA DOS DADOS cliente
+                Model_Fornecedor modeloF = new Model_Fornecedor();
+                modeloF.Nome = txtNome.Text;
+                modeloF.CpfCNPJ = txtCPF.Text;
+                modeloF.Telefone = txtTelefone.Text;
+                modeloF.Celular = txtCel.Text;
+                modeloF.Email = txtEmail.Text;
+                modeloF.Observacao = txtObs.Text;
+                modeloF.Cep = txtCep.Text;
+                modeloF.NumeroEnde = txtNumero.Text;
+
+                //OBJ PARA GRAVAR NO BANCO
+                BLL_Fornecedor bllF = new BLL_Fornecedor(con);
+
+                //CADASTRAR 
+                bllF.Incluir(modeloF);
                 MessageBox.Show("Fornecedor cadastrado com sucesso!");
                 this.Close();
             }
@@ -45,19 +64,36 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             try
             {
-                //LEITURA DOS DADOS
-                Model_Fornecedor modelo = new Model_Fornecedor();
-                modelo.IdFornecedor = Convert.ToInt32(txtId.Text);
-                modelo.Nome = txtNome.Text;
-                modelo.CpfCNPJ = txtCPF.Text;
-                modelo.Telefone = txtTel.Text;
-                modelo.Email = txtEmail.Text;
-                //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Fornecedor bll = new BLL_Fornecedor(con);
 
-                //CADASTRAR UMA CATEGORIA
-                bll.Alterar(modelo);
+                //LEITURA DOS DADOS endereco
+                Model_Endereco modeloE = new Model_Endereco();
+                modeloE.Cep = txtCep.Text;
+                modeloE.Rua = txtRua.Text;
+                modeloE.Bairro = txtBairro.Text;
+                modeloE.Cidade = txtCidade.Text;
+                modeloE.Uf = txtUf.Text;
+                //OBJ PARA GRAVAR NO BANCO
+                BLL_Endereco bllE = new BLL_Endereco(con);
+                //CADASTRAR UM endereco
+                bllE.Incluir(modeloE);
+
+                //LEITURA DOS DADOS cliente
+                Model_Fornecedor modeloF = new Model_Fornecedor();
+                modeloF.IdFornecedor = Convert.ToInt32(txtId.Text);
+                modeloF.Nome = txtNome.Text;
+                modeloF.CpfCNPJ = txtCPF.Text;
+                modeloF.Telefone = txtTelefone.Text;
+                modeloF.Celular = txtCel.Text;
+                modeloF.Email = txtEmail.Text;
+                modeloF.Observacao = txtObs.Text;
+                modeloF.Cep = txtCep.Text;
+                modeloF.NumeroEnde = txtNumero.Text;
+
+                //OBJ PARA GRAVAR NO BANCO
+                BLL_Fornecedor bllF = new BLL_Fornecedor(con);
+
+                bllF.Alterar(modeloF);
                 MessageBox.Show("Fornecedor alterado com sucesso!");
                 this.Close();
             }
@@ -69,7 +105,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
 
         private void RbFisica_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbFisica.Checked == true )
+            if (rbFisica.Checked == true)
             {
                 lblNome.Text = "Nome";
                 lblCPF.Text = "CPF";
@@ -81,6 +117,38 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 lblCPF.Text = "CNPJ";
                 txtCPF.Mask = "00.000.000/0000-00";
             }
+        }
+
+        private void txtCep_Leave(object sender, EventArgs e)
+        {
+            BuscarCEP();
+        }
+
+        private void btnEndereco_Click(object sender, EventArgs e)
+        {
+            BuscarCEP();
+        }
+
+        //METODO BUSCAR CEP
+        public void BuscarCEP()
+        {
+            txtRua.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUf.Text = "";
+
+            string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml"
+                .Replace("@cep", txtCep.Text);
+            
+                DataSet ds = new DataSet();
+                ds.ReadXml(xml);
+
+
+                txtRua.Text = ds.Tables[0].Rows[0][6].ToString();
+                txtBairro.Text = ds.Tables[0].Rows[0][4].ToString();
+                txtCidade.Text = ds.Tables[0].Rows[0][3].ToString();
+                txtUf.Text = ds.Tables[0].Rows[0][2].ToString();
+            
         }
     }
 }

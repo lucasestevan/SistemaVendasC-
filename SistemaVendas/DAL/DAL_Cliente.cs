@@ -102,7 +102,7 @@ namespace DAL
             SqlDataAdapter da = default(SqlDataAdapter);
             da = new SqlDataAdapter("Select cli.id_cliente, cli.nome, cli.cpf, cli.telefone, cli.celular, cli.email, cli.observacao, cli.cep," +
                 " ende.rua, cli.numeroEnde, ende.bairro, Ende.cidade," +
-                " Ende.uf from Cliente as Cli INNER JOIN Endereco as Ende on cli.cep = Ende.cep where nome like '%" + valor + "%' order by nome", conexao.StringConexao);
+                " Ende.uf from Cliente as Cli INNER JOIN Endereco as Ende on cli.cep = Ende.cep where cli.nome like '%" + valor + "%' order by cli.nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }

@@ -30,14 +30,6 @@ namespace BLL
                 throw new Exception("O Campo Bairro é obrigatorio!");
             }
 
-            //valida cep
-
-            if (Validacao.ValidaCep(modelo.Cep) == false)
-            {
-                throw new Exception("O Cep é invalido!");
-            }
-
-
 
             DAL_Endereco DALobj = new DAL_Endereco(conexao);
             DALobj.Incluir(modelo);

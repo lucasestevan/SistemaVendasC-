@@ -104,7 +104,7 @@
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(12, 67);
+            this.txtNome.Location = new System.Drawing.Point(12, 41);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(391, 20);
             this.txtNome.TabIndex = 1;
@@ -112,7 +112,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 51);
+            this.label1.Location = new System.Drawing.Point(12, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 33;

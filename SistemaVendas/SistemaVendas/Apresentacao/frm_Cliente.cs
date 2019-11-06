@@ -92,8 +92,6 @@ namespace SistemaVendas.Apresentacao
 
             //CHAMAR O FORM Card e passar as informacoes
             frm_CadCliente cadCliente = new frm_CadCliente();
-            cadCliente.btnAlterar.Enabled = true;
-            cadCliente.btnSalvar.Enabled = false;
 
             cadCliente.txtId.Text = modelo.IdCliente.ToString();
             cadCliente.txtNome.Text = modelo.Nome.ToString();
