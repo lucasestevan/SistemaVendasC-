@@ -1,5 +1,6 @@
 ﻿using SistemaVendas.Apresentacao;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas
@@ -42,18 +43,18 @@ namespace SistemaVendas
                                        
                     else
                     {*/
-                        frm_Menu Menu = new frm_Menu();
-                        this.Hide();
-                        Menu.ShowDialog();
-                        this.Close();
-                    /*}
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao fazer login " + ex.Message, "Erro");
-                    Modelo.ConexaoDados.fechar();
-                }
-            }*/
+            frm_Principal Menu = new frm_Principal();
+            this.Hide();
+            Menu.ShowDialog();
+            this.Close();
+            /*}
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Erro ao fazer login " + ex.Message, "Erro");
+            Modelo.ConexaoDados.fechar();
+        }
+    }*/
         }
 
         //AO APERTAR O ENTER
@@ -62,6 +63,42 @@ namespace SistemaVendas
             if (e.KeyCode == Keys.Enter)
             {
                 BtnLogin_Click(sender, e);
+            }
+        }
+
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_Click(object sender, EventArgs e)
+        {
+            pn1.BackColor = Color.FromArgb(78, 184, 206);
+            txtUsuario.ForeColor = Color.FromArgb(78, 184, 206);
+
+            pn2.BackColor = Color.WhiteSmoke;
+            txtSenha.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void txtSenha_Click(object sender, EventArgs e)
+        {
+            txtSenha.PasswordChar = '*';
+            pn2.BackColor = Color.FromArgb(78, 184, 206);
+            txtSenha.ForeColor = Color.FromArgb(78, 184, 206);
+
+            pn1.BackColor = Color.WhiteSmoke;
+            txtUsuario.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
             }
         }
     }

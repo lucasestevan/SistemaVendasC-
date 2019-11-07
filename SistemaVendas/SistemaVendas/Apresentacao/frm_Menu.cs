@@ -74,7 +74,7 @@ namespace SistemaVendas.Apresentacao
             pagamento.Dispose();
         }
 
-        //BOTAO LOGOUt
+       
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO LOGOUT
@@ -87,6 +87,7 @@ namespace SistemaVendas.Apresentacao
                 frm_Login.ShowDialog();
                 this.Visible = false;
                 this.Close();
+                //BOTAO LOGOUt
             }
         }
 
