@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Principal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPagto = new System.Windows.Forms.Button();
             this.pnAuxiliar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnRelatorio = new System.Windows.Forms.Button();
+            this.btnCadastro = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnVendas = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -42,6 +43,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.controle_Venda1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda();
+            this.controle_Relatorio1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio();
+            this.controle_Pagamento1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Pagamento();
+            this.controle_Compra1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Compra();
+            this.controle_Menu1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Menu1();
+            this.controle_Cadastro1 = new SistemaVendas.Controle_Cadastro();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,10 +58,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.panel1.Controls.Add(this.btnPagto);
             this.panel1.Controls.Add(this.pnAuxiliar);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btnRelatorio);
+            this.panel1.Controls.Add(this.btnCadastro);
             this.panel1.Controls.Add(this.btnCompras);
             this.panel1.Controls.Add(this.btnVendas);
             this.panel1.Controls.Add(this.btnMenu);
@@ -63,6 +71,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 532);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPagto
+            // 
+            this.btnPagto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagto.ForeColor = System.Drawing.Color.White;
+            this.btnPagto.Image = ((System.Drawing.Image)(resources.GetObject("btnPagto.Image")));
+            this.btnPagto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagto.Location = new System.Drawing.Point(12, 203);
+            this.btnPagto.Name = "btnPagto";
+            this.btnPagto.Size = new System.Drawing.Size(177, 54);
+            this.btnPagto.TabIndex = 4;
+            this.btnPagto.Text = "Pagamento";
+            this.btnPagto.UseVisualStyleBackColor = true;
+            this.btnPagto.Click += new System.EventHandler(this.btnPagto_Click);
             // 
             // pnAuxiliar
             // 
@@ -81,40 +104,42 @@
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.Location = new System.Drawing.Point(12, 487);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(93, 33);
+            this.btnLogout.Size = new System.Drawing.Size(103, 33);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // button5
+            // btnRelatorio
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(12, 263);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(177, 54);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Compras";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.ForeColor = System.Drawing.Color.White;
+            this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
+            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorio.Location = new System.Drawing.Point(12, 263);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(177, 54);
+            this.btnRelatorio.TabIndex = 3;
+            this.btnRelatorio.Text = "Relatórios";
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
-            // button4
+            // btnCadastro
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(12, 203);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(177, 54);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Compras";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastro.ForeColor = System.Drawing.Color.White;
+            this.btnCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastro.Image")));
+            this.btnCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadastro.Location = new System.Drawing.Point(12, 323);
+            this.btnCadastro.Name = "btnCadastro";
+            this.btnCadastro.Size = new System.Drawing.Size(177, 54);
+            this.btnCadastro.TabIndex = 3;
+            this.btnCadastro.Text = "Cadastros";
+            this.btnCadastro.UseVisualStyleBackColor = true;
+            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
             // btnCompras
             // 
@@ -169,7 +194,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(189, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 26);
+            this.panel2.Size = new System.Drawing.Size(629, 26);
             this.panel2.TabIndex = 1;
             // 
             // button7
@@ -225,11 +250,59 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // controle_Venda1
+            // 
+            this.controle_Venda1.Location = new System.Drawing.Point(196, 124);
+            this.controle_Venda1.Name = "controle_Venda1";
+            this.controle_Venda1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Venda1.TabIndex = 8;
+            // 
+            // controle_Relatorio1
+            // 
+            this.controle_Relatorio1.Location = new System.Drawing.Point(196, 124);
+            this.controle_Relatorio1.Name = "controle_Relatorio1";
+            this.controle_Relatorio1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Relatorio1.TabIndex = 7;
+            // 
+            // controle_Pagamento1
+            // 
+            this.controle_Pagamento1.Location = new System.Drawing.Point(196, 124);
+            this.controle_Pagamento1.Name = "controle_Pagamento1";
+            this.controle_Pagamento1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Pagamento1.TabIndex = 6;
+            // 
+            // controle_Compra1
+            // 
+            this.controle_Compra1.Location = new System.Drawing.Point(196, 124);
+            this.controle_Compra1.Name = "controle_Compra1";
+            this.controle_Compra1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Compra1.TabIndex = 5;
+            // 
+            // controle_Menu1
+            // 
+            this.controle_Menu1.Location = new System.Drawing.Point(196, 124);
+            this.controle_Menu1.Name = "controle_Menu1";
+            this.controle_Menu1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Menu1.TabIndex = 4;
+            // 
+            // controle_Cadastro1
+            // 
+            this.controle_Cadastro1.Location = new System.Drawing.Point(195, 124);
+            this.controle_Cadastro1.Name = "controle_Cadastro1";
+            this.controle_Cadastro1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Cadastro1.TabIndex = 3;
+            // 
             // frm_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 532);
+            this.ClientSize = new System.Drawing.Size(818, 532);
+            this.Controls.Add(this.controle_Venda1);
+            this.Controls.Add(this.controle_Relatorio1);
+            this.Controls.Add(this.controle_Pagamento1);
+            this.Controls.Add(this.controle_Compra1);
+            this.Controls.Add(this.controle_Menu1);
+            this.Controls.Add(this.controle_Cadastro1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -249,8 +322,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnRelatorio;
+        private System.Windows.Forms.Button btnCadastro;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Button btnVendas;
         private System.Windows.Forms.Button btnMenu;
@@ -260,5 +333,12 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel pnAuxiliar;
+        private System.Windows.Forms.Button btnPagto;
+        private Controle_Cadastro controle_Cadastro1;
+        private Apresentacao.ControlesUsuario.Controle_Menu1 controle_Menu1;
+        private Apresentacao.ControlesUsuario.Controle_Compra controle_Compra1;
+        private Apresentacao.ControlesUsuario.Controle_Pagamento controle_Pagamento1;
+        private Apresentacao.ControlesUsuario.Controle_Relatorio controle_Relatorio1;
+        private Apresentacao.ControlesUsuario.Controle_Venda controle_Venda1;
     }
 }

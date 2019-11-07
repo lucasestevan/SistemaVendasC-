@@ -146,7 +146,7 @@
             // 
             this.btnPagamento.Location = new System.Drawing.Point(262, 90);
             this.btnPagamento.Name = "btnPagamento";
-            this.btnPagamento.Size = new System.Drawing.Size(75, 23);
+            this.btnPagamento.Size = new System.Drawing.Size(138, 23);
             this.btnPagamento.TabIndex = 10;
             this.btnPagamento.Text = "Pagamento Compra";
             this.btnPagamento.UseVisualStyleBackColor = true;

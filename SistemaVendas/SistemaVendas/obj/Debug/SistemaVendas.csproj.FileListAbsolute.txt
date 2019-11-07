@@ -212,3 +212,9 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\S
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.exe
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.pdb
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.frm_Principal.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Controle_Cadastro.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Menu1.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Compra.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Pagamento.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda.resources

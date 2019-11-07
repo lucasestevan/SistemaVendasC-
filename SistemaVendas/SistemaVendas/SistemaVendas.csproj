@@ -100,6 +100,36 @@
     <Compile Include="Apresentacao\Cadastro\frm_CadVenda.Designer.cs">
       <DependentUpon>frm_CadVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Compra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Compra.Designer.cs">
+      <DependentUpon>Controle_Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Menu.Designer.cs">
+      <DependentUpon>Controle_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Pagamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Pagamento.Designer.cs">
+      <DependentUpon>Controle_Pagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Relatorio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Relatorio.Designer.cs">
+      <DependentUpon>Controle_Relatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Venda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Venda.Designer.cs">
+      <DependentUpon>Controle_Venda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\frm_Categoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +232,12 @@
     <Compile Include="Apresentacao\frm_Principal.Designer.cs">
       <DependentUpon>frm_Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Cadastro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Cadastro.Designer.cs">
+      <DependentUpon>Controle_Cadastro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_AlterarSenha.resx">
@@ -230,6 +266,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadVenda.resx">
       <DependentUpon>frm_CadVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Compra.resx">
+      <DependentUpon>Controle_Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Menu.resx">
+      <DependentUpon>Controle_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Pagamento.resx">
+      <DependentUpon>Controle_Pagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Relatorio.resx">
+      <DependentUpon>Controle_Relatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Venda.resx">
+      <DependentUpon>Controle_Venda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Categoria.resx">
       <DependentUpon>frm_Categoria.cs</DependentUpon>
@@ -281,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Principal.resx">
       <DependentUpon>frm_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Cadastro.resx">
+      <DependentUpon>Controle_Cadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

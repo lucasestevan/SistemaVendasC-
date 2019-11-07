@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SistemaVendas.Apresentacao.ControlesUsuario;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaVendas
@@ -17,6 +11,7 @@ namespace SistemaVendas
             InitializeComponent();
             pnAuxiliar.Height = btnMenu.Height;
             pnAuxiliar.Top = btnMenu.Top;
+            controle_Menu1.BringToFront();
         }
 
         //botao fechar
@@ -30,28 +25,6 @@ namespace SistemaVendas
                 this.Hide();
                 this.Close();
             }
-        }
-
-        //botao menu
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            pnAuxiliar.Height = btnMenu.Height;
-            pnAuxiliar.Top = btnMenu.Top;
-        }
-
-
-        //botao vendas
-        private void btnVendas_Click(object sender, EventArgs e)
-        {
-            pnAuxiliar.Height = btnVendas.Height;
-            pnAuxiliar.Top = btnVendas.Top;
-        }
-
-        //botao Compras
-        private void btnCompras_Click(object sender, EventArgs e)
-        {
-            pnAuxiliar.Height = btnCompras.Height;
-            pnAuxiliar.Top = btnCompras.Top;
         }
 
         //BOTAO LOGOUt
@@ -68,6 +41,55 @@ namespace SistemaVendas
                 this.Visible = false;
                 this.Close();
             }
+        }
+
+        //botao menu
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnMenu.Height;
+            pnAuxiliar.Top = btnMenu.Top;
+            controle_Menu1.BringToFront();
+        }
+
+
+        //botao vendas
+        private void btnVendas_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnVendas.Height;
+            pnAuxiliar.Top = btnVendas.Top;
+            controle_Venda1.BringToFront();
+        }
+
+        //botao Compras
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnCompras.Height;
+            pnAuxiliar.Top = btnCompras.Top;
+            controle_Compra1.BringToFront();
+        }
+
+        //BOTAO LOGOUt
+        private void btnPagto_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnPagto.Height;
+            pnAuxiliar.Top = btnPagto.Top;
+            controle_Pagamento1.BringToFront();
+        }
+
+        //BOTAO LOGOUt
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnRelatorio.Height;
+            pnAuxiliar.Top = btnRelatorio.Top;
+            controle_Relatorio1.BringToFront();
+        }
+
+        //BOTAO LOGOUt
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnCadastro.Height;
+            pnAuxiliar.Top = btnCadastro.Top;
+            controle_Cadastro1.BringToFront();
         }
     }
 }
