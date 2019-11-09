@@ -28,17 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Controle_Compra));
             this.btnCompra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCompra
             // 
-            this.btnCompra.Location = new System.Drawing.Point(122, 80);
+            this.btnCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompra.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.btnCompra.Image = ((System.Drawing.Image)(resources.GetObject("btnCompra.Image")));
+            this.btnCompra.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCompra.Location = new System.Drawing.Point(41, 41);
             this.btnCompra.Name = "btnCompra";
-            this.btnCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnCompra.TabIndex = 10;
-            this.btnCompra.Text = "Compra";
+            this.btnCompra.Size = new System.Drawing.Size(89, 98);
+            this.btnCompra.TabIndex = 13;
+            this.btnCompra.Text = "Compras";
+            this.btnCompra.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCompra.UseVisualStyleBackColor = true;
+            this.btnCompra.Click += new System.EventHandler(this.btnCompra_Click);
             // 
             // Controle_Compra
             // 
@@ -52,7 +60,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Button btnCompra;
     }
 }

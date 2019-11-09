@@ -28,27 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRecebimentoV = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Controle_Pagamento));
             this.btnPagamento = new System.Windows.Forms.Button();
+            this.btnRecebimentoV = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnRecebimentoV
-            // 
-            this.btnRecebimentoV.Location = new System.Drawing.Point(368, 129);
-            this.btnRecebimentoV.Name = "btnRecebimentoV";
-            this.btnRecebimentoV.Size = new System.Drawing.Size(92, 50);
-            this.btnRecebimentoV.TabIndex = 13;
-            this.btnRecebimentoV.Text = "Recebimento Venda";
-            this.btnRecebimentoV.UseVisualStyleBackColor = true;
             // 
             // btnPagamento
             // 
-            this.btnPagamento.Location = new System.Drawing.Point(104, 129);
+            this.btnPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagamento.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.btnPagamento.Image = ((System.Drawing.Image)(resources.GetObject("btnPagamento.Image")));
+            this.btnPagamento.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPagamento.Location = new System.Drawing.Point(41, 41);
             this.btnPagamento.Name = "btnPagamento";
-            this.btnPagamento.Size = new System.Drawing.Size(138, 23);
-            this.btnPagamento.TabIndex = 12;
+            this.btnPagamento.Size = new System.Drawing.Size(92, 108);
+            this.btnPagamento.TabIndex = 14;
             this.btnPagamento.Text = "Pagamento Compra";
+            this.btnPagamento.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPagamento.UseVisualStyleBackColor = true;
+            this.btnPagamento.Click += new System.EventHandler(this.btnPagamento_Click);
+            // 
+            // btnRecebimentoV
+            // 
+            this.btnRecebimentoV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecebimentoV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecebimentoV.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.btnRecebimentoV.Image = ((System.Drawing.Image)(resources.GetObject("btnRecebimentoV.Image")));
+            this.btnRecebimentoV.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRecebimentoV.Location = new System.Drawing.Point(195, 41);
+            this.btnRecebimentoV.Name = "btnRecebimentoV";
+            this.btnRecebimentoV.Size = new System.Drawing.Size(92, 108);
+            this.btnRecebimentoV.TabIndex = 15;
+            this.btnRecebimentoV.Text = "Recebimento Venda";
+            this.btnRecebimentoV.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRecebimentoV.UseVisualStyleBackColor = true;
+            this.btnRecebimentoV.Click += new System.EventHandler(this.btnRecebimentoV_Click);
             // 
             // Controle_Pagamento
             // 
@@ -63,8 +78,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnRecebimentoV;
         private System.Windows.Forms.Button btnPagamento;
+        private System.Windows.Forms.Button btnRecebimentoV;
     }
 }

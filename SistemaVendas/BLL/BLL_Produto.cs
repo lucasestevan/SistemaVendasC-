@@ -43,6 +43,11 @@ namespace BLL
                 throw new Exception("O Fornecedor é obrigatorio");
             }
 
+            if (modelo.Codigo_pro.Trim().Length == 0)
+            {
+                throw new Exception("O codigo do produto é obrigatorio");
+            }
+
             DAL_Produto DALobj = new DAL_Produto(conexao);
             DALobj.Incluir(modelo);
         }
@@ -76,6 +81,11 @@ namespace BLL
                 throw new Exception("O Fornecedor é obrigatorio");
             }
 
+            if (modelo.Codigo_pro.Trim().Length == 0)
+            {
+                throw new Exception("O codigo do produto é obrigatorio");
+            }
+
             DAL_Produto DALobj = new DAL_Produto(conexao);
             DALobj.Alterar(modelo, true);
         }
@@ -92,6 +102,13 @@ namespace BLL
         {
             DAL_Produto DALobj = new DAL_Produto(conexao);
             return DALobj.CarregaModeloProduto(idProduto);
+        }
+
+        //METODO CARRREGA MODELO 
+        public Model_Produto CarregaModeloProdutoCodigo(string cod)
+        {
+            DAL_Produto DALobj = new DAL_Produto(conexao);
+            return DALobj.CarregaModeloProdutoCodigo(cod);
         }
 
         //METODO LOCALIZAR

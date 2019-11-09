@@ -28,16 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Controle_Relatorio));
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRelatorio
             // 
-            this.btnRelatorio.Location = new System.Drawing.Point(113, 77);
+            this.btnRelatorio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
+            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRelatorio.Location = new System.Drawing.Point(41, 41);
             this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(75, 23);
-            this.btnRelatorio.TabIndex = 6;
-            this.btnRelatorio.Text = "Relatorios";
+            this.btnRelatorio.Size = new System.Drawing.Size(89, 98);
+            this.btnRelatorio.TabIndex = 13;
+            this.btnRelatorio.Text = "Relatórios";
+            this.btnRelatorio.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRelatorio.UseVisualStyleBackColor = true;
             // 
             // Controle_Relatorio
@@ -52,7 +59,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Button btnRelatorio;
     }
 }

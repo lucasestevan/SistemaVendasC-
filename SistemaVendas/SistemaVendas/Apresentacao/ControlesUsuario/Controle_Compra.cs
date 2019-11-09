@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.ControlesUsuario
@@ -15,6 +8,13 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
         public Controle_Compra()
         {
             InitializeComponent();
+        }
+
+        private void btnCompra_Click(object sender, EventArgs e)
+        {
+            frm_Compra f = new frm_Compra();
+            f.ShowDialog();
+            f.Dispose();
         }
     }
 }

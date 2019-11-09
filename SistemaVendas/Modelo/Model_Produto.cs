@@ -12,6 +12,8 @@ namespace Modelo
         private double quantidade;
         private int idCategoria;
         private int idFornecedor;
+        private string codigo_pro;
+            
 
         public int IdProduto { get => idProduto; set => idProduto = value; }
         public string Nome { get => nome; set => nome = value; }
@@ -20,5 +22,6 @@ namespace Modelo
         public double Quantidade { get => quantidade; set => quantidade = value; }
         public int IdCategoria { get => idCategoria; set => idCategoria = value; }
         public int IdFornecedor { get => idFornecedor; set => idFornecedor = value; }
+        public string Codigo_pro { get => codigo_pro; set => codigo_pro = value; }
     }
 }

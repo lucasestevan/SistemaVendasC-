@@ -43,6 +43,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtQtd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -50,7 +52,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(43, 393);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -60,7 +62,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(195, 393);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 8;
+            this.btnAlterar.TabIndex = 9;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -118,7 +120,7 @@
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(203, 53);
-            this.txtDesc.TabIndex = 6;
+            this.txtDesc.TabIndex = 7;
             // 
             // cmbCategoria
             // 
@@ -126,7 +128,7 @@
             this.cmbCategoria.Location = new System.Drawing.Point(54, 219);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(143, 21);
-            this.cmbCategoria.TabIndex = 4;
+            this.cmbCategoria.TabIndex = 5;
             // 
             // txtPreco
             // 
@@ -153,7 +155,7 @@
             this.cmbFornecedor.Location = new System.Drawing.Point(53, 273);
             this.cmbFornecedor.Name = "cmbFornecedor";
             this.cmbFornecedor.Size = new System.Drawing.Size(167, 21);
-            this.cmbFornecedor.TabIndex = 5;
+            this.cmbFornecedor.TabIndex = 6;
             // 
             // label5
             // 
@@ -166,7 +168,7 @@
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(53, 167);
+            this.txtQtd.Location = new System.Drawing.Point(143, 112);
             this.txtQtd.MaxLength = 6;
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(50, 20);
@@ -178,17 +180,37 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(51, 151);
+            this.label6.Location = new System.Drawing.Point(141, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 13);
             this.label6.TabIndex = 19;
             this.label6.Text = "Qtd";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigo.Location = new System.Drawing.Point(54, 165);
+            this.txtCodigo.MaxLength = 10;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(123, 20);
+            this.txtCodigo.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(54, 149);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Código";
             // 
             // frm_CadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 442);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.txtQtd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbFornecedor);
@@ -231,5 +253,7 @@
         private System.Windows.Forms.Label label5;
         internal System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Label label6;
+        internal System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label7;
     }
 }

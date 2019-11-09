@@ -16,5 +16,19 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
         {
             InitializeComponent();
         }
+
+        private void btnPagamento_Click(object sender, EventArgs e)
+        {
+            frm_PagamentoCompra f = new frm_PagamentoCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void btnRecebimentoV_Click(object sender, EventArgs e)
+        {
+            frm_RecebimentoVenda f = new frm_RecebimentoVenda();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

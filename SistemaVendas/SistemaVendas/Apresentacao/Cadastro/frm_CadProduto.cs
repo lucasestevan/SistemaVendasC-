@@ -73,6 +73,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.Descricao = txtDesc.Text;
                 modelo.IdCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
                 modelo.IdFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                modelo.Codigo_pro = txtCodigo.Text;
+
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
@@ -102,6 +104,8 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.Descricao = txtDesc.Text;
                 modelo.IdCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
                 modelo.IdFornecedor = Convert.ToInt32(cmbFornecedor.SelectedValue);
+                modelo.Codigo_pro = txtCodigo.Text;
+
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);

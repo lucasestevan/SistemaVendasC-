@@ -98,6 +98,7 @@ namespace SistemaVendas.Apresentacao
             cadProduto.txtDesc.Text = modelo.Descricao.ToString(); // descricao
             cadProduto.cmbCategoria.SelectedValue = modelo.IdCategoria;//categora 
             cadProduto.cmbFornecedor.SelectedValue = modelo.IdFornecedor; //fornecedor 
+            cadProduto.txtCodigo.Text = modelo.Codigo_pro.ToString(); //codigo 
             cadProduto.ShowDialog();
             BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
         }
@@ -105,20 +106,21 @@ namespace SistemaVendas.Apresentacao
         //METODO formatar  DATA GRID
         private void FormatarDGV()
         {
-            dgvProduto.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvProduto.Columns[0].Width = 45; //TAMANHO DA LARGURA
-            dgvProduto.Columns[1].HeaderText = "Nome";
-            dgvProduto.Columns[1].Width = 130;
-            dgvProduto.Columns[2].HeaderText = "Preço";
-            dgvProduto.Columns[2].Width = 70;
-            dgvProduto.Columns[3].HeaderText = "Quant.";
-            dgvProduto.Columns[3].Width = 60;
-            dgvProduto.Columns[4].HeaderText = "Descrição";
-            dgvProduto.Columns[4].Width = 100;
-            dgvProduto.Columns[5].HeaderText = "Categoria";
-            dgvProduto.Columns[5].Width = 120;
-            dgvProduto.Columns[6].HeaderText = "Fornecedor";
+            dgvProduto.Columns[0].Visible = false; //id
+            dgvProduto.Columns[1].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvProduto.Columns[1].Width = 60; //TAMANHO DA LARGURA
+            dgvProduto.Columns[2].HeaderText = "Nome";
+            dgvProduto.Columns[2].Width = 130;
+            dgvProduto.Columns[3].HeaderText = "Preço";
+            dgvProduto.Columns[3].Width = 70;
+            dgvProduto.Columns[4].HeaderText = "Quant.";
+            dgvProduto.Columns[4].Width = 60;
+            dgvProduto.Columns[5].HeaderText = "Descrição";
+            dgvProduto.Columns[5].Width = 100;
+            dgvProduto.Columns[6].HeaderText = "Categoria";
             dgvProduto.Columns[6].Width = 120;
+            dgvProduto.Columns[7].HeaderText = "Fornecedor";
+            dgvProduto.Columns[7].Width = 120;
         }
     }
 }

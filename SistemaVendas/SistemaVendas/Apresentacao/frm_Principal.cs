@@ -14,6 +14,12 @@ namespace SistemaVendas
             controle_Menu1.BringToFront();
         }
 
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         //botao fechar
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -91,5 +97,7 @@ namespace SistemaVendas
             pnAuxiliar.Top = btnCadastro.Top;
             controle_Cadastro1.BringToFront();
         }
+
+       
     }
 }

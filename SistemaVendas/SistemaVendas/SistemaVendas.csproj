@@ -166,12 +166,6 @@
     <Compile Include="Apresentacao\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\frm_Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apresentacao\frm_Menu.Designer.cs">
-      <DependentUpon>frm_Menu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Apresentacao\frm_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,9 +293,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\frm_Menu.resx">
-      <DependentUpon>frm_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Compra.resx">
       <DependentUpon>frm_Compra.cs</DependentUpon>

@@ -30,11 +30,11 @@
         {
             this.SuspendLayout();
             // 
-            // Controle_Menu
+            // Controle_Menu1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Controle_Menu";
+            this.Name = "Controle_Menu1";
             this.Size = new System.Drawing.Size(613, 369);
             this.ResumeLayout(false);
 
