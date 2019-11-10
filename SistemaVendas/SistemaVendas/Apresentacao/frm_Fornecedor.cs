@@ -78,37 +78,44 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            //pega o id da data grid
-            this.idFornecedor = (Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value));
+            if (txtId.Text != "")
+            {
+                //pega o id da data grid
+                this.idFornecedor = (Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value));
 
-            //chamr modelo bll e dal 
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Fornecedor bllF = new BLL_Fornecedor(con);
-            Model_Fornecedor modeloF = bllF.CarregaModeloFornecedor(idFornecedor);
+                //chamr modelo bll e dal 
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Fornecedor bllF = new BLL_Fornecedor(con);
+                Model_Fornecedor modeloF = bllF.CarregaModeloFornecedor(idFornecedor);
 
-            BLL_Endereco bllEnde = new BLL_Endereco(con);
-            Model_Endereco modeloEnde = bllEnde.CarregaModeloEndereco(modeloF.Cep);
+                BLL_Endereco bllEnde = new BLL_Endereco(con);
+                Model_Endereco modeloEnde = bllEnde.CarregaModeloEndereco(modeloF.Cep);
 
-            //CHAMAR O FORM Card e passar as informacoes
-            frm_CadFornecedor cadFornecedor = new frm_CadFornecedor();
+                //CHAMAR O FORM Card e passar as informacoes
+                frm_CadFornecedor cadFornecedor = new frm_CadFornecedor();
 
-            cadFornecedor.txtId.Text = modeloF.IdFornecedor.ToString();
-            cadFornecedor.txtNome.Text = modeloF.Nome.ToString();
-            cadFornecedor.txtCPF.Text = modeloF.CpfCNPJ.ToString();
-            cadFornecedor.txtTelefone.Text = modeloF.Telefone.ToString();
-            cadFornecedor.txtCel.Text = modeloF.Celular.ToString();
-            cadFornecedor.txtEmail.Text = modeloF.Email.ToString();
-            cadFornecedor.txtObs.Text = modeloF.Observacao.ToString();
-            cadFornecedor.txtCep.Text = modeloEnde.Cep.ToString();
-            cadFornecedor.txtRua.Text = modeloEnde.Rua.ToString(); //RUA
-            cadFornecedor.txtNumero.Text = modeloF.NumeroEnde.ToString();// NUMERO
-            cadFornecedor.txtBairro.Text = modeloEnde.Bairro.ToString(); // BAIRRO
-            cadFornecedor.txtCidade.Text = modeloEnde.Cidade.ToString();// CIDADE//
-            cadFornecedor.txtUf.Text = modeloEnde.Uf.ToString(); //UF
-            cadFornecedor.btnAlterar.Visible = true;
-            cadFornecedor.btnSalvar.Visible = false;
-            cadFornecedor.ShowDialog();
-            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
+                cadFornecedor.txtId.Text = modeloF.IdFornecedor.ToString();
+                cadFornecedor.txtNome.Text = modeloF.Nome.ToString();
+                cadFornecedor.txtCPF.Text = modeloF.CpfCNPJ.ToString();
+                cadFornecedor.txtTelefone.Text = modeloF.Telefone.ToString();
+                cadFornecedor.txtCel.Text = modeloF.Celular.ToString();
+                cadFornecedor.txtEmail.Text = modeloF.Email.ToString();
+                cadFornecedor.txtObs.Text = modeloF.Observacao.ToString();
+                cadFornecedor.txtCep.Text = modeloEnde.Cep.ToString();
+                cadFornecedor.txtRua.Text = modeloEnde.Rua.ToString(); //RUA
+                cadFornecedor.txtNumero.Text = modeloF.NumeroEnde.ToString();// NUMERO
+                cadFornecedor.txtBairro.Text = modeloEnde.Bairro.ToString(); // BAIRRO
+                cadFornecedor.txtCidade.Text = modeloEnde.Cidade.ToString();// CIDADE//
+                cadFornecedor.txtUf.Text = modeloEnde.Uf.ToString(); //UF
+                cadFornecedor.btnAlterar.Visible = true;
+                cadFornecedor.btnSalvar.Visible = false;
+                cadFornecedor.ShowDialog();
+                BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo para alterar!");
+            }
         }
 
         //METODO  DATA GRID

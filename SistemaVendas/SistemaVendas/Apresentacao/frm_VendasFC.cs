@@ -14,25 +14,45 @@ namespace SistemaVendas.Apresentacao
         public frm_VendasFC()
         {
             InitializeComponent();
+
         }
 
-        //evento leave
-        private void txtCod_Leave(object sender, EventArgs e)
+        //meotodoLOCALIZAR ITEM
+        public void localizarProduto()
         {
-            //pega o id da data grid
-            this.Codigo = txtCod.Text;
+            try
+            {
+                //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
+                if ((lblProduto.Text != null))
+                {
+                    //pega o id da data grid
+                    this.Codigo = txtCod.Text;
 
-            //chamr modelo bll e dal 
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Produto bll = new BLL_Produto(con);
-            Model_Produto modelo = bll.CarregaModeloProdutoCodigo(this.Codigo);
+                    //chamr modelo bll e dal 
+                    DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                    BLL_Produto bll = new BLL_Produto(con);
+                    Model_Produto modelo = bll.CarregaModeloProdutoCodigo(this.Codigo);
 
-            lblIdPro.Text = modelo.IdProduto.ToString();//id
-            lblProduto.Text = modelo.Nome.ToString(); //nome
-            lblValor.Text = modelo.Preco.ToString();//preco
+                    lblIdPro.Text = modelo.IdProduto.ToString();//id
+                    lblProduto.Text = modelo.Nome.ToString(); //nome
+                    lblValor.Text = modelo.Preco.ToString();//preco
+
+                    txtQtd.Enabled = true;
+                    txtQtd.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Código não localizado");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Código não localizado");
+            }
         }
 
-        private void txtQtd_Leave(object sender, EventArgs e)
+        //meotodo inseri quantidade e itens na grid
+        public void inserirItem()
         {
             try
             {
@@ -48,29 +68,184 @@ namespace SistemaVendas.Apresentacao
                     this.dgvVenda.Rows.Add(i);
 
                     //LIMPAR OS CAMPOS DEPOS DE INSERIR
-                    txtCod.Clear();
-                    txtQtd.Clear();
+                    txtCod.Text = "";
+                    txtQtd.Text = "";
                     lblProduto.Text = "";
                     lblIdPro.Text = "";
                     lblValor.Text = "";
 
                     //ATUALIZAR O TOTAL DA COMPRA
                     lblTotal.Text = this.totalVenda.ToString();
+                    txtCod.Focus();
+                    txtQtd.Enabled = false;
                 }
                 else
                 {
-                    MessageBox.Show("Quantidade e Valor devem ser maiores que zero!");
+                    MessageBox.Show("Quantidade deve ser maior que zero!");
                 }
             }
             catch
             {
-                MessageBox.Show("Informe apenas números nos campos Valor e Quantidade");
+                MessageBox.Show("Informe apenas números no campo Quantidade");
             }
         }
 
-        private void frm_VendasFC_Load(object sender, EventArgs e)
+        //EVENTO AO CLIKAR DUAS VEZES NA GRID
+        private void dgvVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //MOSTRAR MENSAGEM desejo remover item
+            DialogResult msg = MessageBox.Show("Deseja realmente remover o Item da Venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+
+            if (msg == DialogResult.Yes)
+            {
+                Double valor = Convert.ToDouble(dgvVenda.Rows[e.RowIndex].Cells[5].Value);
+                this.totalVenda = this.totalVenda - valor;
+
+                //REMOVER LINHA DGV
+                dgvVenda.Rows.RemoveAt(e.RowIndex);
+                lblTotal.Text = this.totalVenda.ToString();
+                txtCod.Focus();
+            }
+        }
+
+        public void FinalizarVenda()
+        {
+            //MOSTRAR MENSAGEM desejo remover item
+            DialogResult msg = MessageBox.Show("Deseja finalizar a Venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                frm_Pagamento pagamento = new frm_Pagamento();
+                pagamento.lblTotal.Text = lblTotal.Text.ToString();
+                pagamento.ShowDialog();
+
+                //LEITURA DOS DADOS
+                Model_Venda modeloVenda = new Model_Venda();
+
+                //OBJ PARA GRAVAR NO BANCO
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                //ITENS VENDA
+                Model_ItensVenda modeloItensVendas = new Model_ItensVenda();
+                BLL_ItensVendas bllItenVenda = new BLL_ItensVendas(con);
+
+
+                //CADASTRAR ITENS Venda
+                for (int i = 0; i < dgvVenda.RowCount; i++)
+                {
+                    modeloItensVendas.IdItensVenda = i + 1;
+                    modeloItensVendas.IdVendaItensVendas = pagamento.idVenda;
+                    modeloItensVendas.IdProdutoItensVenda = Convert.ToInt32(dgvVenda.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
+                    modeloItensVendas.Quantidade = Convert.ToDouble(dgvVenda.Rows[i].Cells[3].Value); //PEGA A qtd  DO DATA GRID
+                    modeloItensVendas.Valor = Convert.ToDouble(dgvVenda.Rows[i].Cells[4].Value); //PEGA O valor DO DATA GRID
+
+                    bllItenVenda.Incluir(modeloItensVendas);
+
+                    //ALTERAR A QUANTIDADE DE PRODUTOS vendidos NA TABLE DA PRODUTOS
+                    //TRIGGER CRIADA NO BD
+                }
+                this.Close();
+            }
+        }
+
+        public void fecharForm()
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
+            }
+        }
+
+
+        //EVENTO AO SELECIONAR UMA TECLA
+        private void txtCod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtCod.ContainsFocus == true)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    localizarProduto();
+                }
+
+                if (e.KeyCode == Keys.F10)
+                {
+                    FinalizarVenda();
+                }
+
+
+                if (e.KeyCode == Keys.Escape)
+                {
+                    fecharForm();
+                }
+            }
 
         }
+
+        private void txtQtd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtQtd.ContainsFocus == true)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    inserirItem();
+                }
+
+                if (e.KeyCode == Keys.F10)
+                {
+                    FinalizarVenda();
+                }
+
+                if (e.KeyCode == Keys.Escape)
+                {
+                    fecharForm();
+                }
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            fecharForm();
+        }
+
+        private void txtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtQtd.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+
+        private void txtQtd_Leave_1(object sender, EventArgs e)
+        {
+            if (txtQtd.Text.Contains(",") == false)
+            {
+                txtQtd.Text += ",00";
+            }
+            else
+            {
+                if (txtQtd.Text.IndexOf(",") == txtQtd.Text.Length - 1)
+                {
+                    txtQtd.Text += "00";
+                }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtQtd.Text);
+            }
+            catch
+            {
+                txtQtd.Text = "0,00";
+            }
+        }
+
     }
 }

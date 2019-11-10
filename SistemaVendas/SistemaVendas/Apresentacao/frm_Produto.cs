@@ -78,29 +78,36 @@ namespace SistemaVendas.Apresentacao
         //BOTAO ALTERAR
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            //pega o id da data grid
-            this.idProduto = (Convert.ToInt32(dgvProduto.CurrentRow.Cells[0].Value));
+            if (txtId.Text != "")
+            {
+                //pega o id da data grid
+                this.idProduto = (Convert.ToInt32(dgvProduto.CurrentRow.Cells[0].Value));
 
-            //chamr modelo bll e dal 
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-            BLL_Produto bll = new BLL_Produto(con);
-            Model_Produto modelo = bll.CarregaModeloProduto(idProduto);
+                //chamr modelo bll e dal 
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+                Model_Produto modelo = bll.CarregaModeloProduto(idProduto);
 
-            //CHAMAR O FORM Card e passar as informacoes
-            frm_CadProduto cadProduto = new frm_CadProduto();
-            cadProduto.btnAlterar.Enabled = true;
-            cadProduto.btnSalvar.Enabled = false;
+                //CHAMAR O FORM Card e passar as informacoes
+                frm_CadProduto cadProduto = new frm_CadProduto();
+                cadProduto.btnAlterar.Enabled = true;
+                cadProduto.btnSalvar.Enabled = false;
 
-            cadProduto.txtId.Text = modelo.IdProduto.ToString();//id
-            cadProduto.txtNome.Text = modelo.Nome.ToString(); //nome
-            cadProduto.txtPreco.Text = modelo.Preco.ToString();//preco
-            cadProduto.txtQtd.Text = modelo.Quantidade.ToString(); // qtd
-            cadProduto.txtDesc.Text = modelo.Descricao.ToString(); // descricao
-            cadProduto.cmbCategoria.SelectedValue = modelo.IdCategoria;//categora 
-            cadProduto.cmbFornecedor.SelectedValue = modelo.IdFornecedor; //fornecedor 
-            cadProduto.txtCodigo.Text = modelo.Codigo_pro.ToString(); //codigo 
-            cadProduto.ShowDialog();
-            BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
+                cadProduto.txtId.Text = modelo.IdProduto.ToString();//id
+                cadProduto.txtNome.Text = modelo.Nome.ToString(); //nome
+                cadProduto.txtPreco.Text = modelo.Preco.ToString();//preco
+                cadProduto.txtQtd.Text = modelo.Quantidade.ToString(); // qtd
+                cadProduto.txtDesc.Text = modelo.Descricao.ToString(); // descricao
+                cadProduto.cmbCategoria.SelectedValue = modelo.IdCategoria;//categora 
+                cadProduto.cmbFornecedor.SelectedValue = modelo.IdFornecedor; //fornecedor 
+                cadProduto.txtCodigo.Text = modelo.Codigo_pro.ToString(); //codigo 
+                cadProduto.ShowDialog();
+                BtnPesquisar_Click(sender, e); // CHAMR O BOTAO PESQUISAR PARA ATUALIZAR A GRID
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo para alterar!");
+            }
         }
 
         //METODO formatar  DATA GRID

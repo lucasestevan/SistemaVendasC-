@@ -193,7 +193,6 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\S
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Categoria.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Cliente.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Colaborador.resources
-C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Endereco.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Fornecedor.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.frm_Login.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Compra.resources
@@ -217,3 +216,4 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\S
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Pagamento.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda.resources
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.frm_Pagamento.resources

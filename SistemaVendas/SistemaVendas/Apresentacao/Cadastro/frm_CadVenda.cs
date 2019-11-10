@@ -213,7 +213,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             try
             {
-                //cOMPRA
                 //LEITURA DOS DADOS
                 Model_Venda modeloVenda = new Model_Venda();
                 modeloVenda.DataVenda = dtVenda.Value;
@@ -375,7 +374,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
-        //AJUSTAR O CAMPO preco
+        //AJUSTAR O CAMPO qtd
         private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.' || e.KeyChar == ',')

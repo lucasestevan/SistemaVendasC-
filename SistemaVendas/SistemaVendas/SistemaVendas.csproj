@@ -148,12 +148,6 @@
     <Compile Include="Apresentacao\frm_Colaborador.Designer.cs">
       <DependentUpon>frm_Colaborador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\frm_Endereco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apresentacao\frm_Endereco.Designer.cs">
-      <DependentUpon>frm_Endereco.cs</DependentUpon>
-    </Compile>
     <Compile Include="Apresentacao\frm_Fornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +165,12 @@
     </Compile>
     <Compile Include="Apresentacao\frm_Compra.Designer.cs">
       <DependentUpon>frm_Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Pagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\frm_Pagamento.Designer.cs">
+      <DependentUpon>frm_Pagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\frm_RecebimentoVenda.cs">
       <SubType>Form</SubType>
@@ -285,9 +285,6 @@
     <EmbeddedResource Include="Apresentacao\frm_Colaborador.resx">
       <DependentUpon>frm_Colaborador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\frm_Endereco.resx">
-      <DependentUpon>frm_Endereco.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Fornecedor.resx">
       <DependentUpon>frm_Fornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Compra.resx">
       <DependentUpon>frm_Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\frm_Pagamento.resx">
+      <DependentUpon>frm_Pagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_Produto.resx">
       <DependentUpon>frm_Produto.cs</DependentUpon>
