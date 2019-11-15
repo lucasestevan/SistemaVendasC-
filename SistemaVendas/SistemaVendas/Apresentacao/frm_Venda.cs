@@ -43,6 +43,7 @@ namespace SistemaVendas.Apresentacao
 
             //LIMPAR O GRID
             dgvVenda.DataSource = null;
+            txtId.Text = "";
 
             if (rbGeral.Checked == true)
             {
@@ -123,7 +124,10 @@ namespace SistemaVendas.Apresentacao
 
             //HABILITAR BOTOES
             btnAlterar.Enabled = true;
+            btnVisualizar.Enabled = true;
+            btnSelecionar.Enabled = true;
             btnExcluir.Enabled = true;
+            btnCancelar.Enabled = true;
         }
 
         //BOTAO PESQUISAR geral
@@ -164,7 +168,8 @@ namespace SistemaVendas.Apresentacao
         //BOTAO VIZUALIZAR
         private void BtnVisualizar_Click(object sender, EventArgs e)
         {
-            if (dgvVenda.SelectedRows.Count > 0)
+            //if (dgvVenda.SelectedRows.Count > 0)
+            if (txtId.Text != "")
             {
                 //CRIAR O FORM VIZUALIZAR ITEM
                 frm_VisualizarItensVenda visualizar = new frm_VisualizarItensVenda();
@@ -176,6 +181,10 @@ namespace SistemaVendas.Apresentacao
                 visualizar.dgvItensVenda.DataSource = bllItens.Localizar(Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
                 visualizar.dgvParcelasVenda.DataSource = bllParcelas.Localizar(Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
                 visualizar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo para poder visualizar");
             }
         }
 
@@ -331,6 +340,25 @@ namespace SistemaVendas.Apresentacao
             if (dgvVenda.SelectedRows.Count > 0)
             {
                 this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
+                this.Close();
+            }
+        }
+
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
                 this.Close();
             }
         }

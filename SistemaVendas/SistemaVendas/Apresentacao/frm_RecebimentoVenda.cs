@@ -100,24 +100,23 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
-        private void Frm_RecebimentoVenda_Load(object sender, EventArgs e)
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void TxtIdVenda_TextChanged(object sender, EventArgs e)
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void TxtValor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtCliente_TextChanged(object sender, EventArgs e)
-        {
-
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
+            }
         }
     }
 }

@@ -34,6 +34,26 @@ namespace SistemaVendas.Apresentacao
             dgvItensCompra.Columns[3].Width = 90;
             dgvItensCompra.Columns[4].Visible = false; //idCompra
             dgvItensCompra.Columns[5].Visible = false; // idproduto
+     
+        }
+
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
+            }
         }
     }
 }

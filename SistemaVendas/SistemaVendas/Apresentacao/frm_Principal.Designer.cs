@@ -41,7 +41,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.controle_Venda1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda();
             this.controle_Relatorio1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio();
@@ -51,7 +50,6 @@
             this.controle_Cadastro1 = new SistemaVendas.Controle_Cadastro();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +122,7 @@
             this.btnRelatorio.Location = new System.Drawing.Point(12, 263);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(177, 54);
-            this.btnRelatorio.TabIndex = 3;
+            this.btnRelatorio.TabIndex = 5;
             this.btnRelatorio.Text = "Relatórios";
             this.btnRelatorio.UseVisualStyleBackColor = true;
             this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
@@ -140,7 +138,7 @@
             this.btnCadastro.Location = new System.Drawing.Point(12, 83);
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Size = new System.Drawing.Size(177, 54);
-            this.btnCadastro.TabIndex = 3;
+            this.btnCadastro.TabIndex = 2;
             this.btnCadastro.Text = "Cadastros";
             this.btnCadastro.UseVisualStyleBackColor = true;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
@@ -172,7 +170,7 @@
             this.btnVendas.Location = new System.Drawing.Point(13, 323);
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Size = new System.Drawing.Size(177, 54);
-            this.btnVendas.TabIndex = 3;
+            this.btnVendas.TabIndex = 6;
             this.btnVendas.Text = "Vendas";
             this.btnVendas.UseVisualStyleBackColor = true;
             this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
@@ -188,14 +186,14 @@
             this.btnMenu.Location = new System.Drawing.Point(12, 23);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(177, 54);
-            this.btnMenu.TabIndex = 3;
+            this.btnMenu.TabIndex = 1;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(164)))), ((int)(((byte)(178)))));
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -238,20 +236,11 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(236, 5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(104, 95);
-            this.panel3.TabIndex = 2;
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(164)))), ((int)(((byte)(178)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(232, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(98, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -304,14 +293,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(818, 532);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.controle_Venda1);
             this.Controls.Add(this.controle_Relatorio1);
             this.Controls.Add(this.controle_Pagamento1);
             this.Controls.Add(this.controle_Compra1);
             this.Controls.Add(this.controle_Menu1);
             this.Controls.Add(this.controle_Cadastro1);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -321,7 +311,6 @@
             this.Text = "frm_Principal";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -337,7 +326,6 @@
         private System.Windows.Forms.Button btnVendas;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimizar;

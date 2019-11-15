@@ -23,8 +23,6 @@ namespace SistemaVendas
             Compra.ShowDialog();
             if (Compra.idCompra != 0)
             {
-                //pega o id da data grid
-                //this.idCompra = (Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
 
                 //chamr modelo bll e dal compra
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
@@ -40,6 +38,7 @@ namespace SistemaVendas
                 Model_Fornecedor modeloFor = bllf.CarregaModeloFornecedor(modeloCom.IdFornecedor);
                 txtFornecedor.Text = modeloFor.Nome;
             }
+           
         }
 
         //BOTAO PAGAR
@@ -71,6 +70,25 @@ namespace SistemaVendas
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao efeturar pagamemo da Compra\n" + ex.Message);
+            }
+        }
+
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
             }
         }
     }

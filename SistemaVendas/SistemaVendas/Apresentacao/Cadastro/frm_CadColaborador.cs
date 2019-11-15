@@ -69,21 +69,23 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
-        //ALTERAR A SENHAA
-        private void BtnSenha_Click(object sender, EventArgs e)
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
-            frm_AlterarSenha alterarSenha = new frm_AlterarSenha();
-            alterarSenha.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void TxtSenha_TextChanged(object sender, EventArgs e)
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void TxtCel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
+            }
         }
     }
 }

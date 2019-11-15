@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apresentacao\Cadastro\frm_AlterarSenha.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apresentacao\Cadastro\frm_AlterarSenha.Designer.cs">
-      <DependentUpon>frm_AlterarSenha.cs</DependentUpon>
-    </Compile>
     <Compile Include="Apresentacao\Cadastro\frm_CadCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,9 +228,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Apresentacao\Cadastro\frm_AlterarSenha.resx">
-      <DependentUpon>frm_AlterarSenha.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadCategoria.resx">
       <DependentUpon>frm_CadCategoria.cs</DependentUpon>
     </EmbeddedResource>

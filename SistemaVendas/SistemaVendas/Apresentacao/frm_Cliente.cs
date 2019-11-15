@@ -138,6 +138,25 @@ namespace SistemaVendas.Apresentacao
             dgvCliente.Columns[11].Visible = false;
             dgvCliente.Columns[12].Visible = false;
         }
+
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
+            }
+        }
     }
 }
 
