@@ -20,7 +20,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //botao Ok
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            if (totalVenda == 0)
+            if (totalVenda <= 0)
             {
                 MessageBox.Show("Insira pelo menos 1 item para continuar");
             }
@@ -66,50 +66,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //metodo load do form
         private void Frm_CadVenda_Load(object sender, EventArgs e)
         {
-            listarComboBox();
             txtNParcelas.Value = 1;
             txtNfiscal.Text = "0";
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
             btnAlterar.Enabled = false;
-        }
-
-        //METODO LISTAR COMBOBOX
-        private void listarComboBox()
-        {
-            //CARREGAR TIPO DE PAGAMENTO
-            try
-            {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
-                cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
-                cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME
-                cbFormaPagto.ValueMember = "id_tipoPagamento"; //PEGA O ID
-                cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Erro ao carregar tabela Tipo de Pagamento: \n");
-            }
-
-            //CARREGAR CLIENTE
-            try
-            {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Cliente bll = new BLL_Cliente(con);
-                cbCliente.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
-                cbCliente.DisplayMember = "nome";   //PEGA O NOME
-                cbCliente.ValueMember = "id_cliente"; //PEGA O ID
-                cbCliente.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Erro ao carregar tabela Cliente \n");
-            }
         }
 
         //BOTAO ADICONAR PRODUTO
@@ -120,7 +81,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             try
             {
                 //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
-                if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") &&
+                if ((cbProtudo.ValueMember != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") && (txtQtd.Text != ",00") &&
                     (txtValorUni.Text != "") && (txtValorUni.Text != "0,00") && (txtValorUni.Text != "0,") && (txtValorUni.Text != "0"))
                 {
                     if (cbVerificaEstoque.Checked == true)
@@ -143,7 +104,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
 
                     //LIMPAR OS CAMPOS DEPOS DE INSERIR
                     txtQtd.Clear();
-                    txtValorUni.Clear();
 
                     //ATUALIZAR O TOTAL DA COMPRA
                     txtTotalVenda.Text = this.totalVenda.ToString();
@@ -274,8 +234,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     {
                         modeloParcelas.DataPagto = Convert.ToDateTime(dtPgtoInicial.Text);
                     }
-
-
                     bllParcelas.Incluir(modeloParcelas);
                 }
 
@@ -411,6 +369,41 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
+        private void txtTotalVenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtTotalVenda.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtTotalVenda_Leave(object sender, EventArgs e)
+        {
+            if (txtTotalVenda.Text.Contains(",") == false)
+            {
+                txtTotalVenda.Text += ",00";
+            }
+            else
+            {
+                if (txtTotalVenda.Text.IndexOf(",") == txtTotalVenda.Text.Length - 1)
+                {
+                    txtTotalVenda.Text += "00";
+                }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtTotalVenda.Text);
+            }
+            catch
+            {
+                txtTotalVenda.Text = "0,00";
+            }
+        }
+
         //evento seleicona o produto
         private void CbProtudo_Enter(object sender, EventArgs e)
         {
@@ -451,18 +444,40 @@ namespace SistemaVendas.Apresentacao.Cadastro
                         QtdEstoque = QtdEstoque - Convert.ToDouble(dgvVenda.Rows[i].Cells[2].Value); //PEGA A qtd  DO DATA GRID
                     }
                 }
-
             }
 
             catch (Exception)
             {
-
+                MessageBox.Show("Não foi possivel verificar o estoque");
             }
             return QtdEstoque;
         }
 
         //EVENTO BUSCA O PRECO DO PRODUTO
         private void CbProtudo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            BuscaPrecoProduto();
+        }
+
+        //event ao aapertar enter
+        private void txtQtd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtQtd.ContainsFocus == true)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    BtnAddProdu_Click(sender, e);
+                }
+            }
+        }
+
+        private void cbProtudo_Leave(object sender, EventArgs e)
+        {
+            BuscaPrecoProduto();
+        }
+
+        //EVENTO BUSCA O PRECO DO PRODUTO
+        public void BuscaPrecoProduto()
         {
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Produto bll = new BLL_Produto(con);
@@ -494,6 +509,48 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
+        //CARREGAR CLIENTE
+        private void cbCliente_Enter(object sender, EventArgs e)
+        {
+            //CARREGAR CLIENTE
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Cliente bll = new BLL_Cliente(con);
+                cbCliente.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbCliente.DisplayMember = "nome";   //PEGA O NOME
+                cbCliente.ValueMember = "id_cliente"; //PEGA O ID
+                cbCliente.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao carregar tabela Cliente \n");
+            }
+        }
+
+        //CARREGAR TIPO DE PAGAMENTO
+        private void cbFormaPagto_Enter(object sender, EventArgs e)
+        {
+            //CARREGAR TIPO DE PAGAMENTO
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
+                cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME
+                cbFormaPagto.ValueMember = "id_tipoPagamento"; //PEGA O ID
+                cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao carregar tabela Tipo de Pagamento: \n");
+            }
+        }
+
         //botao minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -512,5 +569,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 this.Close();
             }
         }
+
+        
     }
 }

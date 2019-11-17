@@ -126,7 +126,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(577, 623);
+            this.groupBox1.Size = new System.Drawing.Size(577, 614);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             // 
@@ -137,43 +137,60 @@
             this.txtNParcelas.Name = "txtNParcelas";
             this.txtNParcelas.Size = new System.Drawing.Size(62, 21);
             this.txtNParcelas.TabIndex = 10;
+            this.txtNParcelas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbProtudo
             // 
+            this.cbProtudo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cbProtudo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbProtudo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProtudo.FormattingEnabled = true;
             this.cbProtudo.Location = new System.Drawing.Point(11, 100);
             this.cbProtudo.Margin = new System.Windows.Forms.Padding(4);
             this.cbProtudo.Name = "cbProtudo";
-            this.cbProtudo.Size = new System.Drawing.Size(234, 24);
+            this.cbProtudo.Size = new System.Drawing.Size(281, 24);
             this.cbProtudo.TabIndex = 2;
+            this.cbProtudo.Enter += new System.EventHandler(this.cbProtudo_Enter);
             // 
             // cbFornecedor
             // 
+            this.cbFornecedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cbFornecedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFornecedor.FormattingEnabled = true;
             this.cbFornecedor.Location = new System.Drawing.Point(10, 40);
             this.cbFornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.cbFornecedor.Name = "cbFornecedor";
-            this.cbFornecedor.Size = new System.Drawing.Size(235, 24);
+            this.cbFornecedor.Size = new System.Drawing.Size(282, 24);
             this.cbFornecedor.TabIndex = 1;
+            this.cbFornecedor.Enter += new System.EventHandler(this.cbFornecedor_Enter);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(7, 216);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 16);
+            this.label13.Size = new System.Drawing.Size(118, 17);
             this.label13.TabIndex = 56;
             this.label13.Text = "Itens da Compra";
             // 
             // btnAddProdu
             // 
-            this.btnAddProdu.Location = new System.Drawing.Point(199, 164);
+            this.btnAddProdu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddProdu.FlatAppearance.BorderSize = 0;
+            this.btnAddProdu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProdu.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProdu.Image")));
+            this.btnAddProdu.Location = new System.Drawing.Point(192, 164);
             this.btnAddProdu.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddProdu.Name = "btnAddProdu";
-            this.btnAddProdu.Size = new System.Drawing.Size(32, 28);
+            this.btnAddProdu.Size = new System.Drawing.Size(29, 28);
             this.btnAddProdu.TabIndex = 5;
-            this.btnAddProdu.Text = "+";
             this.btnAddProdu.UseVisualStyleBackColor = true;
             this.btnAddProdu.Click += new System.EventHandler(this.BtnAddProdu_Click);
             // 
@@ -218,6 +235,7 @@
             this.txtQtd.Size = new System.Drawing.Size(70, 21);
             this.txtQtd.TabIndex = 3;
             this.txtQtd.Text = "0,00";
+            this.txtQtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQtd_KeyDown);
             this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
             this.txtQtd.Leave += new System.EventHandler(this.TxtQtd_Leave);
             // 
@@ -309,7 +327,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 555);
+            this.label8.Location = new System.Drawing.Point(312, 499);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 16);
@@ -329,11 +347,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(410, 573);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 24);
+            this.label6.Size = new System.Drawing.Size(53, 22);
             this.label6.TabIndex = 34;
             this.label6.Text = "Total";
             // 
@@ -345,11 +363,12 @@
             this.txtNfiscal.Name = "txtNfiscal";
             this.txtNfiscal.Size = new System.Drawing.Size(123, 21);
             this.txtNfiscal.TabIndex = 8;
+            this.txtNfiscal.Text = "0";
             // 
             // dtPgtoInicial
             // 
             this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPgtoInicial.Location = new System.Drawing.Point(11, 576);
+            this.dtPgtoInicial.Location = new System.Drawing.Point(315, 520);
             this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(4);
             this.dtPgtoInicial.Name = "dtPgtoInicial";
             this.dtPgtoInicial.Size = new System.Drawing.Size(115, 21);
@@ -358,14 +377,15 @@
             // 
             // txtTotalCompra
             // 
-            this.txtTotalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalCompra.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalCompra.Location = new System.Drawing.Point(475, 569);
             this.txtTotalCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalCompra.MaxLength = 6;
             this.txtTotalCompra.Name = "txtTotalCompra";
-            this.txtTotalCompra.Size = new System.Drawing.Size(92, 29);
+            this.txtTotalCompra.Size = new System.Drawing.Size(92, 31);
             this.txtTotalCompra.TabIndex = 35;
             this.txtTotalCompra.Text = "0.00";
+            this.txtTotalCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -399,12 +419,16 @@
             // 
             // cbFormaPagto
             // 
+            this.cbFormaPagto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cbFormaPagto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbFormaPagto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFormaPagto.FormattingEnabled = true;
             this.cbFormaPagto.Location = new System.Drawing.Point(11, 519);
             this.cbFormaPagto.Margin = new System.Windows.Forms.Padding(4);
             this.cbFormaPagto.Name = "cbFormaPagto";
             this.cbFormaPagto.Size = new System.Drawing.Size(166, 24);
             this.cbFormaPagto.TabIndex = 9;
+            this.cbFormaPagto.Enter += new System.EventHandler(this.cbFormaPagto_Enter);
             // 
             // txtId
             // 

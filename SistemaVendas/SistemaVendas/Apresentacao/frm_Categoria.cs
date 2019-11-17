@@ -30,6 +30,7 @@ namespace SistemaVendas.Apresentacao
             BLL_Categoria bll = new BLL_Categoria(con);
             dgvCategoria.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV();
+            ContarLinhas();
         }
 
         //BOTAO EXLUIR
@@ -125,6 +126,14 @@ namespace SistemaVendas.Apresentacao
                 this.Hide();
                 this.Close();
             }
+        }
+
+
+        //METODO CONTAR LINHAS
+        private void ContarLinhas()
+        {
+            int total = dgvCategoria.Rows.Count;
+            lblQtdTotal.Text = total.ToString();
         }
     }
 }

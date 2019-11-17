@@ -31,7 +31,7 @@ namespace SistemaVendas.Apresentacao
             dgvItensVenda.Columns[2].HeaderText = "Quant.";
             dgvItensVenda.Columns[2].Width = 80;
             dgvItensVenda.Columns[3].HeaderText = "Valor Unitario";
-            dgvItensVenda.Columns[3].Width = 110;
+            dgvItensVenda.Columns[3].Width = 120;
             dgvItensVenda.Columns[4].Visible = false; //idCompra
             dgvItensVenda.Columns[5].Visible = false; // idproduto
 
@@ -43,7 +43,7 @@ namespace SistemaVendas.Apresentacao
             dgvParcelasVenda.Columns[2].HeaderText = "Data Pagto.";
             dgvParcelasVenda.Columns[2].Width = 120;
             dgvParcelasVenda.Columns[3].HeaderText = "Data Vencimento";
-            dgvParcelasVenda.Columns[3].Width = 120;
+            dgvParcelasVenda.Columns[3].Width = 140;
             dgvParcelasVenda.Columns[4].Visible = false; //idCompra
 
         }
@@ -65,6 +65,11 @@ namespace SistemaVendas.Apresentacao
                 this.Hide();
                 this.Close();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

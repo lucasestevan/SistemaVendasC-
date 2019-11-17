@@ -59,6 +59,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblValorTotal = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblQtdTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbFornecedor.SuspendLayout();
@@ -66,6 +70,7 @@
             this.gbCodigo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNome
@@ -423,17 +428,61 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblValorTotal);
+            this.panel1.Controls.Add(this.lblQtdTotal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 512);
+            this.panel1.Size = new System.Drawing.Size(645, 521);
             this.panel1.TabIndex = 60;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(392, 501);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 17);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Valor total:";
+            // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal.Location = new System.Drawing.Point(469, 501);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
+            this.lblValorTotal.TabIndex = 62;
+            this.lblValorTotal.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 500);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 17);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Quantidade:";
+            // 
+            // lblQtdTotal
+            // 
+            this.lblQtdTotal.AutoSize = true;
+            this.lblQtdTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdTotal.Location = new System.Drawing.Point(93, 501);
+            this.lblQtdTotal.Name = "lblQtdTotal";
+            this.lblQtdTotal.Size = new System.Drawing.Size(15, 17);
+            this.lblQtdTotal.TabIndex = 64;
+            this.lblQtdTotal.Text = "0";
             // 
             // frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 512);
+            this.ClientSize = new System.Drawing.Size(645, 521);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnEstornar);
             this.Controls.Add(this.btnSelecionar);
@@ -464,6 +513,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,5 +552,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.Button btnSelecionar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblValorTotal;
+        private System.Windows.Forms.Label lblQtdTotal;
     }
 }

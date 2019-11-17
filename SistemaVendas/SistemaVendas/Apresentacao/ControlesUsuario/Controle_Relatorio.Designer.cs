@@ -83,7 +83,7 @@
             this.btnCategoria.Text = "Categoria";
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCategoria.UseVisualStyleBackColor = true;
-            this.btnCategoria.Click += new System.EventHandler(this.btnColaborador_Click);
+            this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
             // 
             // btnColaborador
             // 

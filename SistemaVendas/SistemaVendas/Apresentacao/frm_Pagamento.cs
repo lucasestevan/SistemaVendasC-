@@ -27,7 +27,7 @@ namespace SistemaVendas.Apresentacao
                 modeloVenda.IdCliente = 1; 
                 modeloVenda.IdTipoPagamento = 1;
                 modeloVenda.Avista = 1;
-                modeloVenda.VendaStatus = "PAGO FC";
+                modeloVenda.VendaStatus = "PAGO VR";
 
                 //OBJ PARA GRAVAR NO BANCO
                 DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);

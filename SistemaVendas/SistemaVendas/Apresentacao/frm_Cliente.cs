@@ -30,6 +30,8 @@ namespace SistemaVendas.Apresentacao
             BLL_Cliente bll = new BLL_Cliente(con);
             dgvCliente.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+            
         }
 
         //botao excluir
@@ -156,6 +158,13 @@ namespace SistemaVendas.Apresentacao
                 this.Hide();
                 this.Close();
             }
+        }
+
+        //METODO CONTAR LINHAS
+        private void ContarLinhas()
+        {
+            int total = dgvCliente.Rows.Count;
+            lblQtdTotal.Text = total.ToString();
         }
     }
 }

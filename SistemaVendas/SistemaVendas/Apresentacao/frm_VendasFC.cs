@@ -57,7 +57,7 @@ namespace SistemaVendas.Apresentacao
             try
             {
                 //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
-                if ((lblProduto.Text != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0"))
+                if ((lblProduto.Text != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") && (txtQtd.Text !=",00"))
                 {
                     Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(lblValor.Text);
                     //FAZER QUE MINHA VARIAVEL TOTAL RECEBA O VALOR DO TOTAL LOCAL

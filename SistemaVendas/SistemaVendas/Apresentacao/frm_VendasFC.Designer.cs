@@ -50,9 +50,9 @@
             this.lblNomePro = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAjuda = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnAjuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
             this.pntotal.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -192,9 +192,9 @@
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Location = new System.Drawing.Point(3, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 42);
+            this.label3.Size = new System.Drawing.Size(311, 42);
             this.label3.TabIndex = 63;
-            this.label3.Text = "TOTAL VENDA";
+            this.label3.Text = "TOTAL DA VENDA";
             // 
             // lblIdPro
             // 
@@ -282,6 +282,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
             // 
+            // btnAjuda
+            // 
+            this.btnAjuda.BackColor = System.Drawing.Color.Transparent;
+            this.btnAjuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjuda.FlatAppearance.BorderSize = 0;
+            this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjuda.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAjuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAjuda.Image")));
+            this.btnAjuda.Location = new System.Drawing.Point(718, 8);
+            this.btnAjuda.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAjuda.Name = "btnAjuda";
+            this.btnAjuda.Size = new System.Drawing.Size(34, 29);
+            this.btnAjuda.TabIndex = 14;
+            this.btnAjuda.UseVisualStyleBackColor = false;
+            this.btnAjuda.Click += new System.EventHandler(this.btnAjuda_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
@@ -308,23 +325,6 @@
             this.btnClose.TabIndex = 13;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnAjuda
-            // 
-            this.btnAjuda.BackColor = System.Drawing.Color.Transparent;
-            this.btnAjuda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAjuda.FlatAppearance.BorderSize = 0;
-            this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjuda.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAjuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAjuda.Image")));
-            this.btnAjuda.Location = new System.Drawing.Point(718, 8);
-            this.btnAjuda.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAjuda.Name = "btnAjuda";
-            this.btnAjuda.Size = new System.Drawing.Size(34, 29);
-            this.btnAjuda.TabIndex = 14;
-            this.btnAjuda.UseVisualStyleBackColor = false;
-            this.btnAjuda.Click += new System.EventHandler(this.btnAjuda_Click);
             // 
             // frm_VendasFC
             // 

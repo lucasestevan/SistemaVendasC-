@@ -29,6 +29,8 @@ namespace SistemaVendas.Apresentacao
             BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
             dgvTipoPag.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV();
+            ContarLinhas();
+            
         }
 
         //BOTAO EXLUIR
@@ -131,6 +133,13 @@ namespace SistemaVendas.Apresentacao
                 this.Hide();
                 this.Close();
             }
+        }
+
+        //METODO CONTAR LINHAS
+        private void ContarLinhas()
+        {
+            int total = dgvTipoPag.Rows.Count;
+            lblQtdTotal.Text = total.ToString();
         }
     }
 }

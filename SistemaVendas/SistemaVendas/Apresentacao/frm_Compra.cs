@@ -134,6 +134,8 @@ namespace SistemaVendas.Apresentacao
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarGeral();
             FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+            ContarTotal();
         }
 
         //BOTAO PESQUISAR IDCOMPRA
@@ -143,6 +145,8 @@ namespace SistemaVendas.Apresentacao
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.localizarIdCompra(txtIdCompraPes.Text);
             FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+            ContarTotal();
         }
 
         //BOTAO PESQUISAR FORNECEDOR
@@ -152,6 +156,8 @@ namespace SistemaVendas.Apresentacao
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarNome(txtNome.Text);
             FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+            ContarTotal();
         }
 
         //BOTAO PESQUISAR Data
@@ -161,6 +167,8 @@ namespace SistemaVendas.Apresentacao
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarData(dtInicial.Value, dtFinal.Value);
             FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+            ContarTotal();
         }
 
         //FORMATA O DATA GRID
@@ -347,5 +355,27 @@ namespace SistemaVendas.Apresentacao
                 this.Close();
             }
         }
+
+        //METODO CONTAR LINHAS
+        private void ContarLinhas()
+        {
+            int total = dgvCompra.Rows.Count;
+            lblQtdTotal.Text = total.ToString();
+        }
+
+        //METODO SOMAR TOTAL
+        private void ContarTotal()
+        {
+
+            decimal valorTotal = 0;
+
+            foreach (DataGridViewRow col in dgvCompra.Rows)
+            {
+                valorTotal = valorTotal + Convert.ToDecimal(col.Cells[4].Value);
+            }
+
+            lblValorTotal.Text = valorTotal.ToString();
+        }
+
     }
 }

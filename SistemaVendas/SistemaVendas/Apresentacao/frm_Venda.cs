@@ -88,7 +88,7 @@ namespace SistemaVendas.Apresentacao
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR EXCLUIR
-                        if (Status == "PAGO" || Status == "CANCELADO")
+                        if (Status == "PAGO" ||  Status == "CANCELADO" || Status == "PAGO VR")
                         {
                             MessageBox.Show("A Venda está com status de PAGA/CANCELADO, não é possível excluir!");
                         }
@@ -135,6 +135,8 @@ namespace SistemaVendas.Apresentacao
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizarGeral();
+            ContarLinhas();
+            ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -144,6 +146,8 @@ namespace SistemaVendas.Apresentacao
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizaridVenda(txtIdVenda.Text);
+            ContarLinhas();
+            ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -153,6 +157,8 @@ namespace SistemaVendas.Apresentacao
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizarData(dtInicial.Value, dtFinal.Value);
+            ContarLinhas();
+            ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -161,6 +167,8 @@ namespace SistemaVendas.Apresentacao
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizarNome(txtNome.Text);
+            ContarLinhas();
+            ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -195,7 +203,7 @@ namespace SistemaVendas.Apresentacao
                 this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                 //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR alterar
-                if (Status == "PAGO" || Status == "CANCELADO")
+                if (Status == "PAGO" || Status == "CANCELADO" || Status == "PAGO VR")
                 {
                     MessageBox.Show("A venda está com status de PAGO/CANCELADO, não é possível Alterar!");
                 }
@@ -274,6 +282,7 @@ namespace SistemaVendas.Apresentacao
             dgvVenda.Columns[9].HeaderText = "Nota Fiscal";
             dgvVenda.Columns[9].Width = 100;
 
+            //inserir cor no fundo
             for (int i = 0; i < dgvVenda.Rows.Count; i++)
             {
                 string Campostatus = Convert.ToString(dgvVenda.Rows[i].Cells[5].Value.ToString());
@@ -284,6 +293,11 @@ namespace SistemaVendas.Apresentacao
                 if (Campostatus == "PAGO")
                 {
                     dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                }
+
+                if (Campostatus == "PAGO VR")
+                {
+                    dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.GreenYellow;
                 }
             }
         }
@@ -307,7 +321,7 @@ namespace SistemaVendas.Apresentacao
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR cancelar
-                        if (Status == "PAGO" || Status == "CANCELADO")
+                        if (Status == "PAGO" || Status == "CANCELADO" || Status == "PAGO VR")
                         {
                             MessageBox.Show("A Venda está com status de PAGA/CANCELADO \n Não é possível Cancelar!");
                         }
@@ -365,5 +379,27 @@ namespace SistemaVendas.Apresentacao
                 this.Close();
             }
         }
+
+        //METODO CONTAR LINHAS
+        private void ContarLinhas()
+        {
+            int total = dgvVenda.Rows.Count;
+            lblQtdTotal.Text = total.ToString();
+        }
+
+        //METODO SOMAR TOTAL
+        private void ContarTotal()
+        {
+
+            decimal valorTotal = 0;
+
+            foreach (DataGridViewRow col in dgvVenda.Rows)
+            {
+                valorTotal = valorTotal + Convert.ToDecimal(col.Cells[4].Value);
+            }
+
+            lblValorTotal.Text = valorTotal.ToString();
+        }
+
     }
 }

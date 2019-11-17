@@ -121,7 +121,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //LOAD DO FORM
         private void Frm_CadMovimentacaoCompra_Load(object sender, EventArgs e)
         {
-            listarComboBox();
             txtNfiscal.Text = "0";
 
             if (this.alterabotao == "0")
@@ -135,62 +134,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 btnAlterar.Enabled = true;
                 btnSalvar.Enabled = false;
             }
-        }
-
-        //METODO LISTAR COMBOBOX
-        private void listarComboBox()
-        {
-            //CARREGAR TIPO DE PAGAMENTO
-            try
-            {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
-                cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
-                cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME
-                cbFormaPagto.ValueMember = "id_tipoPagamento"; //PEGA O ID
-                cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar tabela Tipo de Pagamento: \n" + ex);
-            }
-
-            //CARREGAR FORNECEDOR
-            try
-            {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Fornecedor bll = new BLL_Fornecedor(con);
-                cbFornecedor.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
-                cbFornecedor.DisplayMember = "nome";   //PEGA O NOME
-                cbFornecedor.ValueMember = "id_fornecedor"; //PEGA O ID
-                cbFornecedor.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                cbFornecedor.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar tabela Fornecedor \n" + ex);
-            }
-
-            //CARREGAR produto
-            try
-            {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                BLL_Produto bll = new BLL_Produto(con);
-                cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
-                cbProtudo.DisplayMember = "nome";   //PEGA O NOME
-                cbProtudo.ValueMember = "id_produto"; //PEGA O ID
-                cbProtudo.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
-                cbProtudo.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar tabela Fornecedor \n" + ex);
-            }
-
         }
 
         //BOTAO ADICONAR PRODUTO
@@ -323,6 +266,80 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
+        private void txtQtd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtQtd.ContainsFocus == true)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    BtnAddProdu_Click(sender, e);
+                }
+            }
+        }
+
+        //CARREGAR produto
+        private void cbProtudo_Enter(object sender, EventArgs e)
+        {
+            //CARREGAR produto
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+                cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbProtudo.DisplayMember = "nome";   //PEGA O NOME
+                cbProtudo.ValueMember = "id_produto"; //PEGA O ID
+                cbProtudo.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbProtudo.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar tabela Fornecedor \n" + ex);
+            }
+        }
+
+        //CARREGAR FORNECEDOR
+        private void cbFornecedor_Enter(object sender, EventArgs e)
+        {
+            //CARREGAR FORNECEDOR
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Fornecedor bll = new BLL_Fornecedor(con);
+                cbFornecedor.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbFornecedor.DisplayMember = "nome";   //PEGA O NOME
+                cbFornecedor.ValueMember = "id_fornecedor"; //PEGA O ID
+                cbFornecedor.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbFornecedor.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar tabela Fornecedor \n" + ex);
+            }
+        }
+
+        //CARREGAR TIPO DE PAGAMENTO
+        private void cbFormaPagto_Enter(object sender, EventArgs e)
+        {
+            //CARREGAR TIPO DE PAGAMENTO
+            try
+            {
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
+                cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME
+                cbFormaPagto.ValueMember = "id_tipoPagamento"; //PEGA O ID
+                cbFormaPagto.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR
+                cbFormaPagto.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar tabela Tipo de Pagamento: \n" + ex);
+            }
+        }
+
         //botao minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -341,5 +358,6 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 this.Close();
             }
         }
+
     }
 }
