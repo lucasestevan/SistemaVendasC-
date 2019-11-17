@@ -90,8 +90,8 @@ namespace SistemaVendas.Apresentacao
 
             //CHAMAR O FORM Card e passar as informacoes
             frm_CadCategoria cadCategoria = new frm_CadCategoria();
-            cadCategoria.btnAlterar.Enabled = true;
-            cadCategoria.btnSalvar.Enabled = false;
+            cadCategoria.btnAlterar.Visible = true;
+            cadCategoria.btnSalvar.Visible = false;
 
             cadCategoria.txtId.Text = modelo.Id_categoria.ToString();
             cadCategoria.txtNome.Text = modelo.Nome.ToString();
@@ -105,7 +105,7 @@ namespace SistemaVendas.Apresentacao
             dgvCategoria.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
             dgvCategoria.Columns[0].Width = 50; //TAMANHO DA LARGURA
             dgvCategoria.Columns[1].HeaderText = "Categoria";
-            dgvCategoria.Columns[1].Width = 150;
+            dgvCategoria.Columns[1].Width = 200;
         }
 
         //botao minimizar

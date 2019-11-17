@@ -89,8 +89,8 @@ namespace SistemaVendas.Apresentacao
 
             //CHAMAR O FORM Card e passar as informacoes
             frm_CadColaborador cadColaborador = new frm_CadColaborador();
-            cadColaborador.btnAlterar.Enabled = true;
-            cadColaborador.btnSalvar.Enabled = false;
+            cadColaborador.btnAlterar.Visible = true;
+            cadColaborador.btnSalvar.Visible = false;
 
             cadColaborador.txtId.Text = modelo.IdColaborador.ToString();//id
             cadColaborador.txtNome.Text = modelo.Nome.ToString(); //nome
@@ -107,7 +107,7 @@ namespace SistemaVendas.Apresentacao
         private void FormatarDGV()
         {
             dgvColaborador.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvColaborador.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvColaborador.Columns[0].Width = 50; //TAMANHO DA LARGURA
             dgvColaborador.Columns[1].HeaderText = "Nome";
             dgvColaborador.Columns[1].Width = 130;
             dgvColaborador.Columns[2].HeaderText = "CPF";

@@ -91,8 +91,8 @@ namespace SistemaVendas.Apresentacao
 
                 //CHAMAR O FORM Card e passar as informacoes
                 frm_CadTipoPagamento cadPagamento = new frm_CadTipoPagamento();
-                cadPagamento.btnAlterar.Enabled = true;
-                cadPagamento.btnSalvar.Enabled = false;
+                cadPagamento.btnAlterar.Visible = true;
+                cadPagamento.btnSalvar.Visible = false;
 
                 cadPagamento.txtId.Text = modelo.IdTipoPagamento.ToString();
                 cadPagamento.txtNome.Text = modelo.Nome.ToString();
@@ -111,7 +111,7 @@ namespace SistemaVendas.Apresentacao
             dgvTipoPag.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
             dgvTipoPag.Columns[0].Width = 50; //TAMANHO DA LARGURA
             dgvTipoPag.Columns[1].HeaderText = "Tipo de Pagto";
-            dgvTipoPag.Columns[1].Width = 150;
+            dgvTipoPag.Columns[1].Width = 200;
         }
 
         //botao minimizar

@@ -1,4 +1,5 @@
-﻿using SistemaVendas.Apresentacao;
+﻿using BLL;
+using DAL;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace SistemaVendas
         //BOTAO LOGIN
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            /*// CRIAR VARIAVEL
+            // CRIAR VARIAVEL
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
 
@@ -28,36 +29,27 @@ namespace SistemaVendas
             }
             else
             {
-                //CONECTAR NO BANCO E NA PROCEDURE LOGIN
-                SqlCommand cmd = new SqlCommand("sp_Login", Modelo.ConexaoDados.con);
-                try
+                //chamr bll 
+                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                BLL_Login bll = new BLL_Login(con);
+                bll.Login(usuario, senha);
+
+                if (bll.Existe)
                 {
-                    Modelo.ConexaoDados.abrir();
-                    cmd.CommandType = (System.Data.CommandType)4; //SE FOR IGUAL A 4 ELE CONSEGUIU ENCONTRAR A INFORMACAO
-                    cmd.Parameters.AddWithValue("@nome", usuario);
-                    cmd.Parameters.AddWithValue("@senha", senha);
-                    cmd.Parameters.Add("@msg", SqlDbType.VarChar, 100).Direction = (System.Data.ParameterDirection)2;
-
-                    //EXECUTAR NOSSA CONSULTA
-                    cmd.ExecuteNonQuery();
-                                       
-                    else
-                    {*/
-            frm_Principal Menu = new frm_Principal();
-            this.Hide();
-            Menu.ShowDialog();
-            this.Close();
-            /*}
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Erro ao fazer login " + ex.Message, "Erro");
-            Modelo.ConexaoDados.fechar();
-        }
-    }*/
+                    //CHAMAR O FORM Card e passar as informacoes
+                    frm_Principal f = new frm_Principal();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Close();
+                }
+                else 
+                {
+                    MessageBox.Show("Usuário ou senha incorretos!");
+                }
+            }
         }
 
-        //AO APERTAR O ENTER
+        //evento AO APERTAR O ENTER
         private void Frm_Login_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -66,29 +58,6 @@ namespace SistemaVendas
             }
         }
 
-        private void frm_Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsuario_Click(object sender, EventArgs e)
-        {
-            pn1.BackColor = Color.FromArgb(78, 184, 206);
-            txtUsuario.ForeColor = Color.FromArgb(78, 184, 206);
-
-            pn2.BackColor = Color.WhiteSmoke;
-            txtSenha.ForeColor = Color.WhiteSmoke;
-        }
-
-        private void txtSenha_Click(object sender, EventArgs e)
-        {
-            txtSenha.PasswordChar = '*';
-            pn2.BackColor = Color.FromArgb(78, 184, 206);
-            txtSenha.ForeColor = Color.FromArgb(78, 184, 206);
-
-            pn1.BackColor = Color.WhiteSmoke;
-            txtUsuario.ForeColor = Color.WhiteSmoke;
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -100,6 +69,26 @@ namespace SistemaVendas
                 this.Hide();
                 this.Close();
             }
+        }
+
+        //evento ao focar no txt
+        private void txtUsuario_Enter(object sender, EventArgs e)
+        {
+            pn1.BackColor = Color.FromArgb(78, 184, 206);
+            txtUsuario.ForeColor = Color.FromArgb(78, 184, 206);
+
+            pn2.BackColor = Color.WhiteSmoke;
+            txtSenha.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void txtSenha_Enter(object sender, EventArgs e)
+        {
+            txtSenha.PasswordChar = '*';
+            pn2.BackColor = Color.FromArgb(78, 184, 206);
+            txtSenha.ForeColor = Color.FromArgb(78, 184, 206);
+
+            pn1.BackColor = Color.WhiteSmoke;
+            txtUsuario.ForeColor = Color.WhiteSmoke;
         }
     }
 }

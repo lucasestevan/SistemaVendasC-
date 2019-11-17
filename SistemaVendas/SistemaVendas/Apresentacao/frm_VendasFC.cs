@@ -247,5 +247,11 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
+        private void btnAjuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ENTER - LOCALIZAR O PRODUTO.\n\n" +
+                "F10 - FINALIZAR A VENDA.\n\n" +
+                "ESC - SAIR DA VENDA." , "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+        }
     }
 }

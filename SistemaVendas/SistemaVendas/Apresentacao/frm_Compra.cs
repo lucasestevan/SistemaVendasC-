@@ -85,10 +85,8 @@ namespace SistemaVendas.Apresentacao
             //HABILITAR BOTOES
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
-            btnSelecionar.Enabled = true;
             btnVisualizar.Enabled = true;
             btnEstornar.Enabled = true;
-
         }
 
         //EVENTO LOAD
@@ -143,7 +141,7 @@ namespace SistemaVendas.Apresentacao
         {
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Compra bll = new BLL_Compra(con);
-            dgvCompra.DataSource = bll.localizarIdCompra(Convert.ToInt32(txtIdCompraPes.Text.Length));
+            dgvCompra.DataSource = bll.localizarIdCompra(txtIdCompraPes.Text);
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -169,13 +167,13 @@ namespace SistemaVendas.Apresentacao
         private void FormatarDGV()
         {
             dgvCompra.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvCompra.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvCompra.Columns[0].Width = 50; //TAMANHO DA LARGURA
             dgvCompra.Columns[1].HeaderText = "Data da Compra";
-            dgvCompra.Columns[1].Width = 120;
+            dgvCompra.Columns[1].Width = 140;
             dgvCompra.Columns[2].HeaderText = "Nota Fiscal";
-            dgvCompra.Columns[2].Width = 85;
+            dgvCompra.Columns[2].Width = 90;
             dgvCompra.Columns[3].HeaderText = "N° Parcelas";
-            dgvCompra.Columns[3].Width = 90;
+            dgvCompra.Columns[3].Width = 100;
             dgvCompra.Columns[4].HeaderText = "Total";
             dgvCompra.Columns[4].Width = 80;
             dgvCompra.Columns[5].HeaderText = "Status";
@@ -274,10 +272,14 @@ namespace SistemaVendas.Apresentacao
         //BOTAO SELECIONAR
         private void BtnSelecionar_Click(object sender, EventArgs e)
         {
-            if (dgvCompra.SelectedRows.Count > 0)
+            if (txtId.Text != "")
             {
                 this.idCompra = Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value);
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo na grid");
             }
         }
 
@@ -287,34 +289,39 @@ namespace SistemaVendas.Apresentacao
 
             if (txtId.Text != "")
             {
-                this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
-                try
+                DialogResult msgSN = MessageBox.Show("Deseja realmente estornar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                //SE O ESCOLHER SIM FAÇA
+                if (msgSN == DialogResult.Yes)
                 {
-                    //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR estornar
-                    if (this.Status == "ABERTO")
+                    this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
+                    try
                     {
-                        MessageBox.Show("A Compra está com status em 'ABERTO',\nNão é possível Estorna-la!");
-                    }
-                    else
-                    {
-                        //LEITURA DOS DADOS
-                        Model_Compra modelo = new Model_Compra();
-                        modelo.IdCompra = Convert.ToInt32(txtId.Text);
-                        modelo.CompraStatus = "ABERTO";
-                        //OBJ PARA GRAVAR NO BANCO
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                        BLL_Compra bll = new BLL_Compra(con);
+                        //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR estornar
+                        if (this.Status == "ABERTO")
+                        {
+                            MessageBox.Show("A Compra está com status em 'ABERTO',\nNão é possível Estorna-la!");
+                        }
+                        else
+                        {
+                            //LEITURA DOS DADOS
+                            Model_Compra modelo = new Model_Compra();
+                            modelo.IdCompra = Convert.ToInt32(txtId.Text);
+                            modelo.CompraStatus = "ABERTO";
+                            //OBJ PARA GRAVAR NO BANCO
+                            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                            BLL_Compra bll = new BLL_Compra(con);
 
-                        //CADASTRAR UMA CATEGORIA
-                        bll.EstornarConta(modelo);
-                        MessageBox.Show("Estorno efetuado com sucesso!");
+                            //CADASTRAR UMA CATEGORIA
+                            bll.EstornarConta(modelo);
+                            MessageBox.Show("Estorno efetuado com sucesso!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao efeturar estorno da Compra\n" + ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao efeturar estorno da Compra\n" + ex.Message);
-                }
-                
+
             }
             else
             {

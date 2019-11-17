@@ -105,7 +105,7 @@ namespace BLL
         }
 
         //METODO LOCALIZAR IDvenda
-        public DataTable LocalizaridVenda(int idVenda)
+        public DataTable LocalizaridVenda(String idVenda)
         {
             DAL_Venda DALobj = new DAL_Venda(conexao);
             return DALobj.LocalizaridVenda(idVenda);

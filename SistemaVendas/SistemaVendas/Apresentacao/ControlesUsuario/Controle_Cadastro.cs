@@ -1,4 +1,4 @@
-﻿using SistemaVendas.Apresentacao;
+﻿using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Windows.Forms;
 
@@ -14,42 +14,42 @@ namespace SistemaVendas
         //BOTAO PRODUTO
         private void btnProduto_Click(object sender, EventArgs e)
         {
-            frm_Produto f = new frm_Produto();
+            frm_CadProduto f = new frm_CadProduto();
             f.ShowDialog();
             f.Dispose();
         }
 
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
-            frm_Fornecedor f = new frm_Fornecedor();
+            frm_CadFornecedor f = new frm_CadFornecedor();
             f.ShowDialog();
             f.Dispose();
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            frm_Cliente f = new frm_Cliente();
+            frm_CadCliente f = new frm_CadCliente();
             f.ShowDialog();
             f.Dispose();
         }
 
         private void btnColaborador_Click(object sender, EventArgs e)
         {
-            frm_Colaborador f = new frm_Colaborador();
+            frm_CadColaborador f = new frm_CadColaborador();
             f.ShowDialog();
             f.Dispose();
         }
 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            frm_Categoria f = new frm_Categoria();
+            frm_CadCategoria f = new frm_CadCategoria();
             f.ShowDialog();
             f.Dispose();
         }
 
         private void btnFormaPagto_Click(object sender, EventArgs e)
         {
-            frm_TipoPagamento f = new frm_TipoPagamento();
+            frm_CadTipoPagamento f = new frm_CadTipoPagamento();
             f.ShowDialog();
             f.Dispose();
         }

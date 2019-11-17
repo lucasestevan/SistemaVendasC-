@@ -113,7 +113,7 @@ namespace BLL
         }
 
         //METODO LOCALIZAR PELO IDCOMPRA
-        public DataTable localizarIdCompra(int idCompra)
+        public DataTable localizarIdCompra(string idCompra)
         {
             DAL_Compra DALobj = new DAL_Compra(conexao);
             return DALobj.LocalizaridCompra(idCompra);

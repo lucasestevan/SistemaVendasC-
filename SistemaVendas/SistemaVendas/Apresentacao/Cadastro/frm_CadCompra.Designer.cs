@@ -67,6 +67,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
@@ -323,7 +324,7 @@
             this.dtCompra.Name = "dtCompra";
             this.dtCompra.Size = new System.Drawing.Size(115, 21);
             this.dtCompra.TabIndex = 7;
-            this.dtCompra.Value = new System.DateTime(2019, 10, 5, 0, 0, 0, 0);
+            this.dtCompra.Value = new System.DateTime(2019, 11, 16, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -353,7 +354,7 @@
             this.dtPgtoInicial.Name = "dtPgtoInicial";
             this.dtPgtoInicial.Size = new System.Drawing.Size(115, 21);
             this.dtPgtoInicial.TabIndex = 10;
-            this.dtPgtoInicial.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
+            this.dtPgtoInicial.Value = new System.DateTime(2019, 11, 16, 0, 0, 0, 0);
             // 
             // txtTotalCompra
             // 
@@ -475,7 +476,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(15, 15);
-            this.button1.TabIndex = 58;
+            this.button1.TabIndex = 585;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
@@ -503,9 +504,18 @@
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(15, 15);
-            this.button2.TabIndex = 57;
+            this.button2.TabIndex = 575;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(686, 671);
+            this.panel1.TabIndex = 55;
             // 
             // frm_CadCompra
             // 
@@ -517,6 +527,7 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtId);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -576,5 +587,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn proValorTotal;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

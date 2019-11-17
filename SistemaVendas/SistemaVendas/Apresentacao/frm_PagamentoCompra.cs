@@ -20,6 +20,8 @@ namespace SistemaVendas
         private void BtnLocalizar_Click(object sender, EventArgs e)
         {
             frm_Compra Compra = new frm_Compra();
+            Compra.btnSelecionar.Enabled = true;
+
             Compra.ShowDialog();
             if (Compra.idCompra != 0)
             {

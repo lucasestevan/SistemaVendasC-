@@ -44,7 +44,7 @@
             this.btnProduto.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnProduto.Image")));
             this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProduto.Location = new System.Drawing.Point(41, 41);
+            this.btnProduto.Location = new System.Drawing.Point(192, 226);
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(89, 98);
             this.btnProduto.TabIndex = 12;
@@ -60,7 +60,7 @@
             this.btnFornecedor.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnFornecedor.Image = ((System.Drawing.Image)(resources.GetObject("btnFornecedor.Image")));
             this.btnFornecedor.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFornecedor.Location = new System.Drawing.Point(187, 41);
+            this.btnFornecedor.Location = new System.Drawing.Point(47, 226);
             this.btnFornecedor.Name = "btnFornecedor";
             this.btnFornecedor.Size = new System.Drawing.Size(89, 98);
             this.btnFornecedor.TabIndex = 15;
@@ -76,7 +76,7 @@
             this.btnCliente.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCliente.Location = new System.Drawing.Point(333, 41);
+            this.btnCliente.Location = new System.Drawing.Point(192, 41);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(89, 98);
             this.btnCliente.TabIndex = 16;
@@ -92,7 +92,7 @@
             this.btnColaborador.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnColaborador.Image = ((System.Drawing.Image)(resources.GetObject("btnColaborador.Image")));
             this.btnColaborador.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnColaborador.Location = new System.Drawing.Point(479, 41);
+            this.btnColaborador.Location = new System.Drawing.Point(337, 41);
             this.btnColaborador.Name = "btnColaborador";
             this.btnColaborador.Size = new System.Drawing.Size(89, 98);
             this.btnColaborador.TabIndex = 17;
@@ -108,7 +108,7 @@
             this.btnCategoria.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnCategoria.Image = ((System.Drawing.Image)(resources.GetObject("btnCategoria.Image")));
             this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCategoria.Location = new System.Drawing.Point(41, 206);
+            this.btnCategoria.Location = new System.Drawing.Point(47, 41);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(89, 98);
             this.btnCategoria.TabIndex = 18;
@@ -124,7 +124,7 @@
             this.btnFormaPagto.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnFormaPagto.Image = ((System.Drawing.Image)(resources.GetObject("btnFormaPagto.Image")));
             this.btnFormaPagto.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFormaPagto.Location = new System.Drawing.Point(187, 206);
+            this.btnFormaPagto.Location = new System.Drawing.Point(482, 41);
             this.btnFormaPagto.Name = "btnFormaPagto";
             this.btnFormaPagto.Size = new System.Drawing.Size(89, 98);
             this.btnFormaPagto.TabIndex = 19;

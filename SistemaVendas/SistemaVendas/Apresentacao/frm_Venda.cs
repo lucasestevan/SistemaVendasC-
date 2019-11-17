@@ -125,7 +125,6 @@ namespace SistemaVendas.Apresentacao
             //HABILITAR BOTOES
             btnAlterar.Enabled = true;
             btnVisualizar.Enabled = true;
-            btnSelecionar.Enabled = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = true;
         }
@@ -144,7 +143,7 @@ namespace SistemaVendas.Apresentacao
         {
             DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
-            dgvVenda.DataSource = bll.LocalizaridVenda(Convert.ToInt32(txtIdVenda.Text.Length));
+            dgvVenda.DataSource = bll.LocalizaridVenda(txtIdVenda.Text);
             FormatarDGV(); //FORMATA O DATA GRID
         }
 
@@ -258,13 +257,13 @@ namespace SistemaVendas.Apresentacao
         private void FormatarDGV()
         {
             dgvVenda.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvVenda.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvVenda.Columns[0].Width = 50; //TAMANHO DA LARGURA
             dgvVenda.Columns[1].HeaderText = "Data da Venda";
-            dgvVenda.Columns[1].Width = 110;
+            dgvVenda.Columns[1].Width = 120;
             dgvVenda.Columns[2].HeaderText = "Cliente";
             dgvVenda.Columns[2].Width = 140;
             dgvVenda.Columns[3].HeaderText = "N° Parcelas";
-            dgvVenda.Columns[3].Width = 90;
+            dgvVenda.Columns[3].Width = 100;
             dgvVenda.Columns[4].HeaderText = "Total";
             dgvVenda.Columns[4].Width = 80;
             dgvVenda.Columns[5].HeaderText = "Status";
@@ -273,7 +272,7 @@ namespace SistemaVendas.Apresentacao
             dgvVenda.Columns[7].Visible = false;
             dgvVenda.Columns[8].Visible = false; ;
             dgvVenda.Columns[9].HeaderText = "Nota Fiscal";
-            dgvVenda.Columns[9].Width = 90;
+            dgvVenda.Columns[9].Width = 100;
 
             for (int i = 0; i < dgvVenda.Rows.Count; i++)
             {
@@ -337,10 +336,14 @@ namespace SistemaVendas.Apresentacao
         //BOTAO SELECIONAR
         private void BtnSelecionar_Click(object sender, EventArgs e)
         {
-            if (dgvVenda.SelectedRows.Count > 0)
+            if (txtId.Text != "")
             {
                 this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum campo na grid");
             }
         }
 

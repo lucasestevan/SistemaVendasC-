@@ -39,6 +39,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItensVenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParcelasVenda)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -175,6 +176,15 @@
             this.label8.TabIndex = 50;
             this.label8.Text = "Itens e Parcelas da venda";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(608, 714);
+            this.panel1.TabIndex = 64;
+            // 
             // frm_VisualizarItensVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -185,6 +195,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnFechar);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -216,5 +227,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel1;
     }
 }

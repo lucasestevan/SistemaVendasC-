@@ -63,6 +63,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -133,7 +134,7 @@
             this.txtCep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCep.Mask = "00000-999";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(107, 21);
+            this.txtCep.Size = new System.Drawing.Size(82, 21);
             this.txtCep.TabIndex = 7;
             this.txtCep.Leave += new System.EventHandler(this.txtCep_Leave_1);
             // 
@@ -166,7 +167,10 @@
             // 
             // btnEndereco
             // 
-            this.btnEndereco.Location = new System.Drawing.Point(163, 299);
+            this.btnEndereco.FlatAppearance.BorderSize = 0;
+            this.btnEndereco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndereco.Image = ((System.Drawing.Image)(resources.GetObject("btnEndereco.Image")));
+            this.btnEndereco.Location = new System.Drawing.Point(116, 295);
             this.btnEndereco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEndereco.Name = "btnEndereco";
             this.btnEndereco.Size = new System.Drawing.Size(26, 28);
@@ -411,7 +415,7 @@
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
-            this.btnMinimizar.TabIndex = 13;
+            this.btnMinimizar.TabIndex = 200;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
@@ -428,9 +432,18 @@
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
-            this.btnClose.TabIndex = 12;
+            this.btnClose.TabIndex = 201;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(694, 562);
+            this.panel1.TabIndex = 54;
             // 
             // frm_CadCliente
             // 
@@ -442,6 +455,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -493,5 +507,6 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }

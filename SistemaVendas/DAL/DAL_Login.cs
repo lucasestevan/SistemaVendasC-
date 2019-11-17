@@ -1,6 +1,4 @@
-﻿using Modelo;
-using System;
-using System.Data;
+﻿using System;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -13,14 +11,35 @@ namespace DAL
             this.conexao = con;
         }
 
+        public bool existe;
+        SqlDataReader dr;
+
         //METODO Login
-        public DataTable Login(String nome, string senha)
+        public bool Login(string usuario, string senha)
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("SELECT * FROM Colaborador where nome like '%" + nome + "%' and senha like '%" + senha + "%'", conexao.StringConexao);
-            da.Fill(dt);
-            return dt;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "SELECT * FROM Colaborador where nome = @nome and senha = HASHBYTES('md2', @senha);";
+            cmd.Parameters.AddWithValue("@nome", usuario);
+            cmd.Parameters.AddWithValue("@senha", senha);
+            try
+            {
+                conexao.Conectar();
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    existe = true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+            conexao.Desconectar();
+            return existe;
         }
     }
 }

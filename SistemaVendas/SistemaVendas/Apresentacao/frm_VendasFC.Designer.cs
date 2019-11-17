@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_VendasFC));
             this.dgvVenda = new System.Windows.Forms.DataGridView();
+            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo_pro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proValorUnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,14 +50,9 @@
             this.lblNomePro = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo_pro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proValorUnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnAjuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
             this.pntotal.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,6 +80,47 @@
             this.dgvVenda.Size = new System.Drawing.Size(740, 282);
             this.dgvVenda.TabIndex = 53;
             this.dgvVenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVenda_CellDoubleClick);
+            // 
+            // id_produto
+            // 
+            this.id_produto.HeaderText = "Id";
+            this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            this.id_produto.Width = 45;
+            // 
+            // codigo_pro
+            // 
+            this.codigo_pro.HeaderText = "Código";
+            this.codigo_pro.Name = "codigo_pro";
+            this.codigo_pro.ReadOnly = true;
+            this.codigo_pro.Width = 80;
+            // 
+            // Produto
+            // 
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            this.Produto.Width = 250;
+            // 
+            // proQtd
+            // 
+            this.proQtd.HeaderText = "Quant.";
+            this.proQtd.Name = "proQtd";
+            this.proQtd.ReadOnly = true;
+            this.proQtd.Width = 60;
+            // 
+            // proValorUnd
+            // 
+            this.proValorUnd.HeaderText = "Valor Unitário";
+            this.proValorUnd.Name = "proValorUnd";
+            this.proValorUnd.ReadOnly = true;
+            this.proValorUnd.Width = 120;
+            // 
+            // proValorTotal
+            // 
+            this.proValorTotal.HeaderText = "Valor Total";
+            this.proValorTotal.Name = "proValorTotal";
+            this.proValorTotal.ReadOnly = true;
             // 
             // txtCod
             // 
@@ -222,6 +264,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Controls.Add(this.btnAjuda);
             this.groupBox2.Controls.Add(this.lblIdPro);
             this.groupBox2.Controls.Add(this.lblNomePro);
             this.groupBox2.Controls.Add(this.txtQtd);
@@ -238,47 +281,6 @@
             this.groupBox2.TabIndex = 71;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
-            // 
-            // id_produto
-            // 
-            this.id_produto.HeaderText = "Id";
-            this.id_produto.Name = "id_produto";
-            this.id_produto.ReadOnly = true;
-            this.id_produto.Width = 45;
-            // 
-            // codigo_pro
-            // 
-            this.codigo_pro.HeaderText = "Código";
-            this.codigo_pro.Name = "codigo_pro";
-            this.codigo_pro.ReadOnly = true;
-            this.codigo_pro.Width = 80;
-            // 
-            // Produto
-            // 
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            this.Produto.Width = 250;
-            // 
-            // proQtd
-            // 
-            this.proQtd.HeaderText = "Quant.";
-            this.proQtd.Name = "proQtd";
-            this.proQtd.ReadOnly = true;
-            this.proQtd.Width = 60;
-            // 
-            // proValorUnd
-            // 
-            this.proValorUnd.HeaderText = "Valor Unitário";
-            this.proValorUnd.Name = "proValorUnd";
-            this.proValorUnd.ReadOnly = true;
-            this.proValorUnd.Width = 120;
-            // 
-            // proValorTotal
-            // 
-            this.proValorTotal.HeaderText = "Valor Total";
-            this.proValorTotal.Name = "proValorTotal";
-            this.proValorTotal.ReadOnly = true;
             // 
             // panel1
             // 
@@ -306,6 +308,23 @@
             this.btnClose.TabIndex = 13;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnAjuda
+            // 
+            this.btnAjuda.BackColor = System.Drawing.Color.Transparent;
+            this.btnAjuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjuda.FlatAppearance.BorderSize = 0;
+            this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjuda.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAjuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAjuda.Image")));
+            this.btnAjuda.Location = new System.Drawing.Point(718, 8);
+            this.btnAjuda.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAjuda.Name = "btnAjuda";
+            this.btnAjuda.Size = new System.Drawing.Size(34, 29);
+            this.btnAjuda.TabIndex = 14;
+            this.btnAjuda.UseVisualStyleBackColor = false;
+            this.btnAjuda.Click += new System.EventHandler(this.btnAjuda_Click);
             // 
             // frm_VendasFC
             // 
@@ -358,5 +377,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn proValorTotal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnAjuda;
     }
 }

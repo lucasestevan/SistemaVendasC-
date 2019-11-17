@@ -116,7 +116,7 @@ namespace SistemaVendas.Apresentacao
         private void FormatarDGV()
         {
             dgvCliente.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvCliente.Columns[0].Width = 45; //TAMANHO DA LARGURA
+            dgvCliente.Columns[0].Width = 50; //TAMANHO DA LARGURA
             dgvCliente.Columns[1].HeaderText = "Nome";
             dgvCliente.Columns[1].Width = 130;
             dgvCliente.Columns[2].HeaderText = "CPF";

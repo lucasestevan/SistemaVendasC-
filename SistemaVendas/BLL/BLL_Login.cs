@@ -1,11 +1,12 @@
 ﻿using DAL;
-using System;
-using System.Data;
+using Modelo;
 
 namespace BLL
 {
     public class BLL_Login
     {
+        public bool Existe;
+
         private DAL_Conexao conexao;
 
         public BLL_Login(DAL_Conexao con)
@@ -14,10 +15,11 @@ namespace BLL
         }
 
         //METODO LOCALIZAR
-        public DataTable Login(String valor, string senha)
+        public bool Login(string usuario, string senha)
         {
             DAL_Login DALobj = new DAL_Login(conexao);
-            return DALobj.Login(valor, senha);
+            Existe = DALobj.Login(usuario, senha);
+            return Existe;
         }
     }
 }

@@ -147,7 +147,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 txtRua.Text = ds.Tables[0].Rows[0][6].ToString();
                 txtBairro.Text = ds.Tables[0].Rows[0][4].ToString();
                 txtCidade.Text = ds.Tables[0].Rows[0][3].ToString();
-                txtUf.Text = ds.Tables[0].Rows[0][2].ToString();
+                //txtUf.Text = ds.Tables[0].Rows[0][2].ToString();
             
         }
 

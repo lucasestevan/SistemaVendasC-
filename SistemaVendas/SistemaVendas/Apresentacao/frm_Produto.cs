@@ -90,8 +90,8 @@ namespace SistemaVendas.Apresentacao
 
                 //CHAMAR O FORM Card e passar as informacoes
                 frm_CadProduto cadProduto = new frm_CadProduto();
-                cadProduto.btnAlterar.Enabled = true;
-                cadProduto.btnSalvar.Enabled = false;
+                cadProduto.btnAlterar.Visible = true;
+                cadProduto.btnSalvar.Visible = false;
 
                 cadProduto.txtId.Text = modelo.IdProduto.ToString();//id
                 cadProduto.txtNome.Text = modelo.Nome.ToString(); //nome
@@ -114,7 +114,7 @@ namespace SistemaVendas.Apresentacao
         private void FormatarDGV()
         {
             dgvProduto.Columns[0].Visible = false; //id
-            dgvProduto.Columns[1].HeaderText = "Código"; //NOME DO CABEÇALHO
+            dgvProduto.Columns[1].HeaderText = "Código"; //codigo
             dgvProduto.Columns[1].Width = 60; //TAMANHO DA LARGURA
             dgvProduto.Columns[2].HeaderText = "Nome";
             dgvProduto.Columns[2].Width = 130;

@@ -58,6 +58,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gbCodigo.SuspendLayout();
             this.gbData.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -415,6 +416,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(645, 512);
+            this.panel1.TabIndex = 64;
+            // 
             // frm_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -433,6 +443,7 @@
             this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.gbData);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -460,7 +471,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.GroupBox gbCodigo;
         internal System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.Button btnPesquisarCod;
@@ -488,5 +498,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Button btnSelecionar;
     }
 }
