@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Categoria
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Categoria(DAL_Conexao con)
+        public BLL_Categoria(DAO_Conexao con)
         {
             this.conexao = con;
         }

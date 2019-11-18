@@ -23,7 +23,7 @@ namespace SistemaVendas.Apresentacao
             this.VerificaPago = (Convert.ToString(dgvParcelas.CurrentRow.Cells[2].Value));
             if (VerificaPago == "01/01/0001 00:00:00")//a data que ele tras, nao deixa vazio
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
 
                 BLL_ParcelasVenda bllP = new BLL_ParcelasVenda(con);
                 int idVenda = Convert.ToInt32(txtIdVenda.Text);
@@ -65,7 +65,7 @@ namespace SistemaVendas.Apresentacao
             if (venda.idVenda != 0)
             {
                 //chamr modelo bll e dal compra
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
 
                 BLL_Venda bll = new BLL_Venda(con);
                 Model_Venda modeloV = bll.CarregaModeloVenda(venda.idVenda);

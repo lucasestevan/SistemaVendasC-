@@ -7,9 +7,9 @@ namespace BLL
     {
         public bool Existe;
 
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Login(DAL_Conexao con)
+        public BLL_Login(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -17,7 +17,7 @@ namespace BLL
         //METODO LOCALIZAR
         public bool Login(string usuario, string senha)
         {
-            DAL_Login DALobj = new DAL_Login(conexao);
+            DAO_Login DALobj = new DAO_Login(conexao);
             Existe = DALobj.Login(usuario, senha);
             return Existe;
         }

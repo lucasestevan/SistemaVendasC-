@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_ItensVendas
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_ItensVendas(DAL_Conexao con)
+        public BLL_ItensVendas(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -43,7 +43,7 @@ namespace BLL
                 throw new Exception("O Código do produto é obrigatorio");
             }
 
-            DAL_ItensVenda DALobj = new DAL_ItensVenda(conexao);
+            DAO_ItensVenda DALobj = new DAO_ItensVenda(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -76,7 +76,7 @@ namespace BLL
                 throw new Exception("O Código do produto é obrigatorio");
             }
 
-            DAL_ItensVenda DALobj = new DAL_ItensVenda(conexao);
+            DAO_ItensVenda DALobj = new DAO_ItensVenda(conexao);
             DALobj.Alterar(modelo);
         }
 
@@ -99,14 +99,14 @@ namespace BLL
                 throw new Exception("O Código do produto é obrigatorio");
             }
 
-            DAL_ItensVenda DALobj = new DAL_ItensVenda(conexao);
+            DAO_ItensVenda DALobj = new DAO_ItensVenda(conexao);
             DALobj.Excluir(modelo);
         }
 
         //METODO EXCLUIR tudo
         public void ExcluirTodosItens(int idVenda)
         {
-            DAL_ItensVenda DALobj = new DAL_ItensVenda(conexao);
+            DAO_ItensVenda DALobj = new DAO_ItensVenda(conexao);
             DALobj.ExcluirTodosItens(idVenda);
         }
 
@@ -114,14 +114,14 @@ namespace BLL
         //METODO CARRREGA MODELO COMPRA
         public Model_ItensVenda CarregaModeloItensCompra(int idVenda, int idItenVenda, int idProduto)
         {
-            DAL_ItensVenda DALobj = new DAL_ItensVenda(conexao);
+            DAO_ItensVenda DALobj = new DAO_ItensVenda(conexao);
             return DALobj.CarregaModeloItensVenda(idVenda, idItenVenda, idProduto);
         }
 
         //METODO LOCALIZAR
         public DataTable Localizar(int idVenda)
         {
-            DAL_ItensVenda DALobj = new DAL_ItensVenda(conexao);
+            DAO_ItensVenda DALobj = new DAO_ItensVenda(conexao);
             return DALobj.Localizar(idVenda);
         }
     }

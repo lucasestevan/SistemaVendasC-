@@ -26,7 +26,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Categoria bll = new BLL_Categoria(con);
             dgvCategoria.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV();
@@ -45,7 +45,7 @@ namespace SistemaVendas.Apresentacao
                     try
                     {
                         //CRIAR CONEXAO
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_Categoria bll = new BLL_Categoria(con);
 
                         //EXCLUIR  UMA CATEGORIA
@@ -85,7 +85,7 @@ namespace SistemaVendas.Apresentacao
             this.idCategoria = (Convert.ToInt32(dgvCategoria.CurrentRow.Cells[0].Value));
 
             //chamr modelo bll e dal 
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Categoria bll = new BLL_Categoria(con);
             Model_Categoria modelo = bll.CarregaModeloCategoria(idCategoria);
 

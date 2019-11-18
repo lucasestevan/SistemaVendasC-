@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Fornecedor
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Fornecedor(DAL_Conexao con)
+        public BLL_Fornecedor(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -28,7 +28,7 @@ namespace BLL
                 throw new Exception("O CPF ou CNPJ é obrigatorio");
             }
             
-            DAL_Fornecedor DALobj = new DAL_Fornecedor(conexao);
+            DAO_Fornecedor DALobj = new DAO_Fornecedor(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -46,28 +46,28 @@ namespace BLL
                 throw new Exception("O CPF ou CNPJ é obrigatorio");
             }
 
-            DAL_Fornecedor DALobj = new DAL_Fornecedor(conexao);
+            DAO_Fornecedor DALobj = new DAO_Fornecedor(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idFornecedor)
         {
-            DAL_Fornecedor DALobj = new DAL_Fornecedor(conexao);
+            DAO_Fornecedor DALobj = new DAO_Fornecedor(conexao);
             DALobj.Excluir(idFornecedor);
         }
 
         //METODO CARRREGA MODELO 
         public Model_Fornecedor CarregaModeloFornecedor(int idFornecedor)
         {
-            DAL_Fornecedor DALobj = new DAL_Fornecedor(conexao);
+            DAO_Fornecedor DALobj = new DAO_Fornecedor(conexao);
             return DALobj.CarregaModeloFornecedor(idFornecedor);
         }
 
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_Fornecedor DALobj = new DAL_Fornecedor(conexao);
+            DAO_Fornecedor DALobj = new DAO_Fornecedor(conexao);
             return DALobj.Localizar(valor);
         }
     }

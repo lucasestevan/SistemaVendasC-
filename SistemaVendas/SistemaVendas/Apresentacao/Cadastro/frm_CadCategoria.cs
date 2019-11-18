@@ -22,7 +22,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 Model_Categoria modelo = new Model_Categoria();
                 modelo.Nome = txtNome.Text;
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con1 = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con1 = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Categoria bll1 = new BLL_Categoria(con1);
 
                 //CADASTRAR UMA CATEGORIA
@@ -48,7 +48,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.Nome = txtNome.Text;
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Categoria bll = new BLL_Categoria(con);
 
                 //CADASTRAR UMA CATEGORIA

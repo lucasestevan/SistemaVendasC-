@@ -19,7 +19,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
 
                 //LEITURA DOS DADOS endereco
                 Model_Endereco modeloE = new Model_Endereco();
@@ -62,7 +62,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         {
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
 
                 //LEITURA DOS DADOS endereco
                 Model_Endereco modeloE = new Model_Endereco();

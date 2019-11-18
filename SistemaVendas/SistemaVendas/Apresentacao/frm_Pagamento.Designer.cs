@@ -46,10 +46,10 @@
             // 
             this.txtValorPago.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorPago.Location = new System.Drawing.Point(88, 161);
-            this.txtValorPago.MaxLength = 6;
+            this.txtValorPago.MaxLength = 9;
             this.txtValorPago.Name = "txtValorPago";
             this.txtValorPago.Size = new System.Drawing.Size(145, 47);
-            this.txtValorPago.TabIndex = 7;
+            this.txtValorPago.TabIndex = 1;
             this.txtValorPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValorPago.TextChanged += new System.EventHandler(this.txtValorPago_TextChanged);
             this.txtValorPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorPago_KeyPress);
@@ -58,11 +58,12 @@
             // btnFinalizar
             // 
             this.btnFinalizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFinalizar.Enabled = false;
             this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizar.Location = new System.Drawing.Point(77, 335);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(176, 48);
-            this.btnFinalizar.TabIndex = 6;
+            this.btnFinalizar.TabIndex = 2;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
@@ -72,7 +73,7 @@
             this.lblTroco.AutoSize = true;
             this.lblTroco.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTroco.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTroco.Location = new System.Drawing.Point(30, 9);
+            this.lblTroco.Location = new System.Drawing.Point(28, 9);
             this.lblTroco.Name = "lblTroco";
             this.lblTroco.Size = new System.Drawing.Size(30, 38);
             this.lblTroco.TabIndex = 5;

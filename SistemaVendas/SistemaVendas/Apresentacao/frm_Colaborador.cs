@@ -26,7 +26,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Colaborador bll = new BLL_Colaborador(con);
             dgvColaborador.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV(); //FORMATA O DATA GRID
@@ -45,7 +45,7 @@ namespace SistemaVendas.Apresentacao
                     try
                     {
                         //CRIAR CONEXAO
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_Colaborador bll = new BLL_Colaborador(con);
 
                         //PASSAR O CODIGO QUE ESTA NA TELA
@@ -84,7 +84,7 @@ namespace SistemaVendas.Apresentacao
             this.idColaborador = (Convert.ToInt32(dgvColaborador.CurrentRow.Cells[0].Value));
 
             //chamr modelo bll e dal 
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Colaborador bll = new BLL_Colaborador(con);
             Model_Colaborador modelo = bll.CarregaModeloColaborador(idColaborador);
 
@@ -138,7 +138,7 @@ namespace SistemaVendas.Apresentacao
                         modelo.IdColaborador = Convert.ToInt32(txtId.Text);
                         modelo.Senha = Convert.ToString("");
                         //OBJ PARA GRAVAR NO BANCO
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_Colaborador bll = new BLL_Colaborador(con);
 
                         //CADASTRAR UMA CATEGORIA

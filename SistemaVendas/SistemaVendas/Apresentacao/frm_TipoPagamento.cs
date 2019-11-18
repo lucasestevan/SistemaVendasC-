@@ -25,7 +25,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
             dgvTipoPag.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV();
@@ -45,7 +45,7 @@ namespace SistemaVendas.Apresentacao
                     try
                     {
                         //CRIAR CONEXAO
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
 
                         //EXCLUIR  UMA CATEGORIA
@@ -87,7 +87,7 @@ namespace SistemaVendas.Apresentacao
                 this.idTipoPagamento = (Convert.ToInt32(dgvTipoPag.CurrentRow.Cells[0].Value));
 
                 //chamr modelo bll e dal 
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
                 Model_TipoPagamento modelo = bll.CarregaModeloTipoPagto(idTipoPagamento);
 

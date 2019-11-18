@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_ParcelasVenda
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_ParcelasVenda(DAL_Conexao con)
+        public BLL_ParcelasVenda(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -39,7 +39,7 @@ namespace BLL
                 throw new Exception("Ano de vencimento inferior ao ano atual");
             }
 
-            DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -63,7 +63,7 @@ namespace BLL
                 throw new Exception("Ano de vencimento inferior ao ano atual");
             }
 
-            DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
             DALobj.Alterar(modelo);
         }
 
@@ -80,7 +80,7 @@ namespace BLL
                 throw new Exception("O Código da Venda é obrigatorio");
             }
 
-            DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
         }
 
         //METODO EXCLUIR todas as parcelas
@@ -91,14 +91,14 @@ namespace BLL
                 throw new Exception("O Código da venda é obrigatorio");
             }
 
-            DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
             DALobj.ExcluirTodasParcelas(idVenda);
         }
 
         //METODO CARRREGA MODELO COMPRA
         public Model_ParcelasVenda CarregaModeloCliente(int idParcelas, int idVenda)
         {
-            DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
             return DALobj.CarregaModeloParcelasVenda(idParcelas, idVenda);
         }
 
@@ -110,7 +110,7 @@ namespace BLL
                 throw new Exception("O Código da parcela é obrigatorio");
             }
 
-            DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
             return DALobj.Localizar(idVenda);
         }
 
@@ -119,7 +119,7 @@ namespace BLL
         {
             if (dtPagto != null)
             {
-                DAL_ParcelasVenda DALobj = new DAL_ParcelasVenda(conexao);
+                DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
                 DALobj.RecebimentoParcela(idVenda, idParcelaVenda, dtPagto);
             }
             else

@@ -27,7 +27,7 @@ namespace SistemaVendas
             {
 
                 //chamr modelo bll e dal compra
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Compra bllCompra = new BLL_Compra(con);
                 Model_Compra modeloCom = bllCompra.CarregaModeloCompra(Compra.idCompra);
                 txtId.Text = modeloCom.IdCompra.ToString();
@@ -60,7 +60,7 @@ namespace SistemaVendas
                     modelo.IdCompra = Convert.ToInt32(txtId.Text);
                     modelo.CompraStatus = "PAGO";
                     //OBJ PARA GRAVAR NO BANCO
-                    DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                    DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                     BLL_Compra bll = new BLL_Compra(con);
 
                     

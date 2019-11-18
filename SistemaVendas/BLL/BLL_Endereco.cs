@@ -8,9 +8,9 @@ namespace BLL
 {
     public class BLL_Endereco
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Endereco(DAL_Conexao con)
+        public BLL_Endereco(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -31,7 +31,7 @@ namespace BLL
             }
 
 
-            DAL_Endereco DALobj = new DAL_Endereco(conexao);
+            DAO_Endereco DALobj = new DAO_Endereco(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -40,7 +40,7 @@ namespace BLL
         //METODO CARRREGA MODELO
         public Model_Endereco CarregaModeloEndereco(string cep)
         {
-            DAL_Endereco DALobj = new DAL_Endereco(conexao);
+            DAO_Endereco DALobj = new DAO_Endereco(conexao);
             return DALobj.CarregaModeloEndereco(cep);
         }
 
@@ -48,7 +48,7 @@ namespace BLL
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_Endereco DALobj = new DAL_Endereco(conexao);
+            DAO_Endereco DALobj = new DAO_Endereco(conexao);
             return DALobj.Localizar(valor);
         }
     }

@@ -30,7 +30,7 @@ namespace SistemaVendas.Apresentacao
                 modeloVenda.VendaStatus = "PAGO VR";
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Venda bllVenda = new BLL_Venda(con);
 
                 //CADASTRAR Venda
@@ -39,7 +39,6 @@ namespace SistemaVendas.Apresentacao
 
                 MessageBox.Show("Venda realizada com sucesso!");
                 this.Close();
-
             }
             catch (Exception ex)
             {
@@ -82,15 +81,17 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
+        public Double TotalTroco;
+
         private void txtValorPago_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 if (txtValorPago.Text != "")
                 {
-                    Double TotalLocal = Convert.ToDouble(txtValorPago.Text) - Convert.ToDouble(lblTotal.Text);
+                    this.TotalTroco = Convert.ToDouble(txtValorPago.Text.Trim().Length) - Convert.ToDouble(lblTotal.Text.Trim().Length);
                     //FAZER QUE MINHA VARIAVEL TOTAL RECEBA O VALOR DO TOTAL LOCAL
-                    lblTroco.Text = TotalLocal.ToString();
+                    lblTroco.Text = this.TotalTroco.ToString();
                 }
                
             }
@@ -98,6 +99,16 @@ namespace SistemaVendas.Apresentacao
             {
                 MessageBox.Show("Informe apenas números!");
             }
+
+            if (this.TotalTroco <= 0)
+            {
+                btnFinalizar.Enabled = false;
+            }
+            else
+            {
+                btnFinalizar.Enabled = true;
+            }
+
            
         }
 

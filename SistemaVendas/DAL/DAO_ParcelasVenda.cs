@@ -5,10 +5,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DAL_ParcelasVenda
+    public class DAO_ParcelasVenda
     {
-        private DAL_Conexao conexao;
-        public DAL_ParcelasVenda(DAL_Conexao con)
+        private DAO_Conexao conexao;
+        public DAO_ParcelasVenda(DAO_Conexao con)
         {
             this.conexao = con;
         }

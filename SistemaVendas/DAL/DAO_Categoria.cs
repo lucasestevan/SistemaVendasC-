@@ -7,8 +7,8 @@ namespace DAL
 {
     public class DAO_Categoria
     {
-        private DAL_Conexao conexao;
-        public DAO_Categoria(DAL_Conexao con)
+        private DAO_Conexao conexao;
+        public DAO_Categoria(DAO_Conexao con)
         {
             this.conexao = con;
         }

@@ -50,13 +50,13 @@
             this.lblNomePro = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblEstoque = new System.Windows.Forms.Label();
             this.btnAjuda = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblEstoque = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
             this.pntotal.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -130,7 +130,7 @@
             // 
             this.txtCod.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCod.Location = new System.Drawing.Point(10, 50);
-            this.txtCod.MaxLength = 6;
+            this.txtCod.MaxLength = 9;
             this.txtCod.Name = "txtCod";
             this.txtCod.Size = new System.Drawing.Size(143, 31);
             this.txtCod.TabIndex = 1;
@@ -286,6 +286,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(428, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 22);
+            this.label4.TabIndex = 71;
+            this.label4.Text = "ESTOQUE";
+            // 
+            // lblEstoque
+            // 
+            this.lblEstoque.AutoSize = true;
+            this.lblEstoque.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblEstoque.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstoque.Location = new System.Drawing.Point(436, 125);
+            this.lblEstoque.Name = "lblEstoque";
+            this.lblEstoque.Size = new System.Drawing.Size(0, 22);
+            this.lblEstoque.TabIndex = 70;
+            // 
             // btnAjuda
             // 
             this.btnAjuda.BackColor = System.Drawing.Color.Transparent;
@@ -343,32 +363,11 @@
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(778, 626);
             this.panel2.TabIndex = 73;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(428, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 22);
-            this.label4.TabIndex = 71;
-            this.label4.Text = "ESTOQUE";
-            // 
-            // lblEstoque
-            // 
-            this.lblEstoque.AutoSize = true;
-            this.lblEstoque.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblEstoque.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstoque.Location = new System.Drawing.Point(436, 125);
-            this.lblEstoque.Name = "lblEstoque";
-            this.lblEstoque.Size = new System.Drawing.Size(0, 22);
-            this.lblEstoque.TabIndex = 70;
             // 
             // frm_VendasFC
             // 
@@ -386,6 +385,7 @@
             this.Name = "frm_VendasFC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela de Venda";
+            this.Load += new System.EventHandler(this.frm_VendasFC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).EndInit();
             this.pntotal.ResumeLayout(false);
             this.pntotal.PerformLayout();
@@ -425,8 +425,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAjuda;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblEstoque;
+        private System.Windows.Forms.Panel panel2;
     }
 }

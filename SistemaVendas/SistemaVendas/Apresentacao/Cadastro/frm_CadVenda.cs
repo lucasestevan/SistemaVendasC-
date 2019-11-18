@@ -193,7 +193,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 }
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Venda bllVenda = new BLL_Venda(con);
 
                 //ITENS VENDA
@@ -272,7 +272,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 }
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Venda bllVenda = new BLL_Venda(con);
 
                 //ITENS VENDA
@@ -410,7 +410,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR produto
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
                 cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbProtudo.DisplayMember = "nome";   //PEGA O NOME
@@ -430,7 +430,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             Double QtdEstoque = 0;
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
                 Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
                 QtdEstoque = modelo.Quantidade;
@@ -479,7 +479,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //EVENTO BUSCA O PRECO DO PRODUTO
         public void BuscaPrecoProduto()
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Produto bll = new BLL_Produto(con);
             Model_Produto modelo = bll.CarregaModeloProduto(Convert.ToInt32(cbProtudo.SelectedValue.ToString()));
 
@@ -515,7 +515,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR CLIENTE
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Cliente bll = new BLL_Cliente(con);
                 cbCliente.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbCliente.DisplayMember = "nome";   //PEGA O NOME
@@ -536,7 +536,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR TIPO DE PAGAMENTO
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
                 cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME

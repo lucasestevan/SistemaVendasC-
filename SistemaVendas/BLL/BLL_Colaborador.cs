@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Colaborador
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Colaborador(DAL_Conexao con)
+        public BLL_Colaborador(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -34,7 +34,7 @@ namespace BLL
             }
 
 
-            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            DAO_Colaborador DALobj = new DAO_Colaborador(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -52,21 +52,21 @@ namespace BLL
                 throw new Exception("O CPF do Colaborador é obrigatorio");
             }
 
-            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            DAO_Colaborador DALobj = new DAO_Colaborador(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idColaborador)
         {
-            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            DAO_Colaborador DALobj = new DAO_Colaborador(conexao);
             DALobj.Excluir(idColaborador);
         }
 
         //METODO CARRREGA MODELO
         public Model_Colaborador CarregaModeloColaborador(int idColaborador)
         {
-            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            DAO_Colaborador DALobj = new DAO_Colaborador(conexao);
             return DALobj.CarregaModeloColaborador(idColaborador);
         }
 
@@ -80,7 +80,7 @@ namespace BLL
                 throw new Exception("Selecione o Colaborador");
             }
 
-            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            DAO_Colaborador DALobj = new DAO_Colaborador(conexao);
             DALobj.ApagarSenha(modelo);
         }
 
@@ -88,7 +88,7 @@ namespace BLL
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_Colaborador DALobj = new DAL_Colaborador(conexao);
+            DAO_Colaborador DALobj = new DAO_Colaborador(conexao);
             return DALobj.Localizar(valor);
         }
     }

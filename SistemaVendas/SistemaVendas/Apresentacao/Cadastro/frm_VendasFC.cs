@@ -14,7 +14,6 @@ namespace SistemaVendas.Apresentacao
         public frm_VendasFC()
         {
             InitializeComponent();
-
         }
 
         //meotodoLOCALIZAR ITEM
@@ -29,7 +28,7 @@ namespace SistemaVendas.Apresentacao
                     this.Codigo = txtCod.Text;
 
                     //chamr modelo bll e dal 
-                    DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                    DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                     BLL_Produto bll = new BLL_Produto(con);
                     Model_Produto modelo = bll.CarregaModeloProdutoCodigo(this.Codigo);
 
@@ -60,7 +59,7 @@ namespace SistemaVendas.Apresentacao
             try
             {
                 //VERIFICAR SE OS CAMPOS NAO SAO VAZIOS
-                if ((lblProduto.Text != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") && (txtQtd.Text !=",00"))
+                if ((lblProduto.Text != "") && (txtQtd.Text != "0,00") && (txtQtd.Text != "") && (txtQtd.Text != "0,") && (txtQtd.Text != "0") && (txtQtd.Text != ",00"))
                 {
                     Double TotalLocal = Convert.ToDouble(txtQtd.Text) * Convert.ToDouble(lblValor.Text);
                     //FAZER QUE MINHA VARIAVEL TOTAL RECEBA O VALOR DO TOTAL LOCAL
@@ -115,40 +114,48 @@ namespace SistemaVendas.Apresentacao
 
         public void FinalizarVenda()
         {
-            //MOSTRAR MENSAGEM desejo remover item
-            DialogResult msg = MessageBox.Show("Deseja finalizar a Venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            //SE O ESCOLHER SIM
-            if (msg == DialogResult.Yes)
+            if (this.totalVenda <= 0)
             {
-                frm_Pagamento pagamento = new frm_Pagamento();
-                pagamento.lblTotal.Text = lblTotal.Text.ToString();
-                pagamento.ShowDialog();
-
-                //LEITURA DOS DADOS
-                Model_Venda modeloVenda = new Model_Venda();
-
-                //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
-                //ITENS VENDA
-                Model_ItensVenda modeloItensVendas = new Model_ItensVenda();
-                BLL_ItensVendas bllItenVenda = new BLL_ItensVendas(con);
-
-
-                //CADASTRAR ITENS Venda
-                for (int i = 0; i < dgvVenda.RowCount; i++)
+                MessageBox.Show("Valor da venda deve ser maior que zero", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+            }
+            else
+            {
+                //MOSTRAR MENSAGEM desejo remover item
+                DialogResult msg = MessageBox.Show("Deseja finalizar a Venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                //SE O ESCOLHER SIM
+                if (msg == DialogResult.Yes)
                 {
-                    modeloItensVendas.IdItensVenda = i + 1;
-                    modeloItensVendas.IdVendaItensVendas = pagamento.idVenda;
-                    modeloItensVendas.IdProdutoItensVenda = Convert.ToInt32(dgvVenda.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
-                    modeloItensVendas.Quantidade = Convert.ToDouble(dgvVenda.Rows[i].Cells[3].Value); //PEGA A qtd  DO DATA GRID
-                    modeloItensVendas.Valor = Convert.ToDouble(dgvVenda.Rows[i].Cells[4].Value); //PEGA O valor DO DATA GRID
+                    frm_Pagamento pagamento = new frm_Pagamento();
+                    pagamento.lblTotal.Text = this.lblTotal.Text.ToString();
+                    pagamento.ShowDialog();
 
-                    bllItenVenda.Incluir(modeloItensVendas);
+                    //LEITURA DOS DADOS
+                    Model_Venda modeloVenda = new Model_Venda();
 
-                    //ALTERAR A QUANTIDADE DE PRODUTOS vendidos NA TABLE DA PRODUTOS
-                    //TRIGGER CRIADA NO BD
+                    //OBJ PARA GRAVAR NO BANCO
+                    DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+                    //ITENS VENDA
+                    Model_ItensVenda modeloItensVendas = new Model_ItensVenda();
+                    BLL_ItensVendas bllItenVenda = new BLL_ItensVendas(con);
+
+
+                    //CADASTRAR ITENS Venda
+                    for (int i = 0; i < dgvVenda.RowCount; i++)
+                    {
+                        modeloItensVendas.IdItensVenda = i + 1;
+                        modeloItensVendas.IdVendaItensVendas = pagamento.idVenda;
+                        modeloItensVendas.IdProdutoItensVenda = Convert.ToInt32(dgvVenda.Rows[i].Cells[0].Value); //PEGA O IDE DO DATA GRID
+                        modeloItensVendas.Quantidade = Convert.ToDouble(dgvVenda.Rows[i].Cells[3].Value); //PEGA A qtd  DO DATA GRID
+                        modeloItensVendas.Valor = Convert.ToDouble(dgvVenda.Rows[i].Cells[4].Value); //PEGA O valor DO DATA GRID
+
+                        bllItenVenda.Incluir(modeloItensVendas);
+
+                        //ALTERAR A QUANTIDADE DE PRODUTOS vendidos NA TABLE DA PRODUTOS
+                        //TRIGGER CRIADA NO BD
+
+                    }
+                    this.Close();
                 }
-                this.Close();
             }
         }
 
@@ -255,7 +262,12 @@ namespace SistemaVendas.Apresentacao
         {
             MessageBox.Show("ENTER - LOCALIZAR O PRODUTO.\n\n" +
                 "F10 - FINALIZAR A VENDA.\n\n" +
-                "ESC - SAIR DA VENDA." , "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                "ESC - SAIR DA VENDA.", "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+        }
+
+        private void frm_VendasFC_Load(object sender, EventArgs e)
+        {
+            txtCod.Focus();
         }
     }
 }

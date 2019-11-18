@@ -32,7 +32,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modeloCompra.IdFornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
                 modeloCompra.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Compra bllCompra = new BLL_Compra(con);
 
                 //ITENS COMPRA
@@ -83,7 +83,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modeloCompra.IdTipoPagamento = Convert.ToInt32(cbFormaPagto.SelectedValue);
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Compra bllCompra = new BLL_Compra(con);
                 //CADASTRAR compra
                 bllCompra.Alterar(modeloCompra);
@@ -283,7 +283,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR produto
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
                 cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbProtudo.DisplayMember = "nome";   //PEGA O NOME
@@ -304,7 +304,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR FORNECEDOR
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Fornecedor bll = new BLL_Fornecedor(con);
                 cbFornecedor.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbFornecedor.DisplayMember = "nome";   //PEGA O NOME
@@ -325,7 +325,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR TIPO DE PAGAMENTO
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
                 cbFormaPagto.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbFormaPagto.DisplayMember = "nome";   //PEGA O NOME

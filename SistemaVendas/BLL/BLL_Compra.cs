@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Compra
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Compra(DAL_Conexao con)
+        public BLL_Compra(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -38,7 +38,7 @@ namespace BLL
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }
 
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -71,28 +71,28 @@ namespace BLL
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }
 
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO PAGAR CONTA
         public void PagarConta(Model_Compra modelo)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             DALobj.PagarConta(modelo);
         }
 
         //METODO ESTORNAR CONTA
         public void EstornarConta(Model_Compra modelo)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             DALobj.EstornarConta(modelo);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idCompra)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             DALobj.Excluir(idCompra);
         }
 
@@ -100,7 +100,7 @@ namespace BLL
         //METODO CARRREGA MODELO COMPRA
         public Model_Compra CarregaModeloCompra(int idCompra)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             return DALobj.CarregaModeloCompra(idCompra);
         }
 
@@ -108,28 +108,28 @@ namespace BLL
         //METODO LOCALIZAR GERAL
         public DataTable LocalizarGeral()
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             return DALobj.LocalizarGeral();
         }
 
         //METODO LOCALIZAR PELO IDCOMPRA
         public DataTable localizarIdCompra(string idCompra)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             return DALobj.LocalizaridCompra(idCompra);
         }
 
         //METODO LOCALIZAR NOME
         public DataTable LocalizarNome(String nome)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             return DALobj.LocalizarNome(nome);
         }
 
         //METODO LOCALIZAR DATA
         public DataTable LocalizarData(DateTime inicial, DateTime final)
         {
-            DAL_Compra DALobj = new DAL_Compra(conexao);
+            DAO_Compra DALobj = new DAO_Compra(conexao);
             return DALobj.LocalizarData(inicial, final);
         }
     }

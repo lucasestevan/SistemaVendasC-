@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Produto
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Produto(DAL_Conexao con)
+        public BLL_Produto(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -48,7 +48,7 @@ namespace BLL
                 throw new Exception("O codigo do produto é obrigatorio");
             }
 
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -86,42 +86,42 @@ namespace BLL
                 throw new Exception("O codigo do produto é obrigatorio");
             }
 
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             DALobj.Alterar(modelo, true);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idProduto)
         {
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             DALobj.Excluir(idProduto);
         }
 
         //METODO CARRREGA MODELO 
         public Model_Produto CarregaModeloProduto(int idProduto)
         {
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             return DALobj.CarregaModeloProduto(idProduto);
         }
 
         //METODO CARRREGA MODELO 
         public Model_Produto CarregaModeloProdutoCodigo(string cod)
         {
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             return DALobj.CarregaModeloProdutoCodigo(cod);
         }
 
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             return DALobj.Localizar(valor);
         }
 
         //METODO LOCALIZAR estoque baixo
         public DataTable LocalizarEstoqueBaixo()
         {
-            DAL_Produto DALobj = new DAL_Produto(conexao);
+            DAO_Produto DALobj = new DAO_Produto(conexao);
             return DALobj.LocalizarEstoqueBaixo();
         }
     }

@@ -3,10 +3,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DAL_Login
+    public class DAO_Login
     {
-        private DAL_Conexao conexao;
-        public DAL_Login(DAL_Conexao con)
+        private DAO_Conexao conexao;
+        public DAO_Login(DAO_Conexao con)
         {
             this.conexao = con;
         }

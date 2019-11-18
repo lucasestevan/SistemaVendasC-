@@ -25,7 +25,7 @@ namespace SistemaVendas.Apresentacao
         //botao pesquisar
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Fornecedor bll = new BLL_Fornecedor(con);
             dgvFornecedor.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV(); //FORMATA O DATA GRID
@@ -45,7 +45,7 @@ namespace SistemaVendas.Apresentacao
                     try
                     {
                         //CRIAR CONEXAO
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_Fornecedor bll = new BLL_Fornecedor(con);
 
                         //PASSAR O CODIGO QUE ESTA NA TELA
@@ -86,7 +86,7 @@ namespace SistemaVendas.Apresentacao
                 this.idFornecedor = (Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value));
 
                 //chamr modelo bll e dal 
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Fornecedor bllF = new BLL_Fornecedor(con);
                 Model_Fornecedor modeloF = bllF.CarregaModeloFornecedor(idFornecedor);
 

@@ -22,7 +22,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 Model_TipoPagamento modelo = new Model_TipoPagamento();
                 modelo.Nome = txtNome.Text;
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
 
                 //CADASTRAR UMA CATEGORIA
@@ -46,7 +46,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.IdTipoPagamento = Convert.ToInt32(txtId.Text);
                 modelo.Nome = txtNome.Text;
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_TipoPagamento bll = new BLL_TipoPagamento(con);
 
                 //CADASTRAR UMA CATEGORIA

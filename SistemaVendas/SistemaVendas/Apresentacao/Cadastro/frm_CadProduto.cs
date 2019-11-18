@@ -26,7 +26,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //CARREGAR CATEGORIA
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Categoria bll = new BLL_Categoria(con);
                 cmbCategoria.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cmbCategoria.DisplayMember = "nome";   //PEGA O NOME
@@ -44,7 +44,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             //carregar fornecedor
             try
             {
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Fornecedor bll = new BLL_Fornecedor(con);
                 cmbFornecedor.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cmbFornecedor.DisplayMember = "nome";   //PEGA O NOME
@@ -76,7 +76,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.Codigo_pro = txtCodigo.Text;
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
 
                 //CADASTRAR UMA CATEGORIA
@@ -107,7 +107,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                 modelo.Codigo_pro = txtCodigo.Text;
 
                 //OBJ PARA GRAVAR NO BANCO
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
 
                 //CADASTRAR UMA CATEGORIA

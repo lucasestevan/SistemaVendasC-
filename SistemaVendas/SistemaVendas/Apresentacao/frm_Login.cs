@@ -30,7 +30,7 @@ namespace SistemaVendas
             else
             {
                 //chamr bll 
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Login bll = new BLL_Login(con);
                 bll.Login(usuario, senha);
 

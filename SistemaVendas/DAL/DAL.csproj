@@ -63,19 +63,19 @@
   <ItemGroup>
     <Compile Include="DadoConexao.cs" />
     <Compile Include="DAO_Categoria.cs" />
-    <Compile Include="DAL_Cliente.cs" />
-    <Compile Include="DAL_Colaborador.cs" />
-    <Compile Include="DAL_Compra.cs" />
-    <Compile Include="DAL_Conexao.cs" />
-    <Compile Include="DAL_Endereco.cs" />
-    <Compile Include="DAL_Fornecedor.cs" />
-    <Compile Include="DAL_ItensCompra.cs" />
-    <Compile Include="DAL_ItensVenda.cs" />
-    <Compile Include="DAL_Login.cs" />
-    <Compile Include="DAL_ParcelasVenda.cs" />
-    <Compile Include="DAL_Produto.cs" />
-    <Compile Include="DAL_TipoPagamento.cs" />
-    <Compile Include="DAL_Venda.cs" />
+    <Compile Include="DAO_Cliente.cs" />
+    <Compile Include="DAO_Colaborador.cs" />
+    <Compile Include="DAO_Compra.cs" />
+    <Compile Include="DAO_Conexao.cs" />
+    <Compile Include="DAO_Endereco.cs" />
+    <Compile Include="DAO_Fornecedor.cs" />
+    <Compile Include="DAO_ItensCompra.cs" />
+    <Compile Include="DAO_ItensVenda.cs" />
+    <Compile Include="DAO_Login.cs" />
+    <Compile Include="DAO_ParcelasVenda.cs" />
+    <Compile Include="DAO_Produto.cs" />
+    <Compile Include="DAO_TipoPagamento.cs" />
+    <Compile Include="DAO_Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>

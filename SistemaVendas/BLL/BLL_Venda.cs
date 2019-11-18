@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Venda
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Venda(DAL_Conexao con)
+        public BLL_Venda(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -38,7 +38,7 @@ namespace BLL
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }
 
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -71,21 +71,21 @@ namespace BLL
                 throw new Exception("O Número de parcelas dever ser maior que zero");
             }
 
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO CANCELAR VENDA
         public void CancelarVenda(int idVenda)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             DALobj.CancelarVenda(idVenda);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idVenda)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             DALobj.Excluir(idVenda);
         }
 
@@ -93,56 +93,56 @@ namespace BLL
         //METODO CARRREGA MODELO COMPRA
         public Model_Venda CarregaModeloVenda(int idVenda)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.CarregaModeloVenda(idVenda);
         }
 
         //METODO LOCALIZAR fgeral
         public DataTable LocalizarGeral()
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.LocalizarGeral();
         }
 
         //METODO LOCALIZAR IDvenda
         public DataTable LocalizaridVenda(String idVenda)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.LocalizaridVenda(idVenda);
         }
 
         //METODO LOCALIZAR POR NOME DE cliente
         public DataTable LocalizarNome(String nome)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.LocalizarNome(nome);
         }
 
         //METODO LOCALIZAR por data
         public DataTable LocalizarData(DateTime inicial, DateTime final)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.LocalizarData(inicial, final);
         }
 
         //METODO LOCALIZAR POR parcelas em aberto
         public DataTable LocalizarParcelsAberto()
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.LocalizarParcelsAberto();
         }
 
         //METODO LOCALIZAR parcelas nao pagas
         public int ParcelasNaoPagas(int idVenda)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             return DALobj.ParcelasNaoPagas(idVenda);
         }
 
         //METODO PAGAR Venda
         public void PagarParcelaVenda(Model_Venda modelo)
         {
-            DAL_Venda DALobj = new DAL_Venda(conexao);
+            DAO_Venda DALobj = new DAO_Venda(conexao);
             DALobj.PagarParcelaVenda(modelo);
         }
     }

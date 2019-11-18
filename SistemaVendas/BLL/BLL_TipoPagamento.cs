@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_TipoPagamento
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_TipoPagamento(DAL_Conexao con)
+        public BLL_TipoPagamento(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -23,7 +23,7 @@ namespace BLL
                 throw new Exception("O nome do Tipo de pagamento é obrigatorio");
             }
 
-            DAL_TipoPagamento DALobj = new DAL_TipoPagamento(conexao);
+            DAO_TipoPagamento DALobj = new DAO_TipoPagamento(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -40,28 +40,28 @@ namespace BLL
                 throw new Exception("O nome do tipo de pagamento é obrigatorio");
             }
 
-            DAL_TipoPagamento DALobj = new DAL_TipoPagamento(conexao);
+            DAO_TipoPagamento DALobj = new DAO_TipoPagamento(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idTipoPagamento)
         {
-            DAL_TipoPagamento DALobj = new DAL_TipoPagamento(conexao);
+            DAO_TipoPagamento DALobj = new DAO_TipoPagamento(conexao);
             DALobj.Excluir(idTipoPagamento);
         }
 
         //METODO CARRREGA MODELO 
         public Model_TipoPagamento CarregaModeloTipoPagto(int idTipoPagto)
         {
-            DAL_TipoPagamento DALobj = new DAL_TipoPagamento(conexao);
+            DAO_TipoPagamento DALobj = new DAO_TipoPagamento(conexao);
             return DALobj.CarregaModeloTipoPag(idTipoPagto);
         }
 
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_TipoPagamento DALobj = new DAL_TipoPagamento(conexao);
+            DAO_TipoPagamento DALobj = new DAO_TipoPagamento(conexao);
             return DALobj.Localizar(valor);
         }
     }

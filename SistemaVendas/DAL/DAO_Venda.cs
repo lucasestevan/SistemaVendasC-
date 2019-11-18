@@ -5,10 +5,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DAL_Venda
+    public class DAO_Venda
     {
-        private DAL_Conexao conexao;
-        public DAL_Venda(DAL_Conexao con)
+        private DAO_Conexao conexao;
+        public DAO_Venda(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -81,8 +81,8 @@ namespace DAL
 
                 //alterar a quantisdade do estoque
                 Model_Produto produto;
-                DAL_Conexao cxPL = new DAL_Conexao(DadoConexao.StringDeConexao);
-                DAL_Produto dalProduto = new DAL_Produto(cxPL);
+                DAO_Conexao cxPL = new DAO_Conexao(DadoConexao.StringDeConexao);
+                DAO_Produto dalProduto = new DAO_Produto(cxPL);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(dt.Rows[i]["id_produto"]));

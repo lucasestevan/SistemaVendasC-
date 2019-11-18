@@ -14,7 +14,7 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
 
         private void Controle_Menu1_Load(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Produto bll = new BLL_Produto(con);
             dgvEstoqueBaixo.DataSource = bll.LocalizarEstoqueBaixo();
             FormatarDGV(); //FORMATA O DATA GRID

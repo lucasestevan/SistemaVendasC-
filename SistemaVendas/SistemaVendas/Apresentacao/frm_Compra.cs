@@ -39,7 +39,7 @@ namespace SistemaVendas.Apresentacao
                         Model_Compra modeloCompra = new Model_Compra();
                         this.idCompra = Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value);
                         //EXCLUIR ITENS DA COMPRA 
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
                         //excluir Compra
                         BLL_Compra bllCompra = new BLL_Compra(con);
@@ -130,7 +130,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR geral
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarGeral();
             FormatarDGV(); //FORMATA O DATA GRID
@@ -141,7 +141,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR IDCOMPRA
         private void BtnPesquisarCod_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.localizarIdCompra(txtIdCompraPes.Text);
             FormatarDGV(); //FORMATA O DATA GRID
@@ -152,7 +152,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR FORNECEDOR
         private void BtnPesquisarFornecedor_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarNome(txtNome.Text);
             FormatarDGV(); //FORMATA O DATA GRID
@@ -163,7 +163,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR Data
         private void BtnPesquisaData_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Compra bll = new BLL_Compra(con);
             dgvCompra.DataSource = bll.LocalizarData(dtInicial.Value, dtFinal.Value);
             FormatarDGV(); //FORMATA O DATA GRID
@@ -200,7 +200,7 @@ namespace SistemaVendas.Apresentacao
                 //CRIAR O FORM VIZUALIZAR ITEM
                 frm_VisualizarItensCompra visualizarItensCompra = new frm_VisualizarItensCompra();
 
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_ItensCompra bllItens = new BLL_ItensCompra(con);
 
                 visualizarItensCompra.dgvItensCompra.DataSource = bllItens.Localizar(Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
@@ -233,7 +233,7 @@ namespace SistemaVendas.Apresentacao
                         this.idCompra = (Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value));
 
                         //chamr modelo bll e dal compra
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_Compra bll = new BLL_Compra(con);
                         Model_Compra modelo = bll.CarregaModeloCompra(idCompra);
 
@@ -316,7 +316,7 @@ namespace SistemaVendas.Apresentacao
                             modelo.IdCompra = Convert.ToInt32(txtId.Text);
                             modelo.CompraStatus = "ABERTO";
                             //OBJ PARA GRAVAR NO BANCO
-                            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                             BLL_Compra bll = new BLL_Compra(con);
 
                             //CADASTRAR UMA CATEGORIA

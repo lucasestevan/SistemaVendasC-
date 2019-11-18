@@ -7,9 +7,9 @@ namespace BLL
 {
     public class BLL_Cliente
     {
-        private DAL_Conexao conexao;
+        private DAO_Conexao conexao;
 
-        public BLL_Cliente(DAL_Conexao con)
+        public BLL_Cliente(DAO_Conexao con)
         {
             this.conexao = con;
         }
@@ -29,7 +29,7 @@ namespace BLL
             }
             
 
-            DAL_Cliente DALobj = new DAL_Cliente(conexao);
+            DAO_Cliente DALobj = new DAO_Cliente(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -47,21 +47,21 @@ namespace BLL
                 throw new Exception("O CPF do cliente é obrigatorio");
             }
 
-            DAL_Cliente DALobj = new DAL_Cliente(conexao);
+            DAO_Cliente DALobj = new DAO_Cliente(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idProduto)
         {
-            DAL_Cliente DALobj = new DAL_Cliente(conexao);
+            DAO_Cliente DALobj = new DAO_Cliente(conexao);
             DALobj.Excluir(idProduto);
         }
 
         //METODO CARRREGA MODELO COMPRA
         public Model_Cliente CarregaModeloCliente(int idCliente)
         {
-            DAL_Cliente DALobj = new DAL_Cliente(conexao);
+            DAO_Cliente DALobj = new DAO_Cliente(conexao);
             return DALobj.CarregaModeloCliente(idCliente);
         }
 
@@ -69,7 +69,7 @@ namespace BLL
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_Cliente DALobj = new DAL_Cliente(conexao);
+            DAO_Cliente DALobj = new DAO_Cliente(conexao);
             return DALobj.Localizar(valor);
         }
     }

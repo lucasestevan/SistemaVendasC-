@@ -81,7 +81,7 @@ namespace SistemaVendas.Apresentacao
                         Model_Venda modeloVenda = new Model_Venda();
                         this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
                         //EXCLUIR ITENS DA COMPRA 
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_ItensVendas bllItens = new BLL_ItensVendas(con);
                         //excluir Compra
                         BLL_Venda bllVenda = new BLL_Venda(con);
@@ -132,7 +132,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR geral
         private void BtnPesquisarGeral_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizarGeral();
             ContarLinhas();
@@ -143,7 +143,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR IDCOMPRA
         private void BtnPesquisarCod_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizaridVenda(txtIdVenda.Text);
             ContarLinhas();
@@ -154,7 +154,7 @@ namespace SistemaVendas.Apresentacao
         //BOTAO PESQUISAR Data
         private void BtnPesquisaData_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizarData(dtInicial.Value, dtFinal.Value);
             ContarLinhas();
@@ -164,7 +164,7 @@ namespace SistemaVendas.Apresentacao
 
         private void BtnPesquisaCliente_Click(object sender, EventArgs e)
         {
-            DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Venda bll = new BLL_Venda(con);
             dgvVenda.DataSource = bll.LocalizarNome(txtNome.Text);
             ContarLinhas();
@@ -181,7 +181,7 @@ namespace SistemaVendas.Apresentacao
                 //CRIAR O FORM VIZUALIZAR ITEM
                 frm_VisualizarItensVenda visualizar = new frm_VisualizarItensVenda();
 
-                DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_ItensVendas bllItens = new BLL_ItensVendas(con);
                 BLL_ParcelasVenda bllParcelas = new BLL_ParcelasVenda(con);
 
@@ -215,7 +215,7 @@ namespace SistemaVendas.Apresentacao
                         this.idVenda = (Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
 
                         //chamr modelo bll e dal venda
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         BLL_Venda bll = new BLL_Venda(con);
                         Model_Venda modelo = bll.CarregaModeloVenda(idVenda);
 
@@ -315,7 +315,7 @@ namespace SistemaVendas.Apresentacao
                     {
                         this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
                         //EXCLUIR ITENS DA COMPRA 
-                        DAL_Conexao con = new DAL_Conexao(DadoConexao.StringDeConexao);
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                         //excluir Compra
                         BLL_Venda bllVenda = new BLL_Venda(con);
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);

@@ -3,12 +3,12 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DAL_Conexao
+    public class DAO_Conexao
     {
         private String _stringConexao;
         private SqlConnection _conexao;
 
-        public DAL_Conexao(String dadosConexao)
+        public DAO_Conexao(String dadosConexao)
         {
             this._conexao = new SqlConnection();
             this._stringConexao = dadosConexao;
