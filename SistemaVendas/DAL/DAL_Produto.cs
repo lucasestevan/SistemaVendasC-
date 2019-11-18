@@ -117,6 +117,17 @@ namespace DAL
             return dt;
         }
 
+        //METODO LOCALIZAR estoque baixo
+        public DataTable LocalizarEstoqueBaixo()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("select nome, quantidade from Produto where quantidade <= 10 order by nome", conexao.StringConexao);
+            da.Fill(dt);
+            return dt;
+        }
+
+
         //METODO CARREGA MODELO
         public Model_Produto CarregaModeloProdutoCodigo(string codigo)
         {

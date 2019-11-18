@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SistemaVendas.Apresentacao.Cadastro;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.ControlesUsuario
@@ -26,7 +20,7 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
 
         private void btnVendasBal_Click(object sender, EventArgs e)
         {
-            frm_Venda f = new frm_Venda();
+            frm_CadVenda f = new frm_CadVenda();
             f.ShowDialog();
             f.Dispose();
         }

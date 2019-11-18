@@ -117,5 +117,12 @@ namespace BLL
             DAL_Produto DALobj = new DAL_Produto(conexao);
             return DALobj.Localizar(valor);
         }
+
+        //METODO LOCALIZAR estoque baixo
+        public DataTable LocalizarEstoqueBaixo()
+        {
+            DAL_Produto DALobj = new DAL_Produto(conexao);
+            return DALobj.LocalizarEstoqueBaixo();
+        }
     }
 }

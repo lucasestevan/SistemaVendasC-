@@ -137,9 +137,11 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //quando sair do cmapo preco
         private void TxtPreco_Leave(object sender, EventArgs e)
         {
+            
+
             if (txtPreco.Text.Contains(",") == false)
             {
-                txtPreco.Text += ",";
+                txtPreco.Text += ",00";
             }
             else
             {
@@ -161,7 +163,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //AJUSTAR O CAMPO QUANTIDADE
         private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == ',' || e.KeyChar == ',')
+            if (e.KeyChar == '.' || e.KeyChar == ',')
             {
                 if (!txtQtd.Text.Contains(","))
                 {

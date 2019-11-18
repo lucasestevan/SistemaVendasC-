@@ -33,9 +33,12 @@ namespace SistemaVendas.Apresentacao
                     BLL_Produto bll = new BLL_Produto(con);
                     Model_Produto modelo = bll.CarregaModeloProdutoCodigo(this.Codigo);
 
+                    Model_Produto modelo2 = bll.CarregaModeloProduto(modelo.IdProduto); //carregar estoque
+
                     lblIdPro.Text = modelo.IdProduto.ToString();//id
                     lblProduto.Text = modelo.Nome.ToString(); //nome
                     lblValor.Text = modelo.Preco.ToString();//preco
+                    lblEstoque.Text = modelo2.Quantidade.ToString();
 
                     txtQtd.Enabled = true;
                     txtQtd.Focus();
@@ -73,6 +76,7 @@ namespace SistemaVendas.Apresentacao
                     lblProduto.Text = "";
                     lblIdPro.Text = "";
                     lblValor.Text = "";
+                    lblEstoque.Text = "";
 
                     //ATUALIZAR O TOTAL DA COMPRA
                     lblTotal.Text = this.totalVenda.ToString();

@@ -35,6 +35,9 @@
             this.pnFinalizaCompra = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvParcelas = new System.Windows.Forms.DataGridView();
+            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label19 = new System.Windows.Forms.Label();
             this.lblTotalVenda = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -55,11 +58,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvVenda = new System.Windows.Forms.DataGridView();
-            this.proValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proValorUnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proValorUnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQtd = new System.Windows.Forms.TextBox();
@@ -76,9 +79,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbVerificaEstoque = new System.Windows.Forms.CheckBox();
             this.pnVenda = new System.Windows.Forms.GroupBox();
-            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pntotal = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.pnFinalizaCompra.SuspendLayout();
@@ -92,7 +92,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(649, 121);
+            this.btnAlterar.Location = new System.Drawing.Point(649, 119);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(87, 28);
@@ -103,7 +103,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(649, 45);
+            this.btnOk.Location = new System.Drawing.Point(650, 39);
             this.btnOk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(87, 28);
@@ -166,6 +166,27 @@
             this.dgvParcelas.Size = new System.Drawing.Size(569, 375);
             this.dgvParcelas.TabIndex = 43;
             // 
+            // Parcela
+            // 
+            this.Parcela.HeaderText = "Parcela";
+            this.Parcela.Name = "Parcela";
+            this.Parcela.ReadOnly = true;
+            this.Parcela.Width = 60;
+            // 
+            // ValorParcela
+            // 
+            this.ValorParcela.HeaderText = "Valor da parcela";
+            this.ValorParcela.Name = "ValorParcela";
+            this.ValorParcela.ReadOnly = true;
+            this.ValorParcela.Width = 140;
+            // 
+            // dataVencimento
+            // 
+            this.dataVencimento.HeaderText = "Data Vencimento";
+            this.dataVencimento.Name = "dataVencimento";
+            this.dataVencimento.ReadOnly = true;
+            this.dataVencimento.Width = 140;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -209,7 +230,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(649, 78);
+            this.btnSalvar.Location = new System.Drawing.Point(649, 79);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(87, 28);
@@ -397,25 +418,12 @@
             this.dgvVenda.TabIndex = 43;
             this.dgvVenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVenda_CellDoubleClick);
             // 
-            // proValorTotal
+            // id_produto
             // 
-            this.proValorTotal.HeaderText = "Valor Total";
-            this.proValorTotal.Name = "proValorTotal";
-            this.proValorTotal.ReadOnly = true;
-            // 
-            // proValorUnd
-            // 
-            this.proValorUnd.HeaderText = "Valor Unitário";
-            this.proValorUnd.Name = "proValorUnd";
-            this.proValorUnd.ReadOnly = true;
-            this.proValorUnd.Width = 110;
-            // 
-            // proQtd
-            // 
-            this.proQtd.HeaderText = "Quant.";
-            this.proQtd.Name = "proQtd";
-            this.proQtd.ReadOnly = true;
-            this.proQtd.Width = 60;
+            this.id_produto.HeaderText = "Código";
+            this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            this.id_produto.Width = 60;
             // 
             // Produto
             // 
@@ -424,12 +432,25 @@
             this.Produto.ReadOnly = true;
             this.Produto.Width = 160;
             // 
-            // id_produto
+            // proQtd
             // 
-            this.id_produto.HeaderText = "Código";
-            this.id_produto.Name = "id_produto";
-            this.id_produto.ReadOnly = true;
-            this.id_produto.Width = 60;
+            this.proQtd.HeaderText = "Quant.";
+            this.proQtd.Name = "proQtd";
+            this.proQtd.ReadOnly = true;
+            this.proQtd.Width = 60;
+            // 
+            // proValorUnd
+            // 
+            this.proValorUnd.HeaderText = "Valor Unitário";
+            this.proValorUnd.Name = "proValorUnd";
+            this.proValorUnd.ReadOnly = true;
+            this.proValorUnd.Width = 110;
+            // 
+            // proValorTotal
+            // 
+            this.proValorTotal.HeaderText = "Valor Total";
+            this.proValorTotal.Name = "proValorTotal";
+            this.proValorTotal.ReadOnly = true;
             // 
             // label9
             // 
@@ -625,27 +646,6 @@
             this.pnVenda.Size = new System.Drawing.Size(628, 688);
             this.pnVenda.TabIndex = 50;
             this.pnVenda.TabStop = false;
-            // 
-            // Parcela
-            // 
-            this.Parcela.HeaderText = "Parcela";
-            this.Parcela.Name = "Parcela";
-            this.Parcela.ReadOnly = true;
-            this.Parcela.Width = 60;
-            // 
-            // ValorParcela
-            // 
-            this.ValorParcela.HeaderText = "Valor da parcela";
-            this.ValorParcela.Name = "ValorParcela";
-            this.ValorParcela.ReadOnly = true;
-            this.ValorParcela.Width = 140;
-            // 
-            // dataVencimento
-            // 
-            this.dataVencimento.HeaderText = "Data Vencimento";
-            this.dataVencimento.Name = "dataVencimento";
-            this.dataVencimento.ReadOnly = true;
-            this.dataVencimento.Width = 140;
             // 
             // pntotal
             // 

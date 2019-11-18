@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DadoConexao.cs" />
-    <Compile Include="DAL_Categoria.cs" />
+    <Compile Include="DAO_Categoria.cs" />
     <Compile Include="DAL_Cliente.cs" />
     <Compile Include="DAL_Colaborador.cs" />
     <Compile Include="DAL_Compra.cs" />

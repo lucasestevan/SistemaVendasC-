@@ -23,7 +23,7 @@ namespace BLL
                 throw new Exception("O nome da categora é obrigatorio");
             }
 
-            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            DAO_Categoria DALobj = new DAO_Categoria(conexao);
             DALobj.Incluir(modelo);
         }
 
@@ -40,35 +40,35 @@ namespace BLL
                 throw new Exception("O nome da categora é obrigatorio");
             }
 
-            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            DAO_Categoria DALobj = new DAO_Categoria(conexao);
             DALobj.Alterar(modelo);
         }
 
         //METODO EXCLUIR
         public void Excluir(int idCategoria)
         {
-            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            DAO_Categoria DALobj = new DAO_Categoria(conexao);
             DALobj.Excluir(idCategoria);
         }
 
         //METODO CARRREGA MODELO COMPRA
         public Model_Categoria CarregaModeloCategoria(int idCategoria)
         {
-            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            DAO_Categoria DALobj = new DAO_Categoria(conexao);
             return DALobj.CarregaModeloCategoria(idCategoria);
         }
 
         //METODO LOCALIZAR
         public DataTable Localizar(String valor)
         {
-            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            DAO_Categoria DALobj = new DAO_Categoria(conexao);
             return DALobj.Localizar(valor);
         }
 
         //METODO VERIFICA SE EXISTE
         public int VerificaSeExiste(String valor)
         {
-            DAL_Categoria DALobj = new DAL_Categoria(conexao);
+            DAO_Categoria DALobj = new DAO_Categoria(conexao);
             return DALobj.VerificaSeExiste(valor);
         }
     }

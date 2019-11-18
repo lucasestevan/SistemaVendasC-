@@ -52,5 +52,19 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void btnCompra_Click(object sender, EventArgs e)
+        {
+            frm_Compra f = new frm_Compra();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void btnVendasBal_Click(object sender, EventArgs e)
+        {
+            frm_Venda f = new frm_Venda();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

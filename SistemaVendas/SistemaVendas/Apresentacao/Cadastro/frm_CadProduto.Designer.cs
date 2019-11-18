@@ -149,7 +149,7 @@
             // 
             this.txtPreco.Location = new System.Drawing.Point(9, 167);
             this.txtPreco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPreco.MaxLength = 6;
+            this.txtPreco.MaxLength = 8;
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(58, 21);
             this.txtPreco.TabIndex = 2;

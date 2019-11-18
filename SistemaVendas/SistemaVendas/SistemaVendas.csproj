@@ -191,10 +191,10 @@
     <Compile Include="Apresentacao\frm_Produto.Designer.cs">
       <DependentUpon>frm_Produto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\frm_VendasFC.cs">
+    <Compile Include="Apresentacao\Cadastro\frm_VendasFC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\frm_VendasFC.Designer.cs">
+    <Compile Include="Apresentacao\Cadastro\frm_VendasFC.Designer.cs">
       <DependentUpon>frm_VendasFC.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\frm_VisualizarItensCompra.cs">
@@ -301,7 +301,7 @@
     <EmbeddedResource Include="Apresentacao\frm_Venda.resx">
       <DependentUpon>frm_Venda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\frm_VendasFC.resx">
+    <EmbeddedResource Include="Apresentacao\Cadastro\frm_VendasFC.resx">
       <DependentUpon>frm_VendasFC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\frm_VisualizarItensCompra.resx">
