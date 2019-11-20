@@ -23,6 +23,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@id_parcelasVenda", modelo.IdParcelasVenda);
             cmd.Parameters.AddWithValue("@valor", modelo.Valor);
             cmd.Parameters.AddWithValue("@id_venda", modelo.IdVenda);
+
             cmd.Parameters.Add("@dataPagto", System.Data.SqlDbType.Date);
             if (modelo.DataPagto == null)
             {
@@ -145,20 +146,25 @@ namespace DAL
             return dt;
         }
 
-        
-        //METODO LOCALIZAR
-        public DataTable LocalizarPertoVencimento(DateTime data1, DateTime data2)
+        //METODO LOCALIZAR por data
+        public DataTable LocalizarPertoVencimento(DateTime inicial, DateTime final)
         {
-            SqlCommand cmd = new SqlCommand();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("Select * from ParcelasVenda where dataVencimento > @data1 and < @data2", conexao.StringConexao);
-            cmd.Parameters.Add("@data1", System.Data.SqlDbType.Date);
-            cmd.Parameters["@data1"].Value = data1.Date;
-            cmd.Parameters.Add("@data2", System.Data.SqlDbType.Date);
-            cmd.Parameters["@data2"].Value = data2.Date.AddDays(5);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select id_venda, dataVencimento, valor, dataPagto from ParcelasVenda" +
+                " where dataVencimento BETWEEN @inicial and @final order by dataVencimento";
 
+            cmd.Parameters.Add("@inicial", System.Data.SqlDbType.DateTime);
+            cmd.Parameters["@inicial"].Value = inicial;
+
+            cmd.Parameters.Add("@final", System.Data.SqlDbType.DateTime);
+            cmd.Parameters["@final"].Value = final;
+
+            //conexao.Conectar();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
+            //conexao.Desconectar();
             return dt;
         }
 

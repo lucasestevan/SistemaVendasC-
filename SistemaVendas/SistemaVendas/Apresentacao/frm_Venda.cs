@@ -264,10 +264,10 @@ namespace SistemaVendas.Apresentacao
         //FORMATA O DATA GRID
         private void FormatarDGV()
         {
-            dgvVenda.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvVenda.Columns[0].Width = 50; //TAMANHO DA LARGURA
+            dgvVenda.Columns[0].HeaderText = "Pedido"; //NOME DO CABEÇALHO
+            dgvVenda.Columns[0].Width = 55; //TAMANHO DA LARGURA
             dgvVenda.Columns[1].HeaderText = "Data da Venda";
-            dgvVenda.Columns[1].Width = 120;
+            dgvVenda.Columns[1].Width = 119;
             dgvVenda.Columns[2].HeaderText = "Cliente";
             dgvVenda.Columns[2].Width = 140;
             dgvVenda.Columns[3].HeaderText = "N° Parcelas";
@@ -288,16 +288,21 @@ namespace SistemaVendas.Apresentacao
                 string Campostatus = Convert.ToString(dgvVenda.Rows[i].Cells[5].Value.ToString());
                 if (Campostatus == "CANCELADO")
                 {
-                    dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.Red;
+                    dgvVenda.Rows[i].Cells[0].Style.BackColor = Color.Red;
                 }
                 if (Campostatus == "PAGO")
                 {
-                    dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                    dgvVenda.Rows[i].Cells[0].Style.BackColor = Color.Green;
                 }
 
                 if (Campostatus == "PAGO VR")
                 {
-                    dgvVenda.Rows[i].Cells[5].Style.BackColor = Color.GreenYellow;
+                    dgvVenda.Rows[i].Cells[0].Style.BackColor = Color.GreenYellow;
+                }
+
+                if (Campostatus == "ABERTO")
+                {
+                    dgvVenda.Rows[i].Cells[0].Style.BackColor = Color.LightSalmon;
                 }
             }
         }

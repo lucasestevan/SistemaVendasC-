@@ -24,4 +24,3 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\M
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\Modelo\bin\Debug\Modelo.pdb
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.dll
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.pdb
-C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache

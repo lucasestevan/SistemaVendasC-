@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.ControlesUsuario
@@ -16,6 +17,7 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
         {
             CarregarGrid1();
             CarregarGrid2();
+           
         }
 
         public void CarregarGrid1()
@@ -23,8 +25,8 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
             DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Produto bll = new BLL_Produto(con);
             dgvEstoqueBaixo.DataSource = bll.LocalizarEstoqueBaixo();
-            FormatarDGV(); //FORMATA O DATA GRID
-            ContarLinhas();
+            FormatarDGV1(); //FORMATA O DATA GRID
+            ContarLinhas1();
         }
 
         public void CarregarGrid2()
@@ -33,32 +35,67 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
             DateTime data2 = new DateTime();
             data1 = DateTime.Now;
             data2 = DateTime.Now;
-
             data2 = new DateTime(data2.Year, data2.Month, data2.Day + 5);
 
             DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_ParcelasVenda bll = new BLL_ParcelasVenda(con);
-            dgvVencimento.DataSource = bll.LocalizarPertoVencimento(data1,data2);
-            //FormatarDGV(); //FORMATA O DATA GRID
-            //ContarLinhas();
+            dgvVencimento.DataSource = bll.LocalizarPertoVencimento(data1, data2);
+            FormatarDGV2(); //FORMATA O DATA GRID
+            ContarLinhas2();
         }
 
-
-        private void FormatarDGV()
+        private void FormatarDGV1()
         {
             dgvEstoqueBaixo.Columns[0].HeaderText = "Produto";
             dgvEstoqueBaixo.Columns[0].Width = 140;
             dgvEstoqueBaixo.Columns[1].HeaderText = "Quant.";
             dgvEstoqueBaixo.Columns[1].Width = 60;
+            dgvEstoqueBaixo.CurrentRow.Selected = false;
         }
 
         //METODO CONTAR LINHAS
-        private void ContarLinhas()
+        private void ContarLinhas1()
         {
             int total = dgvEstoqueBaixo.Rows.Count;
             lblQtdTotal.Text = total.ToString();
         }
 
-      
+        private void FormatarDGV2()
+        {
+
+            dgvVencimento.Columns[0].HeaderText = "Pedido";
+            dgvVencimento.Columns[0].Width = 60;
+            dgvVencimento.Columns[1].HeaderText = "Vencimento";
+            dgvVencimento.Columns[1].Width = 90;
+            dgvVencimento.Columns[2].HeaderText = "Valor";
+            dgvVencimento.Columns[2].Width = 55;
+            dgvVencimento.Columns[3].Visible = false;
+            dgvVencimento.CurrentRow.Selected = false;
+
+
+            //inserir cor no fundo
+            for (int i = 0; i < dgvVencimento.Rows.Count; i++)
+            {
+                string CampoPago = Convert.ToString(dgvVencimento.Rows[i].Cells[3].Value.ToString());
+
+                if (CampoPago == "01/01/0001 00:00:00" && CampoPago != "")//a data que ele tras, nao deixa vazio
+                {
+
+                }
+                else
+                {
+                    dgvVencimento.Rows[i].Cells[0].Style.BackColor = Color.Green;
+                }
+            }
+        }
+
+        //METODO CONTAR LINHAS
+        private void ContarLinhas2()
+        {
+            int total = dgvVencimento.Rows.Count;
+            lblQtdTotal2.Text = total.ToString();
+        }
+
+
     }
 }

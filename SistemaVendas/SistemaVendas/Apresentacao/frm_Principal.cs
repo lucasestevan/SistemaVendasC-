@@ -56,6 +56,7 @@ namespace SistemaVendas
             pnAuxiliar.Top = btnMenu.Top;
             controle_Menu1.BringToFront();
             controle_Menu1.CarregarGrid1();//carregar a grid
+            controle_Menu1.CarregarGrid2();//carregar a grid
         }
 
 
@@ -99,6 +100,9 @@ namespace SistemaVendas
             controle_Cadastro1.BringToFront();
         }
 
-       
+        private void frm_Principal_Load(object sender, EventArgs e)
+        {
+            btnMenu_Click(sender, e);
+        }
     }
 }

@@ -234,6 +234,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     {
                         modeloParcelas.DataPagto = Convert.ToDateTime(dtPgtoInicial.Text);
                     }
+                    
                     bllParcelas.Incluir(modeloParcelas);
                 }
 

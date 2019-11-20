@@ -1,12 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [SistemaVenda]    Script Date: 24/10/2019 11:49:42 ******/
+/****** Object:  Database [SistemaVenda]    Script Date: 20/11/2019 12:37:14 ******/
 CREATE DATABASE [SistemaVenda]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'SistemaVenda', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\SistemaVenda.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'SistemaVenda', FILENAME = N'C:\BDSistemaVendas\SistemaVenda.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'SistemaVenda_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\SistemaVenda_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'SistemaVenda_log', FILENAME = N'C:\BDSistemaVendas\SistemaVenda_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 ALTER DATABASE [SistemaVenda] SET COMPATIBILITY_LEVEL = 140
 GO
@@ -73,13 +73,11 @@ ALTER DATABASE [SistemaVenda] SET TARGET_RECOVERY_TIME = 60 SECONDS
 GO
 ALTER DATABASE [SistemaVenda] SET DELAYED_DURABILITY = DISABLED 
 GO
-EXEC sys.sp_db_vardecimal_storage_format N'SistemaVenda', N'ON'
-GO
 ALTER DATABASE [SistemaVenda] SET QUERY_STORE = OFF
 GO
 USE [SistemaVenda]
 GO
-/****** Object:  Table [dbo].[Categoria]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[Categoria]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +91,7 @@ CREATE TABLE [dbo].[Categoria](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cliente]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[Cliente]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -106,7 +104,7 @@ CREATE TABLE [dbo].[Cliente](
 	[celular] [varchar](20) NULL,
 	[email] [varchar](50) NULL,
 	[observacao] [varchar](100) NULL,
-	[id_endereco] [int] NULL,
+	[cep] [varchar](20) NULL,
 	[numeroEnde] [varchar](20) NULL,
 PRIMARY KEY CLUSTERED 
 (
@@ -114,7 +112,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Colaborador]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[Colaborador]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -123,7 +121,7 @@ CREATE TABLE [dbo].[Colaborador](
 	[id_colaborador] [int] IDENTITY(1,1) NOT NULL,
 	[nome] [varchar](50) NOT NULL,
 	[cpf] [varchar](15) NOT NULL,
-	[senha] [varchar](50) NOT NULL,
+	[senha] [varbinary](100) NOT NULL,
 	[telefone] [varchar](15) NULL,
 	[celular] [varchar](15) NULL,
 	[descricao] [varchar](50) NULL,
@@ -133,7 +131,11 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Compra]    Script Date: 24/10/2019 11:49:43 ******/
+INSERT INTO Colaborador (nome,senha,cpf)
+values('ADMIN',HASHBYTES('md2','A123!'), 123)
+
+GO
+/****** Object:  Table [dbo].[Compra]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +144,7 @@ CREATE TABLE [dbo].[Compra](
 	[id_compra] [int] IDENTITY(1,1) NOT NULL,
 	[dataCompra] [datetime] NULL,
 	[nfiscal] [int] NULL,
-	[total] [money] NULL,
+	[total] [float] NULL,
 	[nparcelas] [int] NULL,
 	[compraStatus] [varchar](30) NULL,
 	[id_fornecedor] [int] NULL,
@@ -153,25 +155,24 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Endereco]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[Endereco]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Endereco](
-	[id_endereco] [int] IDENTITY(1,1) NOT NULL,
-	[cep] [varchar](20) NULL,
-	[rua] [varchar](50) NOT NULL,
-	[bairro] [varchar](50) NOT NULL,
-	[cidade] [varchar](50) NULL,
-	[uf] [varchar](10) NULL,
+	[cep] [varchar](20) NOT NULL,
+	[rua] [varchar](60) NOT NULL,
+	[bairro] [varchar](60) NOT NULL,
+	[cidade] [varchar](60) NULL,
+	[uf] [varchar](5) NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[id_endereco] ASC
+	[cep] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Fornecedor]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[Fornecedor]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -181,14 +182,18 @@ CREATE TABLE [dbo].[Fornecedor](
 	[nome] [varchar](50) NOT NULL,
 	[cpfCNPJ] [varchar](30) NOT NULL,
 	[telefone] [varchar](15) NULL,
+	[celular] [varchar](15) NULL,
+	[observacao] [varchar](100) NULL,
 	[email] [varchar](30) NULL,
+	[cep] [varchar](20) NULL,
+	[numeroEnde] [varchar](15) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id_fornecedor] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ItensCompra]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[ItensCompra]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -196,12 +201,12 @@ GO
 CREATE TABLE [dbo].[ItensCompra](
 	[id_itensCompra] [int] NOT NULL,
 	[quantidade] [float] NULL,
-	[valor] [money] NULL,
+	[valor] [float] NULL,
 	[id_compra] [int] NOT NULL,
 	[id_produto] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ItensVenda]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[ItensVenda]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,25 +214,25 @@ GO
 CREATE TABLE [dbo].[ItensVenda](
 	[id_itensVenda] [int] NOT NULL,
 	[quantidade] [float] NULL,
-	[valor] [money] NULL,
+	[valor] [float] NULL,
 	[id_venda] [int] NOT NULL,
 	[id_produto] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ParcelasVenda]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[ParcelasVenda]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ParcelasVenda](
 	[id_parcelasVenda] [int] NOT NULL,
-	[valor] [money] NULL,
+	[valor] [float] NULL,
 	[dataPagto] [date] NULL,
 	[dataVencimento] [date] NULL,
 	[id_venda] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Produto]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[Produto]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,18 +240,19 @@ GO
 CREATE TABLE [dbo].[Produto](
 	[id_produto] [int] IDENTITY(1,1) NOT NULL,
 	[nome] [varchar](50) NOT NULL,
-	[preco] [decimal](25, 2) NOT NULL,
-	[quantidade] [decimal](25, 2) NOT NULL,
+	[preco] [float] NOT NULL,
+	[quantidade] [float] NOT NULL,
 	[descricao] [varchar](50) NULL,
 	[id_categoria] [int] NOT NULL,
 	[id_fornecedor] [int] NOT NULL,
+	[codigo_pro] [varchar](10) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id_produto] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoPagamento]    Script Date: 24/10/2019 11:49:43 ******/
+/****** Object:  Table [dbo].[TipoPagamento]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -260,7 +266,11 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Venda]    Script Date: 24/10/2019 11:49:43 ******/
+INSERT INTO TipoPagamento(nome)
+values('DINHEIRO')
+GO
+
+/****** Object:  Table [dbo].[Venda]    Script Date: 20/11/2019 12:37:15 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -269,7 +279,7 @@ CREATE TABLE [dbo].[Venda](
 	[id_venda] [int] IDENTITY(1,1) NOT NULL,
 	[dataVenda] [datetime] NULL,
 	[nfiscal] [int] NULL,
-	[total] [money] NULL,
+	[total] [float] NULL,
 	[nparcelas] [int] NULL,
 	[vendaStatus] [varchar](30) NULL,
 	[id_cliente] [int] NULL,
@@ -281,90 +291,115 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Cliente]  WITH CHECK ADD  CONSTRAINT [FK_IdEndereco_Endereco] FOREIGN KEY([id_endereco])
-REFERENCES [dbo].[Endereco] ([id_endereco])
+ALTER TABLE [dbo].[Cliente]  WITH CHECK ADD  CONSTRAINT [FK_Cep_tbEndereco] FOREIGN KEY([cep])
+REFERENCES [dbo].[Endereco] ([cep])
 GO
-ALTER TABLE [dbo].[Cliente] CHECK CONSTRAINT [FK_IdEndereco_Endereco]
-GO
-ALTER TABLE [dbo].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_idFornecedor_tbFornecedor] FOREIGN KEY([id_fornecedor])
-REFERENCES [dbo].[Fornecedor] ([id_fornecedor])
-GO
-ALTER TABLE [dbo].[Compra] CHECK CONSTRAINT [FK_idFornecedor_tbFornecedor]
+ALTER TABLE [dbo].[Cliente] CHECK CONSTRAINT [FK_Cep_tbEndereco]
 GO
 ALTER TABLE [dbo].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_idtipoPagamento_TipoPagamento] FOREIGN KEY([id_tipoPagamento])
 REFERENCES [dbo].[TipoPagamento] ([id_tipoPagamento])
 GO
 ALTER TABLE [dbo].[Compra] CHECK CONSTRAINT [FK_idtipoPagamento_TipoPagamento]
 GO
-ALTER TABLE [dbo].[ItensCompra]  WITH CHECK ADD  CONSTRAINT [FK_IdCompra_TbCompra] FOREIGN KEY([id_compra])
+ALTER TABLE [dbo].[Fornecedor]  WITH CHECK ADD  CONSTRAINT [FK_CepF_tbEndereco] FOREIGN KEY([cep])
+REFERENCES [dbo].[Endereco] ([cep])
+GO
+ALTER TABLE [dbo].[Fornecedor] CHECK CONSTRAINT [FK_CepF_tbEndereco]
+GO
+ALTER TABLE [dbo].[ItensCompra]  WITH CHECK ADD  CONSTRAINT [FK_IdCompraitenscompra_tbCompra] FOREIGN KEY([id_compra])
 REFERENCES [dbo].[Compra] ([id_compra])
 GO
-ALTER TABLE [dbo].[ItensCompra] CHECK CONSTRAINT [FK_IdCompra_TbCompra]
+ALTER TABLE [dbo].[ItensCompra] CHECK CONSTRAINT [FK_IdCompraitenscompra_tbCompra]
 GO
-ALTER TABLE [dbo].[ItensCompra]  WITH CHECK ADD  CONSTRAINT [FK_idProduto_tbProduto] FOREIGN KEY([id_produto])
+ALTER TABLE [dbo].[ItensCompra]  WITH CHECK ADD  CONSTRAINT [FK_idProdutoIC_tbProduto] FOREIGN KEY([id_produto])
 REFERENCES [dbo].[Produto] ([id_produto])
 GO
-ALTER TABLE [dbo].[ItensCompra] CHECK CONSTRAINT [FK_idProduto_tbProduto]
+ALTER TABLE [dbo].[ItensCompra] CHECK CONSTRAINT [FK_idProdutoIC_tbProduto]
 GO
-ALTER TABLE [dbo].[ItensVenda]  WITH CHECK ADD  CONSTRAINT [FK_idProduto_tblProduto] FOREIGN KEY([id_produto])
+ALTER TABLE [dbo].[ItensVenda]  WITH CHECK ADD  CONSTRAINT [FK_idProdutoItensV_tbProduto] FOREIGN KEY([id_produto])
 REFERENCES [dbo].[Produto] ([id_produto])
 GO
-ALTER TABLE [dbo].[ItensVenda] CHECK CONSTRAINT [FK_idProduto_tblProduto]
+ALTER TABLE [dbo].[ItensVenda] CHECK CONSTRAINT [FK_idProdutoItensV_tbProduto]
 GO
-ALTER TABLE [dbo].[ItensVenda]  WITH CHECK ADD  CONSTRAINT [FK_IdVenda_tbVenda] FOREIGN KEY([id_venda])
+ALTER TABLE [dbo].[ItensVenda]  WITH CHECK ADD  CONSTRAINT [FK_idVenda_tbVendaI] FOREIGN KEY([id_venda])
 REFERENCES [dbo].[Venda] ([id_venda])
 GO
-ALTER TABLE [dbo].[ItensVenda] CHECK CONSTRAINT [FK_IdVenda_tbVenda]
+ALTER TABLE [dbo].[ItensVenda] CHECK CONSTRAINT [FK_idVenda_tbVendaI]
 GO
-ALTER TABLE [dbo].[ParcelasVenda]  WITH CHECK ADD  CONSTRAINT [FK_idVenda_tblVenda] FOREIGN KEY([id_venda])
+ALTER TABLE [dbo].[ParcelasVenda]  WITH CHECK ADD  CONSTRAINT [FK_idVenda_tbVenda] FOREIGN KEY([id_venda])
 REFERENCES [dbo].[Venda] ([id_venda])
 GO
-ALTER TABLE [dbo].[ParcelasVenda] CHECK CONSTRAINT [FK_idVenda_tblVenda]
+ALTER TABLE [dbo].[ParcelasVenda] CHECK CONSTRAINT [FK_idVenda_tbVenda]
 GO
 ALTER TABLE [dbo].[Produto]  WITH CHECK ADD  CONSTRAINT [FK_Idcategoria_Categoria] FOREIGN KEY([id_categoria])
 REFERENCES [dbo].[Categoria] ([id_categoria])
 GO
 ALTER TABLE [dbo].[Produto] CHECK CONSTRAINT [FK_Idcategoria_Categoria]
 GO
-ALTER TABLE [dbo].[Produto]  WITH CHECK ADD  CONSTRAINT [FK_IdFornecedor_Fornecedor] FOREIGN KEY([id_fornecedor])
+ALTER TABLE [dbo].[Produto]  WITH CHECK ADD  CONSTRAINT [FK_idFornecedor_tbFornecedor] FOREIGN KEY([id_fornecedor])
 REFERENCES [dbo].[Fornecedor] ([id_fornecedor])
 GO
-ALTER TABLE [dbo].[Produto] CHECK CONSTRAINT [FK_IdFornecedor_Fornecedor]
+ALTER TABLE [dbo].[Produto] CHECK CONSTRAINT [FK_idFornecedor_tbFornecedor]
 GO
-ALTER TABLE [dbo].[Venda]  WITH CHECK ADD  CONSTRAINT [FK_idCleinte_tbCliente] FOREIGN KEY([id_cliente])
+ALTER TABLE [dbo].[Venda]  WITH CHECK ADD  CONSTRAINT [FK_IdCliente_tbCliente] FOREIGN KEY([id_cliente])
 REFERENCES [dbo].[Cliente] ([id_cliente])
 GO
-ALTER TABLE [dbo].[Venda] CHECK CONSTRAINT [FK_idCleinte_tbCliente]
+ALTER TABLE [dbo].[Venda] CHECK CONSTRAINT [FK_IdCliente_tbCliente]
 GO
 ALTER TABLE [dbo].[Venda]  WITH CHECK ADD  CONSTRAINT [FK_idTipoPagamento_tbTipoPagamento] FOREIGN KEY([id_tipoPagamento])
 REFERENCES [dbo].[TipoPagamento] ([id_tipoPagamento])
 GO
 ALTER TABLE [dbo].[Venda] CHECK CONSTRAINT [FK_idTipoPagamento_tbTipoPagamento]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Login]    Script Date: 24/10/2019 11:49:43 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE proc [dbo].[sp_Login]
-(
-@nome varchar(30),
-@senha varchar(30),
-@msg varchar (100) output
-)
-as 
-begin
-if(not exists(select * from Colaborador where @nome = nome and @senha = senha ))
-set
-@msg = 'Dados Incorretos'
-else
-begin
-set
-@msg = 'Bem vindo: ' + @nome
-end
-end
-GO
 USE [master]
 GO
 ALTER DATABASE [SistemaVenda] SET  READ_WRITE 
 GO
+
+/****** Object:  Trigger [dbo].[triggerIncrementaEstoque]    Script Date: 20/11/2019 13:05:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE trigger [dbo].[triggerIncrementaEstoque] on [dbo].[ItensCompra]
+for insert
+as
+begin
+	declare @quantidade float,
+			@id_produto integer
+
+select @id_produto = id_produto, @quantidade = quantidade from inserted
+
+update Produto set quantidade = quantidade + @quantidade where Produto.id_produto = @id_produto
+end
+GO
+
+ALTER TABLE [dbo].[ItensCompra] ENABLE TRIGGER [triggerIncrementaEstoque]
+GO
+
+
+/****** Object:  Trigger [dbo].[triggerDecrementaEstoque]    Script Date: 20/11/2019 13:07:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE trigger [dbo].[triggerDecrementaEstoque] on [dbo].[ItensVenda]
+for insert
+as
+begin
+	declare @quantidade float,
+			@id_produto integer
+
+select @id_produto = id_produto, @quantidade = quantidade from inserted
+
+update Produto set quantidade = quantidade - @quantidade where Produto.id_produto = @id_produto
+end
+GO
+
+ALTER TABLE [dbo].[ItensVenda] ENABLE TRIGGER [triggerDecrementaEstoque]
+GO
+

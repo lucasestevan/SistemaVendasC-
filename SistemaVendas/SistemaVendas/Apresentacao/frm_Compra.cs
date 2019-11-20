@@ -4,6 +4,7 @@ using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -174,8 +175,8 @@ namespace SistemaVendas.Apresentacao
         //FORMATA O DATA GRID
         private void FormatarDGV()
         {
-            dgvCompra.Columns[0].HeaderText = "Código"; //NOME DO CABEÇALHO
-            dgvCompra.Columns[0].Width = 50; //TAMANHO DA LARGURA
+            dgvCompra.Columns[0].HeaderText = "Pedido"; //NOME DO CABEÇALHO
+            dgvCompra.Columns[0].Width = 55; //TAMANHO DA LARGURA
             dgvCompra.Columns[1].HeaderText = "Data da Compra";
             dgvCompra.Columns[1].Width = 140;
             dgvCompra.Columns[2].HeaderText = "Nota Fiscal";
@@ -190,6 +191,22 @@ namespace SistemaVendas.Apresentacao
             dgvCompra.Columns[7].Visible = false;
             dgvCompra.Columns[8].HeaderText = "Fornecedor";
             dgvCompra.Columns[8].Width = 140;
+
+            //inserir cor no fundo
+            for (int i = 0; i < dgvCompra.Rows.Count; i++)
+            {
+                string Campostatus = Convert.ToString(dgvCompra.Rows[i].Cells[5].Value.ToString());
+                
+                if (Campostatus == "PAGO")
+                {
+                    dgvCompra.Rows[i].Cells[0].Style.BackColor = Color.Green;
+                }
+
+                if (Campostatus == "ABERTO")
+                {
+                    dgvCompra.Rows[i].Cells[0].Style.BackColor = Color.LightSalmon;
+                }
+            }
         }
 
         //BOTAO VIZUALIZAR

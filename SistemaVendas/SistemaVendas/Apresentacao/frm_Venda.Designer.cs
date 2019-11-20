@@ -59,10 +59,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblQtdTotal = new System.Windows.Forms.Label();
-            this.lblValorTotal = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblValorTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblQtdTotal = new System.Windows.Forms.Label();
             this.gbCodigo.SuspendLayout();
             this.gbData.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -424,6 +432,14 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblValorTotal);
             this.panel1.Controls.Add(this.label2);
@@ -431,28 +447,80 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 519);
+            this.panel1.Size = new System.Drawing.Size(645, 558);
             this.panel1.TabIndex = 64;
             // 
-            // lblQtdTotal
+            // label5
             // 
-            this.lblQtdTotal.AutoSize = true;
-            this.lblQtdTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtdTotal.Location = new System.Drawing.Point(88, 500);
-            this.lblQtdTotal.Name = "lblQtdTotal";
-            this.lblQtdTotal.Size = new System.Drawing.Size(15, 17);
-            this.lblQtdTotal.TabIndex = 0;
-            this.lblQtdTotal.Text = "0";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(271, 534);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Aberto";
             // 
-            // lblValorTotal
+            // label6
             // 
-            this.lblValorTotal.AutoSize = true;
-            this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(464, 500);
-            this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
-            this.lblValorTotal.TabIndex = 0;
-            this.lblValorTotal.Text = "0";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(355, 534);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 16);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Cancelado";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightSalmon;
+            this.panel5.Location = new System.Drawing.Point(255, 534);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(16, 16);
+            this.panel5.TabIndex = 75;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Red;
+            this.panel6.Location = new System.Drawing.Point(340, 534);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(16, 16);
+            this.panel6.TabIndex = 73;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(107, 534);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(121, 16);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "Pago Venda Rápida";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 534);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 16);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "Pago";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.GreenYellow;
+            this.panel4.Location = new System.Drawing.Point(91, 534);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(16, 16);
+            this.panel4.TabIndex = 71;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Green;
+            this.panel3.Location = new System.Drawing.Point(13, 534);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(16, 16);
+            this.panel3.TabIndex = 69;
             // 
             // label1
             // 
@@ -464,6 +532,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Valor total:";
             // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal.Location = new System.Drawing.Point(464, 500);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
+            this.lblValorTotal.TabIndex = 0;
+            this.lblValorTotal.Text = "0";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -474,11 +552,21 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Quantidade:";
             // 
+            // lblQtdTotal
+            // 
+            this.lblQtdTotal.AutoSize = true;
+            this.lblQtdTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdTotal.Location = new System.Drawing.Point(88, 500);
+            this.lblQtdTotal.Name = "lblQtdTotal";
+            this.lblQtdTotal.Size = new System.Drawing.Size(15, 17);
+            this.lblQtdTotal.TabIndex = 0;
+            this.lblQtdTotal.Text = "0";
+            // 
             // frm_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 519);
+            this.ClientSize = new System.Drawing.Size(645, 558);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSelecionar);
@@ -555,5 +643,13 @@
         private System.Windows.Forms.Label lblValorTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }

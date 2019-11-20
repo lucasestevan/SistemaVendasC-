@@ -309,6 +309,7 @@
             this.Name = "frm_Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
+            this.Load += new System.EventHandler(this.frm_Principal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -324,7 +325,6 @@
         private System.Windows.Forms.Button btnCadastro;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Button btnVendas;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClose;
@@ -337,5 +337,6 @@
         private Apresentacao.ControlesUsuario.Controle_Pagamento controle_Pagamento1;
         private Apresentacao.ControlesUsuario.Controle_Relatorio controle_Relatorio1;
         private Apresentacao.ControlesUsuario.Controle_Venda controle_Venda1;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

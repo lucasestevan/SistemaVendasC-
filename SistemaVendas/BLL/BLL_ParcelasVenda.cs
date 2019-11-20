@@ -115,10 +115,10 @@ namespace BLL
         }
 
         //METODO LOCALIZAR vencimento
-        public DataTable LocalizarPertoVencimento(DateTime data1, DateTime data2)
+        public DataTable LocalizarPertoVencimento(DateTime inicial, DateTime final)
         {
             DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
-            return DALobj.LocalizarPertoVencimento(data1, data2);
+            return DALobj.LocalizarPertoVencimento(inicial, final);
         }
 
         //RECEBIMENTO VENDA
@@ -134,7 +134,5 @@ namespace BLL
                 throw new Exception("Data do recebimento é obrigatorio");
             }
         }
-
-
     }
 }
