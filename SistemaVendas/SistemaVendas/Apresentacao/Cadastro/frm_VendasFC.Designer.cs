@@ -326,6 +326,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -384,7 +385,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_VendasFC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela de Venda";
+            this.Text = "Venda rápida";
             this.Load += new System.EventHandler(this.frm_VendasFC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).EndInit();
             this.pntotal.ResumeLayout(false);

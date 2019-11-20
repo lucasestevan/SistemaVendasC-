@@ -285,7 +285,7 @@ namespace SistemaVendas.Apresentacao.Cadastro
             {
                 DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
                 BLL_Produto bll = new BLL_Produto(con);
-                cbProtudo.DataSource = bll.Localizar("");   //CARREGA OS DADOS DA TABELA QUE CRIEI
+                cbProtudo.DataSource = bll.LocalizarPorFornecedor(Convert.ToInt32(cbFornecedor.SelectedValue));   //CARREGA OS DADOS DA TABELA QUE CRIEI
                 cbProtudo.DisplayMember = "nome";   //PEGA O NOME
                 cbProtudo.ValueMember = "id_produto"; //PEGA O ID
                 cbProtudo.AutoCompleteMode = AutoCompleteMode.Suggest; //AUTO COMPLETAR

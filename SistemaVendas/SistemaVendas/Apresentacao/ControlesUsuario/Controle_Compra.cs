@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaVendas.Apresentacao.Cadastro;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao.ControlesUsuario
@@ -12,7 +13,7 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
 
         private void btnCompra_Click(object sender, EventArgs e)
         {
-            frm_Compra f = new frm_Compra();
+            frm_CadCompra f = new frm_CadCompra();
             f.ShowDialog();
             f.Dispose();
         }

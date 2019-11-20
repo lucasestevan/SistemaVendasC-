@@ -81,16 +81,16 @@ namespace DAL
             return modelo;
         }
 
-        //METODO EXCLUIR
-        public void Excluir(int idProduto)
+        //METODO localiza por fornecedor
+        public DataTable LocalizarPorFornecedor(int idFornecedor)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "delete from Produto where id_produto = @id_produto";
-            cmd.Parameters.AddWithValue("@id_produto", idProduto);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("Select pro.id_produto, pro.codigo_pro, pro.nome, pro.preco, pro.quantidade, pro.descricao, cat.nome, " +
+                " forn.nome from Produto as pro INNER JOIN Categoria as cat on pro.id_categoria = cat.id_categoria " +
+                "INNER JOIN Fornecedor as forn on pro.id_fornecedor = forn.id_fornecedor where pro.id_fornecedor =" + idFornecedor, conexao.StringConexao);
+            da.Fill(dt);
+            return dt;
         }
 
         //METODO LOCALIZAR
@@ -105,14 +105,38 @@ namespace DAL
             return dt;
         }
 
-        //METODO LOCALIZAR por codigo
-        public DataTable LocalizarPorCod(String cod)
+        //METODO LOCALIZAR nome
+        public DataTable LocalizarPorNome(String nome)
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = default(SqlDataAdapter);
-            da = new SqlDataAdapter("Select pro.codigo_pro, pro.nome, pro.preco, pro.quantidade, pro.descricao, cat.nome," +
-               " forn.nome from Produto as pro INNER JOIN Categoria as cat on pro.id_categoria = cat.id_categoria " +
-               "INNER JOIN Fornecedor as forn on pro.id_fornecedor = forn.id_fornecedor where pro.nome like '%" + cod + "%' order by pro.codigo_pro", conexao.StringConexao);
+            da = new SqlDataAdapter("Select pro.id_produto, pro.codigo_pro, pro.nome, pro.preco, pro.quantidade, pro.descricao, cat.nome," +
+                " forn.nome from Produto as pro INNER JOIN Categoria as cat on pro.id_categoria = cat.id_categoria " +
+                "INNER JOIN Fornecedor as forn on pro.id_fornecedor = forn.id_fornecedor where pro.nome like '%" + nome + "%' order by pro.nome", conexao.StringConexao);
+            da.Fill(dt);
+            return dt;
+        }
+
+        //METODO LOCALIZAR fornecedor
+        public DataTable LocalizarPorFornecedor(String fornecedor)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("Select pro.id_produto, pro.codigo_pro, pro.nome, pro.preco, pro.quantidade, pro.descricao, cat.nome," +
+                " forn.nome from Produto as pro INNER JOIN Categoria as cat on pro.id_categoria = cat.id_categoria " +
+                "INNER JOIN Fornecedor as forn on pro.id_fornecedor = forn.id_fornecedor where forn.nome like '%" + fornecedor + "%' order by pro.nome", conexao.StringConexao);
+            da.Fill(dt);
+            return dt;
+        }
+
+        //METODO LOCALIZAR categoria
+        public DataTable LocalizarPorCategoria(String categora)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("Select pro.id_produto, pro.codigo_pro, pro.nome, pro.preco, pro.quantidade, pro.descricao, cat.nome," +
+                " forn.nome from Produto as pro INNER JOIN Categoria as cat on pro.id_categoria = cat.id_categoria " +
+                "INNER JOIN Fornecedor as forn on pro.id_fornecedor = forn.id_fornecedor where cat.nome like '%" + categora + "%' order by pro.nome", conexao.StringConexao);
             da.Fill(dt);
             return dt;
         }
@@ -151,6 +175,18 @@ namespace DAL
             }
             conexao.Desconectar();
             return modelo;
+        }
+
+        //METODO EXCLUIR
+        public void Excluir(int idProduto)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "delete from Produto where id_produto = @id_produto";
+            cmd.Parameters.AddWithValue("@id_produto", idProduto);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
         }
     }
 }

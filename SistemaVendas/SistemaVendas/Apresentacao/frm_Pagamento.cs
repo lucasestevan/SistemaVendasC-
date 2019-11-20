@@ -81,16 +81,21 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
-        public Double TotalTroco;
-
+        public Decimal TotalTroco;
         private void txtValorPago_TextChanged(object sender, EventArgs e)
         {
+            if (txtValorPago.Text == "")
+            {
+                lblTroco.Text = "0";
+            }
+
             try
             {
                 if (txtValorPago.Text != "")
                 {
-                    this.TotalTroco = Convert.ToDouble(txtValorPago.Text.Trim().Length) - Convert.ToDouble(lblTotal.Text.Trim().Length);
-                    //FAZER QUE MINHA VARIAVEL TOTAL RECEBA O VALOR DO TOTAL LOCAL
+                    this.TotalTroco = Convert.ToDecimal(txtValorPago.Text.Trim()) - Convert.ToDecimal(lblTotal.Text.Trim());
+                    //FAZER QUE MINHA VARIAV EL TOTAL RECEBA O VALOR DO TOTAL LOCAL
+
                     lblTroco.Text = this.TotalTroco.ToString();
                 }
                
@@ -108,10 +113,6 @@ namespace SistemaVendas.Apresentacao
             {
                 btnFinalizar.Enabled = true;
             }
-
-           
         }
-
-       
     }
 }

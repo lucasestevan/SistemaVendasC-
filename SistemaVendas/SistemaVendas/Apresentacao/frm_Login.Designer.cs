@@ -183,6 +183,7 @@
             this.MaximizeBox = false;
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDock)).EndInit();

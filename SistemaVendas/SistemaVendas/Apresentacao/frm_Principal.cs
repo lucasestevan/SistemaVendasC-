@@ -55,6 +55,7 @@ namespace SistemaVendas
             pnAuxiliar.Height = btnMenu.Height;
             pnAuxiliar.Top = btnMenu.Top;
             controle_Menu1.BringToFront();
+            controle_Menu1.CarregarGrid1();//carregar a grid
         }
 
 

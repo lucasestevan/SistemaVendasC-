@@ -60,8 +60,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblValorTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblValorTotal = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -221,11 +221,11 @@
             // 
             this.gbFornecedor.Controls.Add(this.btnPesquisarFornecedor);
             this.gbFornecedor.Controls.Add(this.txtNome);
-            this.gbFornecedor.Location = new System.Drawing.Point(178, 24);
+            this.gbFornecedor.Location = new System.Drawing.Point(178, 16);
             this.gbFornecedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbFornecedor.Name = "gbFornecedor";
             this.gbFornecedor.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbFornecedor.Size = new System.Drawing.Size(350, 121);
+            this.gbFornecedor.Size = new System.Drawing.Size(350, 128);
             this.gbFornecedor.TabIndex = 44;
             this.gbFornecedor.TabStop = false;
             this.gbFornecedor.Text = "Fornecedor";
@@ -246,7 +246,7 @@
             this.gbData.Controls.Add(this.btnPesquisaData);
             this.gbData.Controls.Add(this.dtFinal);
             this.gbData.Controls.Add(this.dtInicial);
-            this.gbData.Location = new System.Drawing.Point(178, 21);
+            this.gbData.Location = new System.Drawing.Point(178, 16);
             this.gbData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbData.Name = "gbData";
             this.gbData.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -301,7 +301,7 @@
             // 
             this.gbCodigo.Controls.Add(this.txtIdCompraPes);
             this.gbCodigo.Controls.Add(this.btnPesquisarCod);
-            this.gbCodigo.Location = new System.Drawing.Point(178, 21);
+            this.gbCodigo.Location = new System.Drawing.Point(178, 16);
             this.gbCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbCodigo.Name = "gbCodigo";
             this.gbCodigo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -391,6 +391,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.btnClose);
@@ -448,16 +449,6 @@
             this.label1.TabIndex = 61;
             this.label1.Text = "Valor total:";
             // 
-            // lblValorTotal
-            // 
-            this.lblValorTotal.AutoSize = true;
-            this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(469, 501);
-            this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
-            this.lblValorTotal.TabIndex = 62;
-            this.lblValorTotal.Text = "0";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -467,6 +458,16 @@
             this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 63;
             this.label2.Text = "Quantidade:";
+            // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal.Location = new System.Drawing.Point(469, 501);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
+            this.lblValorTotal.TabIndex = 62;
+            this.lblValorTotal.Text = "0";
             // 
             // lblQtdTotal
             // 
@@ -500,7 +501,7 @@
             this.MaximizeBox = false;
             this.Name = "frm_Compra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_MovimentacaoCompra";
+            this.Text = "Compra";
             this.Load += new System.EventHandler(this.Frm_MovimentacaoCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -91,16 +91,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 148);
+            this.label2.Location = new System.Drawing.Point(7, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 16);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Preço";
+            this.label2.Text = "Preço Venda";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 217);
+            this.label3.Location = new System.Drawing.Point(7, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 4;
@@ -109,7 +109,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 342);
+            this.label4.Location = new System.Drawing.Point(7, 336);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 5;
@@ -128,7 +128,7 @@
             // txtDesc
             // 
             this.txtDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDesc.Location = new System.Drawing.Point(10, 362);
+            this.txtDesc.Location = new System.Drawing.Point(10, 356);
             this.txtDesc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDesc.MaxLength = 50;
             this.txtDesc.Multiline = true;
@@ -138,8 +138,11 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmbCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(10, 238);
+            this.cmbCategoria.Location = new System.Drawing.Point(10, 228);
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(236, 24);
@@ -147,7 +150,7 @@
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(9, 167);
+            this.txtPreco.Location = new System.Drawing.Point(9, 163);
             this.txtPreco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPreco.MaxLength = 8;
             this.txtPreco.Name = "txtPreco";
@@ -168,8 +171,11 @@
             // 
             // cmbFornecedor
             // 
+            this.cmbFornecedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmbFornecedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFornecedor.FormattingEnabled = true;
-            this.cmbFornecedor.Location = new System.Drawing.Point(9, 300);
+            this.cmbFornecedor.Location = new System.Drawing.Point(8, 294);
             this.cmbFornecedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbFornecedor.Name = "cmbFornecedor";
             this.cmbFornecedor.Size = new System.Drawing.Size(237, 24);
@@ -178,7 +184,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 281);
+            this.label5.Location = new System.Drawing.Point(6, 275);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 16);
             this.label5.TabIndex = 17;
@@ -186,7 +192,7 @@
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(118, 167);
+            this.txtQtd.Location = new System.Drawing.Point(118, 163);
             this.txtQtd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQtd.MaxLength = 6;
             this.txtQtd.Name = "txtQtd";
@@ -199,7 +205,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(115, 148);
+            this.label6.Location = new System.Drawing.Point(115, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 16);
             this.label6.TabIndex = 19;
@@ -261,6 +267,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.btnClose);

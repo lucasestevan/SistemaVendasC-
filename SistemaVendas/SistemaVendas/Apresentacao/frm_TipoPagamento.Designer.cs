@@ -175,6 +175,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.btnClose);
@@ -257,7 +258,7 @@
             this.MaximizeBox = false;
             this.Name = "frm_TipoPagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_TipoPagamento";
+            this.Text = "Forma de Pagamento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoPag)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

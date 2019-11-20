@@ -156,6 +156,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.btnClose);
@@ -203,7 +204,7 @@
             this.MaximizeBox = false;
             this.Name = "frm_VisualizarItensVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_VisualizarItensVenda";
+            this.Text = "Itens e Parcelas da Venda";
             this.Load += new System.EventHandler(this.Frm_VisualizarItensVenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItensVenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParcelasVenda)).EndInit();

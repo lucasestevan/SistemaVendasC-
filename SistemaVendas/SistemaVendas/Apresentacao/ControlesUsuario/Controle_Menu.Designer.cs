@@ -32,8 +32,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblQtdTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvVencimento = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstoqueBaixo)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVencimento)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvEstoqueBaixo
@@ -77,10 +81,33 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Quantidade:";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvVencimento);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(329, 43);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(255, 307);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pedidos com vencimentos proximos";
+            // 
+            // dgvVencimento
+            // 
+            this.dgvVencimento.AllowUserToAddRows = false;
+            this.dgvVencimento.AllowUserToDeleteRows = false;
+            this.dgvVencimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVencimento.Location = new System.Drawing.Point(8, 19);
+            this.dgvVencimento.MultiSelect = false;
+            this.dgvVencimento.Name = "dgvVencimento";
+            this.dgvVencimento.Size = new System.Drawing.Size(240, 282);
+            this.dgvVencimento.TabIndex = 0;
+            // 
             // Controle_Menu1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblQtdTotal);
             this.Controls.Add(this.groupBox1);
@@ -89,6 +116,8 @@
             this.Load += new System.EventHandler(this.Controle_Menu1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstoqueBaixo)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVencimento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +129,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblQtdTotal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvVencimento;
     }
 }

@@ -104,6 +104,34 @@ namespace BLL
             return DALobj.CarregaModeloProduto(idProduto);
         }
 
+        //METODO localiza por fornecedor
+        public DataTable LocalizarPorFornecedor(int idFornecedor)
+        {
+            DAO_Produto DALobj = new DAO_Produto(conexao);
+            return DALobj.LocalizarPorFornecedor(idFornecedor);
+        }
+
+        //METODO LOCALIZAR nome
+        public DataTable LocalizarPorNome(String nome)
+        {
+            DAO_Produto DALobj = new DAO_Produto(conexao);
+            return DALobj.LocalizarPorNome(nome);
+        }
+
+        //METODO LOCALIZAR fornecedor
+        public DataTable LocalizarPorFornecedor(String fornecedor)
+        {
+            DAO_Produto DALobj = new DAO_Produto(conexao);
+            return DALobj.LocalizarPorFornecedor(fornecedor);
+        }
+
+        //METODO LOCALIZAR categoria
+        public DataTable LocalizarPorCategoria(String categora)
+        {
+            DAO_Produto DALobj = new DAO_Produto(conexao);
+            return DALobj.LocalizarPorCategoria(categora);
+        }
+
         //METODO CARRREGA MODELO 
         public Model_Produto CarregaModeloProdutoCodigo(string cod)
         {

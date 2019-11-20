@@ -52,9 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotalVenda = new System.Windows.Forms.TextBox();
-            this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
             this.txtNfiscal = new System.Windows.Forms.TextBox();
-            this.dtVenda = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvVenda = new System.Windows.Forms.DataGridView();
@@ -81,6 +79,8 @@
             this.pnVenda = new System.Windows.Forms.GroupBox();
             this.pntotal = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
+            this.dtVenda = new System.Windows.Forms.DateTimePicker();
+            this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
             this.pnFinalizaCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParcelas)).BeginInit();
             this.panel2.SuspendLayout();
@@ -350,16 +350,6 @@
             this.txtTotalVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalVenda_KeyPress);
             this.txtTotalVenda.Leave += new System.EventHandler(this.txtTotalVenda_Leave);
             // 
-            // dtPgtoInicial
-            // 
-            this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPgtoInicial.Location = new System.Drawing.Point(317, 560);
-            this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtPgtoInicial.Name = "dtPgtoInicial";
-            this.dtPgtoInicial.Size = new System.Drawing.Size(115, 21);
-            this.dtPgtoInicial.TabIndex = 9;
-            this.dtPgtoInicial.Value = new System.DateTime(2019, 10, 2, 0, 0, 0, 0);
-            // 
             // txtNfiscal
             // 
             this.txtNfiscal.Location = new System.Drawing.Point(487, 103);
@@ -368,16 +358,6 @@
             this.txtNfiscal.Name = "txtNfiscal";
             this.txtNfiscal.Size = new System.Drawing.Size(115, 21);
             this.txtNfiscal.TabIndex = 6;
-            // 
-            // dtVenda
-            // 
-            this.dtVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtVenda.Location = new System.Drawing.Point(487, 39);
-            this.dtVenda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtVenda.Name = "dtVenda";
-            this.dtVenda.Size = new System.Drawing.Size(115, 21);
-            this.dtVenda.TabIndex = 5;
-            this.dtVenda.Value = new System.DateTime(2019, 11, 17, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -613,6 +593,8 @@
             // 
             // pnVenda
             // 
+            this.pnVenda.Controls.Add(this.dtPgtoInicial);
+            this.pnVenda.Controls.Add(this.dtVenda);
             this.pnVenda.Controls.Add(this.pntotal);
             this.pnVenda.Controls.Add(this.cbVerificaEstoque);
             this.pnVenda.Controls.Add(this.label1);
@@ -632,9 +614,7 @@
             this.pnVenda.Controls.Add(this.dgvVenda);
             this.pnVenda.Controls.Add(this.label7);
             this.pnVenda.Controls.Add(this.label8);
-            this.pnVenda.Controls.Add(this.dtVenda);
             this.pnVenda.Controls.Add(this.txtNfiscal);
-            this.pnVenda.Controls.Add(this.dtPgtoInicial);
             this.pnVenda.Controls.Add(this.label4);
             this.pnVenda.Controls.Add(this.label2);
             this.pnVenda.Controls.Add(this.label3);
@@ -668,6 +648,24 @@
             this.label14.Size = new System.Drawing.Size(311, 42);
             this.label14.TabIndex = 63;
             this.label14.Text = "TOTAL DA VENDA";
+            // 
+            // dtVenda
+            // 
+            this.dtVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtVenda.Location = new System.Drawing.Point(487, 38);
+            this.dtVenda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtVenda.Name = "dtVenda";
+            this.dtVenda.Size = new System.Drawing.Size(119, 21);
+            this.dtVenda.TabIndex = 67;
+            // 
+            // dtPgtoInicial
+            // 
+            this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPgtoInicial.Location = new System.Drawing.Point(317, 560);
+            this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtPgtoInicial.Name = "dtPgtoInicial";
+            this.dtPgtoInicial.Size = new System.Drawing.Size(119, 21);
+            this.dtPgtoInicial.TabIndex = 68;
             // 
             // frm_CadVenda
             // 
@@ -728,9 +726,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         internal System.Windows.Forms.TextBox txtTotalVenda;
-        private System.Windows.Forms.DateTimePicker dtPgtoInicial;
         internal System.Windows.Forms.TextBox txtNfiscal;
-        internal System.Windows.Forms.DateTimePicker dtVenda;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         internal System.Windows.Forms.DataGridView dgvVenda;
@@ -760,5 +756,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataVencimento;
         private System.Windows.Forms.Panel pntotal;
         private System.Windows.Forms.Label label14;
+        internal System.Windows.Forms.DateTimePicker dtPgtoInicial;
+        internal System.Windows.Forms.DateTimePicker dtVenda;
     }
 }

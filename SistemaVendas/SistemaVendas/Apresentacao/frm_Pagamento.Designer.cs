@@ -73,7 +73,7 @@
             this.lblTroco.AutoSize = true;
             this.lblTroco.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTroco.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTroco.Location = new System.Drawing.Point(28, 9);
+            this.lblTroco.Location = new System.Drawing.Point(23, 9);
             this.lblTroco.Name = "lblTroco";
             this.lblTroco.Size = new System.Drawing.Size(30, 38);
             this.lblTroco.TabIndex = 5;
@@ -84,7 +84,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTotal.Location = new System.Drawing.Point(30, 9);
+            this.lblTotal.Location = new System.Drawing.Point(24, 9);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(30, 38);
             this.lblTotal.TabIndex = 4;
@@ -173,7 +173,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Pagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_Pagamento";
+            this.Text = "Pagamento";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

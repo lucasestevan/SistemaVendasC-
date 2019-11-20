@@ -35,20 +35,35 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtProduto = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbCategoria = new System.Windows.Forms.GroupBox();
+            this.btnPesquisarCategoria = new System.Windows.Forms.Button();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbCategoria = new System.Windows.Forms.RadioButton();
+            this.rbProduto = new System.Windows.Forms.RadioButton();
+            this.rbGeral = new System.Windows.Forms.RadioButton();
+            this.RbFornecedor = new System.Windows.Forms.RadioButton();
+            this.gbProduto = new System.Windows.Forms.GroupBox();
+            this.btnPesqusiarProduto = new System.Windows.Forms.Button();
+            this.gbFornecedor = new System.Windows.Forms.GroupBox();
+            this.btnPesqusiarFornecedor = new System.Windows.Forms.Button();
+            this.txtFornecedor = new System.Windows.Forms.TextBox();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.gbCategoria.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.gbProduto.SuspendLayout();
+            this.gbFornecedor.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNovo
@@ -79,12 +94,12 @@
             this.dgvProduto.AllowUserToDeleteRows = false;
             this.dgvProduto.AllowUserToOrderColumns = true;
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduto.Location = new System.Drawing.Point(3, 91);
+            this.dgvProduto.Location = new System.Drawing.Point(3, 133);
             this.dgvProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduto.Size = new System.Drawing.Size(456, 322);
+            this.dgvProduto.Size = new System.Drawing.Size(456, 280);
             this.dgvProduto.TabIndex = 3;
             this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProduto_CellClick);
             // 
@@ -121,35 +136,176 @@
             this.txtId.TabIndex = 13;
             this.txtId.Visible = false;
             // 
-            // txtNome
+            // txtProduto
             // 
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(7, 42);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(452, 21);
-            this.txtNome.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 16);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Nome";
+            this.txtProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProduto.Location = new System.Drawing.Point(6, 20);
+            this.txtProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtProduto.Name = "txtProduto";
+            this.txtProduto.Size = new System.Drawing.Size(276, 21);
+            this.txtProduto.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtNome);
+            this.groupBox1.Controls.Add(this.gbCategoria);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.dgvProduto);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.gbProduto);
+            this.groupBox1.Controls.Add(this.gbFornecedor);
             this.groupBox1.Location = new System.Drawing.Point(10, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(465, 420);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chave de pesquisa";
+            // 
+            // gbCategoria
+            // 
+            this.gbCategoria.Controls.Add(this.btnPesquisarCategoria);
+            this.gbCategoria.Controls.Add(this.txtCategoria);
+            this.gbCategoria.Location = new System.Drawing.Point(171, 16);
+            this.gbCategoria.Name = "gbCategoria";
+            this.gbCategoria.Size = new System.Drawing.Size(288, 109);
+            this.gbCategoria.TabIndex = 63;
+            this.gbCategoria.TabStop = false;
+            this.gbCategoria.Text = "Categoria";
+            // 
+            // btnPesquisarCategoria
+            // 
+            this.btnPesquisarCategoria.Location = new System.Drawing.Point(195, 49);
+            this.btnPesquisarCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPesquisarCategoria.Name = "btnPesquisarCategoria";
+            this.btnPesquisarCategoria.Size = new System.Drawing.Size(87, 28);
+            this.btnPesquisarCategoria.TabIndex = 61;
+            this.btnPesquisarCategoria.Text = "Pesquisar";
+            this.btnPesquisarCategoria.UseVisualStyleBackColor = true;
+            this.btnPesquisarCategoria.Click += new System.EventHandler(this.btnPesquisarCategoria_Click);
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCategoria.Location = new System.Drawing.Point(6, 20);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(276, 21);
+            this.txtCategoria.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbCategoria);
+            this.groupBox2.Controls.Add(this.rbProduto);
+            this.groupBox2.Controls.Add(this.rbGeral);
+            this.groupBox2.Controls.Add(this.RbFornecedor);
+            this.groupBox2.Location = new System.Drawing.Point(10, 16);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(155, 109);
+            this.groupBox2.TabIndex = 44;
+            this.groupBox2.TabStop = false;
+            // 
+            // rbCategoria
+            // 
+            this.rbCategoria.AutoSize = true;
+            this.rbCategoria.Location = new System.Drawing.Point(8, 37);
+            this.rbCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbCategoria.Name = "rbCategoria";
+            this.rbCategoria.Size = new System.Drawing.Size(81, 20);
+            this.rbCategoria.TabIndex = 4;
+            this.rbCategoria.Text = "Categoria";
+            this.rbCategoria.UseVisualStyleBackColor = true;
+            this.rbCategoria.CheckedChanged += new System.EventHandler(this.rbGeral_CheckedChanged);
+            // 
+            // rbProduto
+            // 
+            this.rbProduto.AutoSize = true;
+            this.rbProduto.Location = new System.Drawing.Point(8, 58);
+            this.rbProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbProduto.Name = "rbProduto";
+            this.rbProduto.Size = new System.Drawing.Size(69, 20);
+            this.rbProduto.TabIndex = 3;
+            this.rbProduto.Text = "Produto";
+            this.rbProduto.UseVisualStyleBackColor = true;
+            this.rbProduto.CheckedChanged += new System.EventHandler(this.rbGeral_CheckedChanged);
+            // 
+            // rbGeral
+            // 
+            this.rbGeral.AutoSize = true;
+            this.rbGeral.Checked = true;
+            this.rbGeral.Location = new System.Drawing.Point(8, 16);
+            this.rbGeral.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbGeral.Name = "rbGeral";
+            this.rbGeral.Size = new System.Drawing.Size(122, 20);
+            this.rbGeral.TabIndex = 2;
+            this.rbGeral.TabStop = true;
+            this.rbGeral.Text = "Todos os produtos";
+            this.rbGeral.UseVisualStyleBackColor = true;
+            this.rbGeral.CheckedChanged += new System.EventHandler(this.rbGeral_CheckedChanged);
+            // 
+            // RbFornecedor
+            // 
+            this.RbFornecedor.AutoSize = true;
+            this.RbFornecedor.Location = new System.Drawing.Point(8, 79);
+            this.RbFornecedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RbFornecedor.Name = "RbFornecedor";
+            this.RbFornecedor.Size = new System.Drawing.Size(87, 20);
+            this.RbFornecedor.TabIndex = 0;
+            this.RbFornecedor.Text = "Fornecedor";
+            this.RbFornecedor.UseVisualStyleBackColor = true;
+            this.RbFornecedor.CheckedChanged += new System.EventHandler(this.rbGeral_CheckedChanged);
+            // 
+            // gbProduto
+            // 
+            this.gbProduto.Controls.Add(this.btnPesqusiarProduto);
+            this.gbProduto.Controls.Add(this.txtProduto);
+            this.gbProduto.Location = new System.Drawing.Point(171, 16);
+            this.gbProduto.Name = "gbProduto";
+            this.gbProduto.Size = new System.Drawing.Size(288, 109);
+            this.gbProduto.TabIndex = 62;
+            this.gbProduto.TabStop = false;
+            this.gbProduto.Text = "Produto";
+            // 
+            // btnPesqusiarProduto
+            // 
+            this.btnPesqusiarProduto.Location = new System.Drawing.Point(195, 49);
+            this.btnPesqusiarProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPesqusiarProduto.Name = "btnPesqusiarProduto";
+            this.btnPesqusiarProduto.Size = new System.Drawing.Size(87, 28);
+            this.btnPesqusiarProduto.TabIndex = 61;
+            this.btnPesqusiarProduto.Text = "Pesquisar";
+            this.btnPesqusiarProduto.UseVisualStyleBackColor = true;
+            this.btnPesqusiarProduto.Click += new System.EventHandler(this.btnPesqusiarProduto_Click);
+            // 
+            // gbFornecedor
+            // 
+            this.gbFornecedor.Controls.Add(this.btnPesqusiarFornecedor);
+            this.gbFornecedor.Controls.Add(this.txtFornecedor);
+            this.gbFornecedor.Location = new System.Drawing.Point(172, 15);
+            this.gbFornecedor.Name = "gbFornecedor";
+            this.gbFornecedor.Size = new System.Drawing.Size(288, 109);
+            this.gbFornecedor.TabIndex = 63;
+            this.gbFornecedor.TabStop = false;
+            this.gbFornecedor.Text = "Fornecedor";
+            // 
+            // btnPesqusiarFornecedor
+            // 
+            this.btnPesqusiarFornecedor.Location = new System.Drawing.Point(195, 49);
+            this.btnPesqusiarFornecedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPesqusiarFornecedor.Name = "btnPesqusiarFornecedor";
+            this.btnPesqusiarFornecedor.Size = new System.Drawing.Size(87, 28);
+            this.btnPesqusiarFornecedor.TabIndex = 60;
+            this.btnPesqusiarFornecedor.Text = "Pesquisar";
+            this.btnPesqusiarFornecedor.UseVisualStyleBackColor = true;
+            this.btnPesqusiarFornecedor.Click += new System.EventHandler(this.btnPesqusiarFornecedor_Click);
+            // 
+            // txtFornecedor
+            // 
+            this.txtFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFornecedor.Location = new System.Drawing.Point(6, 20);
+            this.txtFornecedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtFornecedor.Name = "txtFornecedor";
+            this.txtFornecedor.Size = new System.Drawing.Size(276, 21);
+            this.txtFornecedor.TabIndex = 1;
             // 
             // btnMinimizar
             // 
@@ -188,6 +344,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.btnClose);
@@ -208,42 +365,42 @@
             this.label8.TabIndex = 50;
             this.label8.Text = "Produto";
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblQtdTotal);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(572, 478);
-            this.panel1.TabIndex = 59;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 456);
+            this.label2.Location = new System.Drawing.Point(10, 457);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 17);
-            this.label2.TabIndex = 60;
+            this.label2.TabIndex = 62;
             this.label2.Text = "Quantidade:";
             // 
             // lblQtdTotal
             // 
             this.lblQtdTotal.AutoSize = true;
             this.lblQtdTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtdTotal.Location = new System.Drawing.Point(90, 457);
+            this.lblQtdTotal.Location = new System.Drawing.Point(91, 458);
             this.lblQtdTotal.Name = "lblQtdTotal";
             this.lblQtdTotal.Size = new System.Drawing.Size(15, 17);
-            this.lblQtdTotal.TabIndex = 61;
+            this.lblQtdTotal.TabIndex = 63;
             this.lblQtdTotal.Text = "0";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(572, 478);
+            this.panel1.TabIndex = 64;
             // 
             // frm_Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 478);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblQtdTotal);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnExcluir);
@@ -259,13 +416,19 @@
             this.Name = "frm_Produto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produto";
+            this.Load += new System.EventHandler(this.frm_Produto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbCategoria.ResumeLayout(false);
+            this.gbCategoria.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.gbProduto.ResumeLayout(false);
+            this.gbProduto.PerformLayout();
+            this.gbFornecedor.ResumeLayout(false);
+            this.gbFornecedor.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,15 +442,27 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbProduto;
+        private System.Windows.Forms.RadioButton rbGeral;
+        private System.Windows.Forms.RadioButton RbFornecedor;
+        private System.Windows.Forms.Button btnPesqusiarFornecedor;
+        private System.Windows.Forms.Button btnPesqusiarProduto;
+        private System.Windows.Forms.GroupBox gbProduto;
+        private System.Windows.Forms.GroupBox gbFornecedor;
+        private System.Windows.Forms.TextBox txtFornecedor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblQtdTotal;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbCategoria;
+        private System.Windows.Forms.GroupBox gbCategoria;
+        private System.Windows.Forms.Button btnPesquisarCategoria;
+        private System.Windows.Forms.TextBox txtCategoria;
     }
 }

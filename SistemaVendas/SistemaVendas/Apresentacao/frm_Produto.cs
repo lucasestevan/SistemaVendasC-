@@ -22,12 +22,46 @@ namespace SistemaVendas.Apresentacao
             cadProduto.ShowDialog();
         }
 
+        private void frm_Produto_Load(object sender, EventArgs e)
+        {
+            rbGeral_CheckedChanged( sender,  e);
+        }
+
         //BOTAO PESQUISAR 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Produto bll = new BLL_Produto(con);
-            dgvProduto.DataSource = bll.Localizar(txtNome.Text);
+            dgvProduto.DataSource = bll.Localizar("");
+            FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+        }
+
+        //BOTAO PESQUISAR  fornecedor
+        private void btnPesqusiarFornecedor_Click(object sender, EventArgs e)
+        {
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+            BLL_Produto bll = new BLL_Produto(con);
+            dgvProduto.DataSource = bll.LocalizarPorFornecedor(txtFornecedor.Text);
+            FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+        }
+
+        //BOTAO PESQUISAR produto
+        private void btnPesqusiarProduto_Click(object sender, EventArgs e)
+        {
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+            BLL_Produto bll = new BLL_Produto(con);
+            dgvProduto.DataSource = bll.LocalizarPorNome(txtProduto.Text);
+            FormatarDGV(); //FORMATA O DATA GRID
+            ContarLinhas();
+        }
+
+        private void btnPesquisarCategoria_Click(object sender, EventArgs e)
+        {
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+            BLL_Produto bll = new BLL_Produto(con);
+            dgvProduto.DataSource = bll.LocalizarPorCategoria(txtCategoria.Text);
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
         }
@@ -119,8 +153,8 @@ namespace SistemaVendas.Apresentacao
             dgvProduto.Columns[1].Width = 60; //TAMANHO DA LARGURA
             dgvProduto.Columns[2].HeaderText = "Nome";
             dgvProduto.Columns[2].Width = 130;
-            dgvProduto.Columns[3].HeaderText = "Preço";
-            dgvProduto.Columns[3].Width = 70;
+            dgvProduto.Columns[3].HeaderText = "Preço Venda";
+            dgvProduto.Columns[3].Width = 120;
             dgvProduto.Columns[4].HeaderText = "Quant.";
             dgvProduto.Columns[4].Width = 60;
             dgvProduto.Columns[5].HeaderText = "Descrição";
@@ -155,6 +189,39 @@ namespace SistemaVendas.Apresentacao
         {
             int total = dgvProduto.Rows.Count;
             lblQtdTotal.Text = total.ToString();
+        }
+
+        private void rbGeral_CheckedChanged(object sender, EventArgs e)
+        {
+            //OCUTAR PAINEIS
+            gbProduto.Visible = false;
+            gbFornecedor.Visible = false;
+            gbCategoria.Visible = false;
+            btnPesquisar.Visible = false;
+            txtId.Text = "";
+
+            //LIMPAR O GRID
+            dgvProduto.DataSource = null;
+
+            if (rbGeral.Checked == true)
+            {
+                btnPesquisar.Visible = true;
+            }
+
+            if ((RbFornecedor.Checked == true))
+            {
+                gbFornecedor.Visible = true;
+            }
+
+            if ((rbProduto.Checked == true))
+            {
+                gbProduto.Visible = true;
+            }
+
+            if ((rbCategoria.Checked == true))
+            {
+                gbCategoria.Visible = true;
+            }
         }
     }
 }

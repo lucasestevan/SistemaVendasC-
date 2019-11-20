@@ -14,12 +14,35 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
 
         private void Controle_Menu1_Load(object sender, EventArgs e)
         {
+            CarregarGrid1();
+            CarregarGrid2();
+        }
+
+        public void CarregarGrid1()
+        {
             DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
             BLL_Produto bll = new BLL_Produto(con);
             dgvEstoqueBaixo.DataSource = bll.LocalizarEstoqueBaixo();
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
         }
+
+        public void CarregarGrid2()
+        {
+            DateTime data1 = new DateTime();
+            DateTime data2 = new DateTime();
+            data1 = DateTime.Now;
+            data2 = DateTime.Now;
+
+            data2 = new DateTime(data2.Year, data2.Month, data2.Day + 5);
+
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+            BLL_ParcelasVenda bll = new BLL_ParcelasVenda(con);
+            dgvVencimento.DataSource = bll.LocalizarPertoVencimento(data1,data2);
+            //FormatarDGV(); //FORMATA O DATA GRID
+            //ContarLinhas();
+        }
+
 
         private void FormatarDGV()
         {
@@ -35,5 +58,7 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
             int total = dgvEstoqueBaixo.Rows.Count;
             lblQtdTotal.Text = total.ToString();
         }
+
+      
     }
 }

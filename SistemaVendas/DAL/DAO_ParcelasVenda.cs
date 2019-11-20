@@ -145,6 +145,24 @@ namespace DAL
             return dt;
         }
 
+        
+        //METODO LOCALIZAR
+        public DataTable LocalizarPertoVencimento(DateTime data1, DateTime data2)
+        {
+            SqlCommand cmd = new SqlCommand();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = default(SqlDataAdapter);
+            da = new SqlDataAdapter("Select * from ParcelasVenda where dataVencimento > @data1 and < @data2", conexao.StringConexao);
+            cmd.Parameters.Add("@data1", System.Data.SqlDbType.Date);
+            cmd.Parameters["@data1"].Value = data1.Date;
+            cmd.Parameters.Add("@data2", System.Data.SqlDbType.Date);
+            cmd.Parameters["@data2"].Value = data2.Date.AddDays(5);
+
+            da.Fill(dt);
+            return dt;
+        }
+
+
         //RECEBIMENTO VENDA
         public void RecebimentoParcela(int idVenda, int idParcelaVenda, DateTime dtPagto)
         {

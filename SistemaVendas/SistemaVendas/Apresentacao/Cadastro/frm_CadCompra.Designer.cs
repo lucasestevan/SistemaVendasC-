@@ -51,10 +51,8 @@
             this.proValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dtCompra = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNfiscal = new System.Windows.Forms.TextBox();
-            this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
             this.txtTotalCompra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,6 +66,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtCompra = new System.Windows.Forms.DateTimePicker();
+            this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
@@ -99,6 +99,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtPgtoInicial);
+            this.groupBox1.Controls.Add(this.dtCompra);
             this.groupBox1.Controls.Add(this.txtNParcelas);
             this.groupBox1.Controls.Add(this.cbProtudo);
             this.groupBox1.Controls.Add(this.cbFornecedor);
@@ -113,10 +115,8 @@
             this.groupBox1.Controls.Add(this.dgvCompra);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.dtCompra);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtNfiscal);
-            this.groupBox1.Controls.Add(this.dtPgtoInicial);
             this.groupBox1.Controls.Add(this.txtTotalCompra);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
@@ -334,16 +334,6 @@
             this.label8.TabIndex = 42;
             this.label8.Text = "Data Inicial do Pagto.";
             // 
-            // dtCompra
-            // 
-            this.dtCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtCompra.Location = new System.Drawing.Point(421, 40);
-            this.dtCompra.Margin = new System.Windows.Forms.Padding(4);
-            this.dtCompra.Name = "dtCompra";
-            this.dtCompra.Size = new System.Drawing.Size(115, 21);
-            this.dtCompra.TabIndex = 7;
-            this.dtCompra.Value = new System.DateTime(2019, 11, 16, 0, 0, 0, 0);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -364,16 +354,6 @@
             this.txtNfiscal.Size = new System.Drawing.Size(123, 21);
             this.txtNfiscal.TabIndex = 8;
             this.txtNfiscal.Text = "0";
-            // 
-            // dtPgtoInicial
-            // 
-            this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPgtoInicial.Location = new System.Drawing.Point(315, 520);
-            this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(4);
-            this.dtPgtoInicial.Name = "dtPgtoInicial";
-            this.dtPgtoInicial.Size = new System.Drawing.Size(115, 21);
-            this.dtPgtoInicial.TabIndex = 10;
-            this.dtPgtoInicial.Value = new System.DateTime(2019, 11, 16, 0, 0, 0, 0);
             // 
             // txtTotalCompra
             // 
@@ -475,6 +455,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button2);
@@ -511,9 +492,9 @@
             this.label1.Location = new System.Drawing.Point(16, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(128, 17);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Compra";
+            this.label1.Text = "Cadastro Compra";
             // 
             // button2
             // 
@@ -540,6 +521,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(686, 671);
             this.panel1.TabIndex = 55;
+            // 
+            // dtCompra
+            // 
+            this.dtCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtCompra.Location = new System.Drawing.Point(420, 39);
+            this.dtCompra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtCompra.Name = "dtCompra";
+            this.dtCompra.Size = new System.Drawing.Size(119, 21);
+            this.dtCompra.TabIndex = 56;
+            // 
+            // dtPgtoInicial
+            // 
+            this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPgtoInicial.Location = new System.Drawing.Point(315, 519);
+            this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtPgtoInicial.Name = "dtPgtoInicial";
+            this.dtPgtoInicial.Size = new System.Drawing.Size(119, 21);
+            this.dtPgtoInicial.TabIndex = 57;
             // 
             // frm_CadCompra
             // 
@@ -588,7 +587,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.TextBox txtNfiscal;
-        private System.Windows.Forms.DateTimePicker dtPgtoInicial;
         internal System.Windows.Forms.TextBox txtTotalCompra;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -597,7 +595,6 @@
         internal System.Windows.Forms.TextBox txtId;
         internal System.Windows.Forms.ComboBox cbFornecedor;
         internal System.Windows.Forms.ComboBox cbProtudo;
-        internal System.Windows.Forms.DateTimePicker dtCompra;
         internal System.Windows.Forms.DataGridView dgvCompra;
         internal System.Windows.Forms.NumericUpDown txtNParcelas;
         private System.Windows.Forms.Button btnMinimizar;
@@ -612,5 +609,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.DateTimePicker dtCompra;
+        internal System.Windows.Forms.DateTimePicker dtPgtoInicial;
     }
 }

@@ -114,6 +114,13 @@ namespace BLL
             return DALobj.Localizar(idVenda);
         }
 
+        //METODO LOCALIZAR vencimento
+        public DataTable LocalizarPertoVencimento(DateTime data1, DateTime data2)
+        {
+            DAO_ParcelasVenda DALobj = new DAO_ParcelasVenda(conexao);
+            return DALobj.LocalizarPertoVencimento(data1, data2);
+        }
+
         //RECEBIMENTO VENDA
         public void RecebimentoParcela(int idVenda, int idParcelaVenda, DateTime dtPagto)
         {
