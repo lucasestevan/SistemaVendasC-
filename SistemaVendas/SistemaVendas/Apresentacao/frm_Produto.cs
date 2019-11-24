@@ -1,8 +1,10 @@
 ﻿using BLL;
 using DAL;
+using DGVPrinterHelper;
 using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -35,6 +37,8 @@ namespace SistemaVendas.Apresentacao
             dgvProduto.DataSource = bll.Localizar("");
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO PESQUISAR  fornecedor
@@ -45,6 +49,8 @@ namespace SistemaVendas.Apresentacao
             dgvProduto.DataSource = bll.LocalizarPorFornecedor(txtFornecedor.Text);
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO PESQUISAR produto
@@ -55,6 +61,8 @@ namespace SistemaVendas.Apresentacao
             dgvProduto.DataSource = bll.LocalizarPorNome(txtProduto.Text);
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
+            btnImprimirGrid.Enabled = true;
+
         }
 
         private void btnPesquisarCategoria_Click(object sender, EventArgs e)
@@ -64,6 +72,8 @@ namespace SistemaVendas.Apresentacao
             dgvProduto.DataSource = bll.LocalizarPorCategoria(txtCategoria.Text);
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO EXCLUIR
@@ -222,6 +232,23 @@ namespace SistemaVendas.Apresentacao
             {
                 gbCategoria.Visible = true;
             }
+        }
+
+        private void btnImprimirGrid_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.PageSettings.Landscape = true;
+            printer.Title = "Relátorio de Produto";
+            printer.SubTitle = string.Format("Data: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "4P Tech";
+            printer.FooterSpacing = 15;
+
+            printer.PrintDataGridView(dgvProduto);
         }
     }
 }

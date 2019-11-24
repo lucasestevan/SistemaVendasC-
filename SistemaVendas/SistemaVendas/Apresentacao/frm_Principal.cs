@@ -104,5 +104,10 @@ namespace SistemaVendas
         {
             btnMenu_Click(sender, e);
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblData.Text = DateTime.Now.ToShortDateString();
+        }
     }
 }

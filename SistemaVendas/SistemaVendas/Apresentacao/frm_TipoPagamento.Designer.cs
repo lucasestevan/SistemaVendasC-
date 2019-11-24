@@ -43,6 +43,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImprimirGrid = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoPag)).BeginInit();
@@ -81,7 +82,7 @@
             // btnAlterar
             // 
             this.btnAlterar.Enabled = false;
-            this.btnAlterar.Location = new System.Drawing.Point(323, 133);
+            this.btnAlterar.Location = new System.Drawing.Point(323, 127);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(87, 28);
@@ -107,7 +108,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(323, 177);
+            this.btnExcluir.Location = new System.Drawing.Point(323, 168);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(87, 28);
@@ -118,7 +119,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(323, 89);
+            this.btnPesquisar.Location = new System.Drawing.Point(323, 86);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(87, 28);
@@ -211,6 +212,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnImprimirGrid);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblQtdTotal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -218,6 +220,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(419, 530);
             this.panel1.TabIndex = 59;
+            // 
+            // btnImprimirGrid
+            // 
+            this.btnImprimirGrid.Enabled = false;
+            this.btnImprimirGrid.Location = new System.Drawing.Point(322, 209);
+            this.btnImprimirGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnImprimirGrid.Name = "btnImprimirGrid";
+            this.btnImprimirGrid.Size = new System.Drawing.Size(87, 28);
+            this.btnImprimirGrid.TabIndex = 61;
+            this.btnImprimirGrid.Text = "Imprimir Grid";
+            this.btnImprimirGrid.UseVisualStyleBackColor = true;
+            this.btnImprimirGrid.Click += new System.EventHandler(this.btnImprimirGrid_Click);
             // 
             // label2
             // 
@@ -289,5 +303,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblQtdTotal;
+        private System.Windows.Forms.Button btnImprimirGrid;
     }
 }

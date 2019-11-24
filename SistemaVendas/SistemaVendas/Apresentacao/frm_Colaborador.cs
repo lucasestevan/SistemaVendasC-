@@ -1,8 +1,10 @@
 ﻿using BLL;
 using DAL;
+using DGVPrinterHelper;
 using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -31,6 +33,8 @@ namespace SistemaVendas.Apresentacao
             dgvColaborador.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV(); //FORMATA O DATA GRID
             ContarLinhas();
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO EXCLUIR
@@ -182,6 +186,22 @@ namespace SistemaVendas.Apresentacao
         {
             int total = dgvColaborador.Rows.Count;
             lblQtdTotal.Text = total.ToString();
+        }
+
+        private void btnImprimirGrid_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Relátorio de Colaborador";
+            printer.SubTitle = string.Format("Data: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "4P Tech";
+            printer.FooterSpacing = 15;
+
+            printer.PrintDataGridView(dgvColaborador);
         }
     }
 }

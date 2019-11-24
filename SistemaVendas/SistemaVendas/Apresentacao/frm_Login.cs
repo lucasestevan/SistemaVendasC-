@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -39,6 +40,9 @@ namespace SistemaVendas
                     //CHAMAR O FORM Card e passar as informacoes
                     frm_Principal f = new frm_Principal();
                     this.Hide();
+
+                    f.lblUsuario.Text = this.txtUsuario.Text;
+
                     f.ShowDialog();
                     this.Close();
                 }

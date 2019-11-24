@@ -32,6 +32,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
+            this.dtCompra = new System.Windows.Forms.DateTimePicker();
             this.txtNParcelas = new System.Windows.Forms.NumericUpDown();
             this.cbProtudo = new System.Windows.Forms.ComboBox();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
@@ -66,8 +68,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtCompra = new System.Windows.Forms.DateTimePicker();
-            this.dtPgtoInicial = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
@@ -129,6 +129,24 @@
             this.groupBox1.Size = new System.Drawing.Size(577, 614);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
+            // 
+            // dtPgtoInicial
+            // 
+            this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPgtoInicial.Location = new System.Drawing.Point(315, 519);
+            this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtPgtoInicial.Name = "dtPgtoInicial";
+            this.dtPgtoInicial.Size = new System.Drawing.Size(119, 21);
+            this.dtPgtoInicial.TabIndex = 57;
+            // 
+            // dtCompra
+            // 
+            this.dtCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtCompra.Location = new System.Drawing.Point(420, 39);
+            this.dtCompra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtCompra.Name = "dtCompra";
+            this.dtCompra.Size = new System.Drawing.Size(119, 21);
+            this.dtCompra.TabIndex = 56;
             // 
             // txtNParcelas
             // 
@@ -200,9 +218,9 @@
             this.label12.Location = new System.Drawing.Point(99, 147);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 16);
+            this.label12.Size = new System.Drawing.Size(83, 16);
             this.label12.TabIndex = 53;
-            this.label12.Text = "Valor unitario";
+            this.label12.Text = "Valor Compra";
             // 
             // txtValorUni
             // 
@@ -521,24 +539,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(686, 671);
             this.panel1.TabIndex = 55;
-            // 
-            // dtCompra
-            // 
-            this.dtCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtCompra.Location = new System.Drawing.Point(420, 39);
-            this.dtCompra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtCompra.Name = "dtCompra";
-            this.dtCompra.Size = new System.Drawing.Size(119, 21);
-            this.dtCompra.TabIndex = 56;
-            // 
-            // dtPgtoInicial
-            // 
-            this.dtPgtoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPgtoInicial.Location = new System.Drawing.Point(315, 519);
-            this.dtPgtoInicial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtPgtoInicial.Name = "dtPgtoInicial";
-            this.dtPgtoInicial.Size = new System.Drawing.Size(119, 21);
-            this.dtPgtoInicial.TabIndex = 57;
             // 
             // frm_CadCompra
             // 

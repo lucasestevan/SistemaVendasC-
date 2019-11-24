@@ -1,8 +1,10 @@
 ﻿using BLL;
 using DAL;
+using DGVPrinterHelper;
 using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -30,7 +32,9 @@ namespace SistemaVendas.Apresentacao
             dgvTipoPag.DataSource = bll.Localizar(txtNome.Text);
             FormatarDGV();
             ContarLinhas();
-            
+            btnImprimirGrid.Enabled = true;
+
+
         }
 
         //BOTAO EXLUIR
@@ -140,6 +144,22 @@ namespace SistemaVendas.Apresentacao
         {
             int total = dgvTipoPag.Rows.Count;
             lblQtdTotal.Text = total.ToString();
+        }
+
+        private void btnImprimirGrid_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Relátorio de Formas de pagamento";
+            printer.SubTitle = string.Format("Data: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "4P Tech";
+            printer.FooterSpacing = 15;
+
+            printer.PrintDataGridView(dgvTipoPag);
         }
     }
 }

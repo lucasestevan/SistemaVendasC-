@@ -59,6 +59,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnImprimirGrid = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -71,6 +73,7 @@
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gbCodigo.SuspendLayout();
             this.gbData.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -79,12 +82,13 @@
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(548, 336);
+            this.btnCancelar.Location = new System.Drawing.Point(592, 286);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 28);
@@ -96,7 +100,7 @@
             // btnSelecionar
             // 
             this.btnSelecionar.Enabled = false;
-            this.btnSelecionar.Location = new System.Drawing.Point(548, 288);
+            this.btnSelecionar.Location = new System.Drawing.Point(592, 246);
             this.btnSelecionar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(87, 28);
@@ -140,7 +144,7 @@
             // btnVisualizar
             // 
             this.btnVisualizar.Enabled = false;
-            this.btnVisualizar.Location = new System.Drawing.Point(548, 240);
+            this.btnVisualizar.Location = new System.Drawing.Point(592, 206);
             this.btnVisualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(87, 28);
@@ -292,7 +296,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(559, 390);
+            this.txtId.Location = new System.Drawing.Point(619, 458);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(37, 21);
@@ -302,7 +306,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(548, 192);
+            this.btnExcluir.Location = new System.Drawing.Point(592, 166);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(87, 28);
@@ -314,7 +318,7 @@
             // btnAlterar
             // 
             this.btnAlterar.Enabled = false;
-            this.btnAlterar.Location = new System.Drawing.Point(548, 144);
+            this.btnAlterar.Location = new System.Drawing.Point(592, 126);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(87, 28);
@@ -335,13 +339,13 @@
             this.dgvVenda.Name = "dgvVenda";
             this.dgvVenda.ReadOnly = true;
             this.dgvVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVenda.Size = new System.Drawing.Size(525, 308);
+            this.dgvVenda.Size = new System.Drawing.Size(569, 308);
             this.dgvVenda.TabIndex = 53;
             this.dgvVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVenda_CellClick);
             // 
             // btnPesquisarGeral
             // 
-            this.btnPesquisarGeral.Location = new System.Drawing.Point(548, 96);
+            this.btnPesquisarGeral.Location = new System.Drawing.Point(592, 86);
             this.btnPesquisarGeral.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisarGeral.Name = "btnPesquisarGeral";
             this.btnPesquisarGeral.Size = new System.Drawing.Size(87, 28);
@@ -352,7 +356,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(548, 46);
+            this.btnNovo.Location = new System.Drawing.Point(593, 46);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(87, 28);
@@ -370,7 +374,7 @@
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(588, 5);
+            this.btnMinimizar.Location = new System.Drawing.Point(642, 7);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
@@ -387,7 +391,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(618, 5);
+            this.btnClose.Location = new System.Drawing.Point(665, 5);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
@@ -405,7 +409,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(645, 26);
+            this.panel2.Size = new System.Drawing.Size(684, 26);
             this.panel2.TabIndex = 62;
             // 
             // label8
@@ -424,7 +428,7 @@
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Location = new System.Drawing.Point(6, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 466);
+            this.groupBox2.Size = new System.Drawing.Size(581, 466);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
@@ -432,29 +436,55 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.btnImprimir);
+            this.panel1.Controls.Add(this.btnCancelar);
+            this.panel1.Controls.Add(this.btnImprimirGrid);
+            this.panel1.Controls.Add(this.btnSelecionar);
+            this.panel1.Controls.Add(this.btnVisualizar);
+            this.panel1.Controls.Add(this.btnExcluir);
+            this.panel1.Controls.Add(this.btnAlterar);
+            this.panel1.Controls.Add(this.btnPesquisarGeral);
+            this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblValorTotal);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblQtdTotal);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 558);
+            this.panel1.Size = new System.Drawing.Size(684, 574);
             this.panel1.TabIndex = 64;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Enabled = false;
+            this.btnImprimir.Location = new System.Drawing.Point(592, 326);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(87, 28);
+            this.btnImprimir.TabIndex = 77;
+            this.btnImprimir.Text = "Imprimir Ped.";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnImprimirGrid
+            // 
+            this.btnImprimirGrid.Enabled = false;
+            this.btnImprimirGrid.Location = new System.Drawing.Point(592, 366);
+            this.btnImprimirGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnImprimirGrid.Name = "btnImprimirGrid";
+            this.btnImprimirGrid.Size = new System.Drawing.Size(87, 28);
+            this.btnImprimirGrid.TabIndex = 77;
+            this.btnImprimirGrid.Text = "Imprimir Grid";
+            this.btnImprimirGrid.UseVisualStyleBackColor = true;
+            this.btnImprimirGrid.Click += new System.EventHandler(this.btnImprimirGrid_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(271, 534);
+            this.label5.Location = new System.Drawing.Point(266, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 16);
             this.label5.TabIndex = 76;
@@ -464,7 +494,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(355, 534);
+            this.label6.Location = new System.Drawing.Point(350, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 74;
@@ -473,7 +503,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.LightSalmon;
-            this.panel5.Location = new System.Drawing.Point(255, 534);
+            this.panel5.Location = new System.Drawing.Point(250, 21);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(16, 16);
             this.panel5.TabIndex = 75;
@@ -481,7 +511,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Red;
-            this.panel6.Location = new System.Drawing.Point(340, 534);
+            this.panel6.Location = new System.Drawing.Point(335, 21);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(16, 16);
             this.panel6.TabIndex = 73;
@@ -490,7 +520,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(107, 534);
+            this.label4.Location = new System.Drawing.Point(102, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 16);
             this.label4.TabIndex = 72;
@@ -500,7 +530,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 534);
+            this.label3.Location = new System.Drawing.Point(23, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 70;
@@ -509,7 +539,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.GreenYellow;
-            this.panel4.Location = new System.Drawing.Point(91, 534);
+            this.panel4.Location = new System.Drawing.Point(86, 21);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(16, 16);
             this.panel4.TabIndex = 71;
@@ -517,7 +547,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Green;
-            this.panel3.Location = new System.Drawing.Point(13, 534);
+            this.panel3.Location = new System.Drawing.Point(8, 21);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(16, 16);
             this.panel3.TabIndex = 69;
@@ -526,7 +556,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(387, 500);
+            this.label1.Location = new System.Drawing.Point(458, 500);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 0;
@@ -536,7 +566,7 @@
             // 
             this.lblValorTotal.AutoSize = true;
             this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(464, 500);
+            this.lblValorTotal.Location = new System.Drawing.Point(530, 500);
             this.lblValorTotal.Name = "lblValorTotal";
             this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
             this.lblValorTotal.TabIndex = 0;
@@ -562,20 +592,30 @@
             this.lblQtdTotal.TabIndex = 0;
             this.lblQtdTotal.Text = "0";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.panel5);
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Controls.Add(this.panel4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.panel6);
+            this.groupBox3.Location = new System.Drawing.Point(5, 524);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(427, 45);
+            this.groupBox3.TabIndex = 78;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Legenda";
+            // 
             // frm_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 558);
+            this.ClientSize = new System.Drawing.Size(684, 574);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.gbCliente);
-            this.Controls.Add(this.btnVisualizar);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnPesquisarGeral);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.gbData);
@@ -602,8 +642,9 @@
             this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -651,5 +692,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button btnImprimirGrid;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

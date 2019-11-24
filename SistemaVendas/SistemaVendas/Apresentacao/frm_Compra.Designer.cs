@@ -59,6 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImprimirGrid = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -67,6 +68,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbFornecedor.SuspendLayout();
@@ -75,6 +87,7 @@
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNome
@@ -88,7 +101,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(562, 385);
+            this.txtId.Location = new System.Drawing.Point(612, 422);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(37, 21);
@@ -98,7 +111,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(552, 186);
+            this.btnExcluir.Location = new System.Drawing.Point(591, 171);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(87, 28);
@@ -110,7 +123,7 @@
             // btnAlterar
             // 
             this.btnAlterar.Enabled = false;
-            this.btnAlterar.Location = new System.Drawing.Point(552, 138);
+            this.btnAlterar.Location = new System.Drawing.Point(589, 128);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(87, 28);
@@ -131,13 +144,13 @@
             this.dgvCompra.Name = "dgvCompra";
             this.dgvCompra.ReadOnly = true;
             this.dgvCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCompra.Size = new System.Drawing.Size(525, 308);
+            this.dgvCompra.Size = new System.Drawing.Size(564, 308);
             this.dgvCompra.TabIndex = 37;
             this.dgvCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCompra_CellClick);
             // 
             // btnPesquisarGeral
             // 
-            this.btnPesquisarGeral.Location = new System.Drawing.Point(552, 90);
+            this.btnPesquisarGeral.Location = new System.Drawing.Point(589, 85);
             this.btnPesquisarGeral.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisarGeral.Name = "btnPesquisarGeral";
             this.btnPesquisarGeral.Size = new System.Drawing.Size(87, 28);
@@ -148,7 +161,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(552, 42);
+            this.btnNovo.Location = new System.Drawing.Point(592, 42);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(87, 28);
@@ -292,7 +305,7 @@
             // btnVisualizar
             // 
             this.btnVisualizar.Enabled = false;
-            this.btnVisualizar.Location = new System.Drawing.Point(552, 234);
+            this.btnVisualizar.Location = new System.Drawing.Point(591, 214);
             this.btnVisualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(87, 28);
@@ -337,7 +350,7 @@
             // btnSelecionar
             // 
             this.btnSelecionar.Enabled = false;
-            this.btnSelecionar.Location = new System.Drawing.Point(552, 282);
+            this.btnSelecionar.Location = new System.Drawing.Point(591, 257);
             this.btnSelecionar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(87, 28);
@@ -349,7 +362,7 @@
             // btnEstornar
             // 
             this.btnEstornar.Enabled = false;
-            this.btnEstornar.Location = new System.Drawing.Point(552, 330);
+            this.btnEstornar.Location = new System.Drawing.Point(589, 300);
             this.btnEstornar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEstornar.Name = "btnEstornar";
             this.btnEstornar.Size = new System.Drawing.Size(87, 28);
@@ -367,7 +380,7 @@
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(594, 5);
+            this.btnMinimizar.Location = new System.Drawing.Point(634, 5);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
@@ -384,7 +397,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(621, 5);
+            this.btnClose.Location = new System.Drawing.Point(661, 5);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
@@ -403,7 +416,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(645, 26);
+            this.panel2.Size = new System.Drawing.Size(684, 26);
             this.panel2.TabIndex = 58;
             // 
             // label8
@@ -419,13 +432,23 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.dgvCompra);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.gbFornecedor);
+            this.groupBox2.Controls.Add(this.panel8);
+            this.groupBox2.Controls.Add(this.panel6);
             this.groupBox2.Controls.Add(this.gbCodigo);
+            this.groupBox2.Controls.Add(this.panel7);
+            this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Controls.Add(this.gbData);
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Location = new System.Drawing.Point(10, 34);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 466);
+            this.groupBox2.Size = new System.Drawing.Size(576, 466);
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
@@ -433,25 +456,42 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.btnImprimirGrid);
+            this.panel1.Controls.Add(this.btnEstornar);
+            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.btnSelecionar);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnVisualizar);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.lblValorTotal);
+            this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.lblQtdTotal);
+            this.panel1.Controls.Add(this.btnPesquisarGeral);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 553);
+            this.panel1.Size = new System.Drawing.Size(684, 566);
             this.panel1.TabIndex = 60;
+            // 
+            // btnImprimirGrid
+            // 
+            this.btnImprimirGrid.Enabled = false;
+            this.btnImprimirGrid.Location = new System.Drawing.Point(591, 343);
+            this.btnImprimirGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnImprimirGrid.Name = "btnImprimirGrid";
+            this.btnImprimirGrid.Size = new System.Drawing.Size(87, 28);
+            this.btnImprimirGrid.TabIndex = 69;
+            this.btnImprimirGrid.Text = "Imprimir Grid";
+            this.btnImprimirGrid.UseVisualStyleBackColor = true;
+            this.btnImprimirGrid.Click += new System.EventHandler(this.btnImprimirGrid_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(109, 530);
+            this.label4.Location = new System.Drawing.Point(102, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 68;
@@ -461,7 +501,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 530);
+            this.label3.Location = new System.Drawing.Point(23, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 66;
@@ -470,7 +510,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.LightSalmon;
-            this.panel4.Location = new System.Drawing.Point(93, 530);
+            this.panel4.Location = new System.Drawing.Point(86, 20);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(16, 16);
             this.panel4.TabIndex = 67;
@@ -478,7 +518,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Green;
-            this.panel3.Location = new System.Drawing.Point(15, 530);
+            this.panel3.Location = new System.Drawing.Point(8, 20);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(16, 16);
             this.panel3.TabIndex = 65;
@@ -487,7 +527,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(392, 501);
+            this.label1.Location = new System.Drawing.Point(468, 501);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 61;
@@ -507,7 +547,7 @@
             // 
             this.lblValorTotal.AutoSize = true;
             this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(469, 501);
+            this.lblValorTotal.Location = new System.Drawing.Point(545, 501);
             this.lblValorTotal.Name = "lblValorTotal";
             this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
             this.lblValorTotal.TabIndex = 62;
@@ -523,19 +563,115 @@
             this.lblQtdTotal.TabIndex = 64;
             this.lblQtdTotal.Text = "0";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.panel4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(9, 521);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(176, 40);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Legenda";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(257, 463);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(242, 48);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Legenda";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Green;
+            this.panel5.Location = new System.Drawing.Point(85, 488);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(16, 16);
+            this.panel5.TabIndex = 65;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.LightSalmon;
+            this.panel6.Location = new System.Drawing.Point(163, 488);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(16, 16);
+            this.panel6.TabIndex = 67;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(100, 488);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 16);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Pago";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(179, 488);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "Aberto";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Location = new System.Drawing.Point(257, 463);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(242, 48);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Legenda";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Green;
+            this.panel7.Location = new System.Drawing.Point(85, 488);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(16, 16);
+            this.panel7.TabIndex = 65;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.LightSalmon;
+            this.panel8.Location = new System.Drawing.Point(163, 488);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(16, 16);
+            this.panel8.TabIndex = 67;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(100, 488);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 16);
+            this.label7.TabIndex = 66;
+            this.label7.Text = "Pago";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(179, 488);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 16);
+            this.label9.TabIndex = 68;
+            this.label9.Text = "Aberto";
+            // 
             // frm_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 553);
+            this.ClientSize = new System.Drawing.Size(684, 566);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnEstornar);
-            this.Controls.Add(this.btnSelecionar);
-            this.Controls.Add(this.btnVisualizar);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnPesquisarGeral);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
@@ -558,10 +694,12 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -605,5 +743,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnImprimirGrid;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Principal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPagto = new System.Windows.Forms.Button();
@@ -42,12 +43,17 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.controle_Venda1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda();
             this.controle_Relatorio1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio();
             this.controle_Pagamento1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Pagamento();
             this.controle_Compra1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Compra();
             this.controle_Menu1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Menu1();
             this.controle_Cadastro1 = new SistemaVendas.Controle_Cadastro();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblData = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,7 +88,7 @@
             this.btnPagto.Name = "btnPagto";
             this.btnPagto.Size = new System.Drawing.Size(177, 54);
             this.btnPagto.TabIndex = 4;
-            this.btnPagto.Text = "Pagamento";
+            this.btnPagto.Text = "Caixa";
             this.btnPagto.UseVisualStyleBackColor = true;
             this.btnPagto.Click += new System.EventHandler(this.btnPagto_Click);
             // 
@@ -195,6 +201,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
             this.panel2.Controls.Add(this.btnMinimizar);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(189, 0);
@@ -247,6 +254,36 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(192, 515);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Colaborador:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(288, 515);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(12, 17);
+            this.lblUsuario.TabIndex = 10;
+            this.lblUsuario.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(143, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "4P Tech - PDV - v1.0";
+            // 
             // controle_Venda1
             // 
             this.controle_Venda1.Location = new System.Drawing.Point(196, 104);
@@ -289,12 +326,30 @@
             this.controle_Cadastro1.Size = new System.Drawing.Size(613, 369);
             this.controle_Cadastro1.TabIndex = 3;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(743, 515);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(12, 17);
+            this.lblData.TabIndex = 11;
+            this.lblData.Text = "-";
+            // 
             // frm_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(818, 532);
+            this.Controls.Add(this.lblData);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.controle_Venda1);
             this.Controls.Add(this.controle_Relatorio1);
@@ -312,8 +367,10 @@
             this.Load += new System.EventHandler(this.frm_Principal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -338,5 +395,10 @@
         private Apresentacao.ControlesUsuario.Controle_Relatorio controle_Relatorio1;
         private Apresentacao.ControlesUsuario.Controle_Venda controle_Venda1;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Label lblData;
+        internal System.Windows.Forms.Timer timer1;
     }
 }

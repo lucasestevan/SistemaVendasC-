@@ -1,10 +1,12 @@
 ﻿using BLL;
 using DAL;
+using DGVPrinterHelper;
 using Modelo;
 using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -88,7 +90,7 @@ namespace SistemaVendas.Apresentacao
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR EXCLUIR
-                        if (Status == "PAGO" ||  Status == "CANCELADO" || Status == "PAGO VR")
+                        if (Status == "PAGO" || Status == "CANCELADO" || Status == "PAGO VR")
                         {
                             MessageBox.Show("A Venda está com status de PAGA/CANCELADO, não é possível excluir!");
                         }
@@ -127,6 +129,7 @@ namespace SistemaVendas.Apresentacao
             btnVisualizar.Enabled = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = true;
+            btnImprimir.Enabled = true;
         }
 
         //BOTAO PESQUISAR geral
@@ -138,6 +141,8 @@ namespace SistemaVendas.Apresentacao
             ContarLinhas();
             ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO PESQUISAR IDCOMPRA
@@ -149,6 +154,8 @@ namespace SistemaVendas.Apresentacao
             ContarLinhas();
             ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO PESQUISAR Data
@@ -160,6 +167,8 @@ namespace SistemaVendas.Apresentacao
             ContarLinhas();
             ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
+            btnImprimirGrid.Enabled = true;
+
         }
 
         private void BtnPesquisaCliente_Click(object sender, EventArgs e)
@@ -170,6 +179,8 @@ namespace SistemaVendas.Apresentacao
             ContarLinhas();
             ContarTotal();
             FormatarDGV(); //FORMATA O DATA GRID
+            btnImprimirGrid.Enabled = true;
+
         }
 
         //BOTAO VIZUALIZAR
@@ -406,5 +417,91 @@ namespace SistemaVendas.Apresentacao
             lblValorTotal.Text = valorTotal.ToString();
         }
 
+        //imprimir data grid
+        private void btnImprimirGrid_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Relátorio de Venda";
+            printer.SubTitle = string.Format("Data: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "4P Tech";
+            printer.FooterSpacing = 15;
+
+            printer.PrintDataGridView(dgvVenda);
+        }
+
+        //imprimir pedido
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                DialogResult msg = MessageBox.Show("Imprimir Pedido selecionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                //SE O ESCOLHER SIM FAÇA
+                if (msg == DialogResult.Yes)
+                {
+                    //pega o id da data grid
+                    this.idVenda = (Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value));
+
+                    //CHAMAR O FORM impressao
+                    Impressao.frm_ImpressaoVenda impressao = new Impressao.frm_ImpressaoVenda();
+
+                    //chamr modelo bll e dal venda
+                    DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+
+                    //DADOS DA VENDA
+                    BLL_Venda bllVenda = new BLL_Venda(con);
+                    Model_Venda modeloVenda = bllVenda.CarregaModeloVenda(idVenda);
+
+                    impressao.pedido = modeloVenda.IdVenda.ToString();
+                    impressao.data = modeloVenda.DataVenda.ToString();
+                    impressao.status = modeloVenda.VendaStatus.ToString();
+                    impressao.total = modeloVenda.Total.ToString();
+                    impressao.parcelas = modeloVenda.NParcelas.ToString();
+
+                    //DADOS DO CLIENTE
+                    BLL_Cliente bllCliente = new BLL_Cliente(con);
+                    Model_Cliente modeloCliente = bllCliente.CarregaModeloCliente(modeloVenda.IdCliente);
+
+                    impressao.cliente = modeloCliente.Nome.ToString();
+                    impressao.cpf = modeloCliente.Cpf.ToString();
+                    impressao.telefone = modeloCliente.Telefone.ToString();
+                    impressao.celular = modeloCliente.Celular.ToString();
+                    impressao.Nendereco = modeloCliente.NumeroEnde.ToString();
+
+                    //DADOS DO ENDERECO
+                    BLL_Endereco bllEndereco = new BLL_Endereco(con);
+                    Model_Endereco modeloEndereco = bllEndereco.CarregaModeloEndereco(modeloCliente.Cep);
+
+                    impressao.endereco = modeloEndereco.Rua.ToString();
+                    impressao.bairro = modeloEndereco.Bairro.ToString();
+                    impressao.cidade = modeloEndereco.Cidade.ToString();
+                    ////itens da venda
+                    //BLL_ItensVendas bll_Itens = new BLL_ItensVendas(con);
+                    //DataTable tabela = bll_Itens.Localizar(modelo.IdVenda);
+
+                    ////jogar todos os itens na tela
+                    //for (int i = 0; i < tabela.Rows.Count; i++)
+                    //{
+                    //    string icod = tabela.Rows[i]["id_produto"].ToString();
+                    //    string inome = tabela.Rows[i]["nome"].ToString();
+                    //    string iqtd = tabela.Rows[i]["quantidade"].ToString();
+                    //    string ivaloruni = tabela.Rows[i]["valor"].ToString();
+                    //    Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
+
+                    //    String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
+                    //    cadVenda.dgvVenda.Rows.Add(it);
+                    //}
+                    impressao.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione algum campo na grid para imprimir!");
+                }
+            }
+        }
     }
 }

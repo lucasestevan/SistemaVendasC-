@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImprimirGrid = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
@@ -212,6 +213,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnImprimirGrid);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblQtdTotal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -219,6 +221,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(584, 486);
             this.panel1.TabIndex = 58;
+            // 
+            // btnImprimirGrid
+            // 
+            this.btnImprimirGrid.Enabled = false;
+            this.btnImprimirGrid.Location = new System.Drawing.Point(488, 234);
+            this.btnImprimirGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnImprimirGrid.Name = "btnImprimirGrid";
+            this.btnImprimirGrid.Size = new System.Drawing.Size(87, 28);
+            this.btnImprimirGrid.TabIndex = 60;
+            this.btnImprimirGrid.Text = "Imprimir Grid";
+            this.btnImprimirGrid.UseVisualStyleBackColor = true;
+            this.btnImprimirGrid.Click += new System.EventHandler(this.btnImprimirGrid_Click);
             // 
             // label2
             // 
@@ -290,5 +304,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblQtdTotal;
+        private System.Windows.Forms.Button btnImprimirGrid;
     }
 }
