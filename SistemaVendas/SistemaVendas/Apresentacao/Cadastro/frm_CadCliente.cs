@@ -114,21 +114,28 @@ namespace SistemaVendas.Apresentacao.Cadastro
         //METODO BUSCAR CEP
         public void BuscarCEP()
         {
-            txtRua.Text = "";
-            txtBairro.Text = "";
-            txtCidade.Text = "";
-            txtUf.Text = "";
+            try
+            {
+                txtRua.Text = "";
+                txtBairro.Text = "";
+                txtCidade.Text = "";
+                txtUf.Text = "";
 
-            string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml"
-                .Replace("@cep", txtCep.Text);
+                string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml"
+                    .Replace("@cep", txtCep.Text);
 
-            DataSet ds = new DataSet();
-            ds.ReadXml(xml);
+                DataSet ds = new DataSet();
+                ds.ReadXml(xml);
 
-            txtRua.Text = ds.Tables[0].Rows[0][6].ToString();
-            txtBairro.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtCidade.Text = ds.Tables[0].Rows[0][3].ToString();
-            //txtUf.Text = ds.Tables[0].Rows[0][2].ToString();
+                txtRua.Text = ds.Tables[0].Rows[0][6].ToString();
+                txtBairro.Text = ds.Tables[0].Rows[0][4].ToString();
+                txtCidade.Text = ds.Tables[0].Rows[0][3].ToString();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Não foi possível conectar a internet para buscar o cep!");
+            } 
 
         }
 

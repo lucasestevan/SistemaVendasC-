@@ -25,6 +25,7 @@ namespace SistemaVendas.Apresentacao
         {
             frm_CadCompra cadMovimentacaoCompra = new frm_CadCompra();
             cadMovimentacaoCompra.ShowDialog();
+            BtnPesquisar_Click(sender, e);
         }
 
         //BOTAO EXCLUIR
@@ -48,9 +49,9 @@ namespace SistemaVendas.Apresentacao
                         this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR EXCLUIR
-                        if (Status == "PAGO")
+                        if (Status == "PAGO" || Status == "CANCELADO")
                         {
-                            MessageBox.Show("A Compra está com status de PAGA, não é possível excluir!");
+                            MessageBox.Show("A Compra está com status de PAGA ou CANCELADA, não é possível excluir!");
                         }
                         else
                         {
@@ -215,6 +216,11 @@ namespace SistemaVendas.Apresentacao
                 {
                     dgvCompra.Rows[i].Cells[0].Style.BackColor = Color.LightSalmon;
                 }
+
+                if (Campostatus == "CANCELADO")
+                {
+                    dgvCompra.Rows[i].Cells[0].Style.BackColor = Color.Red;
+                }
             }
         }
 
@@ -247,9 +253,9 @@ namespace SistemaVendas.Apresentacao
                 this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
 
                 //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR alterar
-                if (Status == "PAGO")
+                if (Status == "PAGO" || Status == "CANCELADO")
                 {
-                    MessageBox.Show("A Compra está com status de PAGO, não é possível Alterar!");
+                    MessageBox.Show("A Compra está com status de PAGO ou CANCELADO, não é possível Alterar!");
                 }
                 else
                 {
@@ -294,6 +300,7 @@ namespace SistemaVendas.Apresentacao
                             cadMovimentacaoCompra.dgvCompra.Rows.Add(it);
                         }
                         cadMovimentacaoCompra.ShowDialog();
+                        BtnPesquisar_Click(sender, e);
                     }
                     else
                     {
@@ -323,43 +330,48 @@ namespace SistemaVendas.Apresentacao
 
             if (txtId.Text != "")
             {
-                DialogResult msgSN = MessageBox.Show("Deseja realmente estornar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                DialogResult msgSN = MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
                 //SE O ESCOLHER SIM FAÇA
                 if (msgSN == DialogResult.Yes)
                 {
-                    this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
                     try
                     {
+                        this.idCompra = Convert.ToInt32(dgvCompra.CurrentRow.Cells[0].Value);
+
+                        //OBJ PARA GRAVAR NO BANCO
+                        DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+                        BLL_Compra bllCompra = new BLL_Compra(con);
+
+                        this.Status = Convert.ToString(dgvCompra.CurrentRow.Cells[5].Value);
+
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR estornar
-                        if (this.Status == "ABERTO")
+                        if (this.Status == "CANCELADO" || Status == "PAGO")
                         {
-                            MessageBox.Show("A Compra está com status em 'ABERTO',\nNão é possível Estorna-la!");
+                            MessageBox.Show("A Compra está com status 'PAGO' / 'CANCELADO',\nNão é possível cancelar!");
                         }
                         else
                         {
-                            //LEITURA DOS DADOS
-                            Model_Compra modelo = new Model_Compra();
-                            modelo.IdCompra = Convert.ToInt32(txtId.Text);
-                            modelo.CompraStatus = "ABERTO";
-                            //OBJ PARA GRAVAR NO BANCO
-                            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
-                            BLL_Compra bll = new BLL_Compra(con);
+                            //ITENS
+                            Model_ItensVenda modeloItensVendas = new Model_ItensVenda();
+                            BLL_ItensVendas bllItenVenda = new BLL_ItensVendas(con);
 
-                            //CADASTRAR UMA CATEGORIA
-                            bll.EstornarConta(modelo);
-                            MessageBox.Show("Estorno efetuado com sucesso!");
+                            
+                            bllCompra.EstornarConta(Convert.ToInt32(txtId.Text));
+
+                            MessageBox.Show("Compra Cancelada com sucesso!");
+                            txtId.Text = "";
                         }
+                        BtnPesquisar_Click(sender, e);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao efeturar estorno da Compra\n" + ex.Message);
+                        MessageBox.Show("Erro ao Cancelar a compra  " + ex.Message);
                     }
                 }
-
             }
             else
             {
-                MessageBox.Show("Selecione algum campo para poder alterar");
+                MessageBox.Show("Selecione algum campo para poder cancelar");
             }
         }
 

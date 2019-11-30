@@ -30,7 +30,7 @@ namespace BLL
 
             if (modelo.Quantidade <= 0)
             {
-                throw new Exception("A quantidade deve ser maior que zero");
+                throw new Exception("A quantidade deve ser maior ou igual a zero");
             }
 
             if (modelo.Valor <= 0)

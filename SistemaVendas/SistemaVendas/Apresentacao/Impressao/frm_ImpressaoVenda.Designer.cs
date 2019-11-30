@@ -29,23 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ImpressaoVenda));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.AutoScroll = true;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaVendas.Apresentacao.Impressao.ImpressaoVendas.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 26);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1044, 595);
-            this.reportViewer1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -58,7 +48,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(842, 26);
+            this.panel2.Size = new System.Drawing.Size(936, 26);
             this.panel2.TabIndex = 59;
             // 
             // label8
@@ -80,7 +70,7 @@
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(797, 5);
+            this.btnMinimizar.Location = new System.Drawing.Point(886, 6);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
@@ -97,7 +87,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(822, 4);
+            this.btnClose.Location = new System.Drawing.Point(911, 5);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
@@ -105,13 +95,24 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.AutoScroll = true;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaVendas.Apresentacao.Impressao.ImpressaoVendas.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 26);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(936, 517);
+            this.reportViewer1.TabIndex = 60;
+            // 
             // frm_ImpressaoVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 543);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(936, 543);
             this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_ImpressaoVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -124,11 +125,10 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnClose;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

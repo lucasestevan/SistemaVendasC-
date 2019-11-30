@@ -22,26 +22,69 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
 
         public void CarregarGrid1()
         {
-            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
-            BLL_Produto bll = new BLL_Produto(con);
-            dgvEstoqueBaixo.DataSource = bll.LocalizarEstoqueBaixo();
-            FormatarDGV1(); //FORMATA O DATA GRID
-            ContarLinhas1();
+            try
+            {
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+                BLL_Produto bll = new BLL_Produto(con);
+                dgvEstoqueBaixo.DataSource = bll.LocalizarEstoqueBaixo();
+                FormatarDGV1(); //FORMATA O DATA GRID
+                ContarLinhas1();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void CarregarGrid2()
         {
-            DateTime data1 = new DateTime();
-            DateTime data2 = new DateTime();
-            data1 = DateTime.Now;
-            data2 = DateTime.Now;
-            data2 = new DateTime(data2.Year, data2.Month, data2.Day + 5);
+            try
+            {
+                DateTime data1 = new DateTime();
+                DateTime data2 = new DateTime();
+                data1 = DateTime.Now;
+                data2 = DateTime.Now;
+                data2 = new DateTime(data2.Year, data2.Month, data2.Day);
 
-            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
-            BLL_ParcelasVenda bll = new BLL_ParcelasVenda(con);
-            dgvVencimento.DataSource = bll.LocalizarPertoVencimento(data1, data2);
-            FormatarDGV2(); //FORMATA O DATA GRID
-            ContarLinhas2();
+                if (data2.Day == 26)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month + 1, 1);
+                }
+                if (data2.Day == 27)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month + 1, 2);
+                }
+                if (data2.Day == 28)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month + 1, 3);
+                }
+                if (data2.Day == 29)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month + 1, 4);
+                }
+                if (data2.Day == 30)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month + 1, 5);
+                }
+                if (data2.Day == 31)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month + 1, 6);
+                }
+                if (data2.Month == 13)
+                {
+                    data2 = new DateTime(data2.Year + 1,  1, data2.Day);
+                }
+
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+                BLL_ParcelasVenda bll = new BLL_ParcelasVenda(con);
+                dgvVencimento.DataSource = bll.LocalizarPertoVencimento(data1, data2);
+                FormatarDGV2(); //FORMATA O DATA GRID
+                ContarLinhas2();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void FormatarDGV1()
@@ -59,19 +102,17 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
             int total = dgvEstoqueBaixo.Rows.Count;
             lblQtdTotal.Text = total.ToString();
         }
-
+        
         private void FormatarDGV2()
         {
-
             dgvVencimento.Columns[0].HeaderText = "Pedido";
-            dgvVencimento.Columns[0].Width = 60;
+            dgvVencimento.Columns[0].Width = 55;
             dgvVencimento.Columns[1].HeaderText = "Vencimento";
             dgvVencimento.Columns[1].Width = 90;
             dgvVencimento.Columns[2].HeaderText = "Valor";
             dgvVencimento.Columns[2].Width = 55;
             dgvVencimento.Columns[3].Visible = false;
             dgvVencimento.CurrentRow.Selected = false;
-
 
             //inserir cor no fundo
             for (int i = 0; i < dgvVencimento.Rows.Count; i++)
@@ -95,7 +136,5 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
             int total = dgvVencimento.Rows.Count;
             lblQtdTotal2.Text = total.ToString();
         }
-
-
     }
 }

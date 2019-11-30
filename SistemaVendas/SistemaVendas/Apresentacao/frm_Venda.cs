@@ -6,7 +6,6 @@ using SistemaVendas.Apresentacao.Cadastro;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace SistemaVendas.Apresentacao
@@ -26,6 +25,7 @@ namespace SistemaVendas.Apresentacao
         {
             frm_CadVenda venda = new frm_CadVenda();
             venda.ShowDialog();
+            BtnPesquisarGeral_Click(sender, e);
         }
 
         //load
@@ -105,6 +105,7 @@ namespace SistemaVendas.Apresentacao
 
                             //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
                         }
+                        BtnPesquisarGeral_Click(sender, e);
                     }
                     catch (Exception ex)
                     {
@@ -263,6 +264,7 @@ namespace SistemaVendas.Apresentacao
                             cadVenda.dgvVenda.Rows.Add(it);
                         }
                         cadVenda.ShowDialog();
+                        BtnPesquisarGeral_Click(sender, e);
                     }
                 }
             }
@@ -330,10 +332,10 @@ namespace SistemaVendas.Apresentacao
                     try
                     {
                         this.idVenda = Convert.ToInt32(dgvVenda.CurrentRow.Cells[0].Value);
-                        //EXCLUIR ITENS DA COMPRA 
+
                         DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
-                        //excluir Compra
                         BLL_Venda bllVenda = new BLL_Venda(con);
+
                         this.Status = Convert.ToString(dgvVenda.CurrentRow.Cells[5].Value);
 
                         //SE O STATUS ESTIVER COMO PAGA NAO DEIXAR cancelar
@@ -343,12 +345,31 @@ namespace SistemaVendas.Apresentacao
                         }
                         else
                         {
+                            //ITENS VENDA
+                            Model_ItensCompra modeloItensCompra = new Model_ItensCompra();
+                            BLL_ItensCompra bllItensCompra = new BLL_ItensCompra(con);
+
+                            Double Qtd = 0;
+
+                            DataTable tabela = bllItensCompra.Localizar(this.idVenda);
+                            //jogar todos os itens na tela
+                            for (int i = 0; i < tabela.Rows.Count; i++)
+                            {
+                                modeloItensCompra.IdItensCompra = i + 1;
+                                modeloItensCompra.IdCompraItensCompra = 0;
+                                modeloItensCompra.IdProdutoItensCompra = Convert.ToInt32(tabela.Rows[i]["id_produto"].ToString());
+                                Qtd = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Qtd;
+                                modeloItensCompra.Quantidade = Qtd;
+                                modeloItensCompra.Valor = Convert.ToDouble(tabela.Rows[i]["valor"].ToString());
+
+                                bllItensCompra.Incluir(modeloItensCompra);
+                                //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
+                            }
                             bllVenda.CancelarVenda(Convert.ToInt32(txtId.Text));
 
                             MessageBox.Show("Venda Cancelada com sucesso!");
                             txtId.Text = "";
-
-                            //EXECUTAR A TRIGGER DO BD PARA ARRUMAR ESTOQUE
+                            BtnPesquisarGeral_Click(sender, e);
                         }
                     }
                     catch (Exception ex)
@@ -455,7 +476,7 @@ namespace SistemaVendas.Apresentacao
                     //DADOS DA VENDA
                     BLL_Venda bllVenda = new BLL_Venda(con);
                     Model_Venda modeloVenda = bllVenda.CarregaModeloVenda(idVenda);
-
+                    impressao.idvenda = this.idVenda;
                     impressao.pedido = modeloVenda.IdVenda.ToString();
                     impressao.data = modeloVenda.DataVenda.ToString();
                     impressao.status = modeloVenda.VendaStatus.ToString();
@@ -479,22 +500,7 @@ namespace SistemaVendas.Apresentacao
                     impressao.endereco = modeloEndereco.Rua.ToString();
                     impressao.bairro = modeloEndereco.Bairro.ToString();
                     impressao.cidade = modeloEndereco.Cidade.ToString();
-                    ////itens da venda
-                    //BLL_ItensVendas bll_Itens = new BLL_ItensVendas(con);
-                    //DataTable tabela = bll_Itens.Localizar(modelo.IdVenda);
 
-                    ////jogar todos os itens na tela
-                    //for (int i = 0; i < tabela.Rows.Count; i++)
-                    //{
-                    //    string icod = tabela.Rows[i]["id_produto"].ToString();
-                    //    string inome = tabela.Rows[i]["nome"].ToString();
-                    //    string iqtd = tabela.Rows[i]["quantidade"].ToString();
-                    //    string ivaloruni = tabela.Rows[i]["valor"].ToString();
-                    //    Double totalLocal = Convert.ToDouble(tabela.Rows[i]["quantidade"]) * Convert.ToDouble(tabela.Rows[i]["valor"]);
-
-                    //    String[] it = new String[] { icod, inome, iqtd, ivaloruni, totalLocal.ToString() };
-                    //    cadVenda.dgvVenda.Rows.Add(it);
-                    //}
                     impressao.ShowDialog();
                 }
                 else

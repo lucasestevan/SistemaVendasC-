@@ -83,10 +83,10 @@ namespace BLL
         }
 
         //METODO ESTORNAR CONTA
-        public void EstornarConta(Model_Compra modelo)
+        public void EstornarConta(int idVenda)
         {
             DAO_Compra DALobj = new DAO_Compra(conexao);
-            DALobj.EstornarConta(modelo);
+            DALobj.EstornarConta(idVenda);
         }
 
         //METODO EXCLUIR

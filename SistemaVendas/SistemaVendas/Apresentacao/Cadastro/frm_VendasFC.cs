@@ -138,7 +138,6 @@ namespace SistemaVendas.Apresentacao
                     Model_ItensVenda modeloItensVendas = new Model_ItensVenda();
                     BLL_ItensVendas bllItenVenda = new BLL_ItensVendas(con);
 
-
                     //CADASTRAR ITENS Venda
                     for (int i = 0; i < dgvVenda.RowCount; i++)
                     {
@@ -152,8 +151,22 @@ namespace SistemaVendas.Apresentacao
 
                         //ALTERAR A QUANTIDADE DE PRODUTOS vendidos NA TABLE DA PRODUTOS
                         //TRIGGER CRIADA NO BD
-
                     }
+
+                    //PARCELAS VENDA
+                    Model_ParcelasVenda modeloParcelas = new Model_ParcelasVenda();
+                    BLL_ParcelasVenda bllParcelas = new BLL_ParcelasVenda(con);
+
+                    //CADASTRAR PARCELAS VENDA
+                    modeloParcelas.IdVenda = pagamento.idVenda;
+                    modeloParcelas.IdParcelasVenda = 1;//PEGA O IDE DO DATA GRID
+                    modeloParcelas.Valor = Convert.ToDouble(pagamento.lblTotal.Text);
+                    modeloParcelas.DataVencimento = Convert.ToDateTime(DateTime.Now); //PEGA a data DO DATA GRID
+
+                    bllParcelas.Incluir(modeloParcelas);
+
+                    ImprimirPedido(pagamento.idVenda);
+
                     this.Close();
                 }
             }
@@ -170,7 +183,6 @@ namespace SistemaVendas.Apresentacao
                 this.Close();
             }
         }
-
 
         //EVENTO AO SELECIONAR UMA TECLA
         private void txtCod_KeyDown(object sender, KeyEventArgs e)
@@ -234,7 +246,6 @@ namespace SistemaVendas.Apresentacao
             }
         }
 
-
         private void txtQtd_Leave_1(object sender, EventArgs e)
         {
             if (txtQtd.Text.Contains(",") == false)
@@ -268,6 +279,40 @@ namespace SistemaVendas.Apresentacao
         private void frm_VendasFC_Load(object sender, EventArgs e)
         {
             txtCod.Focus();
+        }
+
+        public void ImprimirPedido(int idVenda)
+        {
+            DialogResult msg = MessageBox.Show("Deseja imprimir o Pedido?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+            //SE O ESCOLHER SIM FAÇA
+            if (msg == DialogResult.Yes)
+            {
+                //CHAMAR O FORM impressao
+                Impressao.frm_ImpressaoVenda impressao = new Impressao.frm_ImpressaoVenda();
+
+                //chamr modelo bll e dal venda
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+
+                //DADOS DA VENDA
+                BLL_Venda bllVenda = new BLL_Venda(con);
+                Model_Venda modeloVenda = bllVenda.CarregaModeloVenda(idVenda);
+                impressao.idvenda = idVenda;
+                impressao.pedido = modeloVenda.IdVenda.ToString();
+                impressao.data = modeloVenda.DataVenda.ToString();
+                impressao.status = "PAGO VR";
+                impressao.total = modeloVenda.Total.ToString();
+                impressao.parcelas = modeloVenda.NParcelas.ToString();
+                impressao.cliente = "CONSUMIDOR";
+                impressao.cpf = "";
+                impressao.telefone = "";
+                impressao.celular = "";
+                impressao.Nendereco = "";
+                impressao.endereco = "";
+                impressao.bairro = "";
+                impressao.cidade = "";
+
+                impressao.ShowDialog();
+            }
         }
     }
 }

@@ -277,3 +277,7 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\S
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.Impressao.frm_ImpressaoVenda.resources
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\RdlCompile.cache
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\RdlCompile.compiled
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Xero.Api.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Xero.Api.Example.Applications.dll
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Newtonsoft.Json.xml

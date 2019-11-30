@@ -67,17 +67,47 @@ namespace DAL
             conexao.Desconectar();
         }
 
-        //METODO ESTORNAR CONTA
-        public void EstornarConta(Model_Compra modelo)
+        //METODO CANCELAR COMPRA
+        public Boolean EstornarConta(int idCompra)
         {
+            Boolean retorno = true;
+            //ATUALIZAR TABELA DE VENDA
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE Compra set compraStatus = @compraStatus where id_compra = @id_compra";
-            cmd.Parameters.AddWithValue("@id_compra", modelo.IdCompra);
-            cmd.Parameters.AddWithValue("@compraStatus", modelo.CompraStatus);
             conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+
+            try
+            {
+                cmd.CommandText = "UPDATE Compra set CompraStatus = 'CANCELADO' where id_compra = @id_compra";
+                cmd.Parameters.AddWithValue("@id_compra", idCompra);
+                cmd.ExecuteNonQuery();
+
+                //INCLEMENTEAR O ESTOQUE COM OS ITENS DA VENDA CANCELADA
+
+                //LOCALIZAR OS ITENS DA VENDA
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = default(SqlDataAdapter);
+                da = new SqlDataAdapter("Select id_itensCompra, quantidade, id_produto from ItensCompra where id_compra = " + idCompra.ToString(), conexao.StringConexao);
+                da.Fill(dt);
+
+                //alterar a quantisdade do estoque
+                Model_Produto produto;
+                DAO_Conexao cxPL = new DAO_Conexao(DadoConexao.StringDeConexao);
+                DAO_Produto dalProduto = new DAO_Produto(cxPL);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(dt.Rows[i]["id_produto"]));
+                    produto.Quantidade = produto.Quantidade - Convert.ToDouble(dt.Rows[i]["quantidade"]);
+                    dalProduto.Alterar(produto, true);
+                }
+                conexao.Desconectar();
+            }
+            catch (Exception)
+            {
+                retorno = false;
+                conexao.Desconectar();
+            }
+            return retorno;
         }
 
         //METODO EXCLUIR

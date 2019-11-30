@@ -24,7 +24,7 @@ namespace SistemaVendas.Apresentacao
                 modeloVenda.NFiscal = 0;
                 modeloVenda.NParcelas = 0;
                 modeloVenda.Total = Convert.ToDouble(lblTotal.Text);
-                modeloVenda.IdCliente = 1; 
+                modeloVenda.IdCliente = 1;
                 modeloVenda.IdTipoPagamento = 1;
                 modeloVenda.Avista = 1;
                 modeloVenda.VendaStatus = "PAGO VR";
@@ -98,7 +98,7 @@ namespace SistemaVendas.Apresentacao
 
                     lblTroco.Text = this.TotalTroco.ToString();
                 }
-               
+
             }
             catch (Exception)
             {

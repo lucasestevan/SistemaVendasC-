@@ -61,19 +61,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnImprimirGrid = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblQtdTotal = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.gbCodigo.SuspendLayout();
             this.gbData.SuspendLayout();
             this.gbCliente.SuspendLayout();
@@ -480,78 +480,6 @@
             this.btnImprimirGrid.UseVisualStyleBackColor = true;
             this.btnImprimirGrid.Click += new System.EventHandler(this.btnImprimirGrid_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(266, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 16);
-            this.label5.TabIndex = 76;
-            this.label5.Text = "Aberto";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(350, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 16);
-            this.label6.TabIndex = 74;
-            this.label6.Text = "Cancelado";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.LightSalmon;
-            this.panel5.Location = new System.Drawing.Point(250, 21);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(16, 16);
-            this.panel5.TabIndex = 75;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Red;
-            this.panel6.Location = new System.Drawing.Point(335, 21);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(16, 16);
-            this.panel6.TabIndex = 73;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(102, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 16);
-            this.label4.TabIndex = 72;
-            this.label4.Text = "Pago Venda Rápida";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 16);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "Pago";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.GreenYellow;
-            this.panel4.Location = new System.Drawing.Point(86, 21);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(16, 16);
-            this.panel4.TabIndex = 71;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Green;
-            this.panel3.Location = new System.Drawing.Point(8, 21);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(16, 16);
-            this.panel3.TabIndex = 69;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -609,6 +537,78 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Legenda";
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightSalmon;
+            this.panel5.Location = new System.Drawing.Point(250, 21);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(16, 16);
+            this.panel5.TabIndex = 75;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Green;
+            this.panel3.Location = new System.Drawing.Point(8, 21);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(16, 16);
+            this.panel3.TabIndex = 69;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.GreenYellow;
+            this.panel4.Location = new System.Drawing.Point(86, 21);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(16, 16);
+            this.panel4.TabIndex = 71;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 16);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "Pago";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(266, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Aberto";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(102, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(121, 16);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "Pago Venda Rápida";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(350, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 16);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Cancelado";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Red;
+            this.panel6.Location = new System.Drawing.Point(335, 21);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(16, 16);
+            this.panel6.TabIndex = 73;
+            // 
             // frm_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -627,7 +627,7 @@
             this.MaximizeBox = false;
             this.Name = "frm_Venda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_Venda";
+            this.Text = "Venda";
             this.Load += new System.EventHandler(this.Frm_Venda_Load);
             this.gbCodigo.ResumeLayout(false);
             this.gbCodigo.PerformLayout();

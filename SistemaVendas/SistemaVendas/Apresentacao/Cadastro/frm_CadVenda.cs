@@ -234,11 +234,14 @@ namespace SistemaVendas.Apresentacao.Cadastro
                     {
                         modeloParcelas.DataPagto = Convert.ToDateTime(dtPgtoInicial.Text);
                     }
-                    
+
                     bllParcelas.Incluir(modeloParcelas);
                 }
 
                 MessageBox.Show("Venda cadastrada com sucesso!");
+
+                ImprimirPedido(modeloVenda.IdVenda);
+
                 this.Close();
 
             }
@@ -571,6 +574,48 @@ namespace SistemaVendas.Apresentacao.Cadastro
             }
         }
 
-        
+        public void ImprimirPedido(int idVenda)
+        {
+            DialogResult msg = MessageBox.Show("Deseja imprimir o Pedido?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+            //SE O ESCOLHER SIM FAÇA
+            if (msg == DialogResult.Yes)
+            {
+                //CHAMAR O FORM impressao
+                Impressao.frm_ImpressaoVenda impressao = new Impressao.frm_ImpressaoVenda();
+
+                //chamr modelo bll e dal venda
+                DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+
+                //DADOS DA VENDA
+                BLL_Venda bllVenda = new BLL_Venda(con);
+                Model_Venda modeloVenda = bllVenda.CarregaModeloVenda(idVenda);
+                impressao.idvenda = idVenda;
+                impressao.pedido = modeloVenda.IdVenda.ToString();
+                impressao.data = modeloVenda.DataVenda.ToString();
+                impressao.status = modeloVenda.VendaStatus.ToString();
+                impressao.total = modeloVenda.Total.ToString();
+                impressao.parcelas = modeloVenda.NParcelas.ToString();
+
+                //DADOS DO CLIENTE
+                BLL_Cliente bllCliente = new BLL_Cliente(con);
+                Model_Cliente modeloCliente = bllCliente.CarregaModeloCliente(modeloVenda.IdCliente);
+
+                impressao.cliente = modeloCliente.Nome.ToString();
+                impressao.cpf = modeloCliente.Cpf.ToString();
+                impressao.telefone = modeloCliente.Telefone.ToString();
+                impressao.celular = modeloCliente.Celular.ToString();
+                impressao.Nendereco = modeloCliente.NumeroEnde.ToString();
+
+                //DADOS DO ENDERECO
+                BLL_Endereco bllEndereco = new BLL_Endereco(con);
+                Model_Endereco modeloEndereco = bllEndereco.CarregaModeloEndereco(modeloCliente.Cep);
+
+                impressao.endereco = modeloEndereco.Rua.ToString();
+                impressao.bairro = modeloEndereco.Bairro.ToString();
+                impressao.cidade = modeloEndereco.Cidade.ToString();
+
+                impressao.ShowDialog();
+            }
+        }
     }
 }
