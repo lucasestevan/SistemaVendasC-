@@ -17,7 +17,6 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
         {
             CarregarGrid1();
             CarregarGrid2();
-           
         }
 
         public void CarregarGrid1()
@@ -46,6 +45,10 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
                 data2 = DateTime.Now;
                 data2 = new DateTime(data2.Year, data2.Month, data2.Day);
 
+                if (data2.Day < 26)
+                {
+                    data2 = new DateTime(data2.Year, data2.Month, data2.Day + 5);
+                }
                 if (data2.Day == 26)
                 {
                     data2 = new DateTime(data2.Year, data2.Month + 1, 1);

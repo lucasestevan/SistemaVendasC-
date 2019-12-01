@@ -14,25 +14,6 @@ namespace SistemaVendas
             controle_Menu1.BringToFront();
         }
 
-        //botao minimizar
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        //botao fechar
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
-            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            //SE O ESCOLHER SIM
-            if (msg == DialogResult.Yes)
-            {
-                this.Hide();
-                this.Close();
-            }
-        }
-
         //BOTAO LOGOUt
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -59,7 +40,6 @@ namespace SistemaVendas
             controle_Menu1.CarregarGrid2();//carregar a grid
         }
 
-
         //botao vendas
         private void btnVendas_Click(object sender, EventArgs e)
         {
@@ -76,7 +56,7 @@ namespace SistemaVendas
             controle_Compra1.BringToFront();
         }
 
-        //BOTAO LOGOUt
+        //BOTAO pagto
         private void btnPagto_Click(object sender, EventArgs e)
         {
             pnAuxiliar.Height = btnPagto.Height;
@@ -84,7 +64,7 @@ namespace SistemaVendas
             controle_Pagamento1.BringToFront();
         }
 
-        //BOTAO LOGOUt
+        //BOTAO relaotiro
         private void btnRelatorio_Click(object sender, EventArgs e)
         {
             pnAuxiliar.Height = btnRelatorio.Height;
@@ -92,12 +72,20 @@ namespace SistemaVendas
             controle_Relatorio1.BringToFront();
         }
 
-        //BOTAO LOGOUt
+        //BOTAO cadastro
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             pnAuxiliar.Height = btnCadastro.Height;
             pnAuxiliar.Top = btnCadastro.Top;
             controle_Cadastro1.BringToFront();
+        }
+
+        //botao config
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            pnAuxiliar.Height = btnConfig.Height;
+            pnAuxiliar.Top = btnConfig.Top;
+            controle_Config1.BringToFront();
         }
 
         private void frm_Principal_Load(object sender, EventArgs e)
@@ -108,6 +96,25 @@ namespace SistemaVendas
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblData.Text = DateTime.Now.ToShortDateString();
+        }
+
+        //botao minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //botao fechar
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja realmente sair?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                this.Hide();
+                this.Close();
+            }
         }
     }
 }

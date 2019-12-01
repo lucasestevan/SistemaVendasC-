@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Principal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.btnPagto = new System.Windows.Forms.Button();
             this.pnAuxiliar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -41,19 +42,20 @@
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblData = new System.Windows.Forms.Label();
+            this.controle_Config1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Config();
             this.controle_Venda1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda();
             this.controle_Relatorio1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio();
             this.controle_Pagamento1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Pagamento();
             this.controle_Compra1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Compra();
             this.controle_Menu1 = new SistemaVendas.Apresentacao.ControlesUsuario.Controle_Menu1();
             this.controle_Cadastro1 = new SistemaVendas.Controle_Cadastro();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblData = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +64,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.panel1.Controls.Add(this.btnConfig);
             this.panel1.Controls.Add(this.btnPagto);
             this.panel1.Controls.Add(this.pnAuxiliar);
             this.panel1.Controls.Add(this.btnLogout);
@@ -75,6 +78,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 532);
             this.panel1.TabIndex = 0;
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.ForeColor = System.Drawing.Color.White;
+            this.btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.Image")));
+            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.Location = new System.Drawing.Point(12, 383);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(177, 54);
+            this.btnConfig.TabIndex = 7;
+            this.btnConfig.Text = "      Configuração";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // btnPagto
             // 
@@ -95,7 +114,7 @@
             // pnAuxiliar
             // 
             this.pnAuxiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.pnAuxiliar.Location = new System.Drawing.Point(3, 23);
+            this.pnAuxiliar.Location = new System.Drawing.Point(2, 23);
             this.pnAuxiliar.Name = "pnAuxiliar";
             this.pnAuxiliar.Size = new System.Drawing.Size(10, 54);
             this.pnAuxiliar.TabIndex = 3;
@@ -111,7 +130,7 @@
             this.btnLogout.Location = new System.Drawing.Point(12, 487);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(103, 33);
-            this.btnLogout.TabIndex = 3;
+            this.btnLogout.TabIndex = 10;
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -173,7 +192,7 @@
             this.btnVendas.ForeColor = System.Drawing.Color.White;
             this.btnVendas.Image = ((System.Drawing.Image)(resources.GetObject("btnVendas.Image")));
             this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(13, 323);
+            this.btnVendas.Location = new System.Drawing.Point(12, 323);
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Size = new System.Drawing.Size(177, 54);
             this.btnVendas.TabIndex = 6;
@@ -226,6 +245,16 @@
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(143, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "4P Tech - PDV - v1.0";
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
@@ -274,15 +303,27 @@
             this.lblUsuario.TabIndex = 10;
             this.lblUsuario.Text = "-";
             // 
-            // label3
+            // timer1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(143, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 17);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "4P Tech - PDV - v1.0";
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(743, 515);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(12, 17);
+            this.lblData.TabIndex = 11;
+            this.lblData.Text = "-";
+            // 
+            // controle_Config1
+            // 
+            this.controle_Config1.Location = new System.Drawing.Point(196, 104);
+            this.controle_Config1.Name = "controle_Config1";
+            this.controle_Config1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Config1.TabIndex = 12;
             // 
             // controle_Venda1
             // 
@@ -326,27 +367,13 @@
             this.controle_Cadastro1.Size = new System.Drawing.Size(613, 369);
             this.controle_Cadastro1.TabIndex = 3;
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(743, 515);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(12, 17);
-            this.lblData.TabIndex = 11;
-            this.lblData.Text = "-";
-            // 
             // frm_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(818, 532);
+            this.Controls.Add(this.controle_Config1);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label1);
@@ -400,5 +427,7 @@
         private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label lblData;
         internal System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnConfig;
+        private Apresentacao.ControlesUsuario.Controle_Config controle_Config1;
     }
 }

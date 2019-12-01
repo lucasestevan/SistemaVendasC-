@@ -125,6 +125,12 @@
     <Compile Include="Apresentacao\ControlesUsuario\Controle_Compra.Designer.cs">
       <DependentUpon>Controle_Compra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\ControlesUsuario\Controle_Config.Designer.cs">
+      <DependentUpon>Controle_Config.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\ControlesUsuario\Controle_Menu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -260,14 +266,7 @@
     <Compile Include="DGVPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SistemaVendaDataSet.cs">
-      <DependentUpon>SistemaVendaDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SistemaVendaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SistemaVendaDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="SQLServerBackup.cs" />
     <EmbeddedResource Include="Apresentacao\Cadastro\frm_CadCategoria.resx">
       <DependentUpon>frm_CadCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Compra.resx">
       <DependentUpon>Controle_Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Config.resx">
+      <DependentUpon>Controle_Config.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\ControlesUsuario\Controle_Menu.resx">
       <DependentUpon>Controle_Menu.cs</DependentUpon>
@@ -385,17 +387,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SistemaVendaDataSet.xsc">
-      <DependentUpon>SistemaVendaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SistemaVendaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SistemaVendaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SistemaVendaDataSet.xss">
-      <DependentUpon>SistemaVendaDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

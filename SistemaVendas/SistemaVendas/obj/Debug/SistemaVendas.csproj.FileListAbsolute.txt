@@ -281,3 +281,4 @@ C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\S
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Xero.Api.dll
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Xero.Api.Example.Applications.dll
 C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Thamires\Desktop\Sistema VEndas c# pc 2\SistemaVendasC-\SistemaVendas\SistemaVendas\obj\Debug\SistemaVendas.Apresentacao.ControlesUsuario.Controle_Config.resources
