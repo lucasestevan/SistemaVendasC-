@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadCategoria" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKQAAAgACAAABgAAAiAEAACAAAAQAAAAKAAAQgAAAA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadCategoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadCliente" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAaQAAAkNKAICBgACAigMgAiAAAAQIAiAOwAIRhAAAA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadCliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadColaborador" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKQAAAkICCAABgACAiAEAAiAAAAQAAAAKAAAQgAAAA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadColaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadCompra" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>7CLIEAAwECAgABiAAAiMGQECgASYQAAAAqEIIQkAgCA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadFornecedor" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAbQAAAkNKAICBgACAigMgAiAAAAYIAiCKwAIVgAAAA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadFornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadProduto" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKQIAQgICAAABgABAiAEBACAAAAQIAAAKEIAQgBACA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadProduto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadTipoPagamento" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKQAAAgACAAABgAAAiAEAACAAAAQAAAAKAAAQgAAAA=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadTipoPagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Cadastro.frm_CadVenda" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/SDIFBAwUCSgoZiQAAiAMQCChAqERAFQAIEINwlAgiE=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_CadVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_VendasFC" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>tAAIAAAAESAgiBOQAAqIUEACBAAAQUAAAPAIQQAAAwE=</HashCode>
+      <FileName>Apresentacao\Cadastro\frm_VendasFC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Categoria" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAgACAQABgAACmAEAguAAAAQgABAKCAAQgAACA=</HashCode>
+      <FileName>Apresentacao\frm_Categoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Cliente" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAgACAUADgAACiAEAgqAAAAQgAFAKCAAQgAACA=</HashCode>
+      <FileName>Apresentacao\frm_Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Colaborador" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQACAgASAQABgAACyAEAguAAAAQgABAKCAAQgAACA=</HashCode>
+      <FileName>Apresentacao\frm_Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Compra" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAD5CCAkACAYABgAQiiAEIgiJIAERgAtIqGAAQkEhCA=</HashCode>
+      <FileName>Apresentacao\frm_Compra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Fornecedor" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAgACAQABgAACiAEAgqAABIQgABAKCAAQgAACA=</HashCode>
+      <FileName>Apresentacao\frm_Fornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Pagamento" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAIACAAABIACACAAAECCAAAAAAAACBAQQAAQQA=</HashCode>
+      <FileName>Apresentacao\frm_Pagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Produto" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKQACAgAjAQABgABCiAEYg+CgAAQgCBAKCAQQgkgCA=</HashCode>
+      <FileName>Apresentacao\frm_Produto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_RecebimentoVenda" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAgBCAAABAAIKCIAACCACAAQAAAAIAAEQkAIAg=</HashCode>
+      <FileName>Apresentacao\frm_RecebimentoVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_TipoPagamento" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAiAgACAQABgACCiAEAgqAAAAQgABAKCAAQgAACA=</HashCode>
+      <FileName>Apresentacao\frm_TipoPagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_Venda" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAK8QCAkACEQAJgAQqiIEIgiLJAERgAtAKGAAQkAAgA=</HashCode>
+      <FileName>Apresentacao\frm_Venda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_VisualizarItensCompra" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACAAAhAAACiAAAACBAEAQAABAIAAAQgAAAA=</HashCode>
+      <FileName>Apresentacao\frm_VisualizarItensCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.frm_VisualizarItensVenda" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAAgACgAABAAACiAAAACBEAAQAABAKAAAQgAAAA=</HashCode>
+      <FileName>Apresentacao\frm_VisualizarItensVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Controle_Cadastro" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACABAEAAQACAAAASAAAAAIgQIAAAAAAAACg=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Cadastro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.frm_Login" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQAAgAACCAAAAAAACAAAACAAAAQEAAAICIAQBAgAA=</HashCode>
+      <FileName>Apresentacao\frm_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.frm_PagamentoCompra" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgBCAAABAAIAiIAACCAAAAQAAAAaACAQggAAA=</HashCode>
+      <FileName>Apresentacao\frm_PagamentoCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.frm_Principal" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAIAAiAGAAYJIAhQCECAACCUAAYGBgAKAAAShAEBI=</HashCode>
+      <FileName>Apresentacao\frm_Principal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Program" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.SQLServerBackup" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAQAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SQLServerBackup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.ControlesUsuario.Controle_Compra" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACBAAACAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Compra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.ControlesUsuario.Controle_Config" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAACIEAACAAAAAAACAAICAAAAAAA=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Config.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.ControlesUsuario.Controle_Menu1" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAANJAAACCAAAgCAAAAAwAAACAAAQAAAAA=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.ControlesUsuario.Controle_Pagamento" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAIAAgAAAIAAg=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Pagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.ControlesUsuario.Controle_Relatorio" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACABAEAAQACBAAASAAAAAIgYIAAAACQAACg=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Relatorio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.ControlesUsuario.Controle_Venda" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAIAACAAAAAAAACAAAACAAAAAAAIAAAAACAAAAA=</HashCode>
+      <FileName>Apresentacao\ControlesUsuario\Controle_Venda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Apresentacao.Impressao.frm_ImpressaoVenda" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAggASAEAJAAAACCAAACiAEAwAAIAMAQAwgAAAA=</HashCode>
+      <FileName>Apresentacao\Impressao\frm_ImpressaoVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DGVPrinterHelper.LogManager" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgAAAAAgAEAIAAAAAAAAAQAAgBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DGVPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DGVPrinterHelper.LogWriter" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
+      <FileName>DGVPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DGVPrinterHelper.DGVCellDrawingEventArgs" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAgAAAAAAAAAACQAAAAAAIAAAEAAAAAAA=</HashCode>
+      <FileName>DGVPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DGVPrinterHelper.Extensions" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>DGVPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DGVPrinterHelper.DGVPrinter" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3l8qd9+X8t/kaFBjS+oO7skhbCrxPjww/j3/2N2C1m8=</HashCode>
+      <FileName>DGVPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Properties.Resources" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAgQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Properties.Settings" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAIAAAAAABAAAAAAAAAIAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="DGVPrinterHelper.CellOwnerDrawEventHandler" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DGVPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

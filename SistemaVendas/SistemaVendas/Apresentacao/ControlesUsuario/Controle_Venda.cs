@@ -14,15 +14,13 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
         private void btnVendaRapida_Click(object sender, EventArgs e)
         {
             frm_VendasFC f = new frm_VendasFC();
-            f.ShowDialog();
-            f.Dispose();
+            f.Show();
         }
 
         private void btnVendasBal_Click(object sender, EventArgs e)
         {
             frm_CadVenda f = new frm_CadVenda();
-            f.ShowDialog();
-            f.Dispose();
+            f.Show();
         }
     }
 }

@@ -75,7 +75,7 @@
             this.btnAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.ForeColor = System.Drawing.Color.Transparent;
             this.btnAjuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAjuda.Image")));
-            this.btnAjuda.Location = new System.Drawing.Point(579, 0);
+            this.btnAjuda.Location = new System.Drawing.Point(644, 0);
             this.btnAjuda.Margin = new System.Windows.Forms.Padding(0);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(34, 29);
@@ -91,7 +91,7 @@
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnBackup);
             this.Name = "Controle_Config";
-            this.Size = new System.Drawing.Size(613, 369);
+            this.Size = new System.Drawing.Size(678, 369);
             this.ResumeLayout(false);
 
         }

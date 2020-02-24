@@ -92,7 +92,7 @@
             // 
             this.groupBox2.Controls.Add(this.dgvVencimento);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(329, 15);
+            this.groupBox2.Location = new System.Drawing.Point(413, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(255, 307);
             this.groupBox2.TabIndex = 2;
@@ -117,7 +117,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(334, 325);
+            this.label2.Location = new System.Drawing.Point(418, 325);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 3;
@@ -127,7 +127,7 @@
             // 
             this.lblQtdTotal2.AutoSize = true;
             this.lblQtdTotal2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtdTotal2.Location = new System.Drawing.Point(416, 325);
+            this.lblQtdTotal2.Location = new System.Drawing.Point(500, 325);
             this.lblQtdTotal2.Name = "lblQtdTotal2";
             this.lblQtdTotal2.Size = new System.Drawing.Size(0, 16);
             this.lblQtdTotal2.TabIndex = 4;
@@ -135,7 +135,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Green;
-            this.panel1.Location = new System.Drawing.Point(520, 325);
+            this.panel1.Location = new System.Drawing.Point(604, 325);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(16, 16);
             this.panel1.TabIndex = 5;
@@ -144,7 +144,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(535, 325);
+            this.label3.Location = new System.Drawing.Point(619, 325);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 6;
@@ -163,7 +163,7 @@
             this.Controls.Add(this.lblQtdTotal);
             this.Controls.Add(this.groupBox1);
             this.Name = "Controle_Menu1";
-            this.Size = new System.Drawing.Size(613, 369);
+            this.Size = new System.Drawing.Size(702, 369);
             this.Load += new System.EventHandler(this.Controle_Menu1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstoqueBaixo)).EndInit();
             this.groupBox1.ResumeLayout(false);

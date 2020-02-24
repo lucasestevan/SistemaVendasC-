@@ -156,5 +156,23 @@ namespace SistemaVendas.Apresentacao.Cadastro
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void txtCPF_Leave(object sender, EventArgs e)
+        {
+            string valor = txtCPF.Text;
+            DAO_Conexao con = new DAO_Conexao(DadoConexao.StringDeConexao);
+            //OBJ PARA GRAVAR NO BANCO
+            BLL_Cliente bllC = new BLL_Cliente(con);
+
+            if (bllC.IsCpf (valor))
+            {
+               
+            }
+            else
+            {
+                MessageBox.Show("O número é um CPF invalido !");
+                txtCPF.Clear();
+                txtCPF.Focus();
+            }
+        }
     }
 }

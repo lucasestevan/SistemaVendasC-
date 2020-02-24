@@ -78,7 +78,7 @@
             this.btnColaborador.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnColaborador.Image = ((System.Drawing.Image)(resources.GetObject("btnColaborador.Image")));
             this.btnColaborador.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnColaborador.Location = new System.Drawing.Point(334, 41);
+            this.btnColaborador.Location = new System.Drawing.Point(372, 41);
             this.btnColaborador.Name = "btnColaborador";
             this.btnColaborador.Size = new System.Drawing.Size(89, 98);
             this.btnColaborador.TabIndex = 23;
@@ -94,7 +94,7 @@
             this.btnCliente.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCliente.Location = new System.Drawing.Point(187, 41);
+            this.btnCliente.Location = new System.Drawing.Point(206, 41);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(89, 98);
             this.btnCliente.TabIndex = 22;
@@ -110,7 +110,7 @@
             this.btnFornecedor.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnFornecedor.Image = ((System.Drawing.Image)(resources.GetObject("btnFornecedor.Image")));
             this.btnFornecedor.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFornecedor.Location = new System.Drawing.Point(187, 226);
+            this.btnFornecedor.Location = new System.Drawing.Point(206, 226);
             this.btnFornecedor.Name = "btnFornecedor";
             this.btnFornecedor.Size = new System.Drawing.Size(89, 98);
             this.btnFornecedor.TabIndex = 21;
@@ -126,7 +126,7 @@
             this.btnProduto.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnProduto.Image")));
             this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProduto.Location = new System.Drawing.Point(334, 226);
+            this.btnProduto.Location = new System.Drawing.Point(372, 226);
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(89, 98);
             this.btnProduto.TabIndex = 20;
@@ -142,7 +142,7 @@
             this.btnCompra.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnCompra.Image = ((System.Drawing.Image)(resources.GetObject("btnCompra.Image")));
             this.btnCompra.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCompra.Location = new System.Drawing.Point(481, 41);
+            this.btnCompra.Location = new System.Drawing.Point(538, 41);
             this.btnCompra.Name = "btnCompra";
             this.btnCompra.Size = new System.Drawing.Size(89, 98);
             this.btnCompra.TabIndex = 26;
@@ -158,9 +158,9 @@
             this.btnVendasBal.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnVendasBal.Image = ((System.Drawing.Image)(resources.GetObject("btnVendasBal.Image")));
             this.btnVendasBal.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVendasBal.Location = new System.Drawing.Point(481, 226);
+            this.btnVendasBal.Location = new System.Drawing.Point(538, 226);
             this.btnVendasBal.Name = "btnVendasBal";
-            this.btnVendasBal.Size = new System.Drawing.Size(94, 98);
+            this.btnVendasBal.Size = new System.Drawing.Size(89, 98);
             this.btnVendasBal.TabIndex = 27;
             this.btnVendasBal.Text = "Vendas";
             this.btnVendasBal.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -180,7 +180,7 @@
             this.Controls.Add(this.btnFornecedor);
             this.Controls.Add(this.btnProduto);
             this.Name = "Controle_Relatorio";
-            this.Size = new System.Drawing.Size(613, 369);
+            this.Size = new System.Drawing.Size(682, 369);
             this.ResumeLayout(false);
 
         }

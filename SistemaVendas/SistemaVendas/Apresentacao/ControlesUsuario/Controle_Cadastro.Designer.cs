@@ -44,7 +44,7 @@
             this.btnProduto.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnProduto.Image")));
             this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProduto.Location = new System.Drawing.Point(189, 226);
+            this.btnProduto.Location = new System.Drawing.Point(201, 226);
             this.btnProduto.Name = "btnProduto";
             this.btnProduto.Size = new System.Drawing.Size(89, 98);
             this.btnProduto.TabIndex = 12;
@@ -76,7 +76,7 @@
             this.btnCliente.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCliente.Location = new System.Drawing.Point(189, 41);
+            this.btnCliente.Location = new System.Drawing.Point(201, 41);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(89, 98);
             this.btnCliente.TabIndex = 16;
@@ -92,7 +92,7 @@
             this.btnColaborador.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnColaborador.Image = ((System.Drawing.Image)(resources.GetObject("btnColaborador.Image")));
             this.btnColaborador.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnColaborador.Location = new System.Drawing.Point(334, 41);
+            this.btnColaborador.Location = new System.Drawing.Point(358, 41);
             this.btnColaborador.Name = "btnColaborador";
             this.btnColaborador.Size = new System.Drawing.Size(89, 98);
             this.btnColaborador.TabIndex = 17;
@@ -124,7 +124,7 @@
             this.btnFormaPagto.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnFormaPagto.Image = ((System.Drawing.Image)(resources.GetObject("btnFormaPagto.Image")));
             this.btnFormaPagto.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFormaPagto.Location = new System.Drawing.Point(479, 41);
+            this.btnFormaPagto.Location = new System.Drawing.Point(515, 41);
             this.btnFormaPagto.Name = "btnFormaPagto";
             this.btnFormaPagto.Size = new System.Drawing.Size(89, 98);
             this.btnFormaPagto.TabIndex = 19;
@@ -144,7 +144,7 @@
             this.Controls.Add(this.btnFornecedor);
             this.Controls.Add(this.btnProduto);
             this.Name = "Controle_Cadastro";
-            this.Size = new System.Drawing.Size(613, 369);
+            this.Size = new System.Drawing.Size(649, 369);
             this.ResumeLayout(false);
 
         }

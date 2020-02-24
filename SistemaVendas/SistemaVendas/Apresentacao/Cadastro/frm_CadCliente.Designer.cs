@@ -203,6 +203,7 @@
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(107, 21);
             this.txtCPF.TabIndex = 2;
+            this.txtCPF.Leave += new System.EventHandler(this.txtCPF_Leave);
             // 
             // lbln
             // 

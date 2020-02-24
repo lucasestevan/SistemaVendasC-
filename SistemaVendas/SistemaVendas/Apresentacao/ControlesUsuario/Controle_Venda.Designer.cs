@@ -40,7 +40,7 @@
             this.btnVendasBal.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnVendasBal.Image = ((System.Drawing.Image)(resources.GetObject("btnVendasBal.Image")));
             this.btnVendasBal.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVendasBal.Location = new System.Drawing.Point(41, 41);
+            this.btnVendasBal.Location = new System.Drawing.Point(208, 40);
             this.btnVendasBal.Name = "btnVendasBal";
             this.btnVendasBal.Size = new System.Drawing.Size(94, 114);
             this.btnVendasBal.TabIndex = 13;
@@ -56,7 +56,7 @@
             this.btnVendaRapida.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.btnVendaRapida.Image = ((System.Drawing.Image)(resources.GetObject("btnVendaRapida.Image")));
             this.btnVendaRapida.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVendaRapida.Location = new System.Drawing.Point(199, 41);
+            this.btnVendaRapida.Location = new System.Drawing.Point(47, 40);
             this.btnVendaRapida.Name = "btnVendaRapida";
             this.btnVendaRapida.Size = new System.Drawing.Size(94, 114);
             this.btnVendaRapida.TabIndex = 14;

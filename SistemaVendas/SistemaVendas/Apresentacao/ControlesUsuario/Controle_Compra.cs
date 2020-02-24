@@ -14,8 +14,8 @@ namespace SistemaVendas.Apresentacao.ControlesUsuario
         private void btnCompra_Click(object sender, EventArgs e)
         {
             frm_CadCompra f = new frm_CadCompra();
-            f.ShowDialog();
-            f.Dispose();
+            f.Show();
+
         }
     }
 }

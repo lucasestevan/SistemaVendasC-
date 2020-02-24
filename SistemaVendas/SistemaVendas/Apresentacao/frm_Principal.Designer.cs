@@ -42,9 +42,7 @@
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -58,7 +56,6 @@
             this.controle_Cadastro1 = new SistemaVendas.Controle_Cadastro();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,7 +73,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 532);
+            this.panel1.Size = new System.Drawing.Size(189, 594);
             this.panel1.TabIndex = 0;
             // 
             // btnConfig
@@ -87,7 +84,7 @@
             this.btnConfig.ForeColor = System.Drawing.Color.White;
             this.btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.Image")));
             this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfig.Location = new System.Drawing.Point(12, 383);
+            this.btnConfig.Location = new System.Drawing.Point(12, 385);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(177, 54);
             this.btnConfig.TabIndex = 7;
@@ -103,7 +100,7 @@
             this.btnPagto.ForeColor = System.Drawing.Color.White;
             this.btnPagto.Image = ((System.Drawing.Image)(resources.GetObject("btnPagto.Image")));
             this.btnPagto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagto.Location = new System.Drawing.Point(12, 203);
+            this.btnPagto.Location = new System.Drawing.Point(12, 205);
             this.btnPagto.Name = "btnPagto";
             this.btnPagto.Size = new System.Drawing.Size(177, 54);
             this.btnPagto.TabIndex = 4;
@@ -114,7 +111,7 @@
             // pnAuxiliar
             // 
             this.pnAuxiliar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.pnAuxiliar.Location = new System.Drawing.Point(2, 23);
+            this.pnAuxiliar.Location = new System.Drawing.Point(2, 25);
             this.pnAuxiliar.Name = "pnAuxiliar";
             this.pnAuxiliar.Size = new System.Drawing.Size(10, 54);
             this.pnAuxiliar.TabIndex = 3;
@@ -127,7 +124,7 @@
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(12, 487);
+            this.btnLogout.Location = new System.Drawing.Point(12, 548);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(103, 33);
             this.btnLogout.TabIndex = 10;
@@ -144,7 +141,7 @@
             this.btnRelatorio.ForeColor = System.Drawing.Color.White;
             this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
             this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorio.Location = new System.Drawing.Point(12, 263);
+            this.btnRelatorio.Location = new System.Drawing.Point(12, 265);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(177, 54);
             this.btnRelatorio.TabIndex = 5;
@@ -160,7 +157,7 @@
             this.btnCadastro.ForeColor = System.Drawing.Color.White;
             this.btnCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastro.Image")));
             this.btnCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastro.Location = new System.Drawing.Point(12, 83);
+            this.btnCadastro.Location = new System.Drawing.Point(12, 85);
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Size = new System.Drawing.Size(177, 54);
             this.btnCadastro.TabIndex = 2;
@@ -176,7 +173,7 @@
             this.btnCompras.ForeColor = System.Drawing.Color.White;
             this.btnCompras.Image = ((System.Drawing.Image)(resources.GetObject("btnCompras.Image")));
             this.btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompras.Location = new System.Drawing.Point(12, 143);
+            this.btnCompras.Location = new System.Drawing.Point(12, 145);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(177, 54);
             this.btnCompras.TabIndex = 3;
@@ -192,7 +189,7 @@
             this.btnVendas.ForeColor = System.Drawing.Color.White;
             this.btnVendas.Image = ((System.Drawing.Image)(resources.GetObject("btnVendas.Image")));
             this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.Location = new System.Drawing.Point(12, 323);
+            this.btnVendas.Location = new System.Drawing.Point(12, 325);
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Size = new System.Drawing.Size(177, 54);
             this.btnVendas.TabIndex = 6;
@@ -208,7 +205,7 @@
             this.btnMenu.ForeColor = System.Drawing.Color.White;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(12, 23);
+            this.btnMenu.Location = new System.Drawing.Point(12, 25);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(177, 54);
             this.btnMenu.TabIndex = 1;
@@ -219,13 +216,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnMinimizar);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(189, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(629, 26);
+            this.panel2.Size = new System.Drawing.Size(721, 26);
             this.panel2.TabIndex = 1;
             // 
             // btnMinimizar
@@ -237,23 +234,13 @@
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(579, 5);
+            this.btnMinimizar.Location = new System.Drawing.Point(676, 5);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
             this.btnMinimizar.TabIndex = 13;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(143, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 17);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "4P Tech - PDV - v1.0";
             // 
             // btnClose
             // 
@@ -264,7 +251,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(604, 5);
+            this.btnClose.Location = new System.Drawing.Point(699, 5);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
@@ -272,22 +259,11 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(232, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(98, 93);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(192, 515);
+            this.label1.Location = new System.Drawing.Point(192, 576);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 17);
             this.label1.TabIndex = 9;
@@ -297,7 +273,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(288, 515);
+            this.lblUsuario.Location = new System.Drawing.Point(288, 576);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(12, 17);
             this.lblUsuario.TabIndex = 10;
@@ -312,7 +288,7 @@
             // 
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(743, 515);
+            this.lblData.Location = new System.Drawing.Point(781, 576);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(12, 17);
             this.lblData.TabIndex = 11;
@@ -322,49 +298,49 @@
             // 
             this.controle_Config1.Location = new System.Drawing.Point(196, 104);
             this.controle_Config1.Name = "controle_Config1";
-            this.controle_Config1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Config1.Size = new System.Drawing.Size(685, 369);
             this.controle_Config1.TabIndex = 12;
             // 
             // controle_Venda1
             // 
             this.controle_Venda1.Location = new System.Drawing.Point(196, 104);
             this.controle_Venda1.Name = "controle_Venda1";
-            this.controle_Venda1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Venda1.Size = new System.Drawing.Size(685, 369);
             this.controle_Venda1.TabIndex = 8;
             // 
             // controle_Relatorio1
             // 
             this.controle_Relatorio1.Location = new System.Drawing.Point(196, 104);
             this.controle_Relatorio1.Name = "controle_Relatorio1";
-            this.controle_Relatorio1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Relatorio1.Size = new System.Drawing.Size(685, 369);
             this.controle_Relatorio1.TabIndex = 7;
             // 
             // controle_Pagamento1
             // 
             this.controle_Pagamento1.Location = new System.Drawing.Point(196, 104);
             this.controle_Pagamento1.Name = "controle_Pagamento1";
-            this.controle_Pagamento1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Pagamento1.Size = new System.Drawing.Size(685, 369);
             this.controle_Pagamento1.TabIndex = 6;
             // 
             // controle_Compra1
             // 
             this.controle_Compra1.Location = new System.Drawing.Point(196, 104);
             this.controle_Compra1.Name = "controle_Compra1";
-            this.controle_Compra1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Compra1.Size = new System.Drawing.Size(675, 369);
             this.controle_Compra1.TabIndex = 5;
             // 
             // controle_Menu1
             // 
             this.controle_Menu1.Location = new System.Drawing.Point(196, 104);
             this.controle_Menu1.Name = "controle_Menu1";
-            this.controle_Menu1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Menu1.Size = new System.Drawing.Size(675, 369);
             this.controle_Menu1.TabIndex = 4;
             // 
             // controle_Cadastro1
             // 
             this.controle_Cadastro1.Location = new System.Drawing.Point(195, 104);
             this.controle_Cadastro1.Name = "controle_Cadastro1";
-            this.controle_Cadastro1.Size = new System.Drawing.Size(613, 369);
+            this.controle_Cadastro1.Size = new System.Drawing.Size(676, 369);
             this.controle_Cadastro1.TabIndex = 3;
             // 
             // frm_Principal
@@ -372,20 +348,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(818, 532);
-            this.Controls.Add(this.controle_Config1);
+            this.ClientSize = new System.Drawing.Size(910, 594);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.controle_Venda1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.controle_Config1);
             this.Controls.Add(this.controle_Relatorio1);
+            this.Controls.Add(this.controle_Venda1);
             this.Controls.Add(this.controle_Pagamento1);
             this.Controls.Add(this.controle_Compra1);
             this.Controls.Add(this.controle_Menu1);
             this.Controls.Add(this.controle_Cadastro1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Principal";
@@ -394,8 +369,6 @@
             this.Load += new System.EventHandler(this.frm_Principal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,7 +383,6 @@
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Button btnVendas;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Panel pnAuxiliar;
@@ -424,7 +396,6 @@
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label lblData;
         internal System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnConfig;

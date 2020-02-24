@@ -172,18 +172,24 @@ namespace SistemaVendas.Apresentacao
 
         private void btnImprimirGrid_Click(object sender, EventArgs e)
         {
-            DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Relátorio de Cliente";
-            printer.SubTitle = string.Format("Data: {0}", DateTime.Now);
-            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            printer.PageNumbers = true;
-            printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
-            printer.HeaderCellAlignment = StringAlignment.Near;
-            printer.Footer = "4P Tech";
-            printer.FooterSpacing = 15;
+            //MOSTRAR MENSAGEM SE QUER SAIR AO CLIKAR NO sair
+            DialogResult msg = MessageBox.Show("Deseja imprimir a grid?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //SE O ESCOLHER SIM
+            if (msg == DialogResult.Yes)
+            {
+                DGVPrinter printer = new DGVPrinter();
+                printer.Title = "Relátorio de Cliente";
+                printer.SubTitle = string.Format("Data: {0}", DateTime.Now);
+                printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                printer.PageNumbers = true;
+                printer.PageNumberInHeader = false;
+                printer.PorportionalColumns = true;
+                printer.HeaderCellAlignment = StringAlignment.Near;
+                printer.Footer = "4P Tech";
+                printer.FooterSpacing = 15;
 
-            printer.PrintDataGridView(dgvCliente);
+                printer.PrintDataGridView(dgvCliente);
+            }
         }
     }
 }

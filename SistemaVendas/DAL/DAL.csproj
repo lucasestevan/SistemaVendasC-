@@ -99,6 +99,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DiagramaDAL.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,7 @@ namespace SistemaVendas.Apresentacao
         public frm_VendasFC()
         {
             InitializeComponent();
+           
         }
 
         //meotodoLOCALIZAR ITEM
@@ -127,6 +128,9 @@ namespace SistemaVendas.Apresentacao
                 {
                     frm_Pagamento pagamento = new frm_Pagamento();
                     pagamento.lblTotal.Text = this.lblTotal.Text.ToString();
+
+                    double troco = Convert.ToDouble(lblTotal.Text) - Convert.ToDouble(lblTotal.Text) - Convert.ToDouble(lblTotal.Text);
+                    pagamento.troco = troco;
                     pagamento.ShowDialog();
 
                     //LEITURA DOS DADOS
@@ -168,6 +172,10 @@ namespace SistemaVendas.Apresentacao
                     ImprimirPedido(pagamento.idVenda);
 
                     this.Close();
+
+                    frm_VendasFC f = new frm_VendasFC();
+                    f.Show();
+                    f.txtCod.Focus();
                 }
             }
         }
@@ -313,6 +321,16 @@ namespace SistemaVendas.Apresentacao
 
                 impressao.ShowDialog();
             }
+        }
+
+        private void txtQtd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

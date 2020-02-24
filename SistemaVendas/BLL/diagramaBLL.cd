@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.BLL_Categoria" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEIAAABAABAAAAAAAAAAgAAAAIAAA=</HashCode>
+      <FileName>BLL_Categoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Cliente" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAgABAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Colaborador" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAAABAABAAAAAAAAAAAAAAAIAAI=</HashCode>
+      <FileName>BLL_Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Compra" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAEAAAAEAIAABAABAIAACBAEAAAAAABAAAA=</HashCode>
+      <FileName>BLL_Compra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Endereco" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAABAAAAgAAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_Endereco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Fornecedor" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAAABAABAAAAQAAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_Fornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_ItensCompra" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAEAAAABIABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_ItensCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_ItensVendas" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAEAAAABIABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_ItensVendas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Login" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAA=</HashCode>
+      <FileName>BLL_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_ParcelasVenda" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAhABAABACBAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_ParcelasVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Produto" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAAQAAAAAIEAAAABCABAAAAABAAAAAAAAIIAAA=</HashCode>
+      <FileName>BLL_Produto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_TipoPagamento" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAAABAABAAAAAIAAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL_TipoPagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_Venda" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgABAAAEBAAABAABAIBACAAEAAAAAAAAgAE=</HashCode>
+      <FileName>BLL_Venda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqlServerTypes.Utilities" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>SqlServerTypes\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SistemaVendas.Validacao" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

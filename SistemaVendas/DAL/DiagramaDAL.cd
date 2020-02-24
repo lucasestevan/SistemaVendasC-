@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.DadoConexao" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DadoConexao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Categoria" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEIAAABAABAAAAAAAAAAgAAAAIAAA=</HashCode>
+      <FileName>DAO_Categoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Cliente" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAgABAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>DAO_Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Colaborador" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAAABAABAAAAAAAAAAAAAAAIAAI=</HashCode>
+      <FileName>DAO_Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Compra" Collapsed="true">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAEAAAAEAAAABAABAIAAiBAEAAAAAABAAAA=</HashCode>
+      <FileName>DAO_Compra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Conexao" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAEAAABAEAAAAAAAAAADAAAA=</HashCode>
+      <FileName>DAO_Conexao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Endereco" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAABAAAAgAAAAAAAAAAIAAA=</HashCode>
+      <FileName>DAO_Endereco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Fornecedor" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAAABAABAAAAQAAAAAAAAAAIAAA=</HashCode>
+      <FileName>DAO_Fornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_ItensCompra" Collapsed="true">
+    <Position X="1.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAEAAAABIABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>DAO_ItensCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_ItensVenda" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAEAAAABAABAAAAAAAAAAAAACAIAAA=</HashCode>
+      <FileName>DAO_ItensVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Login" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAQAQAAAAAAA=</HashCode>
+      <FileName>DAO_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_ParcelasVenda" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAEAAAAAAAAAEAABABAABACBAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>DAO_ParcelasVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Produto" Collapsed="true">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAAQAAAAAIEAAAABCABAAAAABAAAAAAAAIIAAA=</HashCode>
+      <FileName>DAO_Produto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_TipoPagamento" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAAAAAAAAAEAAAABAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>DAO_TipoPagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAO_Venda" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgABAAAEBAAABAABAIBACAAEAAAAAAAAgAE=</HashCode>
+      <FileName>DAO_Venda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqlServerTypes.Utilities" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>SqlServerTypes\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

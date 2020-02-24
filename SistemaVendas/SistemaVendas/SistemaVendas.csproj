@@ -374,6 +374,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DiagramaSistema.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SistemaVendas.Apresentacao.Impressao.DadosRelatorioVenda.datasource" />
     <None Include="Properties\DataSources\SistemaVendas.Apresentacao.Impressao.frm_ImpressaoVenda+ItensVenda.datasource" />

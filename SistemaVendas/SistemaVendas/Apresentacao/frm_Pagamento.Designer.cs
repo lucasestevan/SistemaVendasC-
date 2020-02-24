@@ -52,6 +52,7 @@
             this.txtValorPago.TabIndex = 1;
             this.txtValorPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValorPago.TextChanged += new System.EventHandler(this.txtValorPago_TextChanged);
+            this.txtValorPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValorPago_KeyDown);
             this.txtValorPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorPago_KeyPress);
             this.txtValorPago.Leave += new System.EventHandler(this.txtValorPago_Leave);
             // 
@@ -75,9 +76,8 @@
             this.lblTroco.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblTroco.Location = new System.Drawing.Point(23, 9);
             this.lblTroco.Name = "lblTroco";
-            this.lblTroco.Size = new System.Drawing.Size(30, 38);
+            this.lblTroco.Size = new System.Drawing.Size(0, 38);
             this.lblTroco.TabIndex = 5;
-            this.lblTroco.Text = "-";
             // 
             // lblTotal
             // 
@@ -174,6 +174,7 @@
             this.Name = "frm_Pagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagamento";
+            this.Load += new System.EventHandler(this.frm_Pagamento_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -186,7 +187,6 @@
         #endregion
         private System.Windows.Forms.TextBox txtValorPago;
         private System.Windows.Forms.Button btnFinalizar;
-        private System.Windows.Forms.Label lblTroco;
         internal System.Windows.Forms.Label lblTotal;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -194,5 +194,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Label lblTroco;
     }
 }

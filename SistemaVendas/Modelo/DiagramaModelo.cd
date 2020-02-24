@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Modelo.Model_Categoria" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model_Categoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Cliente" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAgCAAAMAkAAAABAAAAAAAAAAEAIACBAmAQgA=</HashCode>
+      <FileName>Model_Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Colaborador" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQABAAAAgQABAIAAAQAAIAAAACAAAAAAAIAAAAmAAAA=</HashCode>
+      <FileName>Model_Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Compra" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEEAgAQAAAAAACAAAAAgAAAAAAIQAQCCEAEAAABBAA=</HashCode>
+      <FileName>Model_Compra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Endereco" Collapsed="true">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAgoAAAACAAAEAAAABACAAAAAgAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Model_Endereco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Fornecedor" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAgCAAAMAkAAAABAAEAAAIAAAACAACAAkEQgA=</HashCode>
+      <FileName>Model_Fornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_ItensCompra" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAQAAAAEAAAAAAAEAABABAAAAAAQAAIAEAQ=</HashCode>
+      <FileName>Model_ItensCompra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_ItensVenda" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAAAAAAEAAIABAgAAAAYAAAAEAI=</HashCode>
+      <FileName>Model_ItensVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Login" Collapsed="true">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAACAAAAQAAAAEAAAAAAA=</HashCode>
+      <FileName>Model_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_ParcelasVenda" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAQACAAAAAgAAAAAAECAAABAhAAAAAQAAAAAA=</HashCode>
+      <FileName>Model_ParcelasVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Produto" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAABAAEAAQQIAAAECAAIAAQACAAUAAEAEQA=</HashCode>
+      <FileName>Model_Produto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_TipoPagamento" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAEAAAA=</HashCode>
+      <FileName>Model_TipoPagamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Model_Venda" Collapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEgBgAQABQAAAAQAAAAAAAACAAAQAgGAEAABAABIAA=</HashCode>
+      <FileName>Model_Venda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqlServerTypes.Utilities" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>SqlServerTypes\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [SistemaVenda]    Script Date: 20/11/2019 12:37:14 ******/
+/****** Object:  Database [SistemaVenda]    Script Date: 24/02/2020 09:42:18 ******/
 CREATE DATABASE [SistemaVenda]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -43,7 +43,7 @@ ALTER DATABASE [SistemaVenda] SET QUOTED_IDENTIFIER OFF
 GO
 ALTER DATABASE [SistemaVenda] SET RECURSIVE_TRIGGERS OFF 
 GO
-ALTER DATABASE [SistemaVenda] SET  ENABLE_BROKER 
+ALTER DATABASE [SistemaVenda] SET  DISABLE_BROKER 
 GO
 ALTER DATABASE [SistemaVenda] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
 GO
@@ -77,7 +77,7 @@ ALTER DATABASE [SistemaVenda] SET QUERY_STORE = OFF
 GO
 USE [SistemaVenda]
 GO
-/****** Object:  Table [dbo].[Categoria]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Categoria]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[Categoria](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cliente]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Cliente]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +112,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Colaborador]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Colaborador]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -131,11 +131,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT INTO Colaborador (nome,senha,cpf)
-values('ADMIN',HASHBYTES('md2','A123!'), 123)
-
-GO
-/****** Object:  Table [dbo].[Compra]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Compra]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -155,7 +151,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Endereco]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Endereco]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,7 +168,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Fornecedor]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Fornecedor]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -193,7 +189,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ItensCompra]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[ItensCompra]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -206,7 +202,7 @@ CREATE TABLE [dbo].[ItensCompra](
 	[id_produto] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ItensVenda]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[ItensVenda]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -219,7 +215,7 @@ CREATE TABLE [dbo].[ItensVenda](
 	[id_produto] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ParcelasVenda]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[ParcelasVenda]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -232,7 +228,7 @@ CREATE TABLE [dbo].[ParcelasVenda](
 	[id_venda] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Produto]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Produto]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -252,7 +248,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoPagamento]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[TipoPagamento]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -266,11 +262,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT INTO TipoPagamento(nome)
-values('DINHEIRO')
-GO
-
-/****** Object:  Table [dbo].[Venda]    Script Date: 20/11/2019 12:37:15 ******/
+/****** Object:  Table [dbo].[Venda]    Script Date: 24/02/2020 09:42:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -355,51 +347,3 @@ USE [master]
 GO
 ALTER DATABASE [SistemaVenda] SET  READ_WRITE 
 GO
-
-/****** Object:  Trigger [dbo].[triggerIncrementaEstoque]    Script Date: 20/11/2019 13:05:12 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE trigger [dbo].[triggerIncrementaEstoque] on [dbo].[ItensCompra]
-for insert
-as
-begin
-	declare @quantidade float,
-			@id_produto integer
-
-select @id_produto = id_produto, @quantidade = quantidade from inserted
-
-update Produto set quantidade = quantidade + @quantidade where Produto.id_produto = @id_produto
-end
-GO
-
-ALTER TABLE [dbo].[ItensCompra] ENABLE TRIGGER [triggerIncrementaEstoque]
-GO
-
-
-/****** Object:  Trigger [dbo].[triggerDecrementaEstoque]    Script Date: 20/11/2019 13:07:11 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE trigger [dbo].[triggerDecrementaEstoque] on [dbo].[ItensVenda]
-for insert
-as
-begin
-	declare @quantidade float,
-			@id_produto integer
-
-select @id_produto = id_produto, @quantidade = quantidade from inserted
-
-update Produto set quantidade = quantidade - @quantidade where Produto.id_produto = @id_produto
-end
-GO
-
-ALTER TABLE [dbo].[ItensVenda] ENABLE TRIGGER [triggerDecrementaEstoque]
-GO
-

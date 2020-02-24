@@ -9,12 +9,27 @@ namespace SistemaVendas.Apresentacao
     public partial class frm_Pagamento : Form
     {
         public int idVenda = 0;
+        public double troco = 0;
+
+
         public frm_Pagamento()
         {
             InitializeComponent();
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            if (this.TotalTroco < 0)
+            {
+
+            }
+            else
+            {
+                Finalizar();
+            }
+        }
+
+        public void Finalizar()
         {
             try
             {
@@ -86,7 +101,7 @@ namespace SistemaVendas.Apresentacao
         {
             if (txtValorPago.Text == "")
             {
-                lblTroco.Text = "0";
+                lblTroco.Text = this.troco.ToString();
             }
 
             try
@@ -105,13 +120,39 @@ namespace SistemaVendas.Apresentacao
                 MessageBox.Show("Informe apenas números!");
             }
 
-            if (this.TotalTroco <= 0)
+            if (this.TotalTroco < 0)
             {
                 btnFinalizar.Enabled = false;
             }
             else
             {
                 btnFinalizar.Enabled = true;
+            }
+        }
+
+        private void txtValorPago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtValorPago.ContainsFocus == true)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (this.TotalTroco < 0)
+                    {
+
+                    }
+                    else
+                    {
+                        Finalizar();
+                    }
+                }
+            }
+        }
+
+        private void frm_Pagamento_Load(object sender, EventArgs e)
+        {
+            if (txtValorPago.Text == "")
+            {
+                txtValorPago.Text = "0";
             }
         }
     }

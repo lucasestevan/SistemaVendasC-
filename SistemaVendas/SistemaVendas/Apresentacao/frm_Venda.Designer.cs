@@ -88,7 +88,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(592, 286);
+            this.btnCancelar.Location = new System.Drawing.Point(733, 286);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 28);
@@ -100,7 +100,7 @@
             // btnSelecionar
             // 
             this.btnSelecionar.Enabled = false;
-            this.btnSelecionar.Location = new System.Drawing.Point(592, 246);
+            this.btnSelecionar.Location = new System.Drawing.Point(733, 246);
             this.btnSelecionar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(87, 28);
@@ -117,7 +117,7 @@
             this.gbCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbCodigo.Name = "gbCodigo";
             this.gbCodigo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbCodigo.Size = new System.Drawing.Size(350, 126);
+            this.gbCodigo.Size = new System.Drawing.Size(547, 126);
             this.gbCodigo.TabIndex = 61;
             this.gbCodigo.TabStop = false;
             this.gbCodigo.Text = "Código";
@@ -127,12 +127,12 @@
             this.txtIdVenda.Location = new System.Drawing.Point(15, 22);
             this.txtIdVenda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIdVenda.Name = "txtIdVenda";
-            this.txtIdVenda.Size = new System.Drawing.Size(327, 21);
+            this.txtIdVenda.Size = new System.Drawing.Size(515, 21);
             this.txtIdVenda.TabIndex = 48;
             // 
             // btnPesquisarCod
             // 
-            this.btnPesquisarCod.Location = new System.Drawing.Point(255, 62);
+            this.btnPesquisarCod.Location = new System.Drawing.Point(443, 60);
             this.btnPesquisarCod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisarCod.Name = "btnPesquisarCod";
             this.btnPesquisarCod.Size = new System.Drawing.Size(87, 28);
@@ -144,7 +144,7 @@
             // btnVisualizar
             // 
             this.btnVisualizar.Enabled = false;
-            this.btnVisualizar.Location = new System.Drawing.Point(592, 206);
+            this.btnVisualizar.Location = new System.Drawing.Point(733, 206);
             this.btnVisualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(87, 28);
@@ -162,7 +162,7 @@
             this.gbData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbData.Name = "gbData";
             this.gbData.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbData.Size = new System.Drawing.Size(350, 126);
+            this.gbData.Size = new System.Drawing.Size(544, 126);
             this.gbData.TabIndex = 59;
             this.gbData.TabStop = false;
             this.gbData.Text = "Data";
@@ -205,14 +205,14 @@
             this.gbCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbCliente.Name = "gbCliente";
             this.gbCliente.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbCliente.Size = new System.Drawing.Size(350, 126);
+            this.gbCliente.Size = new System.Drawing.Size(534, 126);
             this.gbCliente.TabIndex = 58;
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Cliente";
             // 
             // btnPesquisaCliente
             // 
-            this.btnPesquisaCliente.Location = new System.Drawing.Point(255, 60);
+            this.btnPesquisaCliente.Location = new System.Drawing.Point(441, 61);
             this.btnPesquisaCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisaCliente.Name = "btnPesquisaCliente";
             this.btnPesquisaCliente.Size = new System.Drawing.Size(87, 28);
@@ -227,7 +227,7 @@
             this.txtNome.Location = new System.Drawing.Point(8, 22);
             this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(334, 21);
+            this.txtNome.Size = new System.Drawing.Size(520, 21);
             this.txtNome.TabIndex = 42;
             // 
             // groupBox1
@@ -296,7 +296,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(619, 458);
+            this.txtId.Location = new System.Drawing.Point(760, 458);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(37, 21);
@@ -306,7 +306,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(592, 166);
+            this.btnExcluir.Location = new System.Drawing.Point(733, 166);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(87, 28);
@@ -318,7 +318,7 @@
             // btnAlterar
             // 
             this.btnAlterar.Enabled = false;
-            this.btnAlterar.Location = new System.Drawing.Point(592, 126);
+            this.btnAlterar.Location = new System.Drawing.Point(733, 126);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(87, 28);
@@ -339,13 +339,13 @@
             this.dgvVenda.Name = "dgvVenda";
             this.dgvVenda.ReadOnly = true;
             this.dgvVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVenda.Size = new System.Drawing.Size(569, 308);
+            this.dgvVenda.Size = new System.Drawing.Size(710, 308);
             this.dgvVenda.TabIndex = 53;
             this.dgvVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVenda_CellClick);
             // 
             // btnPesquisarGeral
             // 
-            this.btnPesquisarGeral.Location = new System.Drawing.Point(592, 86);
+            this.btnPesquisarGeral.Location = new System.Drawing.Point(733, 86);
             this.btnPesquisarGeral.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisarGeral.Name = "btnPesquisarGeral";
             this.btnPesquisarGeral.Size = new System.Drawing.Size(87, 28);
@@ -356,7 +356,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(593, 46);
+            this.btnNovo.Location = new System.Drawing.Point(734, 46);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(87, 28);
@@ -374,7 +374,7 @@
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(642, 7);
+            this.btnMinimizar.Location = new System.Drawing.Point(783, 7);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
@@ -391,7 +391,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(665, 5);
+            this.btnClose.Location = new System.Drawing.Point(806, 5);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
@@ -409,7 +409,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(684, 26);
+            this.panel2.Size = new System.Drawing.Size(829, 26);
             this.panel2.TabIndex = 62;
             // 
             // label8
@@ -428,7 +428,7 @@
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Location = new System.Drawing.Point(6, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(581, 466);
+            this.groupBox2.Size = new System.Drawing.Size(722, 466);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chave de pesquisa";
@@ -453,13 +453,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 574);
+            this.panel1.Size = new System.Drawing.Size(829, 574);
             this.panel1.TabIndex = 64;
             // 
             // btnImprimir
             // 
             this.btnImprimir.Enabled = false;
-            this.btnImprimir.Location = new System.Drawing.Point(592, 326);
+            this.btnImprimir.Location = new System.Drawing.Point(733, 326);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(87, 28);
@@ -471,7 +471,7 @@
             // btnImprimirGrid
             // 
             this.btnImprimirGrid.Enabled = false;
-            this.btnImprimirGrid.Location = new System.Drawing.Point(592, 366);
+            this.btnImprimirGrid.Location = new System.Drawing.Point(733, 366);
             this.btnImprimirGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImprimirGrid.Name = "btnImprimirGrid";
             this.btnImprimirGrid.Size = new System.Drawing.Size(87, 28);
@@ -484,7 +484,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(458, 500);
+            this.label1.Location = new System.Drawing.Point(565, 500);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 0;
@@ -494,7 +494,7 @@
             // 
             this.lblValorTotal.AutoSize = true;
             this.lblValorTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(530, 500);
+            this.lblValorTotal.Location = new System.Drawing.Point(637, 500);
             this.lblValorTotal.Name = "lblValorTotal";
             this.lblValorTotal.Size = new System.Drawing.Size(15, 17);
             this.lblValorTotal.TabIndex = 0;
@@ -613,10 +613,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 574);
+            this.ClientSize = new System.Drawing.Size(829, 574);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.gbCliente);
             this.Controls.Add(this.btnNovo);
+            this.Controls.Add(this.gbCliente);
             this.Controls.Add(this.gbCodigo);
             this.Controls.Add(this.gbData);
             this.Controls.Add(this.groupBox2);
